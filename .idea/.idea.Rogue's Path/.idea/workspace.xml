@@ -5,66 +5,758 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionSlot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionSlot.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelSelectionManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelSelectionManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelSelectionSlot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelSelectionSlot.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/DarkForest.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/DarkForest.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Desert.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Desert.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/ShinedownForest.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/ShinedownForest.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Swamp.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Swamp.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Volcano.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Volcano.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/WinterForest.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/WinterForest.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Dark Forest.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Dark Forest.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Desert.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Desert.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Shinedown Forest.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Shinedown Forest.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Swamp.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Swamp.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Volcano.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Volcano.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Winter Forest.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Winter Forest.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/DOTween.XML" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/DOTween.XML.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/DOTween.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/DOTween.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.XML" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.XML.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenMiniIcon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenMiniIcon.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer_dark.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Header.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Header.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTween.Modules.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTween.Modules.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUIToolkit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUIToolkit.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/readme.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_Advanced.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_Advanced.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_AdvancedSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_AdvancedSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_Basics.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_Basics.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_BasicsSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenAnimation_BasicsSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenPath.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenPath.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenPathSettings.lighting" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/DOTweenPathSettings.lighting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/Examples Assets.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/Examples Assets/dotweenpro_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro Examples/Examples Assets/dotweenpro_logo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenAnimation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenAnimation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenDeAudio.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenDeAudio.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenDeUnityExtended.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenDeUnityExtended.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.Scripts.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.Scripts.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.XML" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.XML.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenProShortcuts.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenProShortcuts.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenTextMeshPro.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenTextMeshPro.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenTk2d.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/DOTweenTk2d.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenAnimationInspector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenAnimationInspector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenPreviewManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenPreviewManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenPro.EditorScripts.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenPro.EditorScripts.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.XML" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.XML.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTweenPro/readme.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha10.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha15.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha25.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha50.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blackSquareAlpha80.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blueSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/blueSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/circle.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/circle_dashedBorderEmpty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/circle_dashedBorderEmpty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/greenSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/greenSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/grid_bright.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/grid_bright.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/grid_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/grid_dark.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alert.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignB.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignBC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignBC.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignBL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignBL.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignBR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignBR.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignCC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignCC.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignCL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignCL.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignCR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignCR.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignHC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignHC.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignL.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignR.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignT.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignTC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignTC.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignTL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignTL.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignTR.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignTR.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignVC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_alignVC.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_audio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_audio.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_audio_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_audio_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_camera.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_camera.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_camera_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_camera_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_cog.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_cog.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_cog_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_cog_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_comment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_comment.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_comment_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_comment_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_delete.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_demigiant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_demigiant.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_demigiantLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_demigiantLogo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_demigiantLogo_color.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_demigiantLogo_color.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_distributeHAlignT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_distributeHAlignT.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_distributeVAlignL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_distributeVAlignL.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_doing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_doing.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_end.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_end.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_flipV.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_flipV.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_foldout_closed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_foldout_closed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_foldout_open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_foldout_open.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_heart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_heart_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_heart_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_light.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_light.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_light_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_light_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_lock.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_lock_open.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_lock_open.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_nodeArrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_nodeArrow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_ok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_ok.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_optionsDropdown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_optionsDropdown.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_play.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_play_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_play_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_skull.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_skull.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_skull_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_skull_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_star.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_star_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_star_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_todo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_todo.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_ui.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_ui.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_ui_border.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_ui_border.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_visibility.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_visibility.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_visibility_off.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/ico_visibility_off.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/orangeSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/orangeSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_atlas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_atlas.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_audio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_audio.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_bundle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_bundle.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_cog.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_cog.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_cross.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_cross.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_demigiant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_demigiant.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_folder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_folder.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_fonts.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_fonts.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_heart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_materials.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_materials.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_models.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_models.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_particles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_particles.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_play.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_prefab.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_prefab.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_scripts.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_scripts.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_shaders.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_shaders.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_skull.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_skull.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_star.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_star.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_terrains.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_terrains.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_textures.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/project/ico_textures.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/purpleSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/purpleSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/redSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/redSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorder.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderAlpha15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderAlpha15.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved02_darkBorders.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved02_darkBorders.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurvedAlpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurvedAlpha.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurvedEmpty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurvedEmpty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurvedEmpty02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurvedEmpty02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurvedEmptyThick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurvedEmptyThick.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved_darkBorders.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved_darkBorders.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved_darkBordersAlpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderCurved_darkBordersAlpha.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderEmpty03.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderThickEmpty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderThickEmpty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderThickerEmpty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareBorderThickerEmpty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareCorners03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareCorners03.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareCornersEmpty02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/squareCornersEmpty02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/tileBars_empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/tileBars_empty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/tileBars_slanted.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/tileBars_slanted.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/tileBars_slanted_alpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/tileBars_slanted_alpha.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/tileCheckerboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/tileCheckerboard.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/transparentSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/transparentSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteDot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteDot.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteDot_darkBorder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteDot_darkBorder.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteDot_whiteBorderAlpha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteDot_whiteBorderAlpha.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha10.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha15.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha25.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha50.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha80.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareCurved.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareCurved.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareCurved02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareCurved02.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquare_fadeOut_bt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquare_fadeOut_bt.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/yellowSquare.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DemiLib/Core/Editor/Imgs/yellowSquare.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/readme_DOTweenPro.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/readme_DOTweenPro.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing/Animazing Guide .pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing/Animazing Guide .pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing/Scripts/Core.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing/Scripts/Core/AnimationLayer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing/Scripts/Core/AnimationLayer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing/Scripts/Core/Animazing.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Old Odin/Animazing/Scripts/Core/Animazing.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow red.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_defaultCHAOTIC_ac_TMP.overrideController" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_defaultCHAOTIC_ac_TMP.overrideController.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_defaultCHAOTIC_critical_ac_TMP.overrideController" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_defaultCHAOTIC_critical_ac_TMP.overrideController.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_default_ac_TMP.overrideController" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_default_ac_TMP.overrideController.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_default_stack_TMP.overrideController" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_default_stack_TMP.overrideController.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_ui_override.overrideController" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/TextMeshPro/text_ui_override.overrideController.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/text_defaultCHAOTIC_ac.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/text_defaultCHAOTIC_ac.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/text_defaultCHAOTIC_critical_ac.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/text_defaultCHAOTIC_critical_ac.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/text_default_ac.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/text_default_ac.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/text_default_stack.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Controllers/text_default_stack.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Stack.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Stack/text_stack_critical.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Stack/text_stack_critical.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Stack/text_stack_normal.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/Stack/text_stack_normal.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_UI_default_TMP.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_UI_default_TMP.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_TMP.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_TMP.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_critical.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_critical.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullLeft.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullLeft.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullLeft_TMP.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullLeft_TMP.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullLeft_critical.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullLeft_critical.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullLeft_critical_TMP.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullLeft_critical_TMP.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullRight.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullRight.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullRight_TMP.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullRight_TMP.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullRight_critical.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullRight_critical.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullRight_critical_TMP.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Animations/text_default_chaotic_fullRight_critical_TMP.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsuleMoveAc.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsuleMoveAc.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsuleMoveAc2.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsuleMoveAc2.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsuleMoveAc3.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsuleMoveAc3.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsule_move_loop.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsule_move_loop.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsule_move_loop2.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsule_move_loop2.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsule_move_loop3.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Animations/capsule_move_loop3.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials/Blue.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials/Blue.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials/Green.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials/Green.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials/Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials/Yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials/floor.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Materials/floor.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/Obsolete.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/Obsolete/demo_old_obsolete.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/Obsolete/demo_old_obsolete.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo/LightingData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo/LightingData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo/ReflectionProbe-0.exr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo/ReflectionProbe-0.exr.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo_Screenspace_tmp.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo_Screenspace_tmp.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo_Stack_tmp.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo_Stack_tmp.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo_UI_tmp.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo_UI_tmp.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo_Worldspace_tmp.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scenes/demo_Worldspace_tmp.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/Helpers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/Helpers/LookAtCameraTextDamage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/Helpers/LookAtCameraTextDamage.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/Helpers/RandomizeOffsetX.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/Helpers/RandomizeOffsetX.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/TextDamageClicker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/TextDamageClicker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/TextDamageClickerChaotic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/TextDamageClickerChaotic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/TextDamageStackClicker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/TextDamageStackClicker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/UIDemo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Demo/Scripts/UIDemo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Editor/UltimateTextDamageManagerEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Editor/UltimateTextDamageManagerEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Editor/UltimateTextDamageWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Editor/UltimateTextDamageWindow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/basic_shadow_stroke_42.fnt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/basic_shadow_stroke_42.fnt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/basic_shadow_stroke_42.fontsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/basic_shadow_stroke_42.fontsettings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/basic_shadow_stroke_42.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/basic_shadow_stroke_42.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/basic_shadow_stroke_42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/basic_shadow_stroke_42.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/damage.fnt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/damage.fnt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/damage.fontsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/damage.fontsettings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/damage.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/damage.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/damage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Fonts/damage.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete/TextDamageItem_default.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete/TextDamageItem_default.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete/TextDamageItem_default2.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete/TextDamageItem_default2.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete/TextDamageItem_default2_critical.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete/TextDamageItem_default2_critical.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete/TextDamageItem_statuseffect.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/Obsolete/TextDamageItem_statuseffect.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_UI_default_TMP.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_UI_default_TMP.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_default2_TMP.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_default2_TMP.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_default2_critical_TMP.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_default2_critical_TMP.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_default_TMP.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_default_TMP.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_default_stack_TMP.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_default_stack_TMP.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_statuseffect_TMP.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageItems/TextDamageItem_statuseffect_TMP.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageManager_SCREENSPACE.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageManager_SCREENSPACE.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageManager_UI.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageManager_UI.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageManager_WORLDSPACE.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Prefabs/TextDamageManager_WORLDSPACE.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/ReadMe.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/ReadMe.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts/ForceLayout.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts/ForceLayout.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts/NumberConvertor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts/NumberConvertor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts/UITextDamage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts/UITextDamage.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts/UltimateTextDamageManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/Scripts/UltimateTextDamageManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/UTDVersion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/UltimateTextDamage/UTDVersion.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Buffs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Buffs/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Buffs/Scripts/BuffsDatabase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Buffs/Scripts/BuffsDatabase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Buffs/Scripts/PawnBuff.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Buffs/Scripts/PawnBuff.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionSlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionSlot.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/EventBus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/EventBus.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/HealthChangedEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/HealthChangedEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PostMitigationDamageReceivedEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PostMitigationDamageReceivedEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceivedEven.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceivedEven.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/StatusChangedEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/StatusChangedEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelSelectionManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelSelectionManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelSelectionSlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelSelectionSlot.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Archer.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Archer.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Assassin.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Assassin.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Berserker.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Berserker.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Priest.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Priest.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Warrior.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerCharacters/Warrior.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Pawn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Pawn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnAnimations.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnAnimations.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnBuffs.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnBuffs.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnStats.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnStats.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Logo.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Logo.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Scripts/QuitButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Scripts/QuitButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Game.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Game.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameStateTriggerer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameStateTriggerer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/ServiceProviders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/ServiceProviders/Services.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/ServiceProviders/Services.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities/GetRandomElement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities/GetRandomElement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities/SceneField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities/SceneField.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities/Singleton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities/Singleton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities/UnitySerializedDictionary.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Utilities/UnitySerializedDictionary.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/DarkForest.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/DarkForest.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Desert.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Desert.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/ShinedownForest.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/ShinedownForest.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Swamp.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Swamp.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Volcano.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Volcano.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/WinterForest.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/WinterForest.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Archer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Archer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Assassin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Berserker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Berserker.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Priest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Priest.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Warrior.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/CharacterSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/CharacterSelection.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts/RepeatingBackground.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts/RepeatingBackground.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts/RepeatingBackground.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts/RepeatingBackground.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Documentation.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Documentation.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Drop Shadow.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Outline.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Sprite Assets.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Sprite Assets.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Style Sheets.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Style Sheets.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/Style Sheets/Default Style Sheet.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/TMP Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/TMP Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/TMP Settings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Resources/TMP Settings.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF Overlay.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Surface.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Sprite.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Sprite.shader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMP_Sprite.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro.cginc.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro.cginc.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro_Properties.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro_Properties.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro_Properties.cginc.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro_Surface.cginc" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro_Surface.cginc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Shaders/TMPro_Surface.cginc.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites/EmojiOne Attribution.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites/EmojiOne.json.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites/EmojiOne.json.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites/EmojiOne.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites/EmojiOne.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites/EmojiOne.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/TextMesh Pro/Sprites/EmojiOne.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionSlot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionSlot.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelSelectionManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelSelectionManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelSelectionSlot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/LevelSelectionSlot.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/DarkForest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/DarkForest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Desert.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Desert.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/ShinedownForest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/ShinedownForest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Swamp.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Swamp.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Volcano.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/Volcano.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/WinterForest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Prefabs/LevelBackgrounds/WinterForest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Dark Forest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Dark Forest.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Desert.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Desert.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Shinedown Forest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Shinedown Forest.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Swamp.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Swamp.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Volcano.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Volcano.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Winter Forest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Winter Forest.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Pawn.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Pawn.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Archer.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Archer.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Assassin.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Assassin.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Berserker.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Berserker.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Priest.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Priest.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Warrior.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Characters/Warrior.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/UI/Menus.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/UI/Menus/Logo.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/UI/Menus/Logo.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/LevelSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/LevelSelection.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/_LoadingScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/_LoadingScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/ServiceProviders.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/ServiceProviders/Services.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/ServiceProviders/Services.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/QuitButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/QuitButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/SceneField.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/SceneField.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/Singleton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/Singleton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Game.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Game.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/GameData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/GameData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/GameState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/GameState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/GameStateTriggerer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/GameStateTriggerer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,14 +768,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../INTERFACE - Fantasy Warrior HUD/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.settings-manager@2.1.0/Samples~/PackageWithProjectAndUserSettings/SettingsExamples.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.7/Scripts/Editor/TMPro_CreateObjectMenu.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/37cc348edc804f4cb176b63962c716e7177200/fc/af735f47/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Tooltips/UITooltip.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.7/Scripts/Editor/TMP_FontAssetEditor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/37cc348edc804f4cb176b63962c716e7177200/fc/af735f47/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Tooltips/UITooltipShow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="NamedScopeManager">
@@ -159,6 +850,8 @@
       <workItem from="1784599543936" duration="141000" />
       <workItem from="1784631847312" duration="289000" />
       <workItem from="1784661937678" duration="2042000" />
+      <workItem from="1784674130341" duration="701000" />
+      <workItem from="1784674849542" duration="594000" />
     </task>
     <servers />
   </component>

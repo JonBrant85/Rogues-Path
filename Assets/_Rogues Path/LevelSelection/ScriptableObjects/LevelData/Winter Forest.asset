@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelName: Winter Forest
   Description: Colder than a witch's.... ahem
-  BackgroundPrefab: {fileID: 0}
+  BackgroundPrefab: {fileID: 2585976812468172237, guid: d23da6765fe9b4749a7fa477513a8e39, type: 3}
   Enemies: []
