@@ -15004,6 +15004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2323031441480914850}
+  - component: {fileID: -8129332116387663913}
   - component: {fileID: 7357868326307257572}
   - component: {fileID: 2114358394475840590}
   - component: {fileID: 7147846653520016215}
@@ -15030,6 +15031,21 @@ Transform:
   - {fileID: 7713752339961059871}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8129332116387663913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525851899263286744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterName: Siterp
+  ClassName: Priest
+  character: {fileID: 7357868326307257572}
 --- !u!114 &7357868326307257572
 MonoBehaviour:
   m_ObjectHideFlags: 0

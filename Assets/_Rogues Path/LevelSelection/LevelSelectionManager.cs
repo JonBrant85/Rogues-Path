@@ -1,20 +1,21 @@
-using System;
 using System.Collections.Generic;
+using _Rogues_Path.CharacterSelection;
 using _Rogues_Path.Utilities;
 using DuloGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace _Rogues_Path.CharacterSelection {
-    public class CharacterSelectionManager : Singleton<CharacterSelectionManager> {
+namespace _Rogues_Path.LevelSelection {
+    public class LevelSelectionManager : Singleton<LevelSelectionManager> {
         [FoldoutGroup("Camera Properties"), SerializeField] private float CameraSpeed = 10f;
         [FoldoutGroup("Camera Properties"), SerializeField] private float CameraDistance = 10f;
         [FoldoutGroup("Camera Properties"), SerializeField] private Vector3 CameraDirection = Vector3.forward;
 
         [FoldoutGroup("References"), SerializeField] private Text NameText;
-        [FoldoutGroup("References"), SerializeField] private Text ClassText;
+        [FormerlySerializedAs("ClassText")]
+        [FoldoutGroup("References"), SerializeField] private Text DescriptionText;
 
         private List<Transform> Slots = new List<Transform>();
         private int SelectedIndex = -1;
@@ -39,35 +40,30 @@ namespace _Rogues_Path.CharacterSelection {
             }
         }
 
-        public void SelectCharacter(CharacterSelectionSlot slot) {
+        public void SelectCharacter(LevelSelectionSlot slot) {
+            Debug.Log($"{slot.gameObject.name} selected!");
             // Check if already selected
             if (this.SelectedIndex == slot.Index)
                 return;
-
-            // Deselect
-            if (this.SelectedIndex > -1) {
-                // Get the slot
-                Transform selectedSlotTrans = this.Slots[this.SelectedIndex];
-            }
 
             // Set the selected
             this.SelectedIndex = slot.Index;
             this.SelectedTransform = slot.transform;
 
             // Update text
-            NameText.text = slot.Pawn.CharacterName;
-            ClassText.text = slot.Pawn.ClassName;
+            NameText.text = slot.LevelData.LevelName;
+            DescriptionText.text = slot.LevelData.Description;
         }
 
-        public CharacterSelectionSlot GetCharacterInDirection(float direction) {
+        public LevelSelectionSlot GetCharacterInDirection(float direction) {
             if (this.Slots.Count == 0)
                 return null;
 
             if (this.SelectedTransform == null && this.Slots[0] != null)
                 return this.Slots[0]
-                    .gameObject.GetComponent<CharacterSelectionSlot>();
+                    .gameObject.GetComponent<LevelSelectionSlot>();
 
-            CharacterSelectionSlot closest = null;
+            LevelSelectionSlot closest = null;
             float lastDistance = 0f;
 
             foreach (Transform trans in this.Slots) {
@@ -80,7 +76,7 @@ namespace _Rogues_Path.CharacterSelection {
                 // Check direction
                 if (direction > 0f && curDirection > 0f || direction < 0f && curDirection < 0f) {
                     // Get the character component
-                    CharacterSelectionSlot slot = trans.GetComponent<CharacterSelectionSlot>();
+                    LevelSelectionSlot slot = trans.GetComponent<LevelSelectionSlot>();
 
                     // Make sure we have slot component
                     if (slot == null)
@@ -109,7 +105,7 @@ namespace _Rogues_Path.CharacterSelection {
         /// Selects the next character slot.
         /// </summary>
         public void SelectNext() {
-            CharacterSelectionSlot next = this.GetCharacterInDirection(1f);
+            LevelSelectionSlot next = this.GetCharacterInDirection(1f);
 
             if (next != null) {
                 this.SelectCharacter(next);
@@ -120,7 +116,7 @@ namespace _Rogues_Path.CharacterSelection {
         /// Selects the previous character slot.
         /// </summary>
         public void SelectPrevious() {
-            CharacterSelectionSlot prev = this.GetCharacterInDirection(-1f);
+            LevelSelectionSlot prev = this.GetCharacterInDirection(-1f);
 
             if (prev != null) {
                 this.SelectCharacter(prev);

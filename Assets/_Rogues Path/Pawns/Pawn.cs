@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace _Rogues_Path.Pawns {
     public partial class Pawn : MonoBehaviour {
+        public string CharacterName;
+        public string ClassName;
         [SerializeField]
         public Character character;
 

@@ -2229,6 +2229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4895829479751542732}
+  - component: {fileID: 1430778944795915087}
   - component: {fileID: 2386268483491891910}
   - component: {fileID: 4165839151685816274}
   - component: {fileID: 5161386610894120782}
@@ -2255,6 +2256,21 @@ Transform:
   - {fileID: 2166558582203325014}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1430778944795915087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281181047772055464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterName: Rehcar
+  ClassName: Archer
+  character: {fileID: 2386268483491891910}
 --- !u!114 &2386268483491891910
 MonoBehaviour:
   m_ObjectHideFlags: 0

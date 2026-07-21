@@ -26022,6 +26022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7725625659908278659}
+  - component: {fileID: -4872564795078866485}
   - component: {fileID: 9066058341022755844}
   - component: {fileID: 3257949284482117224}
   - component: {fileID: 1157266756947501362}
@@ -26048,6 +26049,21 @@ Transform:
   - {fileID: 3095977132642978385}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4872564795078866485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133894882007241402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterName: Blitz
+  ClassName: Berserker
+  character: {fileID: 9066058341022755844}
 --- !u!114 &9066058341022755844
 MonoBehaviour:
   m_ObjectHideFlags: 0

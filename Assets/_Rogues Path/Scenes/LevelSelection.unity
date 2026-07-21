@@ -215,8 +215,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 83790976}
-  - component: {fileID: 83790978}
   - component: {fileID: 83790977}
+  - component: {fileID: 83790978}
   m_Layer: 0
   m_Name: Slot (Volcano)
   m_TagString: Untagged
@@ -270,10 +270,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 83790975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63298e45fa573f74e86e04eef4c097b4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed14a28133304f819bb6524e002f7f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Light: {fileID: 286527799}
+  LevelData: {fileID: 11400000, guid: 57dc2784a88652b449f7a0065e86d16a, type: 2}
+  Index: 4
 --- !u!850595691 &120782805
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -347,8 +348,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 207035539}
+  - component: {fileID: 207035540}
   m_Layer: 0
-  m_Name: Character Slots
+  m_Name: Level Selection Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,6 +377,23 @@ Transform:
   - {fileID: 1496918082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &207035540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207035538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f935bf6b4ad41d09a65050570214e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraSpeed: 10
+  CameraDistance: -10
+  CameraDirection: {x: 0, y: 0, z: 1}
+  NameText: {fileID: 0}
+  ClassText: {fileID: 0}
 --- !u!1 &286527797
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,8 +1004,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 602474300}
-  - component: {fileID: 602474302}
   - component: {fileID: 602474301}
+  - component: {fileID: 602474302}
   m_Layer: 0
   m_Name: Slot (Desert)
   m_TagString: Untagged
@@ -1040,10 +1059,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 602474299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63298e45fa573f74e86e04eef4c097b4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed14a28133304f819bb6524e002f7f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Light: {fileID: 1021005255}
+  LevelData: {fileID: 11400000, guid: eb5e9dc45cf1b4d47aa4e8191b39244f, type: 2}
+  Index: 1
 --- !u!1 &617522419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,8 +1887,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947590424}
-  - component: {fileID: 947590426}
   - component: {fileID: 947590425}
+  - component: {fileID: 947590426}
   m_Layer: 0
   m_Name: Slot (Shinedown Forest)
   m_TagString: Untagged
@@ -1922,10 +1942,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 947590423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63298e45fa573f74e86e04eef4c097b4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed14a28133304f819bb6524e002f7f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Light: {fileID: 967945908}
+  LevelData: {fileID: 11400000, guid: b47336f01ec92a141a51fd7740717f76, type: 2}
+  Index: 2
 --- !u!1 &963589830
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,76 +2136,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &979336557
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 979336559}
-  - component: {fileID: 979336558}
-  m_Layer: 0
-  m_Name: Character Select Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &979336558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979336557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73aa702e48792b4cacda71f589438f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IngameSceneId: 5
-  m_Camera: {fileID: 834813591}
-  m_CameraSpeed: 10
-  m_CameraDistance: -10
-  m_CameraDirection: {x: 0, y: 0, z: 1}
-  m_Slots:
-  - {fileID: 1166776290}
-  - {fileID: 602474300}
-  - {fileID: 947590424}
-  - {fileID: 1386601158}
-  - {fileID: 83790976}
-  - {fileID: 1496918082}
-  m_InfoContainer: {fileID: 647166524}
-  m_NameText: {fileID: 755133544}
-  m_LevelText: {fileID: 1229413316}
-  m_RaceText: {fileID: 963589833}
-  m_ClassText: {fileID: 1031243323}
-  m_IsDemo: 1
-  m_CharacterPrefab: {fileID: 1500227943800786, guid: 8f2ecd85175c8d248b297997b2bb4843, type: 3}
-  m_AddCharacters: 6
-  m_OnCharacterSelected:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnCharacterDelete:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &979336559
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979336557}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017765157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,7 +2494,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1060051037
 Canvas:
   m_ObjectHideFlags: 0
@@ -2710,8 +2661,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1166776290}
-  - component: {fileID: 1166776292}
   - component: {fileID: 1166776291}
+  - component: {fileID: 1166776292}
   m_Layer: 0
   m_Name: Slot (Dark Forest)
   m_TagString: Untagged
@@ -2765,10 +2716,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1166776289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63298e45fa573f74e86e04eef4c097b4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed14a28133304f819bb6524e002f7f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Light: {fileID: 387211161}
+  LevelData: {fileID: 11400000, guid: 8a2b265218fe9bd48bd109e233db287d, type: 2}
+  Index: 0
 --- !u!1 &1229413313
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,8 +2862,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1386601158}
-  - component: {fileID: 1386601160}
   - component: {fileID: 1386601159}
+  - component: {fileID: 1386601160}
   m_Layer: 0
   m_Name: Slot (Swamp)
   m_TagString: Untagged
@@ -2965,10 +2917,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1386601157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63298e45fa573f74e86e04eef4c097b4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed14a28133304f819bb6524e002f7f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Light: {fileID: 1570622968}
+  LevelData: {fileID: 11400000, guid: 24f85a0a6af0dfc4abfa368b2913d497, type: 2}
+  Index: 3
 --- !u!1001 &1434530709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3135,8 +3088,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1496918082}
-  - component: {fileID: 1496918084}
   - component: {fileID: 1496918083}
+  - component: {fileID: 1496918084}
   m_Layer: 0
   m_Name: Slot (Winter Forest)
   m_TagString: Untagged
@@ -3190,10 +3143,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496918081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63298e45fa573f74e86e04eef4c097b4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed14a28133304f819bb6524e002f7f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Light: {fileID: 286527799}
+  LevelData: {fileID: 11400000, guid: cea6bb8f91e70294ab42dafba99f93c3, type: 2}
+  Index: 5
 --- !u!1 &1497917999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3922,7 +3876,7 @@ PrefabInstance:
     - target: {fileID: 166786566262149440, guid: 5d94faa6278038d408367c45d8b4451e, type: 3}
       propertyPath: onConfirm.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 979336558}
+      objectReference: {fileID: 0}
     - target: {fileID: 166786566262149444, guid: 5d94faa6278038d408367c45d8b4451e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -4070,7 +4024,15 @@ PrefabInstance:
     - target: {fileID: 1707725370397547171, guid: 9833b4cf9be6e244881fe93e86fad1af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 979336558}
+      objectReference: {fileID: 207035540}
+    - target: {fileID: 1707725370397547171, guid: 9833b4cf9be6e244881fe93e86fad1af, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectNext
+      objectReference: {fileID: 0}
+    - target: {fileID: 1707725370397547171, guid: 9833b4cf9be6e244881fe93e86fad1af, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _Rogues_Path.LevelSelection.LevelSelectionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1707725370397547177, guid: 9833b4cf9be6e244881fe93e86fad1af, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -4289,7 +4251,15 @@ PrefabInstance:
     - target: {fileID: 3403734300722358971, guid: 18daaf3e8c5fc4d4bb331cd9abcf7797, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 979336558}
+      objectReference: {fileID: 207035540}
+    - target: {fileID: 3403734300722358971, guid: 18daaf3e8c5fc4d4bb331cd9abcf7797, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectPrevious
+      objectReference: {fileID: 0}
+    - target: {fileID: 3403734300722358971, guid: 18daaf3e8c5fc4d4bb331cd9abcf7797, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: _Rogues_Path.LevelSelection.LevelSelectionManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5007,7 +4977,6 @@ SceneRoots:
   - {fileID: 834813592}
   - {fileID: 2024979412}
   - {fileID: 562339914}
-  - {fileID: 979336559}
   - {fileID: 1060051038}
   - {fileID: 617522420}
   - {fileID: 207035539}

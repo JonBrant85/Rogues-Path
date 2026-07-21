@@ -25639,6 +25639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3609667034235466990}
+  - component: {fileID: 6757550408746255922}
   - component: {fileID: 8632349046024390575}
   - component: {fileID: 6013975415645457858}
   - component: {fileID: 7259382409784715473}
@@ -25665,6 +25666,21 @@ Transform:
   - {fileID: 3783980445527091467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6757550408746255922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7182182689222504329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterName: Slyph
+  ClassName: Assassin
+  character: {fileID: 8632349046024390575}
 --- !u!114 &8632349046024390575
 MonoBehaviour:
   m_ObjectHideFlags: 0
