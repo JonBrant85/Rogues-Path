@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8c66839ffdc9447b8c670d647f659a78
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - IconFolder: {fileID: 102900000, guid: a16afa6971d24d4ba1f13b05d7600b5f, type: 3}
+  - Grid: {instanceID: 0}
+  - ItemPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

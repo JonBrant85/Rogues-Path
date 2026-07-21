@@ -1,0 +1,7 @@
+ini
+root = true
+
+[GameState.cs]
+indent_style = space
+indent_size = 4
+# Insert your specific cleanup/formatting overrides here
