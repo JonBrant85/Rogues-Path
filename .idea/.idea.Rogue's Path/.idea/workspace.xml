@@ -5,167 +5,220 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Example.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Example.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Layers/Layer6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Sources.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/LightForest/Sources.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts/ColorSpring.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts/ColorSpring.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts/RepeatingBackground.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts/RepeatingBackground.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts/TweenBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Scripts/TweenBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Example.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Example.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Layers/Layer4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Sources.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/Volcano/Sources.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Example.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Example.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer5.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Layers/Layer6.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Sources.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#1/WinterForest/Sources.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Example.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Example.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Layers/Layer4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Sources.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Desert/Sources.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts/ColorSpring.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts/ColorSpring.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts/RepeatingBackground.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts/RepeatingBackground.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts/TweenBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Scripts/TweenBase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Example.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Example.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx/Leaves0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx/Leaves0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx/Leaves1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx/Leaves1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx/Rays0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx/Rays0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx/Rays1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Fx/Rays1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Layers/Layer4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Sources.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/ShinedownForest/Sources.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Example.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Example.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer0.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer2.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer3.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Layers/Layer4.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Sources.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/FantasyBackgrounds/ParallaxSeamlessBackgrounds#2/Swamp/Sources.psd.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Dark Forest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Dark Forest.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Desert.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Desert.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Shinedown Forest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Shinedown Forest.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Swamp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Swamp.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Volcano.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Volcano.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Winter Forest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Images/Level Icons/Winter Forest.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/DarkForest.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/DarkForest.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Desert.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Desert.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/ShinedownForest.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/ShinedownForest.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Swamp.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Swamp.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Volcano.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/Volcano.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/WinterForest.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Prefabs/Backgrounds/WinterForest.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/CharacterStat.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/CharacterStat.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Documentation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Documentation/Documentation.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Documentation/Documentation.md.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Documentation/Documentation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Documentation/Documentation.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Fonts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Fonts/OLDTYPE PERSONAL USE___.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Fonts/OLDTYPE PERSONAL USE___.otf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/armor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/armor.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/axe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/axe.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/axe2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/axe2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/axeDouble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/axeDouble.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/axeDouble2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/axeDouble2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/backpack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/backpack.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/bow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/bow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/coin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/coin.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/dagger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/dagger.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/envelope.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/envelope.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/gemBlue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/gemBlue.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/gemGreen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/gemGreen.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/gemRed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/gemRed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/hammer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/hammer.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/heart.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/helmet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/helmet.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/map.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/map.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/potionBlue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/potionBlue.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/potionGreen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/potionGreen.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/potionRed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/potionRed.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/scroll.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/scroll.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/shield.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/shield.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/shieldSmall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/shieldSmall.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/tome.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/tome.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/tools.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/tools.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_armor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_armor.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_axe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_axe.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_axeDouble.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_axeDouble.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_bow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_bow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_dagger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_dagger.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_hammer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_hammer.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_helmet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_helmet.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_shield.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_shield.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_shieldSmall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_shieldSmall.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_spear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_spear.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_sword.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_sword.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_wand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/upg_wand.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/wand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/wand.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/woodSword.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/woodSword.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/Item Icons/x.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Button.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Details.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Details.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/InventoryNoText.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/InventoryNoText.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Section Divider.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Section Divider.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Stats with Text.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Stats with Text.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Stats with TextII.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Stats with TextII.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Stats.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Stats.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Text Line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Images/UI/Text Line.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items &amp; Inventory.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items &amp; Inventory.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Axe.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Axe.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Bow.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Bow.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Chest Amor.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Chest Amor.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Gem.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Gem.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Helmet.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Helmet.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Potion.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Potion.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Shield.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Shield.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Sword.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Items/Sword.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Character Panel.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Character Panel.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Character.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Character.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Item Tooltip.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Item Tooltip.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Item.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Item.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Stat Tooltip.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Prefabs/Stat Tooltip.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/Character.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/Character.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/EquipmentPanel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/EquipmentPanel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/EquipmentSlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/EquipmentSlot.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/EquippableItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/EquippableItem.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/Inventory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/Inventory.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/Item.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/Item.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/ItemSlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/ItemSlot.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/ItemTooltip.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/ItemTooltip.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/StatDisplay.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/StatDisplay.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/StatPanel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/StatPanel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/StatTooltip.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Items &amp; Inventory/Scripts/StatTooltip.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Materials/Purple.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Materials/Purple.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Materials/Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Materials/Yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Power Ups.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Power Ups.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Prefabs/Platform.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Prefabs/Platform.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/DeathZone.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/DeathZone.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/MouseLook.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/MouseLook.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/Movement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/Movement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/Platform.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/Platform.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/PlatformGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/PlatformGenerator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/Player.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/Player.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/PlayerBarUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/PlayerBarUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/PlayerTextUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/PlayerTextUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/Powerup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/Examples/Power Ups/Scripts/Powerup.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/StatModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/StatModifier.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/CharacterSelectionManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Commands.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Commands/Command.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Commands/Command.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Commands/CommandContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Commands/CommandContext.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Commands/ICommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Commands/ICommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Pawn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Pawn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/ServiceProviders.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/ServiceProviders/Services.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/ServiceProviders/Services.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/LevelSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/LevelSelection.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,8 +231,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../INTERFACE - Fantasy Warrior HUD/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.settings-manager@2.1.0/Samples~/PackageWithProjectAndUserSettings/SettingsExamples.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.7/Scripts/Editor/TMPro_CreateObjectMenu.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Tooltips/UITooltip.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.7/Scripts/Editor/TMP_FontAssetEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Tooltips/UITooltipShow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="NamedScopeManager">
@@ -253,6 +309,8 @@
       <workItem from="1784585045203" duration="3206000" />
       <workItem from="1784588336465" duration="6969000" />
       <workItem from="1784599543936" duration="141000" />
+      <workItem from="1784631847312" duration="289000" />
+      <workItem from="1784661937678" duration="2042000" />
     </task>
     <servers />
   </component>

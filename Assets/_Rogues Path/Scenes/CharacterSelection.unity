@@ -2096,6 +2096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979336559}
   - component: {fileID: 979336558}
+  - component: {fileID: 979336560}
   m_Layer: 0
   m_Name: Character Select Manager
   m_TagString: Untagged
@@ -2110,7 +2111,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979336557}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e73aa702e48792b4cacda71f589438f5, type: 3}
   m_Name: 
@@ -2155,6 +2156,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &979336560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979336557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c05f006880c44d298a193076b9abc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IngameSceneId: 5
+  m_Camera: {fileID: 834813591}
+  m_CameraSpeed: 10
+  m_CameraDistance: -10
+  m_CameraDirection: {x: 0, y: 0, z: 1}
+  m_Slots:
+  - {fileID: 1166776290}
+  - {fileID: 602474300}
+  - {fileID: 947590424}
+  - {fileID: 1386601158}
+  - {fileID: 83790976}
+  m_InfoContainer: {fileID: 647166524}
+  m_NameText: {fileID: 755133544}
+  m_LevelText: {fileID: 1229413316}
+  m_RaceText: {fileID: 963589833}
+  m_ClassText: {fileID: 1031243323}
+  m_IsDemo: 1
+  m_CharacterPrefab: {fileID: 1500227943800786, guid: 8f2ecd85175c8d248b297997b2bb4843, type: 3}
+  m_AddCharacters: 5
+  m_OnCharacterSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnCharacterDelete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1021005253
 GameObject:
   m_ObjectHideFlags: 0
