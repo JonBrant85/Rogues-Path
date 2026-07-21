@@ -962,7 +962,7 @@ MonoBehaviour:
   CharacterName: Ifrin
   ClassName: Warrior
   character: {fileID: 757649268946039768}
-  Animazing: {fileID: 0}
+  Animazing: {fileID: 8963914127741539189}
   DamageOffset: {x: -1, y: 0, z: 0}
   HealingOffset: {x: 1, y: 0, z: 0}
   IdleAnimation: {fileID: 7400000, guid: 7562fa0910be4aa9a2d0babd5e184c9c, type: 2}
@@ -1624,6 +1624,7 @@ GameObject:
   - component: {fileID: 4700669869863876803}
   - component: {fileID: 1801985675304812342}
   - component: {fileID: 174549290174277385}
+  - component: {fileID: 8963914127741539189}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -1680,6 +1681,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1db3728f3e374091b4966199eb8dd2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8963914127741539189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940810291610875134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e810158de0072a44bb385d970936cef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1194792686278034466

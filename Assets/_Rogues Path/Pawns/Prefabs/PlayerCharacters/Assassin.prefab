@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 3783980445527091467}
   - component: {fileID: 3920792631615676431}
   - component: {fileID: 2519312911566205466}
+  - component: {fileID: 4917589696958951508}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -186,6 +187,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1db3728f3e374091b4966199eb8dd2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4917589696958951508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220722785174152009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e810158de0072a44bb385d970936cef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &302701521427549313
@@ -25681,7 +25694,7 @@ MonoBehaviour:
   CharacterName: Slyph
   ClassName: Assassin
   character: {fileID: 8632349046024390575}
-  Animazing: {fileID: 0}
+  Animazing: {fileID: 4917589696958951508}
   DamageOffset: {x: -1, y: 0, z: 0}
   HealingOffset: {x: 1, y: 0, z: 0}
   IdleAnimation: {fileID: 7400000, guid: 7562fa0910be4aa9a2d0babd5e184c9c, type: 2}

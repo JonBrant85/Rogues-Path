@@ -9,7 +9,9 @@ namespace _Rogues_Path._Game {
     public partial class Game : Singleton<Game> {
         public const string Name = "Rogue's Path";
         [ReadOnly] public string CurrentState;
-        
+        public static CommandInvoker CommandInvoker { get { return Instance.commandInvoker ?? (Instance.commandInvoker = new CommandInvoker()); } }
+        private CommandInvoker commandInvoker;
+
         [SerializeField, FoldoutGroup("Scenes")] private SceneField MainMenu;
         [SerializeField, FoldoutGroup("Scenes")] private SceneField CharacterSelection;
         [SerializeField, FoldoutGroup("Scenes")] private SceneField LevelSelection;
