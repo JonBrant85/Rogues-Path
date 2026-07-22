@@ -15,4 +15,5 @@ MonoBehaviour:
   LevelName: Swamp
   Description: A life drenching bog
   BackgroundPrefab: {fileID: 8050423717121017735, guid: 44a9f2c31f3ad3a48ba588e96d09f4dc, type: 3}
-  Enemies: []
+  Enemies:
+  - {fileID: 7609254587843330138, guid: 9a65d97a36999404e91bf020554cd609, type: 3}

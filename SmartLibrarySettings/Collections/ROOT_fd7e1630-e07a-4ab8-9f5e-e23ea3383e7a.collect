@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &1
 MonoBehaviour:
-  m_ObjectHideFlags: 61
+  m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentID:
     _serializedGuid: 
-  _subcollectionIDs: []
+  _subcollectionIDs:
+  - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
   _collectionName: ROOT
   _id:
     _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
@@ -28,7 +29,27 @@ MonoBehaviour:
   _useCollectionViewSettings: 0
   _allIds: 
   _allCollections: []
-  _itemCollectionIdPairs: []
+  _itemCollectionIdPairs:
+  - item:
+      _guid: f1a5a7ca80834b44bb14d71a4cc3ab14
+    collectionIds:
+    - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
+  - item:
+      _guid: c858a4c9cf17fc047bdf8379add05fe9
+    collectionIds:
+    - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
+  - item:
+      _guid: c426c4bf78d78be44ba07d6beaf9c172
+    collectionIds:
+    - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
+  - item:
+      _guid: 4e2c0529cf7a99a41a8f30c5ecacfa25
+    collectionIds:
+    - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
+  - item:
+      _guid: 2e9628bb6967e1e47b8c268ee4dd4a62
+    collectionIds:
+    - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
   references:
     version: 2
     RefIds: []

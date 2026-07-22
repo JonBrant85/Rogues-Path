@@ -1,3 +1,4 @@
+using _Rogues_Path.Pawns.Brains;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace _Rogues_Path.Pawns {
         public string ClassName;
         [SerializeField]
         public Character character;
+        public PawnBrain Brain;
 
         private void Awake() {
            // InitializeStats();

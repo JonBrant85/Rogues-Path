@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using _Rogues_Path.Pawns;
 using Cysharp.Threading.Tasks;
 
 namespace _Rogues_Path.Commands {
+    [Serializable]
     public abstract class Command: ICommand {
         protected readonly Pawn hero;
 

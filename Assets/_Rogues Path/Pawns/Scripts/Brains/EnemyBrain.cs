@@ -10,6 +10,8 @@ namespace _Rogues_Path.Pawns.Brains {
     public class EnemyBrain : PawnBrain {
         public Pawn Owner;
         public List<Command> PotentialCommands = new();
+        
+        
 
         public override async UniTask HandleTurn() {
             await Game.CommandInvoker.ExecuteCommand(

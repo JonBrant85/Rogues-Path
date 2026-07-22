@@ -15,4 +15,5 @@ MonoBehaviour:
   LevelName: Volcano
   Description: Hotter than... ahem
   BackgroundPrefab: {fileID: 6259258480113811655, guid: 6c10a4631da759b4f86354bfa7d68e56, type: 3}
-  Enemies: []
+  Enemies:
+  - {fileID: 7609254587843330138, guid: 9a65d97a36999404e91bf020554cd609, type: 3}

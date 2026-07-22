@@ -53,10 +53,6 @@ namespace Assets.FantasyMonsters.Monsters.Scripts.Editor
                         EditorPrefs.SetString(PrefsKeyTime, DateTime.UtcNow.ToString(CultureInfo.InvariantCulture));
                         Event($"PackageUpdater.{(confirm ? "Yes" : "No")}", "PackageId", PackageId);
                     }
-                    else
-                    {
-                        Debug.Log($"{packageInfo.name} is up to date.");
-                    }
                 }
                 else
                 {

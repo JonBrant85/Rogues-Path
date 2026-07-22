@@ -15,4 +15,5 @@ MonoBehaviour:
   LevelName: Dark Forest
   Description: A dark forest
   BackgroundPrefab: {fileID: 5399324929985824308, guid: 0b919002156c887498bc2384bbd2e1b7, type: 3}
-  Enemies: []
+  Enemies:
+  - {fileID: 7609254587843330138, guid: 9a65d97a36999404e91bf020554cd609, type: 3}

@@ -36,12 +36,14 @@ namespace _Rogues_Path.Pawns {
             float HandleDamage() {
                 int mitigatedDamage = preMitigationDamageReceivedEvent.UnmitigatedDamage;
 
+                /*
                 // Mitigate damage via block. ToDo: Have buff listen for this and mutate the damage instead?
                 if (BuffsDatabase.Instance.TryGetBuffByName("Block", out PawnBuff BlockBuffReference) && TryGetBuffCount(BlockBuffReference, out int count)) {
                     mitigatedDamage = (int)Mathf.Clamp(mitigatedDamage - count, 0, float.PositiveInfinity);
                 }
+                */
 
-                TryRemoveBuff(BlockBuffReference, preMitigationDamageReceivedEvent.UnmitigatedDamage);
+                //TryRemoveBuff(BlockBuffReference, preMitigationDamageReceivedEvent.UnmitigatedDamage);
 
                 PostMitigationDamageReceivedEvent postMitigationDamageReceivedEvent = new() {
                     MitigatedDamage = mitigatedDamage,

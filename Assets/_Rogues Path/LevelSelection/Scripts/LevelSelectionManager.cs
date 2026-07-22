@@ -41,7 +41,6 @@ namespace _Rogues_Path.LevelSelection {
         }
 
         public void SelectLevel(LevelSelectionSlot slot) {
-            Debug.Log($"{slot.gameObject.name} selected!");
             // Check if already selected
             if (this.SelectedIndex == slot.Index)
                 return;

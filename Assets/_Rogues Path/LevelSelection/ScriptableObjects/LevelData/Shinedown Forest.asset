@@ -15,4 +15,5 @@ MonoBehaviour:
   LevelName: Shinedown Forest
   Description: Looks peaceful enough... is it?
   BackgroundPrefab: {fileID: 1132246657655184337, guid: 6977c53a71029b343846a7efc70a6642, type: 3}
-  Enemies: []
+  Enemies:
+  - {fileID: 7609254587843330138, guid: 9a65d97a36999404e91bf020554cd609, type: 3}

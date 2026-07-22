@@ -11,8 +11,8 @@ namespace _Rogues_Path.PawnCommands.Commands {
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
             instigator.Slash();
-            await UniTask.WaitForSeconds(instigator.Jab());
-            await UniTask.WaitForSeconds(victims.FirstOrDefault().TakeDamage(damage, instigator));
+            await UniTask.Delay((int)instigator.Jab()*1000);
+            await UniTask.Delay((int)victims.FirstOrDefault().TakeDamage(damage, instigator)*1000);
         }
     }
 }
