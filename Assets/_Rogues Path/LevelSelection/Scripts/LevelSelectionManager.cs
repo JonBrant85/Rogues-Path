@@ -25,6 +25,9 @@ namespace _Rogues_Path.LevelSelection {
             for (int i = 0; i < transform.childCount; i++) {
                 Slots.Add(transform.GetChild(i));
             }
+            
+            // Pick the middle-most slot
+            SelectLevel(Slots.GetMiddleElement().GetComponent<LevelSelectionSlot>());
         }
 
         protected void Update() {

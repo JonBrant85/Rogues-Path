@@ -26071,10 +26071,10 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  Spells: []
   Owner: {fileID: -4872564795078866485}
   ActionDelay: 2
   TimeUntilAction: 0
-  Spells: []
   references:
     version: 2
     RefIds: []

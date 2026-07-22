@@ -23,27 +23,29 @@ namespace _Rogues_Path.Combat {
             var levelData = Game.Instance.CurrentLevel;
             var randomEnemy = levelData.Enemies.GetRandomElement();
 
+            // Instantiate background, player, enemies
             Instantiate(levelData.BackgroundPrefab, BackgroundContainer);
             Player = Instantiate(Game.Instance.CurrentCharacter, PlayerContainer);
             Enemy = Instantiate(randomEnemy, EnemyContainer);
 
+            // Reset action timers
             Enemy.Brain.TimeUntilAction = Enemy.Brain.ActionDelay;
             Player.Brain.TimeUntilAction = Player.Brain.ActionDelay;
-            
+
             UIActionBar.Instance.SetPlayer(Player);
         }
 
         private void Update() {
             Enemy.Brain.TimeUntilAction -= Time.deltaTime;
             Player.Brain.TimeUntilAction -= Time.deltaTime;
-            
+
             if (Game.CommandInvoker.QueueCount == 0 && Player.Brain.TimeUntilAction <= 0) {
                 Player.Brain.HandleTurn()
                     .Forget();
                 Player.Brain.TimeUntilAction = Player.Brain.ActionDelay;
             }
-            
-            
+
+
             if (Game.CommandInvoker.QueueCount == 0 && Enemy.Brain.TimeUntilAction <= 0) {
                 Enemy.Brain.HandleTurn()
                     .Forget();

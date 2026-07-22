@@ -505,9 +505,13 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  Spells: []
   Owner: {fileID: 7609254587843330138}
   ActionDelay: 2
   TimeUntilAction: 2
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &7609254587843330138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +545,7 @@ MonoBehaviour:
   IsDead: 0
   CurrentHealth: 50
   MaxHealth:
-    BaseValue: 0
+    BaseValue: 150
   CurrentShields: 0
 --- !u!114 &4803445386161193833
 MonoBehaviour:

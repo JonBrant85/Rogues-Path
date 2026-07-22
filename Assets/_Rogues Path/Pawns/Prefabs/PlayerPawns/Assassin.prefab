@@ -25701,13 +25701,44 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  Spells:
+  - SpellCommand:
+      rid: 7368512931373514774
+    ID: 0
+    Name: Dual Stab
+    Icon: {fileID: 21300000, guid: 9fd3990ad233cff4587b48349fcb5ade, type: 3}
+    Description: Stab with both equipped weapons
+    Range: 0
+    Cooldown: 3
+    CastTime: 0
+    PowerCost: 0
+    Flags: 0
+  - SpellCommand:
+      rid: 7368512931373514773
+    ID: 0
+    Name: Stab
+    Icon: {fileID: 21300000, guid: fc8b32bd6c55a4d438e0cb898f87573b, type: 3}
+    Description: Stab the enemy with the equipped weapon
+    Range: 0
+    Cooldown: 1.5
+    CastTime: 0
+    PowerCost: 0
+    Flags: 0
   Owner: {fileID: 6757550408746255922}
   ActionDelay: 2
   TimeUntilAction: 0
-  Spells: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7368512931373514773
+      type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
+      data:
+        damage: 4
+    - rid: 7368512931373514774
+      type: {class: DualHandJab, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
+      data:
+        AnimationClip: {fileID: 7400000, guid: 5803966dea8641719d51896f7be2d4f3, type: 2}
+        damage: 8
 --- !u!114 &6757550408746255922
 MonoBehaviour:
   m_ObjectHideFlags: 0
