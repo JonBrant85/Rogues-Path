@@ -3,6 +3,7 @@ using System.ComponentModel;
 using _Rogues_Path._Game;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Brains;
+using _Rogues_Path.UI.ActionBar;
 using _Rogues_Path.Utilities;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
@@ -28,13 +29,21 @@ namespace _Rogues_Path.Combat {
 
             Enemy.Brain.TimeUntilAction = Enemy.Brain.ActionDelay;
             Player.Brain.TimeUntilAction = Player.Brain.ActionDelay;
+            
+            UIActionBar.Instance.SetPlayer(Player);
         }
 
         private void Update() {
             Enemy.Brain.TimeUntilAction -= Time.deltaTime;
             Player.Brain.TimeUntilAction -= Time.deltaTime;
-
-
+            
+            if (Game.CommandInvoker.QueueCount == 0 && Player.Brain.TimeUntilAction <= 0) {
+                Player.Brain.HandleTurn()
+                    .Forget();
+                Player.Brain.TimeUntilAction = Player.Brain.ActionDelay;
+            }
+            
+            
             if (Game.CommandInvoker.QueueCount == 0 && Enemy.Brain.TimeUntilAction <= 0) {
                 Enemy.Brain.HandleTurn()
                     .Forget();

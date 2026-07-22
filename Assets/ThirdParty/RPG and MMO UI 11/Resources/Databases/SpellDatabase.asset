@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,7 +13,9 @@ MonoBehaviour:
   m_Name: SpellDatabase
   m_EditorClassIdentifier: 
   spells:
-  - ID: 1
+  - SpellCommand:
+      rid: 7368512912759717892
+    ID: 1
     Name: Fireball
     Icon: {fileID: 21300000, guid: 65d28f1d715b84643bf9b7691cbd4b6b, type: 3}
     Description: Quisque vehicula et dui at volutpat. Quisque convallis porta bibendum.
@@ -22,7 +25,9 @@ MonoBehaviour:
     CastTime: 1
     PowerCost: 1
     Flags: 4
-  - ID: 2
+  - SpellCommand:
+      rid: -2
+    ID: 2
     Name: Death Kiss
     Icon: {fileID: 21300000, guid: f6116e77b83830d40bfb0a16527fa228, type: 3}
     Description: Quisque vehicula et dui at volutpat. Quisque convallis porta bibendum.
@@ -32,7 +37,9 @@ MonoBehaviour:
     CastTime: 0
     PowerCost: 10
     Flags: 6
-  - ID: 3
+  - SpellCommand:
+      rid: -2
+    ID: 3
     Name: Healing Leafs
     Icon: {fileID: 21300000, guid: 650a51129bd7f4e4e908cec18a126f53, type: 3}
     Description: Quisque vehicula et dui at volutpat. Quisque convallis porta bibendum.
@@ -42,7 +49,9 @@ MonoBehaviour:
     CastTime: 3
     PowerCost: 1000
     Flags: 0
-  - ID: 4
+  - SpellCommand:
+      rid: -2
+    ID: 4
     Name: Pyroblast
     Icon: {fileID: 21300000, guid: 4e95f5e8e8033de40845708bf2ddd853, type: 3}
     Description: Quisque vehicula et dui at volutpat. Quisque convallis porta bibendum.
@@ -52,7 +61,9 @@ MonoBehaviour:
     CastTime: 4
     PowerCost: 2500
     Flags: 0
-  - ID: 5
+  - SpellCommand:
+      rid: -2
+    ID: 5
     Name: Sun Radiation
     Icon: {fileID: 21300000, guid: 9afa7ff2b60a9c247a04e3f5b55a8c7d, type: 3}
     Description: Quisque vehicula et dui at volutpat. Quisque convallis porta bibendum.
@@ -62,7 +73,9 @@ MonoBehaviour:
     CastTime: 0
     PowerCost: 5
     Flags: 6
-  - ID: 6
+  - SpellCommand:
+      rid: -2
+    ID: 6
     Name: Intelligence
     Icon: {fileID: 21300000, guid: 3c163b2a4bcb6dd4b9c6c816814681f6, type: 3}
     Description: Quisque vehicula et dui at volutpat. Quisque convallis porta bibendum.
@@ -72,3 +85,12 @@ MonoBehaviour:
     CastTime: 0
     PowerCost: 0
     Flags: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 7368512912759717892
+      type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
+      data:
+        damage: 0

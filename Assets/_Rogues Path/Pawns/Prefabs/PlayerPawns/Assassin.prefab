@@ -25673,7 +25673,7 @@ Transform:
   m_GameObject: {fileID: 7182182689222504329}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25701,8 +25701,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  Owner: {fileID: 6757550408746255922}
   ActionDelay: 2
   TimeUntilAction: 0
+  Spells: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &6757550408746255922
 MonoBehaviour:
   m_ObjectHideFlags: 0

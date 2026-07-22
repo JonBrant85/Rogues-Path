@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: Player Pawns
+  m_EditorClassIdentifier: 
+  _parentID:
+    _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
+  _subcollectionIDs: []
+  _collectionName: Player Pawns
+  _id:
+    _serializedGuid: 42103d56220423458ec3f17bd1ce2397
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - f8d7dc3be0907cb4e801b164bc16f3bc
+    - b6ff70d990a6d214bb30c459650c4cb3
+    - ac4992d147dbd6145b10fef6b9009c98
+    - 5fc75776eee0b8449b21201dc923f397
+    - 85402dbbccc376c4aab6de7f262070e6
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []

@@ -15038,7 +15038,7 @@ Transform:
   m_GameObject: {fileID: 6525851899263286744}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15066,8 +15066,29 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  Owner: {fileID: -8129332116387663913}
   ActionDelay: 2
   TimeUntilAction: 0
+  Spells:
+  - SpellCommand:
+      rid: 7368512912759717907
+    ID: 0
+    Name: Heal
+    Icon: {fileID: 21300000, guid: 3fd552566f7ddae4bbef9e04afdd8124, type: 3}
+    Description: 
+    Range: 0
+    Cooldown: 0
+    CastTime: 0
+    PowerCost: 0
+    Flags: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 7368512912759717907
+      type: {class: HealCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
+      data:
+        TargetCaster: 1
+        AnimationDuration: 1
 --- !u!114 &-8129332116387663913
 MonoBehaviour:
   m_ObjectHideFlags: 0
