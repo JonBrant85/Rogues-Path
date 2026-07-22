@@ -11,7 +11,7 @@ namespace _Rogues_Path.Buffs.Scripts {
         public string Name;
         public Sprite Sprite;
         public Image Image;
-        public TextMeshProUGUI CountText;
+        public Text CountText;
 
         public virtual void OnBuffAdded(Pawn owner, int count) {
             Owner = owner;

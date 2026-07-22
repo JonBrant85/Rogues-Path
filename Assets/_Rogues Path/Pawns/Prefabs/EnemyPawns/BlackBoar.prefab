@@ -545,7 +545,7 @@ MonoBehaviour:
   IsDead: 0
   CurrentHealth: 50
   MaxHealth:
-    BaseValue: 150
+    BaseValue: 150000
   CurrentShields: 0
 --- !u!114 &4803445386161193833
 MonoBehaviour:

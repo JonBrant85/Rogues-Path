@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using _Rogues_Path.Buffs.Scripts;
+using _Rogues_Path.UI;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using UnityEngine;
@@ -18,16 +19,14 @@ namespace _Rogues_Path.Pawns {
         public void AddBuff(PawnBuff status, int count) {
             if (buffs.ContainsKey(status.Name)) {
                 buffs[status.Name] += count;
-                /*
-                GetComponentInChildren<UIStatusDisplay>()
-                    .AddBuff(status, buffs[status.Name]);
-                */
+
+                GetComponentInChildren<UIStatusDisplay>().AddBuff(status, buffs[status.Name]);
+
             }
             else {
-                /*
-                GetComponentInChildren<UIStatusDisplay>()
-                    .AddBuff(status, count);
-                */
+
+                GetComponentInChildren<UIStatusDisplay>().AddBuff(status, count);
+
                 buffs.Add(status.Name, count);
             }
 
@@ -46,15 +45,11 @@ namespace _Rogues_Path.Pawns {
         public bool TryRemoveBuff(PawnBuff status, int count) {
             if (buffs.ContainsKey(status.Name)) {
                 if (buffs[status.Name] <= count) {
-                    
-                    /*
-                    GetComponentInChildren<UIStatusDisplay>()
-                        .RemoveBuff(status, buffs[status.Name]);
-                    */
+                    GetComponentInChildren<UIStatusDisplay>().RemoveBuff(status, buffs[status.Name]);
 
                     buffs.Remove(status.Name);
                     status.OnBuffRemoved();
-                    // Destroy(status.gameObject);
+                    Destroy(status.gameObject);
                 }
                 else {
                     buffs[status.Name] -= count;
@@ -62,7 +57,7 @@ namespace _Rogues_Path.Pawns {
                     if (buffs[status.Name] == 0) {
                         buffs.Remove(status.Name);
                         status.OnBuffRemoved();
-                        // Destroy(status.gameObject);
+                        Destroy(status.gameObject);
                     }
                 }
 
