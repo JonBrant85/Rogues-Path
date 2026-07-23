@@ -507,8 +507,8 @@ MonoBehaviour:
       Data: 
   Spells: []
   Owner: {fileID: 7609254587843330138}
-  ActionDelay: 2
-  TimeUntilAction: 2
+  ActionDelay: 3
+  TimeUntilAction: 3
   references:
     version: 2
     RefIds: []
@@ -543,7 +543,7 @@ MonoBehaviour:
   buffs:
     keyValueData: []
   IsDead: 0
-  CurrentHealth: 50
+  CurrentHealth: 150000
   MaxHealth:
     BaseValue: 150000
   CurrentShields: 0

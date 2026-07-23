@@ -53,7 +53,7 @@ namespace _Rogues_Path.UI {
             }
         }
 
-        public void RemoveBuff(PawnBuff buffPrefab, int count) {
+        public void RemoveBuff(PawnBuff buffPrefab) {
             if (Owner.TryGetBuffCount(buffPrefab, out int buffCount)) {
                 PawnBuffs[buffPrefab.Name].CountText.text = buffCount.ToString();
             }

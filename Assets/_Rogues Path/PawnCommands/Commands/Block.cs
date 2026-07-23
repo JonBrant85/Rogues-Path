@@ -10,13 +10,11 @@ namespace _Rogues_Path.PawnCommands.Commands {
         public AnimationClip AnimationClip;
         public PawnBuffs.Buffs.Block BlockBuff;
         public int Count;
-        public int damage;
         public Block(Pawn hero) : base(hero) {}
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
             instigator.AddBuff(BlockBuff, Count);
             await UniTask.Delay((int)instigator.PlayAnimation(AnimationClip)*1000);
-            await UniTask.Delay((int)victims.FirstOrDefault().TakeDamage(damage, instigator)*1000);
         }
     }
 }

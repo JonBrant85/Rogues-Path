@@ -45,11 +45,9 @@ namespace _Rogues_Path.Pawns {
         public bool TryRemoveBuff(PawnBuff status, int count) {
             if (buffs.ContainsKey(status.Name)) {
                 if (buffs[status.Name] <= count) {
-                    GetComponentInChildren<UIStatusDisplay>().RemoveBuff(status, buffs[status.Name]);
-
                     buffs.Remove(status.Name);
                     status.OnBuffRemoved();
-                    Destroy(status.gameObject);
+                    GetComponentInChildren<UIStatusDisplay>().RemoveBuff(status);
                 }
                 else {
                     buffs[status.Name] -= count;
@@ -57,7 +55,6 @@ namespace _Rogues_Path.Pawns {
                     if (buffs[status.Name] == 0) {
                         buffs.Remove(status.Name);
                         status.OnBuffRemoved();
-                        Destroy(status.gameObject);
                     }
                 }
 

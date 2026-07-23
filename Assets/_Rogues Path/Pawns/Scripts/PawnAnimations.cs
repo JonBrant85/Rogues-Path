@@ -8,8 +8,8 @@ using UnityEngine;
 namespace _Rogues_Path.Pawns {
     public partial class Pawn {
         [FoldoutGroup("References")] public Animazing Animazing;
-        [FoldoutGroup("Damage Text Offset")] [SerializeField] private Vector3 DamageOffset = new Vector3(-1, 0, 0);
-        [FoldoutGroup("Damage Text Offset")] [SerializeField] private Vector3 HealingOffset = new Vector3(1, 0, 0);
+        [FoldoutGroup("Damage Text Offset")] public Vector3 DamageOffset = new Vector3(-1, 0, 0);
+        [FoldoutGroup("Damage Text Offset")] public Vector3 HealingOffset = new Vector3(1, 0, 0);
 
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip IdleAnimation;
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip SlashAnimation;
