@@ -1,8 +1,7 @@
-using System;
-using System.ComponentModel;
+
 using _Rogues_Path._Game;
 using _Rogues_Path.Pawns;
-using _Rogues_Path.Pawns.Brains;
+using _Rogues_Path.UI;
 using _Rogues_Path.UI.ActionBar;
 using _Rogues_Path.Utilities;
 using Cysharp.Threading.Tasks;
@@ -33,6 +32,7 @@ namespace _Rogues_Path.Combat {
             Player.Brain.TimeUntilAction = Player.Brain.ActionDelay;
 
             UIActionBar.Instance.SetPlayer(Player);
+            UISpellBook.Instance.SetPlayer(Player);
         }
 
         private void Update() {

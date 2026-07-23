@@ -23,5 +23,9 @@ namespace _Rogues_Path.PawnBuffs.Buffs {
 
             Owner.TryRemoveBuff(this, 1);
         }
+
+        private void OnMouseOver() {
+            Debug.Log($"Mouse over Block!");
+        }
     }
 }

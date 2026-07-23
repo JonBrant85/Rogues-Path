@@ -13,6 +13,10 @@ namespace _Rogues_Path.UI {
 
         private void OnEnable() {
             EventBus.SubscribeTo<StatusChangedEvent>(StatusChangedEventHandler);
+
+            if (TryGetComponent(out Canvas canvas)) {
+                canvas.worldCamera = Camera.main;
+            }
         }
 
         private void OnDisable() {
