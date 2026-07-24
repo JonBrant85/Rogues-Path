@@ -14,7 +14,7 @@ namespace _Rogues_Path.UI {
             player = _player;
 
             if (player.TryGetComponent(out PlayerBrain brain)) {
-                foreach (var spellInfo in brain.Spells) {
+                foreach (var spellInfo in brain.KnownSpells) {
                     var currentRow = Instantiate(rowPrefab, rowContainer);
                     currentRow.AssignSpell(spellInfo);
                     currentRow.gameObject.SetActive(true);

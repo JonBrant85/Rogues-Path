@@ -24,9 +24,9 @@ namespace _Rogues_Path.UI.ActionBar {
         public void SetPlayer(Pawn player) {
             Player = player;
 
-            for (int i = 0; i < NumberOfSlots && i < Player.Brain.Spells.Count; i++) {
+            for (int i = 0; i < NumberOfSlots && i < Player.Brain.KnownSpells.Count; i++) {
                 Slots[i]
-                    .Assign(Player.Brain.Spells[i]);
+                    .Assign(Player.Brain.KnownSpells[i]);
             }
         }
 

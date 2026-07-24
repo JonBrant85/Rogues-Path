@@ -26071,7 +26071,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Spells: []
+  KnownSpells: []
+  PreparedSpells: []
   Owner: {fileID: -4872564795078866485}
   ActionDelay: 2
   TimeUntilAction: 0

@@ -27,7 +27,7 @@ namespace _Rogues_Path.CharacterSelection {
             }
 
             // Pick the middle-most slot
-            SelectCharacter(Slots.GetMiddleElement().GetComponent<CharacterSelectionSlot>());
+            SelectCharacter(Slots.GetRandomElement().GetComponent<CharacterSelectionSlot>());
         }
 
         protected void Update() {
