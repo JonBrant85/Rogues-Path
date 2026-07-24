@@ -324,7 +324,7 @@ namespace DuloGames.UI
             UITooltip.AddSpacer();
 
 			// Prepare some attributes
-			if (spellInfo.Flags.Has(UISpellInfo_Flags.Passive))
+			if (spellInfo.Flags.Has(UISpellInfo_Flags.Strength))
 			{
 				UITooltip.AddLine("Passive", "SpellAttribute");
 			}
@@ -333,7 +333,7 @@ namespace DuloGames.UI
 				// Power consumption
 				if (spellInfo.PowerCost > 0f)
 				{
-					if (spellInfo.Flags.Has(UISpellInfo_Flags.PowerCostInPct))
+					if (spellInfo.Flags.Has(UISpellInfo_Flags.Intelligence))
 						UITooltip.AddLineColumn(spellInfo.PowerCost.ToString("0") + "% Energy", "SpellAttribute");
 					else
 						UITooltip.AddLineColumn(spellInfo.PowerCost.ToString("0") + " Energy", "SpellAttribute");

@@ -31,7 +31,7 @@ namespace _Rogues_Path.Pawns {
             }
 
             EventBus.Raise(
-                new StatusChangedEvent {
+                new StatusChanged {
                     Targets = new List<Pawn>() {
                         this
                     },
@@ -59,7 +59,7 @@ namespace _Rogues_Path.Pawns {
                 }
 
                 EventBus.Raise(
-                    new StatusChangedEvent {
+                    new StatusChanged {
                         Targets = new List<Pawn>() {
                             this
                         },

@@ -12,7 +12,7 @@ namespace _Rogues_Path.UI {
         public Dictionary<string, PawnBuff> PawnBuffs = new();
 
         private void OnEnable() {
-            EventBus.SubscribeTo<StatusChangedEvent>(StatusChangedEventHandler);
+            EventBus.SubscribeTo<StatusChanged>(StatusChangedEventHandler);
 
             if (TryGetComponent(out Canvas canvas)) {
                 canvas.worldCamera = Camera.main;
@@ -20,14 +20,14 @@ namespace _Rogues_Path.UI {
         }
 
         private void OnDisable() {
-            EventBus.SubscribeTo<StatusChangedEvent>(StatusChangedEventHandler);
+            EventBus.SubscribeTo<StatusChanged>(StatusChangedEventHandler);
         }
 
         private void Update() {
             //transform.position = Camera.main!.WorldToScreenPoint(Owner.transform.position);
         }
 
-        private void StatusChangedEventHandler(ref StatusChangedEvent eventData) {
+        private void StatusChangedEventHandler(ref StatusChanged eventData) {
             if (!eventData.Targets.Contains(Owner)) return;
 
 

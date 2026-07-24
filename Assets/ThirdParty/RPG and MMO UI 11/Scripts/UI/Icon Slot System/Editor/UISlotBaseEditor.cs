@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace DuloGamesEditor.UI
 {
+    /*
 	[CanEditMultipleObjects, CustomEditor(typeof(UISlotBase), true)]
 	public class UISlotBaseEditor : Editor {
 		
@@ -324,4 +325,5 @@ namespace DuloGamesEditor.UI
 			return UIAnimatorControllerGenerator.GenerateAnimatorContoller(triggers, this.pressTargetGraphicProperty.objectReferenceValue.name);
 		}
 	}
+	*/
 }

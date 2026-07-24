@@ -8,10 +8,14 @@ using UnityEngine;
 
 namespace _Rogues_Path.Pawns {
     public partial class Pawn {
-        public bool IsDead = false;
-        public float CurrentHealth = 50;
         public CharacterStat MaxHealth;
-        public int CurrentShields;
+        public CharacterStat Strength;
+        public CharacterStat Dexterity;
+        public CharacterStat Intelligence;
+        public CharacterStat Speed;
+
+        public float CurrentHealth = 50;
+        public bool IsDead = false;
 
         public void InitializeStats() {
             CurrentHealth = MaxHealth.Value;
@@ -19,7 +23,7 @@ namespace _Rogues_Path.Pawns {
 
         public float TakeDamage(int damage, Pawn instigator) {
             float duration = 0;
-            PreMitigationDamageReceivedEvent preMitigationDamageReceivedEvent = new() {
+            PreMitigationDamageReceived preMitigationDamageReceivedEvent = new() {
                 UnmitigatedDamage = damage,
                 Victim = this,
                 Instigator = instigator
@@ -36,16 +40,7 @@ namespace _Rogues_Path.Pawns {
             float HandleDamage() {
                 int mitigatedDamage = preMitigationDamageReceivedEvent.UnmitigatedDamage;
 
-                /*
-                // Mitigate damage via block. ToDo: Have buff listen for this and mutate the damage instead?
-                if (BuffsDatabase.Instance.TryGetBuffByName("Block", out PawnBuff BlockBuffReference) && TryGetBuffCount(BlockBuffReference, out int count)) {
-                    mitigatedDamage = (int)Mathf.Clamp(mitigatedDamage - count, 0, float.PositiveInfinity);
-                }
-                */
-
-                //TryRemoveBuff(BlockBuffReference, preMitigationDamageReceivedEvent.UnmitigatedDamage);
-
-                PostMitigationDamageReceivedEvent postMitigationDamageReceivedEvent = new() {
+                PostMitigationDamageReceived postMitigationDamageReceived = new() {
                     MitigatedDamage = mitigatedDamage,
                     Victims = new() {
                         this
@@ -53,7 +48,7 @@ namespace _Rogues_Path.Pawns {
                     Instigator = instigator
                 };
 
-                EventBus.RaiseImmediately(ref postMitigationDamageReceivedEvent);
+                EventBus.RaiseImmediately(ref postMitigationDamageReceived);
 
                 if (mitigatedDamage > 0) {
                     ReceiveDamage(mitigatedDamage, preMitigationDamageReceivedEvent.Instigator);
@@ -78,9 +73,8 @@ namespace _Rogues_Path.Pawns {
             return duration;
         }
 
-
         public void ReceiveDamage(int damage, Pawn instigator) {
-            var healthChangedEvent = new HealthChangedEvent {
+            var healthChangedEvent = new HealthChanged {
                 Victim = this,
                 Instigator = instigator,
                 NewHealth = CurrentHealth - damage,

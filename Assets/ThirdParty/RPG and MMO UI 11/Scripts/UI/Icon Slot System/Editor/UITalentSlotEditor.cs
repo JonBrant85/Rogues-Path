@@ -4,8 +4,10 @@ using UnityEditor;
 
 namespace DuloGamesEditor.UI
 {
+    /*
 	[CanEditMultipleObjects, CustomEditor(typeof(UITalentSlot), true)]
-	public class UITalentSlotEditor : UISlotBaseEditor {
+	
+	 public class UITalentSlotEditor : UISlotBaseEditor {
 		
 		private SerializedProperty m_PointsTextProperty;
 		private SerializedProperty m_pointsMinColorProperty;
@@ -45,4 +47,6 @@ namespace DuloGamesEditor.UI
 			EditorGUI.indentLevel = (EditorGUI.indentLevel - 1);
 		}
 	}
+	*/
+    
 }

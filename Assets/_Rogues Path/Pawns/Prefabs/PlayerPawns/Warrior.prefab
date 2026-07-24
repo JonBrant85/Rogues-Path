@@ -972,7 +972,7 @@ MonoBehaviour:
     SerializationNodes: []
   KnownSpells:
   - SpellCommand:
-      rid: 7368512955991457793
+      rid: 7368512970869964812
     ID: 0
     Name: Slash
     Icon: {fileID: 21300000, guid: 86ba59d1b59806f46881ab4184b28793, type: 3}
@@ -1046,8 +1046,7 @@ MonoBehaviour:
     RefIds:
     - rid: 7368512931373514752
       type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        damage: 5
+      data: {}
     - rid: 7368512931373514778
       type: {class: Block, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:
@@ -1057,21 +1056,24 @@ MonoBehaviour:
     - rid: 7368512955991457792
       type: {class: SlashCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:
-        damage: 0
-    - rid: 7368512955991457793
-      type: {class: SlashCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        damage: 0
+        damage:
+          Multiplier: 1
+        Test: 0
     - rid: 7368512955991457794
       type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        damage: 5
+      data: {}
     - rid: 7368512955991457795
       type: {class: Block, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:
         AnimationClip: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
         BlockBuff: {fileID: 89309760335961123, guid: af1119e00ce0d4c4582d53bc7caf3c92, type: 3}
         Count: 1
+    - rid: 7368512970869964812
+      type: {class: SlashCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
+      data:
+        damage:
+          Multiplier: 1
+        Test: 0
 --- !u!114 &573530404942738072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,11 +1104,22 @@ MonoBehaviour:
   ReviveAnimation: {fileID: 7400000, guid: a6466e9fd05d47e78a1a3b1b2ea6c7fe, type: 2}
   buffs:
     keyValueData: []
-  IsDead: 0
-  CurrentHealth: 100
+  currentEquipment:
+    keyValueData: []
+  Inventory: []
+  InventorySpaces: 2
   MaxHealth:
     BaseValue: 100
-  CurrentShields: 0
+  Strength:
+    BaseValue: 10
+  Dexterity:
+    BaseValue: 10
+  Intelligence:
+    BaseValue: 10
+  Speed:
+    BaseValue: 1
+  CurrentHealth: 100
+  IsDead: 0
 --- !u!114 &757649268946039768
 MonoBehaviour:
   m_ObjectHideFlags: 0

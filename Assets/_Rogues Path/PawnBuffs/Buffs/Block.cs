@@ -10,14 +10,14 @@ namespace _Rogues_Path.PawnBuffs.Buffs {
     public class Block : PawnBuff {
         public override void OnBuffAdded(Pawn owner, int count) {
             base.OnBuffAdded(owner, count);
-            EventBus.SubscribeTo<PreMitigationDamageReceivedEvent>(EventHandler);
+            EventBus.SubscribeTo<PreMitigationDamageReceived>(EventHandler);
         }
 
         public override void OnBuffRemoved() {
-            EventBus.UnsubscribeFrom<PreMitigationDamageReceivedEvent>(EventHandler);
+            EventBus.UnsubscribeFrom<PreMitigationDamageReceived>(EventHandler);
         }
 
-        private void EventHandler(ref PreMitigationDamageReceivedEvent eventData) {
+        private void EventHandler(ref PreMitigationDamageReceived eventData) {
             eventData.UnmitigatedDamage = 0;
             UltimateTextDamageManager.Instance.Add("Blocked", transform.position + Owner.DamageOffset, "Damage");
 

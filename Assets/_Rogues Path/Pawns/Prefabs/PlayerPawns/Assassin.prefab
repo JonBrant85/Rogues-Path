@@ -25739,11 +25739,22 @@ MonoBehaviour:
   ReviveAnimation: {fileID: 7400000, guid: a6466e9fd05d47e78a1a3b1b2ea6c7fe, type: 2}
   buffs:
     keyValueData: []
-  IsDead: 0
-  CurrentHealth: 100
+  currentEquipment:
+    keyValueData: []
+  Inventory: []
+  InventorySpaces: 2
   MaxHealth:
     BaseValue: 100
-  CurrentShields: 0
+  Strength:
+    BaseValue: 10
+  Dexterity:
+    BaseValue: 10
+  Intelligence:
+    BaseValue: 10
+  Speed:
+    BaseValue: 1
+  CurrentHealth: 100
+  IsDead: 0
 --- !u!114 &8632349046024390575
 MonoBehaviour:
   m_ObjectHideFlags: 0

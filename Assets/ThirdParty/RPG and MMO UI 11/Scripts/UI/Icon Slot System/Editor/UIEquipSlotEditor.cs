@@ -3,7 +3,7 @@ using DuloGames.UI;
 using UnityEditor;
 
 namespace DuloGamesEditor.UI
-{
+{/*
 	[CanEditMultipleObjects, CustomEditor(typeof(UIEquipSlot), true)]
 	public class UIEquipSlotEditor : UISlotBaseEditor {
 		
@@ -41,4 +41,5 @@ namespace DuloGamesEditor.UI
 			
 		}
 	}
+	*/
 }

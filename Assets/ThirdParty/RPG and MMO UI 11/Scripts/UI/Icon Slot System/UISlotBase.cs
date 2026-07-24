@@ -8,7 +8,7 @@ using UnityEditor;
 
 namespace DuloGames.UI
 {
-	[AddComponentMenu("UI/Icon Slots/Base Slot"), ExecuteInEditMode, DisallowMultipleComponent]
+	[AddComponentMenu("UI/Icon Slots/Base Slot"), ExecuteInEditMode]
 	public class UISlotBase : UIBehaviour, IEventSystemHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler {
 		
 		public enum Transition

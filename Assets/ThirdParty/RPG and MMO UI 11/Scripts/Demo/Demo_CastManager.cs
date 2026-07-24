@@ -47,7 +47,7 @@ namespace DuloGames.UI
                 return;
 
             // Check if the spell is not insta cast
-            if (!spellInfo.Flags.Has(UISpellInfo_Flags.InstantCast))
+            if (!spellInfo.Flags.Has(UISpellInfo_Flags.Dexterity))
             {
                 // Start casting
                 this.m_CastBar.StartCasting(spellInfo, spellInfo.CastTime, Time.time + spellInfo.CastTime);

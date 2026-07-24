@@ -19,6 +19,8 @@ MonoBehaviour:
   - _serializedGuid: 42103d56220423458ec3f17bd1ce2397
   - _serializedGuid: 6e797a658a238e489a15f94920971f6c
   - _serializedGuid: 47f4a65bea4c6c48bfc78efb2adf33bf
+  - _serializedGuid: 4ed726632c5f5942b413d176011af60d
+  - _serializedGuid: c251acf758af4d4786169bd6102b79d6
   _collectionName: ROOT
   _id:
     _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
@@ -4393,6 +4395,18 @@ MonoBehaviour:
       _guid: 76f6b566c87aba0499ead60598b38025
     collectionIds:
     - _serializedGuid: 42103d56220423458ec3f17bd1ce2397
+  - item:
+      _guid: 44e64b29e7a9ff540a198446fc05c595
+    collectionIds:
+    - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
+  - item:
+      _guid: f5f743906a1c8214b888258e39dd1f62
+    collectionIds:
+    - _serializedGuid: 4ed726632c5f5942b413d176011af60d
+  - item:
+      _guid: 3c850c0a54def0b40874e7cc751a3bbf
+    collectionIds:
+    - _serializedGuid: c251acf758af4d4786169bd6102b79d6
   references:
     version: 2
     RefIds: []

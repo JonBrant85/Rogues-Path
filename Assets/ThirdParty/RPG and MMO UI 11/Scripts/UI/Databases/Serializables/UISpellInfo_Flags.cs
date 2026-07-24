@@ -5,10 +5,11 @@ namespace DuloGames.UI
 	[Flags]
 	public enum UISpellInfo_Flags
 	{
-		Passive = (1 << 0),
-		InstantCast = (1 << 1),
-		PowerCostInPct = (1 << 2),
-	}
+		Strength = (1 << 0),
+		Dexterity = (1 << 1),
+		Intelligence = (1 << 2),
+        Speed = (1 << 3),
+    }
 	
 	public static class UISpellInfo_FlagsExtensions
 	{

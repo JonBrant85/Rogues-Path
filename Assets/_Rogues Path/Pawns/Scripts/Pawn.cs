@@ -11,8 +11,8 @@ namespace _Rogues_Path.Pawns {
         public PawnBrain Brain;
 
         private void Awake() {
-           // InitializeStats();
-            //Animazing.SetLayerDefaultAnimation(0, IdleAnimation);
+           InitializeStats();
+           Animazing.SetLayerDefaultAnimation(0, IdleAnimation);
         }
     }
 }

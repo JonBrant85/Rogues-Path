@@ -4,6 +4,8 @@ using UnityEditor;
 
 namespace DuloGamesEditor.UI
 {
+    
+	/*
 	[CanEditMultipleObjects, CustomEditor(typeof(UIItemSlot), true)]
 	public class UIItemSlotEditor : UISlotBaseEditor {
 
@@ -49,4 +51,6 @@ namespace DuloGamesEditor.UI
 			this.serializedObject.ApplyModifiedProperties();
 		}
 	}
+	*/
+    
 }

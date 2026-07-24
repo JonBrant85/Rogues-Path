@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using _Rogues_Path.Equipment.Scripts;
 using HeroEditor.Common.Enums;
 using UnityEngine;
 
 namespace _Rogues_Path.Utilities {
     [Serializable] public class BuffsDictionary : UnitySerializedDictionary<string, int> {}
 
-    /*
+
     [Serializable] public class EquipmentDictionary : UnitySerializedDictionary<EquipmentPart, EquipmentBase> {
         public EquipmentDictionary(EquipmentDictionary currentEquipment = null) {
             keyValueData = new List<KeyValueData>();
@@ -27,7 +28,7 @@ namespace _Rogues_Path.Utilities {
             Debug.Log(logString);
         }
     }
-    */
+
 
     public abstract class UnitySerializedDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver {
         [SerializeField] protected List<KeyValueData> keyValueData = new();
