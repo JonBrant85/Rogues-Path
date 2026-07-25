@@ -3,6 +3,7 @@ using _Rogues_Path._Game;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.UI;
 using _Rogues_Path.UI.ActionBar;
+using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.Utilities;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
@@ -33,6 +34,7 @@ namespace _Rogues_Path.Combat {
 
             UIActionBar.Instance.SetPlayer(Player);
             UISpellBook.Instance.SetPlayer(Player);
+            UICharacterScreen.Instance.SetPlayer(Player);
         }
 
         private void Update() {

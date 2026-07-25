@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EquipmentDatabase
   m_EditorClassIdentifier: 
   equipment:
-  - {fileID: 2134295342921129061, guid: f5f743906a1c8214b888258e39dd1f62, type: 3}
+  - {fileID: 3019813795083459405, guid: 0894203ef85d1db4cac3472284178b5d, type: 3}

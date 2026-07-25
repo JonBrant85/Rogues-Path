@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &209136839775042427
+--- !u!1 &9192110510729778907
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3566510842919102375}
-  - component: {fileID: 2134295342921129061}
+  - component: {fileID: 553131925837902811}
+  - component: {fileID: 3019813795083459405}
   m_Layer: 0
-  m_Name: WizardHat
+  m_Name: Wizard Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3566510842919102375
+--- !u!4 &553131925837902811
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209136839775042427}
+  m_GameObject: {fileID: 9192110510729778907}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,43 +32,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2134295342921129061
+--- !u!114 &3019813795083459405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209136839775042427}
+  m_GameObject: {fileID: 9192110510729778907}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56053e242248491c94513607f7b0778e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 03010b00000053007000720069007400650043006f006c006f0072002f000000000148000000530079007300740065006d002e004e0075006c006c00610062006c006500600031005b005b0055006e0069007400790045006e00670069006e0065002e0043006f006c006f0072002c00200055006e0069007400790045006e00670069006e0065002e0043006f00720065004d006f00640075006c0065005d005d002c0020006d00730063006f0072006c00690062002e05
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: SpriteColor
+      Entry: 7
+      Data: System.Nullable`1[[UnityEngine.Color, UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   Name: Wizard Hat
   Description: Default Description
   FlavorText: Something interesting and profound about the item here
   Sprite:
-    Name: HeroEditor.Basic.Helmet.HalfmoonHat
-    Collection: 
-    Edition: 
-    Id: 
-    Path: 
-    Sprite: {fileID: 21300000, guid: f7f71841fa9640da9ef8f540fc64d250, type: 3}
+    Name: HalfmoonHat
+    Collection: Basic
+    Edition: HeroEditor
+    Id: HeroEditor.Basic.Helmet.HalfmoonHat
+    Path: Assets/ThirdParty/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/HalfmoonHat.png
+    Sprite: {fileID: 21300000, guid: c91f1dd496234b9d8b884b95b6ff36db, type: 3}
     Sprites:
-    - {fileID: 21300000, guid: f7f71841fa9640da9ef8f540fc64d250, type: 3}
-    Multiple: 0
-    Hash: 
+    - {fileID: 21300000, guid: c91f1dd496234b9d8b884b95b6ff36db, type: 3}
+    Multiple: 1
+    Hash: a76ec3a43216adf8713f95d33462f0d6
     Tags: []
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 0456f1ac712740ccbee0557093075d52, type: 3}
   Quality: 0
   EquipType: 0
   Owner: {fileID: 0}

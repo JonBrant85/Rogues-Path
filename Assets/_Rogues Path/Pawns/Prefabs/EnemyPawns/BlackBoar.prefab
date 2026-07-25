@@ -494,8 +494,14 @@ MonoBehaviour:
       Entry: 7
       Data: 1|_Rogues_Path.PawnCommands.Commands.JabCommand, Assembly-CSharp
     - Name: damage
+      Entry: 7
+      Data: 2|_Rogues_Path.PawnCommands.Calculators.StrengthMultiplier, Assembly-CSharp
+    - Name: Multiplier
       Entry: 3
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -505,7 +511,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Spells: []
+  KnownSpells: []
+  PreparedSpells: []
   Owner: {fileID: 7609254587843330138}
   ActionDelay: 3
   TimeUntilAction: 3
@@ -542,11 +549,22 @@ MonoBehaviour:
   ReviveAnimation: {fileID: 7400000, guid: 427d73d69f8b6744aa2b4a7f69e4f4f7, type: 2}
   buffs:
     keyValueData: []
-  IsDead: 0
-  CurrentHealth: 150000
+  currentEquipment:
+    keyValueData: []
+  Inventory: []
+  InventorySpaces: 2
   MaxHealth:
     BaseValue: 150000
-  CurrentShields: 0
+  Strength:
+    BaseValue: 10
+  Dexterity:
+    BaseValue: 10
+  Intelligence:
+    BaseValue: 2
+  Speed:
+    BaseValue: 0
+  CurrentHealth: 150000
+  IsDead: 0
 --- !u!114 &4803445386161193833
 MonoBehaviour:
   m_ObjectHideFlags: 0
