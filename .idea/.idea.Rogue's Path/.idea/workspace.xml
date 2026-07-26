@@ -23,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceivedEven.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceived.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceivedEven.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceived.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/StrengthMultiplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/StrengthMultiplier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Fireball.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/SlashCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/SlashCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wizard Hat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wizard Hat.prefab" afterDir="false" />
@@ -147,7 +148,7 @@
       <workItem from="1784912256797" duration="6614000" />
       <workItem from="1784939003473" duration="3469000" />
       <workItem from="1785022130536" duration="1000000" />
-      <workItem from="1785081522678" duration="13568000" />
+      <workItem from="1785081522678" duration="14235000" />
     </task>
     <servers />
   </component>

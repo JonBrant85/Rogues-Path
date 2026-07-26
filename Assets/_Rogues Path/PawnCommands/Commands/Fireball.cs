@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using _Rogues_Path.Commands;
+using _Rogues_Path.PawnCommands.Calculators;
 using _Rogues_Path.Pawns;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace _Rogues_Path.PawnCommands.Commands {
         public GameObject FireballPrefab;
         public GameObject ImpactVFX;
         public GameObject DistortionVFX;
-        public int Damage = 15;
+        public IntelligenceMultiplier Damage;
         public float TravelTime = 1;
         public Vector3 Offset = new Vector3(1, 1, 0);
 
@@ -50,7 +51,7 @@ namespace _Rogues_Path.PawnCommands.Commands {
             GameObject.Instantiate(ImpactVFX, target.transform.position, Quaternion.identity);
             GameObject.Instantiate(DistortionVFX, target.transform.position, Quaternion.identity);
 
-            await UniTask.Delay((int)target.TakeDamage(Damage, caster) * 1000);
+            await UniTask.Delay((int)target.TakeDamage(Damage.Calculate(caster), caster) * 1000);
         }
     }
 }
