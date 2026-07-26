@@ -18,6 +18,11 @@ namespace _Rogues_Path.UI.CharacterScreen {
         public void SetPlayer(Pawn _player) {
             player = _player;
             
+            // Setup equipment slots
+            foreach (UIEquipmentSlot slot in Slots) {
+                slot.Owner = _player;
+            }
+            
             // Init character stats
             BindCharacterStat(player.MaxHealth, "Maximum Health");
             Instantiate(SpacerPrefab, StatsContainer);

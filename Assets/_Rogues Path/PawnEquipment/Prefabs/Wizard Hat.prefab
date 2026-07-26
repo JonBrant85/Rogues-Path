@@ -79,7 +79,7 @@ MonoBehaviour:
     Tags: []
   Icon: {fileID: 21300000, guid: 0456f1ac712740ccbee0557093075d52, type: 3}
   Quality: 0
-  EquipType: 0
+  EquipType: 1
   Owner: {fileID: 0}
   Intelligence:
     BaseValue: 0

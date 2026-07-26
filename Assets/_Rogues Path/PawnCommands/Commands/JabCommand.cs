@@ -7,7 +7,7 @@ using Cysharp.Threading.Tasks;
 
 namespace _Rogues_Path.PawnCommands.Commands {
     public class JabCommand : Command{
-        public IntCalculator damage;
+        public StrengthMultiplier damage;
         public JabCommand(Pawn hero) : base(hero) {}
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {

@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wizard Hat.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wizard Hat.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterStat.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterStat.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Icon Slot System/UISlotBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Icon Slot System/UISlotBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/JabCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/JabCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/WizardHat.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/WizardHat.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Resources/EquipmentDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Resources/EquipmentDatabase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wizard Hat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wizard Hat.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnEquipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnEquipment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/TestAssignUIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/TestAssignUIEquipmentSlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Databases_f7ac51c2-af58-474d-8616-9bd6102b79d6.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Databases_f7ac51c2-af58-474d-8616-9bd6102b79d6.collect" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Equipment_6326d74e-5f2c-4259-b413-d176011af60d.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Equipment_6326d74e-5f2c-4259-b413-d176011af60d.collect" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Slots/UIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Slots/UIEquipmentSlot.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +31,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/37cc348edc804f4cb176b63962c716e7177200/fc/af735f47/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/FantasyMonsters/Monsters/Scripts/Editor/PackageUpdater.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.2.5/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.2.5/Runtime/UniTaskScheduler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../INTERFACE - Fantasy Warrior HUD/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.peturdarri.generic-event-bus@8246d96808/Runtime/TargetedGenericEventBus.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.7/Scripts/Editor/TMPro_CreateObjectMenu.cs" root0="SKIP_HIGHLIGHTING" />
@@ -126,7 +121,9 @@
       <workItem from="1784902903100" duration="611000" />
       <workItem from="1784904034751" duration="5073000" />
       <workItem from="1784912256797" duration="6614000" />
-      <workItem from="1784939003473" duration="2256000" />
+      <workItem from="1784939003473" duration="3469000" />
+      <workItem from="1785022130536" duration="1000000" />
+      <workItem from="1785081522678" duration="3299000" />
     </task>
     <servers />
   </component>

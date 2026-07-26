@@ -1046,7 +1046,9 @@ MonoBehaviour:
     RefIds:
     - rid: 7368512931373514752
       type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data: {}
+      data:
+        damage:
+          Multiplier: 1
     - rid: 7368512931373514778
       type: {class: Block, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:
@@ -1061,7 +1063,9 @@ MonoBehaviour:
         Test: 0
     - rid: 7368512955991457794
       type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data: {}
+      data:
+        damage:
+          Multiplier: 1
     - rid: 7368512955991457795
       type: {class: Block, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:

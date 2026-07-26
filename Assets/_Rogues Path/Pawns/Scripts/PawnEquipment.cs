@@ -69,7 +69,10 @@ namespace _Rogues_Path.Pawns {
         #endregion
 
         public bool TryEquip(EquipmentBase equipment, bool modifyGameState = true) {
-            if (equipment == null) return false;
+            if (equipment == null) {
+                Debug.Log($"Attempted to assign a null equipment");
+                return false;
+            }
             // Find Database entry and use that instead of live equipment
             var dbEntry = EquipmentDatabase.Instance.Equipment.FirstOrDefault(e => e.Name == equipment.Name);
             Debug.Assert(dbEntry != null);
@@ -88,6 +91,7 @@ namespace _Rogues_Path.Pawns {
                 // Set owner and update sprite
                 equipment.Owner = this;
                 equipment.gameObject.SetActive(true);
+                Debug.Log($"Equipping to character");
                 character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
 
                 // Raise a new EquipmentEquipped event

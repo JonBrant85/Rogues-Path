@@ -51,6 +51,7 @@ namespace _Rogues_Path.UI.Slots {
             OnAssignEvent?.Invoke(Owner, Equipment);
 
             if (EquipToOwnerOnAssign && Owner != null) {
+                Debug.Log($"Equipping");
                 Debug.Assert(Equipment != null);
                 Owner.TryEquip(Equipment);
             }
@@ -153,6 +154,65 @@ namespace _Rogues_Path.UI.Slots {
                 UIItemSlot => true,
                 _ => false
             };
+        }
+
+        public EquipmentBase GetEquipmentInfo() {
+            return Equipment;
+        }
+
+        /// <summary>
+        /// Raises the drop event.
+        /// </summary>
+        /// <param name="eventData">Event data.</param>
+        public override void OnDrop(PointerEventData eventData) {
+            // Get the source slot
+            UIEquipmentSlot source = (eventData.pointerPress != null) ? eventData.pointerPress.GetComponent<UIEquipmentSlot>() : null;
+
+            // Make sure we have the source slot
+            if (source == null || !source.IsAssigned() || !source.dragAndDropEnabled)
+                return;
+
+            // Notify the source that a drop was performed so it does not unassign
+            source.dropPreformed = true;
+
+            // Check if this slot is enabled and it's drag and drop feature is enabled
+            if (!this.enabled || !this.m_DragAndDropEnabled)
+                return;
+
+            // Prepare a variable indicating whether the assign process was successful
+            bool assignSuccess = false;
+
+            // Normal empty slot assignment
+            if (!this.IsAssigned()) {
+                // Assign the target slot with the info from the source
+                assignSuccess = this.Assign(source);
+
+                // Unassign the source on successful assignment and the source is not static
+                if (assignSuccess && !source.isStatic)
+                    source.Unassign();
+            }
+            // The target slot is assigned
+            else {
+                // If the target slot is not static
+                // and we have a source slot that is not static
+                if (!this.isStatic && !source.isStatic) {
+                    // Check if we can swap
+                    if (this.CanSwapWith(source) && source.CanSwapWith(this)) {
+                        // Swap the slots
+                        assignSuccess = source.PerformSlotSwap(this);
+                    }
+                }
+                // If the target slot is not static
+                // and the source slot is a static one
+                else if (!this.isStatic && source.isStatic) {
+                    assignSuccess = this.Assign(source);
+                }
+            }
+
+            // If this slot failed to be assigned
+            if (!assignSuccess) {
+                this.OnAssignBySlotFailed(source);
+            }
         }
 
         public override void OnTooltip(bool show) {

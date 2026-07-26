@@ -11,6 +11,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
         private void Start() {
             slot.Assign(Equipment);
+            Debug.Log($"Slot filled with : {slot.GetEquipmentInfo().Name}");
         }
     }
 }
