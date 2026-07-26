@@ -8,13 +8,12 @@ using Cysharp.Threading.Tasks;
 namespace _Rogues_Path.PawnCommands.Commands {
     public class SlashCommand : Command {
         public StrengthMultiplier damage;
-        public int Test;
         public SlashCommand(Pawn hero) : base(hero) {}
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
             instigator.Slash();
             await UniTask.Delay((int)instigator.Jab() * 1000);
-            await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage(damage.Calculate(hero), instigator) * 1000);
+            await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage(damage.Calculate(instigator), instigator) * 1000);
         }
     }
 }

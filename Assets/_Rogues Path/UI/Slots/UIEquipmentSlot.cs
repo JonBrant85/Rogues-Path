@@ -1,6 +1,8 @@
 using System;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
 using HeroEditor.Common.Enums;
 using UnityEngine;
@@ -81,6 +83,8 @@ namespace _Rogues_Path.UI.Slots {
             if (EquipToOwnerOnAssign && Owner != null) {
                 Debug.Assert(Equipment != null);
                 Owner.TryEquip(Equipment);
+                Equipment.ApplyModifiers(Equipment.Modifiers, Owner);
+                EventBus.Raise(new PawnStatChanged());
             }
 
             return true;
@@ -114,6 +118,8 @@ namespace _Rogues_Path.UI.Slots {
 
             if (EquipToOwnerOnAssign && Owner != null) {
                 Owner.TryRemoveEquipment(Equipment);
+                Equipment.RemoveModifiers(Equipment.Modifiers, Owner);
+                EventBus.Raise(new PawnStatChanged());
             }
 
             Equipment = null;

@@ -5,17 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PawnStatChanged.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PawnStatChanged.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/FireAdeptWand.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/FireAdeptWand.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/IceWizardArmor.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/IceWizardArmor.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/FireAdeptWand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/FireAdeptWand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/IceWizardArmor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/IceWizardArmor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UIEquipmentReceiver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UIEquipmentReceiver.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Icon Slot System/UISlotBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Icon Slot System/UISlotBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/JabCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/JabCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Databases/EquipmentDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Databases/EquipmentDatabase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/StatModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/Character Stats/StatModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceivedEven.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceived.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceivedEven.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceived.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/StrengthMultiplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/StrengthMultiplier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/SlashCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/SlashCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wizard Hat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wizard Hat.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/WizardHat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/WizardHat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnEquipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnEquipment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/TestAssignUIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/TestAssignUIEquipmentSlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterStat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Slots/UIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Slots/UIEquipmentSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Equipment_6326d74e-5f2c-4259-b413-d176011af60d.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Equipment_6326d74e-5f2c-4259-b413-d176011af60d.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +48,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/Api/CallbacksDelegatorListener.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.settings-manager@2.1.0/Samples~/PackageWithProjectAndUserSettings/SettingsExamples.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/218a8db5828946b3b377d18eae48eb8e4400/49/6099f771/EquipmentPart.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/37cc348edc804f4cb176b63962c716e7177200/fc/af735f47/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
@@ -123,7 +147,7 @@
       <workItem from="1784912256797" duration="6614000" />
       <workItem from="1784939003473" duration="3469000" />
       <workItem from="1785022130536" duration="1000000" />
-      <workItem from="1785081522678" duration="3299000" />
+      <workItem from="1785081522678" duration="13568000" />
     </task>
     <servers />
   </component>

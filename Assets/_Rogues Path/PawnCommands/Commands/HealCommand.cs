@@ -9,7 +9,7 @@ namespace _Rogues_Path.PawnCommands.Commands {
     public class HealCommand : Command {
         public bool TargetCaster = false;
         public float AnimationDuration = 1;
-        public IntCalculator DamageToHeal;
+        public IntelligenceMultiplier DamageToHeal;
         public HealCommand(Pawn hero) : base(hero) {}
 
         public async override UniTask Execute(Pawn instigator, List<Pawn> victims) {

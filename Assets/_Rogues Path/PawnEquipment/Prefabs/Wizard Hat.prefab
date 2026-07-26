@@ -81,5 +81,14 @@ MonoBehaviour:
   Quality: 0
   EquipType: 1
   Owner: {fileID: 0}
-  Intelligence:
-    BaseValue: 0
+  Modifiers:
+  - Stat: 0
+    Modifier:
+      Value: 15
+      Type: 100
+      Order: 0
+  - Stat: 3
+    Modifier:
+      Value: 50
+      Type: 100
+      Order: 0

@@ -91,7 +91,6 @@ namespace _Rogues_Path.Pawns {
                 // Set owner and update sprite
                 equipment.Owner = this;
                 equipment.gameObject.SetActive(true);
-                Debug.Log($"Equipping to character");
                 character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
 
                 // Raise a new EquipmentEquipped event
