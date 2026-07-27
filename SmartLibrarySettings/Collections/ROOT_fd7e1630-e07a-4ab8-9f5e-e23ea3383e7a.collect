@@ -4423,6 +4423,14 @@ MonoBehaviour:
       _guid: 0bffa56b051eb0d4794401be60fa170d
     collectionIds:
     - _serializedGuid: 4ed726632c5f5942b413d176011af60d
+  - item:
+      _guid: 4b3fd4c25ce266843ac2659ddb52e780
+    collectionIds:
+    - _serializedGuid: 6e797a658a238e489a15f94920971f6c
+  - item:
+      _guid: cacdc738fd7665e478986589bfbb5266
+    collectionIds:
+    - _serializedGuid: c251acf758af4d4786169bd6102b79d6
   references:
     version: 2
     RefIds: []

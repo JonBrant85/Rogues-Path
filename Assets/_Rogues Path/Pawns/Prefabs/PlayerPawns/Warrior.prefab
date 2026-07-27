@@ -1110,18 +1110,25 @@ MonoBehaviour:
     keyValueData: []
   Inventory: []
   InventorySpaces: 2
-  MaxHealth:
-    BaseValue: 100
-  Strength:
-    BaseValue: 10
-  Dexterity:
-    BaseValue: 10
-  Intelligence:
-    BaseValue: 10
-  Speed:
-    BaseValue: 1
   CurrentHealth: 100
   IsDead: 0
+  Stats:
+    keyValueData: []
+  MaxHealth:
+    CharacterStatID: {fileID: 11400000, guid: 79fa9fe92e4a1f9408b5500133a7d843, type: 2}
+    BaseValue: 100
+  Strength:
+    CharacterStatID: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
+    BaseValue: 10
+  Dexterity:
+    CharacterStatID: {fileID: 11400000, guid: 5facc1ffa6ddc624eb5f40dac8894151, type: 2}
+    BaseValue: 10
+  Intelligence:
+    CharacterStatID: {fileID: 11400000, guid: 7d87ff68130a0e04eacf33f56dbf3773, type: 2}
+    BaseValue: 10
+  Speed:
+    CharacterStatID: {fileID: 11400000, guid: f83e6ba1a23fc8544ab334d95a590d9b, type: 2}
+    BaseValue: 1
 --- !u!114 &757649268946039768
 MonoBehaviour:
   m_ObjectHideFlags: 0

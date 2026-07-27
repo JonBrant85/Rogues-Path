@@ -51,7 +51,7 @@ namespace _Rogues_Path.PawnCommands.Commands {
             GameObject.Instantiate(ImpactVFX, target.transform.position, Quaternion.identity);
             GameObject.Instantiate(DistortionVFX, target.transform.position, Quaternion.identity);
 
-            await UniTask.Delay((int)target.TakeDamage(Damage.Calculate(caster), caster) * 1000);
+            await UniTask.Delay((int)target.TakeDamage((int)Damage.Calculate(caster), caster) * 1000);
         }
     }
 }

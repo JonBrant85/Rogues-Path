@@ -16,4 +16,4 @@ MonoBehaviour:
   Description: Looks peaceful enough... is it?
   BackgroundPrefab: {fileID: 1132246657655184337, guid: 6977c53a71029b343846a7efc70a6642, type: 3}
   Enemies:
-  - {fileID: 7609254587843330138, guid: 9a65d97a36999404e91bf020554cd609, type: 3}
+  - {fileID: 3471178067932725354, guid: 4b3fd4c25ce266843ac2659ddb52e780, type: 3}

@@ -1,124 +1,115 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using _Rogues_Path.UI.CharacterScreen;
+using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-namespace Kryz.CharacterStats
-{
-	[Serializable]
-	public class CharacterStat
-	{
-		public float BaseValue;
+namespace Kryz.CharacterStats {
+    [Serializable]
+    public class CharacterStat {
+        public string Name => CharacterStatID.name;
+        public CharacterStatID CharacterStatID;
+        public float BaseValue;
+        protected bool isDirty = true;
+        protected float lastBaseValue;
 
-		protected bool isDirty = true;
-		protected float lastBaseValue;
+        protected float _value;
+        public virtual float Value {
+            get {
+                if (isDirty || lastBaseValue != BaseValue) {
+                    lastBaseValue = BaseValue;
+                    _value = CalculateFinalValue();
+                    isDirty = false;
+                }
 
-		protected float _value;
-		public virtual float Value
-		{
-			get
-			{
-				if (isDirty || lastBaseValue != BaseValue)
-				{
-					lastBaseValue = BaseValue;
-					_value = CalculateFinalValue();
-					isDirty = false;
-				}
-				return _value;
-			}
-		}
+                return _value;
+            }
+        }
 
-		protected readonly List<StatModifier> statModifiers;
-		public readonly ReadOnlyCollection<StatModifier> StatModifiers;
+        protected readonly List<StatModifier> statModifiers;
+        public readonly ReadOnlyCollection<StatModifier> StatModifiers;
 
-		private readonly Comparison<StatModifier> comparison;
-		private readonly Predicate<StatModifier> predicate;
-		private object sourceToRemove;
+        private readonly Comparison<StatModifier> comparison;
+        private readonly Predicate<StatModifier> predicate;
+        private object sourceToRemove;
 
-		public CharacterStat()
-		{
-			statModifiers = new List<StatModifier>();
-			StatModifiers = statModifiers.AsReadOnly();
-			comparison = CompareModifierOrder;
-			predicate = modifier => modifier.Source == sourceToRemove;
-		}
+        public CharacterStat() {
+            statModifiers = new List<StatModifier>();
+            StatModifiers = statModifiers.AsReadOnly();
+            comparison = CompareModifierOrder;
+            predicate = modifier => modifier.Source == sourceToRemove;
+        }
 
-		public CharacterStat(float baseValue) : this()
-		{
-			BaseValue = baseValue;
-		}
+        public CharacterStat(float baseValue) : this() {
+            BaseValue = baseValue;
+        }
 
-		public virtual void AddModifier(StatModifier mod)
-		{
-			statModifiers.Add(mod);
-			isDirty = true;
-		}
+        public virtual void AddModifier(StatModifier mod) {
+            statModifiers.Add(mod);
+            isDirty = true;
+        }
 
-		public virtual bool RemoveModifier(StatModifier mod)
-		{
-			if (statModifiers.Remove(mod))
-			{
-				isDirty = true;
-				return true;
-			}
-			return false;
-		}
+        public virtual bool RemoveModifier(StatModifier mod) {
+            if (statModifiers.Remove(mod)) {
+                isDirty = true;
+                return true;
+            }
 
-		public virtual bool RemoveAllModifiersFromSource(object source)
-		{
-			sourceToRemove = source;
-			int numRemovals = statModifiers.RemoveAll(predicate);
-			sourceToRemove = null; // Don't hang on to the object, so we don't prevent it from being GC'ed.
+            return false;
+        }
 
-			if (numRemovals > 0)
-			{
-				isDirty = true;
-				return true;
-			}
-			return false;
-		}
+        public virtual bool RemoveAllModifiersFromSource(object source) {
+            sourceToRemove = source;
+            int numRemovals = statModifiers.RemoveAll(predicate);
+            sourceToRemove = null; // Don't hang on to the object, so we don't prevent it from being GC'ed.
 
-		protected virtual int CompareModifierOrder(StatModifier a, StatModifier b)
-		{
-			if (a.Order < b.Order)
-				return -1;
-			else if (a.Order > b.Order)
-				return 1;
-			return 0; //if (a.Order == b.Order)
-		}
+            if (numRemovals > 0) {
+                isDirty = true;
+                return true;
+            }
 
-		protected virtual float CalculateFinalValue()
-		{
-			float finalValue = BaseValue;
-			float sumPercentAdd = 0;
+            return false;
+        }
 
-			statModifiers.Sort(comparison);
+        protected virtual int CompareModifierOrder(StatModifier a, StatModifier b) {
+            if (a.Order < b.Order)
+                return -1;
+            else if (a.Order > b.Order)
+                return 1;
+            return 0; //if (a.Order == b.Order)
+        }
 
-			for (int i = 0; i < statModifiers.Count; i++)
-			{
-				StatModifier mod = statModifiers[i];
+        protected virtual float CalculateFinalValue() {
+            float finalValue = BaseValue;
+            float sumPercentAdd = 0;
 
-				if (mod.Type == StatModType.Flat)
-				{
-					finalValue += mod.Value;
-				}
-				else if (mod.Type == StatModType.PercentAdd)
-				{
-					sumPercentAdd += mod.Value;
+            statModifiers.Sort(comparison);
 
-					if (i + 1 >= statModifiers.Count || statModifiers[i + 1].Type != StatModType.PercentAdd)
-					{
-						finalValue *= 1 + sumPercentAdd;
-						sumPercentAdd = 0;
-					}
-				}
-				else if (mod.Type == StatModType.PercentMult)
-				{
-					finalValue *= 1 + mod.Value;
-				}
-			}
+            for (int i = 0; i < statModifiers.Count; i++) {
+                StatModifier mod = statModifiers[i];
 
-			// Workaround for float calculation errors, like displaying 12.00001 instead of 12
-			return (float)Math.Round(finalValue, 4);
-		}
-	}
+                if (mod.Type == StatModType.Flat) {
+                    finalValue += mod.Value;
+                }
+                else if (mod.Type == StatModType.PercentAdd) {
+                    sumPercentAdd += mod.Value;
+
+                    if (i + 1 >= statModifiers.Count || statModifiers[i + 1].Type != StatModType.PercentAdd) {
+                        finalValue *= 1 + sumPercentAdd;
+                        sumPercentAdd = 0;
+                    }
+                }
+                else if (mod.Type == StatModType.PercentMult) {
+                    finalValue *= 1 + mod.Value;
+                }
+            }
+
+            // Workaround for float calculation errors, like displaying 12.00001 instead of 12
+            return (float)Math.Round(finalValue, 4);
+        }
+    }
 }

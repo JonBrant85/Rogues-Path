@@ -13,7 +13,7 @@ namespace _Rogues_Path.PawnCommands.Commands {
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
             instigator.Slash();
             await UniTask.Delay((int)instigator.Jab() * 1000);
-            await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage(damage.Calculate(instigator), instigator) * 1000);
+            await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage((int)damage.Calculate(instigator), instigator) * 1000);
         }
     }
 }

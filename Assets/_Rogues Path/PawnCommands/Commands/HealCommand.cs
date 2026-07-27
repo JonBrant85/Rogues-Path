@@ -16,11 +16,11 @@ namespace _Rogues_Path.PawnCommands.Commands {
             if (TargetCaster) {
                 await UniTask.Delay((int)AnimationDuration*1000);
                 Debug.Log($"Healing caster for {DamageToHeal.Calculate(instigator)}");
-                await UniTask.Delay((int)instigator.TakeDamage(DamageToHeal.Calculate(instigator)*1000, instigator));
+                await UniTask.Delay((int)instigator.TakeDamage((int)DamageToHeal.Calculate(instigator)*1000, instigator));
             }
             else {
                 foreach (var target in victims) {
-                    await UniTask.Delay((int)target.TakeDamage(DamageToHeal.Calculate(target)*1000, target));
+                    await UniTask.Delay((int)target.TakeDamage((int)DamageToHeal.Calculate(target)*1000, target));
                 }
             }
         }

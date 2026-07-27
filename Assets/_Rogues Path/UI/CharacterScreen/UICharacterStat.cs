@@ -3,30 +3,40 @@ using System.Diagnostics;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using Kryz.CharacterStats;
+using Sirenix.OdinInspector.Editor.GettingStarted;
 using UnityEngine;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 namespace _Rogues_Path.UI.CharacterScreen {
-    public class UICharacterStat: MonoBehaviour {
+    public class UICharacterStat : MonoBehaviour {
+        [SerializeField] private float adjustmentSpeed = 10;
         public Text LabelText;
         public Text ValueText;
         public Pawn Owner;
-        public void SetCharacterStat(CharacterStats stat, Pawn owner, string _name) {
+
+        private CharacterStat stat;
+        private float smoothedValue;
+
+        public void SetCharacterStat(CharacterStat _stat, Pawn owner, string _name) {
             LabelText.text = _name;
             Owner = owner;
-            
-            ValueText.text = stat switch {
-                CharacterStats.Intelligence => owner.Intelligence.Value.ToString(),
-                CharacterStats.Strength => owner.Strength.Value.ToString(),
-                CharacterStats.Dexterity => owner.Dexterity.Value.ToString(),
-                CharacterStats.MaxHealth => owner.MaxHealth.Value.ToString(),
-                CharacterStats.Speed => owner.Speed.Value.ToString(),
-                _ => throw new ArgumentOutOfRangeException(nameof(stat), stat, null)
-            };
-            
-            
+            stat = _stat;
             gameObject.SetActive(true);
-            
+        }
+
+        public void UpdateValue() {
+            var val = stat.Value;
+            var diff = Mathf.Abs(val - smoothedValue);
+            var dv = Mathf.Min(diff, Mathf.Max(diff * adjustmentSpeed * Time.deltaTime, 10f * adjustmentSpeed * Time.deltaTime));
+
+            string colorString = (val - smoothedValue) switch {
+                > 0 => "<color=green>",
+                < 0 => "<color=red>",
+                _ => "<color=white>"
+            };
+            smoothedValue += dv * Mathf.Sign(val - smoothedValue);
+            ValueText.text = $"{colorString}{smoothedValue:N0}</color>";
         }
     }
 }

@@ -1,11 +1,17 @@
 using System;
 using System.Collections.Generic;
 using _Rogues_Path.Equipment.Scripts;
+using _Rogues_Path.UI.CharacterScreen;
 using HeroEditor.Common.Enums;
+using Kryz.CharacterStats;
 using UnityEngine;
 
 namespace _Rogues_Path.Utilities {
     [Serializable] public class BuffsDictionary : UnitySerializedDictionary<string, int> {}
+
+    [Serializable] public class StatUIStat : UnitySerializedDictionary<CharacterStat, UICharacterStat> {}
+
+    [Serializable] public class IDStatDictionary : UnitySerializedDictionary<CharacterStatID, CharacterStat> {}
 
 
     [Serializable] public class EquipmentDictionary : UnitySerializedDictionary<EquipmentPart, EquipmentBase> {

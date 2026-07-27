@@ -8,6 +8,7 @@ using _Rogues_Path.Utilities.Events;
 using HeroEditor.Common.Enums;
 using Kryz.CharacterStats;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,7 +24,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
         [FoldoutGroup("References"), SerializeField] private Text CharacterClassText;
 
 
-        private Dictionary<CharacterStats, UICharacterStat> stats = new();
+        [SerializeField] private StatUIStat stats = new();
 
         private void OnEnable() {
             EventBus.SubscribeTo<PawnStatChanged>(PawnStatChangedEventHandler);
@@ -33,9 +34,18 @@ namespace _Rogues_Path.UI.CharacterScreen {
             EventBus.UnsubscribeFrom<PawnStatChanged>(PawnStatChangedEventHandler);
         }
 
+        
+        private void Update() {
+            foreach (var kvp in stats) {
+                kvp.Value.LabelText.text = kvp.Key.Name;
+                kvp.Value.UpdateValue();
+            }
+        }
+        
+        
         private void PawnStatChangedEventHandler(ref PawnStatChanged eventData) {
-            ClearCharacterStats();
-            ShowCharacterStats();
+            //ClearCharacterStats();
+            //ShowCharacterStats();
         }
 
         public void SetPlayer(Pawn _player) {
@@ -55,21 +65,21 @@ namespace _Rogues_Path.UI.CharacterScreen {
         }
 
         private void ShowCharacterStats() {
-            BindCharacterStat(CharacterStats.MaxHealth, "Maximum Health");
-            BindCharacterStat(CharacterStats.Strength, " Strength");
-            BindCharacterStat(CharacterStats.Dexterity, "Dexterity");
-            BindCharacterStat(CharacterStats.Intelligence, "Intelligence");
-            BindCharacterStat(CharacterStats.Speed, "Speed");
+            BindCharacterStat(player.MaxHealth, "Maximum Health");
+            BindCharacterStat(player.Strength, " Strength");
+            BindCharacterStat(player.Dexterity, "Dexterity");
+            BindCharacterStat(player.Intelligence, "Intelligence");
+            BindCharacterStat(player.Speed, "Speed");
         }
 
-        private void BindCharacterStat(CharacterStats stat, string _name) {
+        private void BindCharacterStat(CharacterStat stat, string _name) {
             var uiStat = Instantiate(StatPrefab, StatsContainer);
             uiStat.SetCharacterStat(stat, player, _name);
             stats.Add(stat, uiStat);
         }
 
         private void ClearCharacterStats() {
-            foreach (CharacterStats key in stats.Keys) {
+            foreach (var key in stats.Keys) {
                 if (stats[key] != null) {
                     Destroy(stats[key].gameObject);
                 }

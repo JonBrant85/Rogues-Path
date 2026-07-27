@@ -21931,7 +21931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -21965,7 +21965,8 @@ MonoBehaviour:
         FireballPrefab: {fileID: 5509305661840162670, guid: 93493751bafa07b4ebec5bc245d5d2b4, type: 3}
         ImpactVFX: {fileID: 5175581799238459098, guid: acb4d7245301352429381eae56a82708, type: 3}
         DistortionVFX: {fileID: 316058135033991530, guid: 40a4f83415f30d14496ed106a10de339, type: 3}
-        Damage: 15
+        Damage:
+          Multiplier: 3
         TravelTime: 1
         Offset: {x: 1, y: 1.5, z: 0}
 --- !u!114 &-5326222360722580557
@@ -22002,18 +22003,25 @@ MonoBehaviour:
     keyValueData: []
   Inventory: []
   InventorySpaces: 2
-  MaxHealth:
-    BaseValue: 100
-  Strength:
-    BaseValue: 10
-  Dexterity:
-    BaseValue: 10
-  Intelligence:
-    BaseValue: 10
-  Speed:
-    BaseValue: 1
   CurrentHealth: 100
   IsDead: 0
+  Stats:
+    keyValueData: []
+  MaxHealth:
+    CharacterStatID: {fileID: 11400000, guid: 79fa9fe92e4a1f9408b5500133a7d843, type: 2}
+    BaseValue: 100
+  Strength:
+    CharacterStatID: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
+    BaseValue: 10
+  Dexterity:
+    CharacterStatID: {fileID: 11400000, guid: 5facc1ffa6ddc624eb5f40dac8894151, type: 2}
+    BaseValue: 10
+  Intelligence:
+    CharacterStatID: {fileID: 11400000, guid: 7d87ff68130a0e04eacf33f56dbf3773, type: 2}
+    BaseValue: 10
+  Speed:
+    CharacterStatID: {fileID: 11400000, guid: f83e6ba1a23fc8544ab334d95a590d9b, type: 2}
+    BaseValue: 1
 --- !u!114 &9153574794296175084
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.UI.CharacterScreen;
 using DG.Tweening;
 using DuloGames.UI;
 using HeroEditor.Common.Data;
@@ -8,19 +9,13 @@ using HeroEditor.Common.Enums;
 using Kryz.CharacterStats;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Rogues_Path.Equipment.Scripts {
-    public enum CharacterStats {
-        Intelligence,
-        Strength,
-        Dexterity,
-        MaxHealth,
-        Speed
-    }
-
     [Serializable]
     public struct StatAndModifierPair {
-        public CharacterStats Stat;
+        [FormerlySerializedAs("Stat")]
+        public CharacterStatID StatID;
         public StatModifier Modifier;
     }
 
@@ -34,7 +29,7 @@ namespace _Rogues_Path.Equipment.Scripts {
         public UIItemQuality Quality;
         public EquipmentPart EquipType = EquipmentPart.Armor;
         [FoldoutGroup("Debug")] public Pawn Owner;
-        
+
         public List<StatAndModifierPair> Modifiers;
 
 
@@ -52,54 +47,32 @@ namespace _Rogues_Path.Equipment.Scripts {
 
         abstract protected void HandleSubscribing();
         abstract protected void HandleUnsubscribing();
-        
+
         public void ApplyModifiers(List<StatAndModifierPair> modifiers, Pawn owner) {
-            foreach (StatAndModifierPair modifierPair in modifiers) {
-                switch (modifierPair.Stat) {
-                    case CharacterStats.Intelligence:
-                        owner.Intelligence.AddModifier(modifierPair.Modifier);
-                        break;
-                    case CharacterStats.Strength:
-                        owner.Strength.AddModifier(modifierPair.Modifier);
-                        break;
-                    case CharacterStats.Dexterity:
-                        owner.Dexterity.AddModifier(modifierPair.Modifier);
-                        break;
-                    case CharacterStats.MaxHealth:
-                        owner.MaxHealth.AddModifier(modifierPair.Modifier);
-                        break;
-                    case CharacterStats.Speed:
-                        owner.Speed.AddModifier(modifierPair.Modifier);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+            for (int index = 0; index < modifiers.Count; index++) {
+                StatAndModifierPair modifierPair = modifiers[index];
+
+                if (owner.Stats.TryGetValue(modifierPair.StatID, out CharacterStat stat)) {
+                    stat.AddModifier(modifierPair.Modifier);
+                }
+                else {
+                    owner.Stats.Add(modifierPair.StatID, new CharacterStat {
+                        CharacterStatID = modifierPair.StatID,
+                        BaseValue = 0
+                    });
                 }
             }
         }
 
         public void RemoveModifiers(List<StatAndModifierPair> modifiers, Pawn owner) {
-            foreach (StatAndModifierPair modifierPair in modifiers) {
-                switch (modifierPair.Stat) {
-                    case CharacterStats.Intelligence:
-                        owner.Intelligence.RemoveModifier(modifierPair.Modifier);
-                        break;
-                    case CharacterStats.Strength:
-                        owner.Strength.RemoveModifier(modifierPair.Modifier);
-                        break;
-                    case CharacterStats.Dexterity:
-                        owner.Dexterity.RemoveModifier(modifierPair.Modifier);
-                        break;
-                    case CharacterStats.MaxHealth:
-                        owner.MaxHealth.RemoveModifier(modifierPair.Modifier);
-                        break;
-                    case CharacterStats.Speed:
-                        owner.Speed.RemoveModifier(modifierPair.Modifier);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
+            // Remove modifiers in reverse juuuust in case
+            for (int index = modifiers.Count - 1; index >= 0; index--) {
+                StatAndModifierPair modifierPair = modifiers[index];
+
+                if (owner.Stats.TryGetValue(modifierPair.StatID, out CharacterStat stat)) {
+                    stat.RemoveModifier(modifierPair.Modifier);
                 }
             }
         }
     }
-
 }

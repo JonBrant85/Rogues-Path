@@ -82,13 +82,13 @@ MonoBehaviour:
   EquipType: 1
   Owner: {fileID: 0}
   Modifiers:
-  - Stat: 0
-    Modifier:
-      Value: 15
-      Type: 100
-      Order: 0
-  - Stat: 3
+  - StatID: {fileID: 11400000, guid: 79fa9fe92e4a1f9408b5500133a7d843, type: 2}
     Modifier:
       Value: 50
+      Type: 100
+      Order: 0
+  - StatID: {fileID: 11400000, guid: 7d87ff68130a0e04eacf33f56dbf3773, type: 2}
+    Modifier:
+      Value: 5
       Type: 100
       Order: 0

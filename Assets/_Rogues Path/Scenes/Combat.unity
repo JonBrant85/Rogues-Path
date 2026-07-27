@@ -1803,6 +1803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d72c5404ca4b0a957ffa7148425bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adjustmentSpeed: 1
   LabelText: {fileID: 1033821259}
   ValueText: {fileID: 1033610864}
   Owner: {fileID: 0}
@@ -5935,7 +5936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3254902, g: 0.29803923, b: 0.25882354, a: 1}
+  m_Color: {r: 0.99215686, g: 0.8980392, b: 0.7607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -58329,6 +58330,8 @@ MonoBehaviour:
   SpacerPrefab: {fileID: 723926087925989922}
   CharacterNameText: {fileID: 835603993567301526}
   CharacterClassText: {fileID: 835712557445124168}
+  stats:
+    keyValueData: []
 --- !u!224 &4708300478713261232
 RectTransform:
   m_ObjectHideFlags: 0

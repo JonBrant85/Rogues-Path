@@ -8,17 +8,22 @@ using UnityEngine;
 
 namespace _Rogues_Path.Pawns {
     public partial class Pawn {
+        public float CurrentHealth = 50;
+        public bool IsDead = false;
+        public IDStatDictionary Stats = new();
         public CharacterStat MaxHealth;
         public CharacterStat Strength;
         public CharacterStat Dexterity;
         public CharacterStat Intelligence;
         public CharacterStat Speed;
 
-        public float CurrentHealth = 50;
-        public bool IsDead = false;
-
         public void InitializeStats() {
             CurrentHealth = MaxHealth.Value;
+            Stats.Add(MaxHealth.CharacterStatID, MaxHealth);
+            Stats.Add(Strength.CharacterStatID, Strength);
+            Stats.Add(Dexterity.CharacterStatID, Dexterity);
+            Stats.Add(Intelligence.CharacterStatID, Intelligence);
+            Stats.Add(Speed.CharacterStatID, Speed);
         }
 
         public float TakeDamage(int damage, Pawn instigator) {
