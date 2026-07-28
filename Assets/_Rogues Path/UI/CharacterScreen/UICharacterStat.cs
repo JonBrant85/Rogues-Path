@@ -1,9 +1,5 @@
-using System;
-using System.Diagnostics;
-using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using Kryz.CharacterStats;
-using Sirenix.OdinInspector.Editor.GettingStarted;
 using UnityEngine;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;

@@ -971,111 +971,14 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   KnownSpells:
-  - SpellCommand:
-      rid: 7368512970869964812
-    ID: 0
-    Name: Slash
-    Icon: {fileID: 21300000, guid: 86ba59d1b59806f46881ab4184b28793, type: 3}
-    Description: Slash with the equipped weapon
-    Range: 0
-    Cooldown: 3.5
-    CastTime: 0
-    PowerCost: 0
-    Flags: 0
-  - SpellCommand:
-      rid: 7368512955991457794
-    ID: 0
-    Name: Quick Jab
-    Icon: {fileID: 21300000, guid: 4d710d2f71ec9ef4781ab1a616a6c00a, type: 3}
-    Description: A quick jab with the equipped weapon
-    Range: 0
-    Cooldown: 1.5
-    CastTime: 0
-    PowerCost: 0
-    Flags: 0
-  - SpellCommand:
-      rid: 7368512955991457795
-    ID: 0
-    Name: Block
-    Icon: {fileID: 21300000, guid: cbb8735846f21ea4c9975228b703a459, type: 3}
-    Description: Block all incoming damage from the next attack
-    Range: 0
-    Cooldown: 1
-    CastTime: 0
-    PowerCost: 0
-    Flags: 0
+  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
   PreparedSpells:
-  - SpellCommand:
-      rid: 7368512955991457792
-    ID: 0
-    Name: Slash
-    Icon: {fileID: 21300000, guid: 86ba59d1b59806f46881ab4184b28793, type: 3}
-    Description: Slash with the equipped weapon
-    Range: 0
-    Cooldown: 3.5
-    CastTime: 0
-    PowerCost: 0
-    Flags: 0
-  - SpellCommand:
-      rid: 7368512931373514752
-    ID: 0
-    Name: Quick Jab
-    Icon: {fileID: 21300000, guid: 4d710d2f71ec9ef4781ab1a616a6c00a, type: 3}
-    Description: A quick jab with the equipped weapon
-    Range: 0
-    Cooldown: 1.5
-    CastTime: 0
-    PowerCost: 0
-    Flags: 0
-  - SpellCommand:
-      rid: 7368512931373514778
-    ID: 0
-    Name: Block
-    Icon: {fileID: 21300000, guid: cbb8735846f21ea4c9975228b703a459, type: 3}
-    Description: Block all incoming damage from the next attack
-    Range: 0
-    Cooldown: 1
-    CastTime: 0
-    PowerCost: 0
-    Flags: 0
+  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
   Owner: {fileID: 573530404942738072}
   ActionDelay: 2
   TimeUntilAction: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 7368512931373514752
-      type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        damage:
-          Multiplier: 1
-    - rid: 7368512931373514778
-      type: {class: Block, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        AnimationClip: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
-        BlockBuff: {fileID: 89309760335961123, guid: af1119e00ce0d4c4582d53bc7caf3c92, type: 3}
-        Count: 1
-    - rid: 7368512955991457792
-      type: {class: SlashCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        damage:
-          Multiplier: 1
-    - rid: 7368512955991457794
-      type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        damage:
-          Multiplier: 1
-    - rid: 7368512955991457795
-      type: {class: Block, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        AnimationClip: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
-        BlockBuff: {fileID: 89309760335961123, guid: af1119e00ce0d4c4582d53bc7caf3c92, type: 3}
-        Count: 1
-    - rid: 7368512970869964812
-      type: {class: SlashCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        damage:
-          Multiplier: 1
 --- !u!114 &573530404942738072
 MonoBehaviour:
   m_ObjectHideFlags: 0

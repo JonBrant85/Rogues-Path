@@ -7,12 +7,12 @@ using Cysharp.Threading.Tasks;
 
 namespace _Rogues_Path.PawnCommands.Commands {
     public class JabCommand : Command{
-        public StrengthMultiplier damage;
+        public StrengthMultiplier StrengthMultiplier;
         public JabCommand(Pawn hero) : base(hero) {}
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
             await UniTask.Delay((int)instigator.Jab()*1000);
-            await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage((int)damage.Calculate(instigator), instigator)*1000);
+            await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage((int)StrengthMultiplier.Calculate(instigator), instigator)*1000);
         }
     }
 }

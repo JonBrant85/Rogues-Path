@@ -2278,14 +2278,13 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  KnownSpells: []
-  PreparedSpells: []
+  KnownSpells:
+  - {fileID: 11400000, guid: abc751bd389cb754a9cd8792504d58ca, type: 2}
+  PreparedSpells:
+  - {fileID: 11400000, guid: abc751bd389cb754a9cd8792504d58ca, type: 2}
   Owner: {fileID: 1430778944795915087}
   ActionDelay: 2
   TimeUntilAction: 0
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &1430778944795915087
 MonoBehaviour:
   m_ObjectHideFlags: 0

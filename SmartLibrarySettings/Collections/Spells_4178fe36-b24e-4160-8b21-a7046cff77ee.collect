@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: Spells
+  m_EditorClassIdentifier: 
+  _parentID:
+    _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
+  _subcollectionIDs: []
+  _collectionName: Spells
+  _id:
+    _serializedGuid: 36fe78414eb260418b21a7046cff77ee
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - 4f7b692d4d5e21847a048e0de3c72d56
+    - ce63be8985c9d78459369658aca43841
+    - 048b69801390b2c418c7bcadc8a19978
+    - 156246bacbcd3d343a3a22310ca48f1a
+    - a2f98e22f8033f64e9646a5504a90897
+    - abc751bd389cb754a9cd8792504d58ca
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []

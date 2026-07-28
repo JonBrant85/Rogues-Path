@@ -1,21 +1,23 @@
 using UnityEngine;
 using System;
+using _Rogues_Path._Game;
 using _Rogues_Path.Commands;
+using Sirenix.OdinInspector;
 
 namespace DuloGames.UI {
-    [Serializable]
-    public class UISpellInfo {
+    [CreateAssetMenu(fileName = "New UISpellInfo", menuName = Game.Name + "/Data/" + nameof(UISpellInfo))]
+    public class UISpellInfo : ScriptableObject {
         [SerializeReference] public Command SpellCommand;
         public int ID;
         public string Name;
         public Sprite Icon;
         public string Description;
-        public float Range;
         public float Cooldown;
-        public float CastTime;
-        public float PowerCost;
-
         [BitMask(typeof(UISpellInfo_Flags))]
         public UISpellInfo_Flags Flags;
+
+        [FoldoutGroup("Unused")] public float Range;
+        [FoldoutGroup("Unused")] public float CastTime;
+        [FoldoutGroup("Unused")] public float PowerCost;
     }
 }

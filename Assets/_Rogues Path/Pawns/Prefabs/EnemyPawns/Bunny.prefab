@@ -670,11 +670,11 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 1|_Rogues_Path.PawnCommands.Commands.JabCommand, Assembly-CSharp
-    - Name: damage
+    - Name: StrengthMultiplier
       Entry: 7
       Data: 2|_Rogues_Path.PawnCommands.Calculators.StrengthMultiplier, Assembly-CSharp
     - Name: Multiplier
-      Entry: 3
+      Entry: 4
       Data: 1
     - Name: 
       Entry: 8
@@ -693,9 +693,6 @@ MonoBehaviour:
   Owner: {fileID: 3471178067932725354}
   ActionDelay: 3
   TimeUntilAction: 3
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &3471178067932725354
 MonoBehaviour:
   m_ObjectHideFlags: 0

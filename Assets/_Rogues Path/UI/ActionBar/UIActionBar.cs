@@ -24,9 +24,8 @@ namespace _Rogues_Path.UI.ActionBar {
         public void SetPlayer(Pawn player) {
             Player = player;
 
-            for (int i = 0; i < NumberOfSlots && i < Player.Brain.KnownSpells.Count; i++) {
-                Slots[i]
-                    .Assign(Player.Brain.KnownSpells[i]);
+            for (int i = 0; i < NumberOfSlots && i < Player.Brain.PreparedSpells.Count; i++) {
+                Slots[i].Assign(Player.Brain.PreparedSpells[i]);
             }
         }
 
@@ -38,10 +37,8 @@ namespace _Rogues_Path.UI.ActionBar {
 
         public UISpellInfo GetFirstSpellOffCooldown() {
             for (int i = 0; i < Slots.Length; i++) {
-                if (!Slots[i]
-                    .cooldownComponent.IsOnCooldown) {
-                    return Slots[i]
-                        .GetSpellInfo();
+                if (!Slots[i].cooldownComponent.IsOnCooldown) {
+                    return Slots[i].GetSpellInfo();
                 }
             }
 

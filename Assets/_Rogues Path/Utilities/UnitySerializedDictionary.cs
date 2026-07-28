@@ -11,7 +11,9 @@ namespace _Rogues_Path.Utilities {
 
     [Serializable] public class StatUIStat : UnitySerializedDictionary<CharacterStat, UICharacterStat> {}
 
-    [Serializable] public class IDStatDictionary : UnitySerializedDictionary<CharacterStatID, CharacterStat> {}
+    [Serializable]  public class IDStatDictionary : UnitySerializedDictionary<CharacterStatID, CharacterStat> {}
+
+    [Serializable] public class EquipmentPartIntDictionary : UnitySerializedDictionary<EquipmentPart, int> {}
 
 
     [Serializable] public class EquipmentDictionary : UnitySerializedDictionary<EquipmentPart, EquipmentBase> {

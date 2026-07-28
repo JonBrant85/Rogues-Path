@@ -41,5 +41,16 @@ namespace _Rogues_Path.Equipment.Scripts {
 
             return returnValue;
         }
+
+        public static bool GetIDByName(string name, out int ID) {
+            var dbEntry = Instance.equipment.FirstOrDefault(e => e.Name == name);
+            ID = Instance.equipment.IndexOf(dbEntry);
+
+
+            if (dbEntry == null) {
+                Debug.Log($"Failed to find Equipment: {name} in database. Ensure it's been added");
+            }
+            return dbEntry != null;
+        }
     }
 }

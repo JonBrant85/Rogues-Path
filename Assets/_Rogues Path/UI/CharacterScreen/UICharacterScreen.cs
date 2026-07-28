@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.UI.Slots;
@@ -10,15 +11,15 @@ using Kryz.CharacterStats;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Rogues_Path.UI.CharacterScreen {
     public class UICharacterScreen : Singleton<UICharacterScreen> {
         private Pawn player;
-        public List<UIEquipmentSlot> Slots = new();
+        public List<UIEquipmentSlot> EquipmentSlots = new();
         public Transform StatsContainer;
         public UICharacterStat StatPrefab;
-        public GameObject SpacerPrefab;
 
         [FoldoutGroup("References"), SerializeField] private Text CharacterNameText;
         [FoldoutGroup("References"), SerializeField] private Text CharacterClassText;
@@ -26,26 +27,12 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
         [SerializeField] private StatUIStat stats = new();
 
-        private void OnEnable() {
-            EventBus.SubscribeTo<PawnStatChanged>(PawnStatChangedEventHandler);
-        }
-
-        private void OnDisable() {
-            EventBus.UnsubscribeFrom<PawnStatChanged>(PawnStatChangedEventHandler);
-        }
-
-        
         private void Update() {
+            // Poll Character stats
             foreach (var kvp in stats) {
                 kvp.Value.LabelText.text = kvp.Key.Name;
                 kvp.Value.UpdateValue();
             }
-        }
-        
-        
-        private void PawnStatChangedEventHandler(ref PawnStatChanged eventData) {
-            //ClearCharacterStats();
-            //ShowCharacterStats();
         }
 
         public void SetPlayer(Pawn _player) {
@@ -55,14 +42,29 @@ namespace _Rogues_Path.UI.CharacterScreen {
             CharacterNameText.text = player.CharacterName;
             CharacterClassText.text = player.ClassName;
 
-            // Setup equipment slots
-            foreach (UIEquipmentSlot slot in Slots) {
-                slot.Owner = _player;
-            }
-
-
+            SetupEquipmentSlots();
             ShowCharacterStats();
+
+            // Setup equipment slots
+            void SetupEquipmentSlots() {
+                foreach (UIEquipmentSlot slot in EquipmentSlots) {
+                    slot.Owner = _player;
+                    slot.OnAssignEvent.AddListener(OnAssignEventHandler);
+                    slot.OnUnassignEvent.AddListener(OnUnassignEventHandler);
+                }
+
+                void OnAssignEventHandler(Pawn owner, EquipmentBase equipment) {
+                    if (EquipmentDatabase.GetIDByName(equipment.name, out int ID)) {
+                        Game.Instance.PlayerEquipment.Add(equipment.EquipType, ID);
+                    }
+                }
+
+                void OnUnassignEventHandler(Pawn owner, EquipmentBase equipment) {
+                    Game.Instance.PlayerEquipment.Remove(equipment.EquipType);
+                }
+            }
         }
+
 
         private void ShowCharacterStats() {
             BindCharacterStat(player.MaxHealth, "Maximum Health");
@@ -76,15 +78,6 @@ namespace _Rogues_Path.UI.CharacterScreen {
             var uiStat = Instantiate(StatPrefab, StatsContainer);
             uiStat.SetCharacterStat(stat, player, _name);
             stats.Add(stat, uiStat);
-        }
-
-        private void ClearCharacterStats() {
-            foreach (var key in stats.Keys) {
-                if (stats[key] != null) {
-                    Destroy(stats[key].gameObject);
-                }
-            }
-            stats.Clear();
         }
     }
 }

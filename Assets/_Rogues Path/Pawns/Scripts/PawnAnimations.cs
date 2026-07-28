@@ -22,7 +22,7 @@ namespace _Rogues_Path.Pawns {
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip ReviveAnimation;
 
         public float PlayAnimation(AnimationClip clip) {
-            Animazing.Play(clip, 1);
+            Animazing.Play(clip, int.MaxValue);
             return clip.length;
         }
         

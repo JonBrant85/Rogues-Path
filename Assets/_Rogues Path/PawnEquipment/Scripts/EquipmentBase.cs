@@ -19,7 +19,8 @@ namespace _Rogues_Path.Equipment.Scripts {
         public StatModifier Modifier;
     }
 
-    public abstract class EquipmentBase : SerializedMonoBehaviour {
+    [Serializable]
+    public class EquipmentBase : SerializedMonoBehaviour {
         public string Name;
         public string Description = "Default Description";
         public string FlavorText = "Something interesting and profound about the item here";
@@ -45,8 +46,8 @@ namespace _Rogues_Path.Equipment.Scripts {
             this.transform.parent.DOShakeRotation(0.5f, 10f);
         }
 
-        abstract protected void HandleSubscribing();
-        abstract protected void HandleUnsubscribing();
+        virtual protected void HandleSubscribing() {}
+        virtual protected void HandleUnsubscribing() {}
 
         public void ApplyModifiers(List<StatAndModifierPair> modifiers, Pawn owner) {
             for (int index = 0; index < modifiers.Count; index++) {

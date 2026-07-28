@@ -15071,9 +15071,6 @@ MonoBehaviour:
   Owner: {fileID: -8129332116387663913}
   ActionDelay: 2
   TimeUntilAction: 0
-  references:
-    version: 2
-    RefIds: []
 --- !u!114 &-8129332116387663913
 MonoBehaviour:
   m_ObjectHideFlags: 0

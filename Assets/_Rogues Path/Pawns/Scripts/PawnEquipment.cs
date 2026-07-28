@@ -4,6 +4,7 @@ using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
+using Bewildered.SmartLibrary;
 using UnityEngine;
 
 namespace _Rogues_Path.Pawns {
@@ -105,10 +106,11 @@ namespace _Rogues_Path.Pawns {
 
                 // Update game state if necessary
                 
-                /*
+                
                 if (modifyGameState) {
-                    Game.PlayerEquipment.Add(dbEntry.EquipType, dbEntry);
-                }*/
+                    int ID = EquipmentDatabase.Instance.Equipment.IndexOf(dbEntry);
+                    Game.Instance.PlayerEquipment.Add(dbEntry.EquipType, ID );
+                }
 
                 return true;
             }
@@ -119,10 +121,10 @@ namespace _Rogues_Path.Pawns {
 
             character.UnEquip(equipment.EquipType);
             currentEquipment.Remove(equipment.EquipType);
-            /*
+            
             if (modifyGameState) {
-                Game.PlayerEquipment.Remove(equipment.EquipType);
-            }*/
+                Game.Instance.PlayerEquipment.Remove(equipment.EquipType);
+            }
 
             equipment.gameObject.SetActive(false);
             return true;

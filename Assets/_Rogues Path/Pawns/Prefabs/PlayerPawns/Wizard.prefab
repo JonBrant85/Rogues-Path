@@ -21931,7 +21931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -21940,35 +21940,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   KnownSpells:
-  - SpellCommand:
-      rid: 7368512970869964801
-    ID: 0
-    Name: Fireball
-    Icon: {fileID: 21300000, guid: 083b0c04c771710468e35a0b70db0773, type: 3}
-    Description: Fires a ball of fire at the enemy
-    Range: 0
-    Cooldown: 5.5
-    CastTime: 0
-    PowerCost: 0
-    Flags: 0
+  - {fileID: 11400000, guid: 4f7b692d4d5e21847a048e0de3c72d56, type: 2}
   PreparedSpells: []
   Owner: {fileID: -5326222360722580557}
   ActionDelay: 2
   TimeUntilAction: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 7368512970869964801
-      type: {class: Fireball, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
-      data:
-        AnimationClip: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
-        FireballPrefab: {fileID: 5509305661840162670, guid: 93493751bafa07b4ebec5bc245d5d2b4, type: 3}
-        ImpactVFX: {fileID: 5175581799238459098, guid: acb4d7245301352429381eae56a82708, type: 3}
-        DistortionVFX: {fileID: 316058135033991530, guid: 40a4f83415f30d14496ed106a10de339, type: 3}
-        Damage:
-          Multiplier: 3
-        TravelTime: 1
-        Offset: {x: 1, y: 1.5, z: 0}
 --- !u!114 &-5326222360722580557
 MonoBehaviour:
   m_ObjectHideFlags: 0
