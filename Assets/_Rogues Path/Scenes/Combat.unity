@@ -4838,6 +4838,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 528690849}
+  - component: {fileID: 528690850}
   m_Layer: 5
   m_Name: Menu Bar
   m_TagString: Untagged
@@ -4867,6 +4868,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1530, y: 186}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &528690850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528690848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a27fd816a4243e897da5208b060c3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TransitionDuration: 0.5
+  ShownPosition: {x: 0, y: 0, z: 0}
+  HiddenPosition: {x: 0, y: 70, z: 0}
 --- !u!114 &532937839 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 779913038006692011, guid: 8aedf3bbabd630d478c83440ee58ea05, type: 3}
@@ -19080,7 +19096,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1837665675430260, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114337186616930394, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
+      propertyPath: m_Color.a
+      value: 0.98039216
       objectReference: {fileID: 0}
     - target: {fileID: 224903917046679932, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
       propertyPath: m_Pivot.x
@@ -19108,11 +19128,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224903917046679932, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224903917046679932, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -1080
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224903917046679932, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19144,11 +19164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224903917046679932, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -960
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224903917046679932, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224903917046679932, guid: 083fdd75d367e2a418e35a1333ac2889, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -85908,6 +85928,7 @@ GameObject:
   - component: {fileID: 6836357364698929264}
   - component: {fileID: 6836357364698929272}
   - component: {fileID: 6836357364698929267}
+  - component: {fileID: 6836357364698929273}
   m_Layer: 5
   m_Name: Action Bar
   m_TagString: Untagged
@@ -85941,6 +85962,19 @@ MonoBehaviour:
   - {fileID: 1899457144878760802}
   - {fileID: 6893329955438092413}
   - {fileID: 4320138154061942616}
+  canvasGroup: {fileID: 6836357364698929273}
+--- !u!225 &6836357364698929273
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6836357364698929271}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!114 &6836357364700691360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87352,6 +87386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Window: {fileID: 8407385216952425162}
+  BlackOverlay: {fileID: 936476550}
 --- !u!114 &8407385217198343136
 MonoBehaviour:
   m_ObjectHideFlags: 0

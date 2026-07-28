@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar/UIMenuBar.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar/UIMenuBar.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/HeroEditor/Common/Animation/Human.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/HeroEditor/Common/Animation/Human.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Prefabs/Controls/Buttons/Rectangular/Button (Normal M).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Prefabs/Controls/Buttons/Rectangular/Button (Normal M).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Resources/Databases/SpellDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Resources/Databases/SpellDatabase.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/CommandInvoker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/CommandInvoker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Bow Shot.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Bow Shot.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Bunny.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Bunny.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameStateTriggerer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameStateTriggerer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +140,8 @@
       <workItem from="1784939003473" duration="3469000" />
       <workItem from="1785022130536" duration="1000000" />
       <workItem from="1785081522678" duration="14235000" />
-      <workItem from="1785184466881" duration="20119000" />
+      <workItem from="1785184466881" duration="20656000" />
+      <workItem from="1785270451607" duration="5071000" />
     </task>
     <servers />
   </component>

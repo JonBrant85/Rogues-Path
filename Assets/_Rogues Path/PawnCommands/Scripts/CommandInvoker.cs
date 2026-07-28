@@ -33,6 +33,5 @@ public class CommandInvoker {
             if (allPlayersDead) {
                 Game.FireTrigger(Trigger.GameOver);
             }
-            
         }
     }

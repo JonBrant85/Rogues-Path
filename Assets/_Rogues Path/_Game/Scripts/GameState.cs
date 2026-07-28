@@ -1,4 +1,6 @@
 using System.Linq;
+using _Rogues_Path.UI.ActionBar;
+using _Rogues_Path.UI.MenuBar;
 using _Rogues_Path.UI.RewardsScreen;
 using Michsky.LSS;
 using Stateless;
@@ -77,8 +79,11 @@ namespace _Rogues_Path._Game {
             gameState.Configure(State.RewardsScreen)
                 .OnEntry(
                     () => {
-                        UIRewardsScreen.Instance.Window.Show();
+                        UIActionBar.Hide();
+                        UIMenuBar.Hide();
+                        UIRewardsScreen.Show();
                     })
+                .PermitReentry(Trigger.EnterRewardsScreen)
                 .Permit(Trigger.EnterCombat, State.Combat);
         }
 
