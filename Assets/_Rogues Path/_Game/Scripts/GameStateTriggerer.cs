@@ -16,7 +16,7 @@ namespace _Rogues_Path._Game {
         [SerializeField] private Trigger Trigger;
 
         public void SendTrigger() {
-            Game.Instance.FireTrigger(Trigger);
+            Game.FireTrigger(Trigger);
         }
 
         private async UniTaskVoid SendTriggerDelayed() {

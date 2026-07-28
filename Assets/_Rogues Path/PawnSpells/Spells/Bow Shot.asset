@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Bow Shot
   m_EditorClassIdentifier: 
   SpellCommand:
-    rid: 7368513045436039203
+    rid: 7368513049083510785
   ID: 0
-  Name: Dual Jab
-  Icon: {fileID: 21300000, guid: 4c199f73e0d6fb345accbcdb05bbfbff, type: 3}
-  Description: Performs two quick jab attacks
-  Cooldown: 1
+  Name: Bow shot
+  Icon: {fileID: 21300000, guid: b2c4e79645a7fbf429e92645c06f7139, type: 3}
+  Description: Shoots an arrow with the equipped bow
+  Cooldown: 3
   Flags: 1
   Range: 0
   CastTime: 1.5
@@ -26,9 +26,9 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 7368513045436039203
-      type: {class: DualHandJab, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
+    - rid: 7368513049083510785
+      type: {class: BowAttack, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:
-        AnimationClip: {fileID: 7400000, guid: 5803966dea8641719d51896f7be2d4f3, type: 2}
+        BowShotAnimation: {fileID: 7400000, guid: 953ec4ce156642c7b7672963a6583e29, type: 2}
         DexterityMultiplier:
           Multiplier: 1

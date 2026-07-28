@@ -1,4 +1,5 @@
 using System.Linq;
+using _Rogues_Path.UI.RewardsScreen;
 using Michsky.LSS;
 using Stateless;
 using UnityEngine;
@@ -12,7 +13,8 @@ namespace _Rogues_Path._Game {
         CharacterSelection,
         LevelSelection,
         WorldMap,
-        Combat
+        Combat,
+        RewardsScreen
     }
 
     public enum Trigger {
@@ -22,7 +24,9 @@ namespace _Rogues_Path._Game {
         EnterCharacterSelection,
         EnterLevelSelection,
         EnterWorldMap,
-        EnterCombat
+        EnterCombat,
+        EnterRewardsScreen,
+        GameOver
     }
 
     public partial class Game {
@@ -67,12 +71,20 @@ namespace _Rogues_Path._Game {
                     () => {
                         LoadingScreenManager.Instance.LoadScene(Combat);
                     })
-                .Permit(Trigger.EnterMainMenu, State.MainMenu);
+                .Permit(Trigger.EnterMainMenu, State.MainMenu)
+                .Permit(Trigger.EnterRewardsScreen, State.RewardsScreen);
+
+            gameState.Configure(State.RewardsScreen)
+                .OnEntry(
+                    () => {
+                        UIRewardsScreen.Instance.Window.Show();
+                    })
+                .Permit(Trigger.EnterCombat, State.Combat);
         }
 
-        public void FireTrigger(Trigger trigger) {
-            Debug.Assert(gameState.PermittedTriggers.Contains(trigger));
-            gameState.Fire(trigger);
+        public static void FireTrigger(Trigger trigger) {
+            Debug.Assert(Instance.gameState.PermittedTriggers.Contains(trigger));
+            Instance.gameState.Fire(trigger);
         }
     }
 }

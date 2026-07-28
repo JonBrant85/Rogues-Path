@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Rogues_Path._Game;
+using _Rogues_Path.Combat;
 using _Rogues_Path.Commands;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -21,17 +22,17 @@ public class CommandInvoker {
                 await queueCommand.Execute(queueContext.Caster, queueContext.Targets);
             } 
 
-            /*
-            bool allPlayersDead = Game.PlayerPawns.TrueForAll(player => player.IsDead);
-            bool allEnemiesDead = Game.EnemyPawns.TrueForAll(enemy => enemy.IsDead);
+            
+            bool allPlayersDead = Game.Instance.CurrentCharacter.IsDead;
+            bool allEnemiesDead = CombatManager.Instance.Enemy.IsDead;
 
             if (allEnemiesDead) {
-                Game.FireTrigger(GameStateTriggers.EnterRewards);
+                Game.FireTrigger(Trigger.EnterRewardsScreen);
             }
 
             if (allPlayersDead) {
-                Game.FireTrigger(GameStateTriggers.GameOver);
+                Game.FireTrigger(Trigger.GameOver);
             }
-            */
+            
         }
     }
