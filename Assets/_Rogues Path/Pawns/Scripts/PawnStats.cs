@@ -19,11 +19,11 @@ namespace _Rogues_Path.Pawns {
 
         public void InitializeStats() {
             CurrentHealth = MaxHealth.Value;
-            Stats.Add(MaxHealth.CharacterStatID, MaxHealth);
-            Stats.Add(Strength.CharacterStatID, Strength);
-            Stats.Add(Dexterity.CharacterStatID, Dexterity);
-            Stats.Add(Intelligence.CharacterStatID, Intelligence);
-            Stats.Add(Speed.CharacterStatID, Speed);
+            Stats.TryAdd(MaxHealth.CharacterStatID, MaxHealth);
+            Stats.TryAdd(Strength.CharacterStatID, Strength);
+            Stats.TryAdd(Dexterity.CharacterStatID, Dexterity);
+            Stats.TryAdd(Intelligence.CharacterStatID, Intelligence);
+            Stats.TryAdd(Speed.CharacterStatID, Speed);
         }
 
         public float TakeDamage(int damage, Pawn instigator) {

@@ -20,9 +20,11 @@ namespace _Rogues_Path.UI.CharacterScreen {
         public List<UIEquipmentSlot> EquipmentSlots = new();
         public Transform StatsContainer;
         public UICharacterStat StatPrefab;
-
+        public Vector3 PawnPreviewOffset = new Vector3(0, -1.5f, 3f);
         [FoldoutGroup("References"), SerializeField] private Text CharacterNameText;
         [FoldoutGroup("References"), SerializeField] private Text CharacterClassText;
+        [FoldoutGroup("References"), SerializeField] private Camera PawnPreviewCamera;
+        [FoldoutGroup("Debug"), SerializeField] private Pawn pawnPreview;
 
 
         [SerializeField] private StatUIStat stats = new();
@@ -37,11 +39,12 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
         public void SetPlayer(Pawn _player) {
             player = _player;
-
+            
             // Set character name/class
             CharacterNameText.text = player.CharacterName;
             CharacterClassText.text = player.ClassName;
-
+            
+            InitializePawnPreview();
             SetupEquipmentSlots();
             ShowCharacterStats();
 
@@ -61,6 +64,24 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
                 void OnUnassignEventHandler(Pawn owner, EquipmentBase equipment) {
                     Game.Instance.PlayerEquipment.Remove(equipment.EquipType);
+                }
+            }
+
+            void InitializePawnPreview() {
+                pawnPreview = Instantiate(player, PawnPreviewCamera.transform);
+                pawnPreview.transform.localPosition = PawnPreviewOffset;
+                foreach (UIEquipmentSlot slot in EquipmentSlots) {
+                    slot.Owner = _player;
+                    slot.OnAssignEvent.AddListener(OnAssignEventHandler);
+                    slot.OnUnassignEvent.AddListener(OnUnassignEventHandler);
+                }
+                
+                void OnAssignEventHandler(Pawn pawn, EquipmentBase equipment) {
+                    pawnPreview.TryEquip(equipment, false);
+                }
+                
+                void OnUnassignEventHandler(Pawn pawn, EquipmentBase equipment) {
+                    pawnPreview.TryRemoveEquipment(equipment, false);
                 }
             }
         }

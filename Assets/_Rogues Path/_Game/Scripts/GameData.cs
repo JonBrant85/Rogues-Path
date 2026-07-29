@@ -13,5 +13,6 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public LevelData CurrentLevel;
         [FoldoutGroup("Data")] public EquipmentPartIntDictionary PlayerEquipment = new();
         [FoldoutGroup("Data")] public List<int> PlayerInventory = new();
+        [FoldoutGroup("Data")] public List<int>  PendingRewards;
     }
 }

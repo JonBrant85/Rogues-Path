@@ -727,13 +727,13 @@ MonoBehaviour:
     keyValueData: []
   Inventory: []
   InventorySpaces: 2
-  CurrentHealth: 50
+  CurrentHealth: 100
   IsDead: 0
   Stats:
     keyValueData: []
   MaxHealth:
     CharacterStatID: {fileID: 11400000, guid: 79fa9fe92e4a1f9408b5500133a7d843, type: 2}
-    BaseValue: 50
+    BaseValue: 120
   Strength:
     CharacterStatID: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
     BaseValue: 0

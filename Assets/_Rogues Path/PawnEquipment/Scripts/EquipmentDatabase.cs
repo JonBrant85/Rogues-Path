@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _Rogues_Path._Game;
 using _Rogues_Path.Utilities;
+using HeroEditor.Common.Enums;
 using UnityEngine;
 
 namespace _Rogues_Path.Equipment.Scripts {
@@ -50,7 +51,19 @@ namespace _Rogues_Path.Equipment.Scripts {
             if (dbEntry == null) {
                 Debug.Log($"Failed to find Equipment: {name} in database. Ensure it's been added");
             }
+
             return dbEntry != null;
+        }
+
+        public static bool TryGetByID(int ID, out EquipmentBase item) {
+            if (ID >= Instance.equipment.Count) {
+                item = null;
+                Debug.Log($"Failed to find equipment by ID: {ID}");
+                return false;
+            }
+
+            item = Instance.equipment.ElementAt(ID);
+            return item != null;
         }
     }
 }

@@ -10,15 +10,20 @@ namespace _Rogues_Path.UI.MenuBar {
         public Vector3 ShownPosition;
         public Vector3 HiddenPosition;
 
+        private Vector3 InitialPosition = Vector3.zero;
+
+        private void Awake() {
+            InitialPosition = transform.localPosition;
+        }
 
         [Button]
         public static void Show() {
-            Instance.transform.DOMove(Instance.ShownPosition, Instance.TransitionDuration);
+            Instance.transform.DOLocalMove(Instance.InitialPosition + Instance.ShownPosition, Instance.TransitionDuration);
         }
 
         [Button]
         public static void Hide() {
-            Instance.transform.DOMove(Instance.HiddenPosition, Instance.TransitionDuration);
+            Instance.transform.DOLocalMove(Instance.InitialPosition + Instance.HiddenPosition, Instance.TransitionDuration);
         }
     }
 }

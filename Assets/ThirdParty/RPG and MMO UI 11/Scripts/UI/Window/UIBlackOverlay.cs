@@ -8,8 +8,8 @@ namespace DuloGames.UI
     /// </summary>
 	[ExecuteInEditMode, RequireComponent(typeof(CanvasGroup))]
     public class UIBlackOverlay : MonoBehaviour {
-        
-		private CanvasGroup m_CanvasGroup;
+
+        [SerializeField] private CanvasGroup m_CanvasGroup;
         private int m_WindowsCount = 0;
 
         private bool m_Transitioning = false;

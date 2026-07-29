@@ -164,8 +164,14 @@ MonoBehaviour:
   Combat:
     m_SceneAsset: {fileID: 102900000, guid: c426c4bf78d78be44ba07d6beaf9c172, type: 3}
     m_SceneName: Combat
+  Rewards:
+    m_SceneAsset: {fileID: 102900000, guid: 168df800bce8c2c4da709c592ca02615, type: 3}
+    m_SceneName: RewardsScreen
   CurrentCharacter: {fileID: 0}
   CurrentLevel: {fileID: 0}
+  PlayerEquipment:
+    keyValueData: []
+  PlayerInventory: 
 --- !u!4 &101767353
 Transform:
   m_ObjectHideFlags: 0

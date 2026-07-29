@@ -5,16 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar/UIMenuBar.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar/UIMenuBar.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/InventoryChanged.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/InventoryChanged.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/RewardsScreen.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/RewardsScreen.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/CharacterRenderTexture.renderTexture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/CharacterRenderTexture.renderTexture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Black Overlay.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Black Overlay.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Menu Bar.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Menu Bar.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Character).prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Character).prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Inventory).prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Inventory).prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Rewards Screen).prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Rewards Screen).prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Spellbook).prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Spellbook).prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/CommandInvoker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/CommandInvoker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Window/UIBlackOverlay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThirdParty/RPG and MMO UI 11/Scripts/UI/Window/UIBlackOverlay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentDatabase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Bunny.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Bunny.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Archer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Archer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Berserker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Berserker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Priest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Priest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Wizard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Wizard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnStats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/_LoadingScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/_LoadingScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/InventoryWindow/UIInventoryWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/InventoryWindow/UIInventoryWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar/UIMenuBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar/UIMenuBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Logo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Logo.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Scenes_90cbbbb3-49d2-4c2d-83f6-d9032f84c4e2.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Scenes_90cbbbb3-49d2-4c2d-83f6-d9032f84c4e2.collect" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +76,7 @@
     <setting file="file://$USER_HOME$/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Flow/Ports/ValueInputWidget.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/FantasyMonsters/Monsters/Scripts/Editor/PackageUpdater.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.2.5/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.2.5/Runtime/UniTaskScheduler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../INTERFACE - Fantasy Warrior HUD/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/CommandLineTest/ExitCallbacks.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.peturdarri.generic-event-bus@8246d96808/Runtime/TargetedGenericEventBus.cs" root0="SKIP_HIGHLIGHTING" />
@@ -141,7 +174,7 @@
       <workItem from="1785022130536" duration="1000000" />
       <workItem from="1785081522678" duration="14235000" />
       <workItem from="1785184466881" duration="20656000" />
-      <workItem from="1785270451607" duration="5071000" />
+      <workItem from="1785270451607" duration="16179000" />
     </task>
     <servers />
   </component>

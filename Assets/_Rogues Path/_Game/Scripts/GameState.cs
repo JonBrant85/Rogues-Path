@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using System.Linq;
+using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.UI.ActionBar;
 using _Rogues_Path.UI.MenuBar;
 using _Rogues_Path.UI.RewardsScreen;
+using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using Michsky.LSS;
 using Stateless;
 using UnityEngine;
@@ -73,17 +77,33 @@ namespace _Rogues_Path._Game {
                     () => {
                         LoadingScreenManager.Instance.LoadScene(Combat);
                     })
+                .OnExit(
+                    () => {
+                        // Prepare Rewards
+                        for (int i = 0; i < 2; i++) {
+                            if (EquipmentDatabase.GetIDByName(EquipmentDatabase.Instance.Equipment.GetRandomElement().Name, out int ID)) {
+                                Instance.PendingRewards.Add(ID);
+                            }
+                        }
+                        LoadingScreenManager.Instance.LoadScene(Rewards);
+                        UIActionBar.Hide();
+                        UIMenuBar.Hide();
+                    })
                 .Permit(Trigger.EnterMainMenu, State.MainMenu)
                 .Permit(Trigger.EnterRewardsScreen, State.RewardsScreen);
 
             gameState.Configure(State.RewardsScreen)
                 .OnEntry(
                     () => {
-                        UIActionBar.Hide();
-                        UIMenuBar.Hide();
-                        UIRewardsScreen.Show();
+                        
+                        EventBus.Raise(new InventoryChanged());
                     })
-                .PermitReentry(Trigger.EnterRewardsScreen)
+                .OnExit(
+                    () => {
+                        UIActionBar.Show();
+                        UIMenuBar.Show();
+                        UIRewardsScreen.Hide();
+                    })
                 .Permit(Trigger.EnterCombat, State.Combat);
         }
 

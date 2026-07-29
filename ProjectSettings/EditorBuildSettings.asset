@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Rogues Path/Scenes/Combat.unity
     guid: c426c4bf78d78be44ba07d6beaf9c172
+  - enabled: 1
+    path: Assets/_Rogues Path/Scenes/RewardsScreen.unity
+    guid: 168df800bce8c2c4da709c592ca02615
   m_configObjects: {}

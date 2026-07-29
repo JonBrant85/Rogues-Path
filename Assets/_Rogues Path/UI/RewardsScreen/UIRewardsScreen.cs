@@ -1,20 +1,82 @@
+using System;
+using System.Collections.Generic;
+using _Rogues_Path._Game;
+using _Rogues_Path.Equipment.Scripts;
+using _Rogues_Path.Pawns;
+using _Rogues_Path.UI.CharacterScreen;
+using _Rogues_Path.UI.Slots;
 using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Rogues_Path.UI.RewardsScreen {
     public class UIRewardsScreen : Singleton<UIRewardsScreen> {
-        [SerializeField] private UIWindow Window;
-        public UIBlackOverlay BlackOverlay;
+        public Vector3 PawnCameraOffset = new Vector3(0, -1.5f, 3.0f);
+        [FoldoutGroup("References"), SerializeField] private UIWindow Window;
+        [FoldoutGroup("References"), SerializeField] private Button AcceptButton;
+        [FoldoutGroup("References"), SerializeField] private UIEquipmentSlot EquipSlotPrefab;
+        [FoldoutGroup("References"), SerializeField] private Transform SlotsContainer;
+        [FoldoutGroup("References"), SerializeField] private Camera PawnCamera;
+        [FoldoutGroup("Debug"), SerializeField] private Pawn PreviewPawn;
+        private UIBlackOverlay blackOverlay;
+
+        private void Awake() {
+            PrepareUI();
+            PopulateRewards();
+            Show();
+            UICharacterScreen.Instance.SetPlayer(Game.Instance.CurrentCharacter);
+            void PrepareUI() {
+                Instance.AcceptButton.onClick.AddListener(AcceptButtonClicked);
+            }
+
+            void AcceptButtonClicked() {
+                AcceptButton.interactable = false;
+                CollectRewards();
+
+                void CollectRewards() {
+                    foreach (var ID in Game.Instance.PendingRewards) {
+                        Game.Instance.PlayerInventory.Add(ID);
+                    }
+
+                    Game.Instance.PendingRewards.Clear();
+                    EventBus.Raise(new InventoryChanged());
+                }
+
+                Hide();
+
+            }
+
+            void PopulateRewards() {
+                foreach (var ID in Game.Instance.PendingRewards) {
+                    var equipSlot = Instantiate(Instance.EquipSlotPrefab, Instance.SlotsContainer);
+
+                    if (EquipmentDatabase.TryGetByID(ID, out EquipmentBase equipment)) {
+                        equipSlot.Assign(equipment);
+                    }
+                    else {
+                        Debug.Log($"Failed");
+                    }
+
+                    equipSlot.gameObject.SetActive(true);
+                }
+            }
+        }
+
 
         public static void Show() {
             Instance.Window.Show();
-            Instance.BlackOverlay.Show();
+            Instance.blackOverlay = UIBlackOverlayManager.Instance.Create(null);
+            Instance.blackOverlay.Show();
         }
 
         public static void Hide() {
             Instance.Window.Hide();
-            Instance.BlackOverlay.Hide();
+            Instance.blackOverlay.Hide();
         }
+
+        public void ApplyRewards() {}
     }
 }
