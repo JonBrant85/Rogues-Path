@@ -5,11 +5,13 @@ using _Rogues_Path.Pawns;
 using _Rogues_Path.UI.Slots;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
+using DuloGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _Rogues_Path.UI.InventoryWindow {
     public class UIInventoryWindow : Singleton<UIInventoryWindow> {
+        [SerializeField] private UIWindow Window;
         [SerializeField] private Transform SlotsContainer;
 
 
@@ -47,6 +49,14 @@ namespace _Rogues_Path.UI.InventoryWindow {
                     slot.Unassign();
                 }
             }
+        }
+
+        public static void Show() {
+            Instance.Window.Show();
+        }
+
+        public static void Hide() {
+            Instance.Window.Hide();
         }
     }
 }

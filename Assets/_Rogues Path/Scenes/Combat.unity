@@ -3082,6 +3082,18 @@ PrefabInstance:
       propertyPath: m_Size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2458371266997869529, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2458371266997869529, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907457598616377738, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
+      propertyPath: m_StartingState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2982779215146496343, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0

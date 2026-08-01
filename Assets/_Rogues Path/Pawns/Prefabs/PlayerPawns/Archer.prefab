@@ -2318,7 +2318,7 @@ MonoBehaviour:
   currentEquipment:
     keyValueData: []
   Inventory: []
-  InventorySpaces: 2
+  InventorySpaces: 20
   CurrentHealth: 100
   IsDead: 0
   Stats:

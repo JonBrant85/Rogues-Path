@@ -3949,8 +3949,7 @@ MonoBehaviour:
   AcceptButton: {fileID: 3742001064483306268}
   EquipSlotPrefab: {fileID: 1171035882049911445}
   SlotsContainer: {fileID: 1452740087647168688}
-  PawnCamera: {fileID: 0}
-  PreviewPawn: {fileID: 0}
+  ContinueButton: {fileID: 0}
 --- !u!114 &2796391265255245616
 MonoBehaviour:
   m_ObjectHideFlags: 0

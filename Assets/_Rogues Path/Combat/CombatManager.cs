@@ -1,4 +1,3 @@
-
 using _Rogues_Path._Game;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.UI;
@@ -35,6 +34,10 @@ namespace _Rogues_Path.Combat {
             UIActionBar.Instance.SetPlayer(Player);
             UISpellBook.Instance.SetPlayer(Player);
             UICharacterScreen.Instance.SetPlayer(Player);
+
+            foreach (var equipment in Player.CurrentEquipment.Values) {
+                Player.character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
+            }
         }
 
         private void Update() {
@@ -42,15 +45,13 @@ namespace _Rogues_Path.Combat {
             Player.Brain.TimeUntilAction -= Time.deltaTime;
 
             if (Game.CommandInvoker.QueueCount == 0 && Player.Brain.TimeUntilAction <= 0) {
-                Player.Brain.HandleTurn()
-                    .Forget();
+                Player.Brain.HandleTurn().Forget();
                 Player.Brain.TimeUntilAction = Player.Brain.ActionDelay;
             }
 
 
             if (Game.CommandInvoker.QueueCount == 0 && Enemy.Brain.TimeUntilAction <= 0) {
-                Enemy.Brain.HandleTurn()
-                    .Forget();
+                Enemy.Brain.HandleTurn().Forget();
                 Enemy.Brain.TimeUntilAction = Enemy.Brain.ActionDelay;
             }
         }

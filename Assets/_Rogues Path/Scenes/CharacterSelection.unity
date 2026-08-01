@@ -2617,7 +2617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e751640323453183c7d8c347f31b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pawn: {fileID: 573530404942738072, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
+  Pawn: {fileID: -2247951134675589347, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
   Index: 0
 --- !u!1 &1229413313
 GameObject:

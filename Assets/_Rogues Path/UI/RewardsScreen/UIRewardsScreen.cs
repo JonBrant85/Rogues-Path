@@ -4,6 +4,7 @@ using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.UI.CharacterScreen;
+using _Rogues_Path.UI.InventoryWindow;
 using _Rogues_Path.UI.Slots;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
@@ -19,8 +20,8 @@ namespace _Rogues_Path.UI.RewardsScreen {
         [FoldoutGroup("References"), SerializeField] private Button AcceptButton;
         [FoldoutGroup("References"), SerializeField] private UIEquipmentSlot EquipSlotPrefab;
         [FoldoutGroup("References"), SerializeField] private Transform SlotsContainer;
-        [FoldoutGroup("References"), SerializeField] private Camera PawnCamera;
-        [FoldoutGroup("Debug"), SerializeField] private Pawn PreviewPawn;
+        [FoldoutGroup("References"), SerializeField] private Button ContinueButton;
+
         private UIBlackOverlay blackOverlay;
 
         private void Awake() {
@@ -28,6 +29,7 @@ namespace _Rogues_Path.UI.RewardsScreen {
             PopulateRewards();
             Show();
             UICharacterScreen.Instance.SetPlayer(Game.Instance.CurrentCharacter);
+
             void PrepareUI() {
                 Instance.AcceptButton.onClick.AddListener(AcceptButtonClicked);
             }
@@ -46,7 +48,9 @@ namespace _Rogues_Path.UI.RewardsScreen {
                 }
 
                 Hide();
-
+                UICharacterScreen.Show();
+                UIInventoryWindow.Show();
+                ContinueButton.gameObject.SetActive(true);
             }
 
             void PopulateRewards() {

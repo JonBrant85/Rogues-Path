@@ -1015,6 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c40dffe390a42e1b66e999e5ad71395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Window: {fileID: 0}
   SlotsContainer: {fileID: 5386237382240090250}
 --- !u!114 &6003503114886691161
 MonoBehaviour:

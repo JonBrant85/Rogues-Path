@@ -19761,31 +19761,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2322859c1d47cca3b3dcd89d1ecc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EquipmentSlots:
-  - {fileID: 6534961177776848049}
-  - {fileID: 6664911351433653806}
-  - {fileID: 7247549504896547396}
-  - {fileID: 6382524751161686609}
-  - {fileID: 4926473193977724503}
-  - {fileID: 3188734348957072637}
-  - {fileID: 5138901804498177581}
-  - {fileID: 2005182230542869185}
-  - {fileID: 4909515917991496152}
-  - {fileID: 577397745971555804}
-  - {fileID: 5967331420906391034}
-  - {fileID: 5967331420906391034}
-  - {fileID: 9175130983801649128}
-  - {fileID: 5962452056959503137}
-  - {fileID: 5967331420906391034}
   StatsContainer: {fileID: 2982779215146496343}
   StatPrefab: {fileID: 1758682065613995373}
   PawnPreviewOffset: {x: 0, y: -1.5, z: 3}
   CharacterNameText: {fileID: 8032656257644931746}
   CharacterClassText: {fileID: 3997250435829264066}
   PawnPreviewCamera: {fileID: 8713376270457508650}
-  pawnPreview: {fileID: 0}
+  Window: {fileID: 0}
+  EquipmentSlots:
+    keyValueData:
+    - key: 0
+      value: {fileID: 7247549504896547396}
+    - key: 1
+      value: {fileID: 6534961177776848049}
+    - key: 7
+      value: {fileID: 9175130983801649128}
+    - key: 13
+      value: {fileID: 5962452056959503137}
+    - key: 15
+      value: {fileID: 6382524751161686609}
   stats:
     keyValueData: []
+  pawnPreview: {fileID: 0}
 --- !u!114 &2907457598616377738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23049,7 +23046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_Name
-      value: Equip Slot (Chest)
+      value: Equip Slot (Armor)
       objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
@@ -23535,6 +23532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Equip Slot (Earring)
       objectReference: {fileID: 0}
+    - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
       value: 56
@@ -23565,7 +23566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.x
@@ -23573,15 +23574,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23617,7 +23618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -280
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23931,13 +23932,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scroll Bar (Vertical)
       objectReference: {fileID: 0}
-    - target: {fileID: 750028412761365863, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 680686867865514237, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750028412761365863, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 750028412761365863, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 750028412761365863, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
       propertyPath: m_AnchorMin.y
@@ -25358,6 +25363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Equip Slot (Legs)
       objectReference: {fileID: 0}
+    - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
       value: 72
@@ -25388,7 +25397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.x
@@ -25396,15 +25405,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25440,7 +25449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -280
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25754,6 +25763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Equip Slot (Ring)
       objectReference: {fileID: 0}
+    - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
       value: 42
@@ -25784,7 +25797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.x
@@ -25792,15 +25805,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25836,7 +25849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -140
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -26380,6 +26393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Equip Slot (Bracers)
       objectReference: {fileID: 0}
+    - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
       value: 77
@@ -26414,7 +26431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.x
@@ -26422,15 +26439,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26462,11 +26479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -483
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27335,6 +27352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Equip Slot (Gloves)
       objectReference: {fileID: 0}
+    - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
       value: 74
@@ -27361,7 +27382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.x
@@ -27369,15 +27390,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27514,6 +27535,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Equip Slot (Belt)
       objectReference: {fileID: 0}
+    - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
       value: 89
@@ -27544,7 +27569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.x
@@ -27552,15 +27577,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 126
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27596,7 +27621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -140
       objectReference: {fileID: 0}
     - target: {fileID: 3952091395916651097, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28736,7 +28761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_Name
-      value: Equip Slot (Back)
+      value: Equip Slot (Cape)
       objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
