@@ -100,7 +100,6 @@ namespace _Rogues_Path._Game {
                     })
                 .OnExit(
                     () => {
-                        UIActionBar.Show();
                         UIMenuBar.Show();
                         UIRewardsScreen.Hide();
                     })

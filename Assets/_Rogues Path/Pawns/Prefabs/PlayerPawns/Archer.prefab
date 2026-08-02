@@ -2270,7 +2270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
+    SerializedFormat: 0
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -2313,6 +2313,7 @@ MonoBehaviour:
   HealDamageAnimation: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
   DieAnimation: {fileID: 7400000, guid: e20e165bdae94ffea18d54cddfd79c59, type: 2}
   ReviveAnimation: {fileID: 7400000, guid: a6466e9fd05d47e78a1a3b1b2ea6c7fe, type: 2}
+  VictoryAnimation: {fileID: 7400000, guid: e6c1290faad3478ca96665ccf217ef2b, type: 2}
   buffs:
     keyValueData: []
   currentEquipment:

@@ -4,6 +4,7 @@ using DG.Tweening;
 using OldOdin;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Rogues_Path.Pawns {
     public partial class Pawn {
@@ -20,10 +21,19 @@ namespace _Rogues_Path.Pawns {
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip HealDamageAnimation;
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip DieAnimation;
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip ReviveAnimation;
+        [FormerlySerializedAs("Victory")]
+        [FoldoutGroup("Animations"), SerializeField] private AnimationClip VictoryAnimation;
 
         public float PlayAnimation(AnimationClip clip) {
             Animazing.Play(clip, int.MaxValue);
             return clip.length;
+        }
+
+        public float PlayVictoryAnimation() {
+            Animazing.Stop(1);
+            Animazing.SetLayerDefaultAnimation(0, VictoryAnimation);
+            Animazing.Play(VictoryAnimation, Single.PositiveInfinity);
+            return VictoryAnimation.length;
         }
         
         public float Slash() {

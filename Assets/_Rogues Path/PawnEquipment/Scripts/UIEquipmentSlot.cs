@@ -53,7 +53,6 @@ namespace _Rogues_Path.UI.Slots {
             OnAssignEvent?.Invoke(Owner, Equipment);
 
             if (EquipToOwnerOnAssign && Owner != null) {
-                Debug.Log($"Equipping");
                 Debug.Assert(Equipment != null);
                 Owner.TryEquip(Equipment);
             }

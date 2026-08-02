@@ -11,13 +11,9 @@ using UnityEngine;
 namespace _Rogues_Path.UI.ActionBar {
     public class UIActionBar : Utilities.Singleton<UIActionBar> {
         public const int NumberOfSlots = 10;
-        [FoldoutGroup("References"), SerializeField, HideInInspector] private Pawn Player;
+        [FoldoutGroup("References"), SerializeField] private Pawn Player;
         [FoldoutGroup("References"), SerializeField] private UIProgressBar ActionTimeRemaining;
-        [FoldoutGroup("References"), SerializeField] private Transform SlotsContainer;
         [FoldoutGroup("References"), SerializeField] private UISpellSlot[] Slots = new UISpellSlot[NumberOfSlots];
-        [FoldoutGroup("References"), SerializeField] private CanvasGroup canvasGroup;
-
-        [NonSerialized] private readonly TweenRunner<FloatTween> m_FloatTweenRunner = new TweenRunner<FloatTween>();
 
         private void Update() {
             if (Player == null) return;
@@ -30,6 +26,14 @@ namespace _Rogues_Path.UI.ActionBar {
             Player = player;
 
             for (int i = 0; i < NumberOfSlots && i < Player.Brain.PreparedSpells.Count; i++) {
+                Debug.Assert(Slots[i] != null);
+
+                if (Slots[i] == null) {
+                    Debug.Log($"{gameObject.name}");
+                }
+                Debug.Assert(Player != null);
+                Debug.Assert(Player.Brain != null);
+                Debug.Assert(Player.Brain.PreparedSpells != null);
                 Slots[i].Assign(Player.Brain.PreparedSpells[i]);
             }
         }

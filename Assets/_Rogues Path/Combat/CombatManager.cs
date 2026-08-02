@@ -1,3 +1,4 @@
+using System.Collections;
 using _Rogues_Path._Game;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.UI;
@@ -18,13 +19,13 @@ namespace _Rogues_Path.Combat {
         [FoldoutGroup("References"), SerializeField] private Transform EnemyContainer;
 
 
-        private void Awake() {
+        private void Start() {
             var levelData = Game.Instance.CurrentLevel;
             var randomEnemy = levelData.Enemies.GetRandomElement();
 
             // Instantiate background, player, enemies
             Instantiate(levelData.BackgroundPrefab, BackgroundContainer);
-            Player = Instantiate(Game.Instance.CurrentCharacter, PlayerContainer);
+            Player = Instantiate(Game.Instance.Player, PlayerContainer);
             Enemy = Instantiate(randomEnemy, EnemyContainer);
 
             // Reset action timers

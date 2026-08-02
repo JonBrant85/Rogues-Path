@@ -6,10 +6,12 @@ using _Rogues_Path.Utilities;
 using DuloGames.UI;
 using HeroEditor.Common.Enums;
 using Sirenix.OdinInspector;
+using UnityEngine.Serialization;
 
 namespace _Rogues_Path._Game {
     public partial class Game {
-        [FoldoutGroup("Data")] public Pawn CurrentCharacter;
+        [FormerlySerializedAs("CurrentCharacter")]
+        [FoldoutGroup("Data")] public Pawn Player;
         [FoldoutGroup("Data")] public LevelData CurrentLevel;
         [FoldoutGroup("Data")] public EquipmentPartIntDictionary PlayerEquipment = new();
         [FoldoutGroup("Data")] public List<int> PlayerInventory = new();

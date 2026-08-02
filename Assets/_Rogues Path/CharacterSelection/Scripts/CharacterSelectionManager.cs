@@ -62,7 +62,7 @@ namespace _Rogues_Path.CharacterSelection {
             NameText.text = slot.Pawn.CharacterName;
             ClassText.text = slot.Pawn.ClassName;
 
-            Game.Instance.CurrentCharacter = slot.Pawn;
+            Game.Instance.Player = slot.Pawn;
         }
 
         public CharacterSelectionSlot GetCharacterInDirection(float direction) {

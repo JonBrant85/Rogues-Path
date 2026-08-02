@@ -23,10 +23,12 @@ public class CommandInvoker {
             } 
 
             
-            bool allPlayersDead = Game.Instance.CurrentCharacter.IsDead;
+            bool allPlayersDead = Game.Instance.Player.IsDead;
             bool allEnemiesDead = CombatManager.Instance.Enemy.IsDead;
 
             if (allEnemiesDead) {
+                await UniTask.Delay(3000);
+                Game.Instance.Player.PlayVictoryAnimation();
                 Game.FireTrigger(Trigger.EnterRewardsScreen);
             }
 
