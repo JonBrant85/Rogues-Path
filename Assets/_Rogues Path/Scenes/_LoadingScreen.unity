@@ -167,11 +167,15 @@ MonoBehaviour:
   Rewards:
     m_SceneAsset: {fileID: 102900000, guid: 168df800bce8c2c4da709c592ca02615, type: 3}
     m_SceneName: RewardsScreen
-  CurrentCharacter: {fileID: 0}
-  CurrentLevel: {fileID: 0}
+  World:
+    m_SceneAsset: {fileID: 102900000, guid: 8f8c568408e50a9478cba759b9980764, type: 3}
+    m_SceneName: World
+  PlayerData: {fileID: 0}
+  LevelData: {fileID: 0}
   PlayerEquipment:
     keyValueData: []
   PlayerInventory: 
+  PendingRewards: 
 --- !u!4 &101767353
 Transform:
   m_ObjectHideFlags: 0

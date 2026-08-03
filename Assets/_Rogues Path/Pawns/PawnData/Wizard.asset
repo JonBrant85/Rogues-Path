@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f0490c1b56431882b103fd86cfcd07, type: 3}
+  m_Name: Wizard
+  m_EditorClassIdentifier: 
+  Name: Razwid
+  ClassName: Wizard
+  TwoDPawn: {fileID: 8216523932049942430, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
+  FourDPawn: {fileID: 0}
+  ClassSpells: []

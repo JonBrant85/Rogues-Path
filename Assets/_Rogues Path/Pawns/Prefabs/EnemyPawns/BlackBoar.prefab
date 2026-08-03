@@ -475,36 +475,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 01011100000050006f00740065006e007400690061006c0043006f006d006d0061006e00640073002f00000000015d000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b005f0052006f0067007500650073005f0050006100740068002e0043006f006d006d0061006e00640073002e0043006f006d006d0061006e0064002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c006900620000000000060100000000000000022f01000000013e0000005f0052006f0067007500650073005f0050006100740068002e005000610077006e0043006f006d006d0061006e00640073002e0043006f006d006d0061006e00640073002e004a006100620043006f006d006d0061006e0064002c00200041007300730065006d0062006c0079002d00430053006800610072007000010000002d011200000053007400720065006e006700740068004d0075006c007400690070006c00690065007200050705
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: PotentialCommands
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[_Rogues_Path.Commands.Command, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 1|_Rogues_Path.PawnCommands.Commands.JabCommand, Assembly-CSharp
-    - Name: StrengthMultiplier
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   KnownSpells: []
   PreparedSpells: []
   Owner: {fileID: 7609254587843330138}
@@ -546,24 +524,30 @@ MonoBehaviour:
   Inventory: []
   InventorySpaces: 2
   CurrentHealth: 150000
+  MaxHealthID: {fileID: 11400000, guid: 79fa9fe92e4a1f9408b5500133a7d843, type: 2}
   IsDead: 0
   Stats:
-    keyValueData: []
-  MaxHealth:
-    CharacterStatID: {fileID: 11400000, guid: 79fa9fe92e4a1f9408b5500133a7d843, type: 2}
-    BaseValue: 150
-  Strength:
-    CharacterStatID: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
-    BaseValue: 10
-  Dexterity:
-    CharacterStatID: {fileID: 11400000, guid: 5facc1ffa6ddc624eb5f40dac8894151, type: 2}
-    BaseValue: 10
-  Intelligence:
-    CharacterStatID: {fileID: 11400000, guid: 7d87ff68130a0e04eacf33f56dbf3773, type: 2}
-    BaseValue: 2
-  Speed:
-    CharacterStatID: {fileID: 11400000, guid: f83e6ba1a23fc8544ab334d95a590d9b, type: 2}
-    BaseValue: 0
+    keyValueData:
+    - key: {fileID: 11400000, guid: 79fa9fe92e4a1f9408b5500133a7d843, type: 2}
+      value:
+        CharacterStatID: {fileID: 11400000, guid: 79fa9fe92e4a1f9408b5500133a7d843, type: 2}
+        BaseValue: 100
+    - key: {fileID: 11400000, guid: 5facc1ffa6ddc624eb5f40dac8894151, type: 2}
+      value:
+        CharacterStatID: {fileID: 11400000, guid: 5facc1ffa6ddc624eb5f40dac8894151, type: 2}
+        BaseValue: 10
+    - key: {fileID: 11400000, guid: 7d87ff68130a0e04eacf33f56dbf3773, type: 2}
+      value:
+        CharacterStatID: {fileID: 11400000, guid: 7d87ff68130a0e04eacf33f56dbf3773, type: 2}
+        BaseValue: 10
+    - key: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
+      value:
+        CharacterStatID: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
+        BaseValue: 10
+    - key: {fileID: 11400000, guid: f83e6ba1a23fc8544ab334d95a590d9b, type: 2}
+      value:
+        CharacterStatID: {fileID: 11400000, guid: f83e6ba1a23fc8544ab334d95a590d9b, type: 2}
+        BaseValue: 10
 --- !u!114 &4803445386161193833
 MonoBehaviour:
   m_ObjectHideFlags: 0

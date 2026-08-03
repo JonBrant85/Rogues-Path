@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e751640323453183c7d8c347f31b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pawn: {fileID: 145172211139808723, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
+  PawnData: {fileID: 11400000, guid: 38b2898baf03d9f49a3e273a8468215e, type: 2}
   Index: 4
 --- !u!850595691 &120782805
 LightingSettings:
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e751640323453183c7d8c347f31b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pawn: {fileID: -6318122447838429802, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
+  PawnData: {fileID: 11400000, guid: dd7b26dd6db98ca478fce5ac51b595e6, type: 2}
   Index: 1
 --- !u!1 &617522419
 GameObject:
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e751640323453183c7d8c347f31b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pawn: {fileID: 8850778529634385021, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
+  PawnData: {fileID: 11400000, guid: 4f539bcbe9d212545a101b45a5c2d105, type: 2}
   Index: 2
 --- !u!1 &963589830
 GameObject:
@@ -2617,7 +2617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e751640323453183c7d8c347f31b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pawn: {fileID: 7688887409381401591, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
+  PawnData: {fileID: 11400000, guid: d21fe802ffb5ba24ca3f20a587dd2f60, type: 2}
   Index: 0
 --- !u!1 &1229413313
 GameObject:
@@ -2888,7 +2888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e751640323453183c7d8c347f31b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pawn: {fileID: 8235953506563568159, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
+  PawnData: {fileID: 11400000, guid: 266b4ff91dd2a924bb9efe11b6367df0, type: 2}
   Index: 3
 --- !u!1 &1433568820
 GameObject:
@@ -2936,7 +2936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e751640323453183c7d8c347f31b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pawn: {fileID: 8216523932049942430, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
+  PawnData: {fileID: 11400000, guid: 6a03e0c02e47a0c41ac767d6620fd3c1, type: 2}
   Index: 5
 --- !u!65 &1433568823
 BoxCollider:

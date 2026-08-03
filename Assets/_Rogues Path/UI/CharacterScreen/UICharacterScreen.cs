@@ -17,7 +17,6 @@ using UnityEngine.UI;
 
 namespace _Rogues_Path.UI.CharacterScreen {
     public class UICharacterScreen : Singleton<UICharacterScreen> {
-        private Pawn player;
         //public List<UIEquipmentSlot> EquipmentSlots = new();
         public Transform StatsContainer;
         public UICharacterStat StatPrefab;
@@ -29,8 +28,10 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
         [SerializeField] private EquipmentPartUIEquipSlotDictionary EquipmentSlots = new();
         [SerializeField] private StatUIStat stats = new();
-        
+
         [FoldoutGroup("Debug"), SerializeField] private Pawn pawnPreview;
+
+        private PawnData playerData;
 
         private void Update() {
             // Poll Character stats
@@ -40,23 +41,24 @@ namespace _Rogues_Path.UI.CharacterScreen {
             }
         }
 
-        public void SetPlayer(Pawn _player) {
-            player = _player;
-            
+        public void SetPlayer(PawnData _playerData) {
+            playerData = _playerData;
+
             // Set character name/class
-            CharacterNameText.text = player.CharacterName;
-            CharacterClassText.text = player.ClassName;
-            
+            CharacterNameText.text = playerData.Name;
+            CharacterClassText.text = playerData.ClassName;
+
             InitializePawnPreview();
             SetupEquipmentSlots();
-            ShowCharacterStats();
+            //ShowCharacterStats();
 
             // Setup equipment slots
             void SetupEquipmentSlots() {
                 foreach (var kvp in EquipmentSlots) {
-                    if (player.CurrentEquipment.ContainsKey(kvp.Key)) {
-                        kvp.Value.Assign(player.CurrentEquipment[kvp.Key]);
+                    if (Game.Instance.PlayerEquipment.ContainsKey(kvp.Key)) {
+                        kvp.Value.Assign(Game.Instance.PlayerEquipment[kvp.Key]);
                     }
+
                     kvp.Value.OnAssignEvent.AddListener(OnAssignEventHandler);
                     kvp.Value.OnUnassignEvent.AddListener(OnUnassignEventHandler);
                 }
@@ -73,25 +75,26 @@ namespace _Rogues_Path.UI.CharacterScreen {
             }
 
             void InitializePawnPreview() {
-                pawnPreview = Instantiate(player, PawnPreviewCamera.transform);
+                pawnPreview = Instantiate(playerData.TwoDPawn, PawnPreviewCamera.transform);
                 pawnPreview.transform.localPosition = PawnPreviewOffset;
+
                 foreach (var kvp in EquipmentSlots) {
                     kvp.Value.Owner = pawnPreview;
                     kvp.Value.OnAssignEvent.AddListener(OnAssignEventHandler);
                     kvp.Value.OnUnassignEvent.AddListener(OnUnassignEventHandler);
                 }
-                
+
                 void OnAssignEventHandler(Pawn pawn, EquipmentBase equipment) {
                     pawnPreview.TryEquip(equipment, false);
                 }
-                
+
                 void OnUnassignEventHandler(Pawn pawn, EquipmentBase equipment) {
                     pawnPreview.TryRemoveEquipment(equipment, false);
                 }
             }
         }
-
-
+        
+        /*
         private void ShowCharacterStats() {
             BindCharacterStat(player.MaxHealth, "Maximum Health");
             BindCharacterStat(player.Strength, " Strength");
@@ -105,6 +108,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
             uiStat.SetCharacterStat(stat, player, _name);
             stats.Add(stat, uiStat);
         }
+        */
 
         public static void Show() {
             Instance.Window.Show();

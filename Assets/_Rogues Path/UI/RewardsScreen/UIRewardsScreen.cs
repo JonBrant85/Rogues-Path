@@ -28,7 +28,7 @@ namespace _Rogues_Path.UI.RewardsScreen {
             PrepareUI();
             PopulateRewards();
             Show();
-            UICharacterScreen.Instance.SetPlayer(Game.Instance.Player);
+            UICharacterScreen.Instance.SetPlayer(Game.Instance.PlayerData);
 
             void PrepareUI() {
                 Instance.AcceptButton.onClick.AddListener(AcceptButtonClicked);

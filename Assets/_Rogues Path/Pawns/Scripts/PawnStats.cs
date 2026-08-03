@@ -1,5 +1,6 @@
 using System;
 using _Rogues_Path.Buffs.Scripts;
+using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using Guirao.UltimateTextDamage;
@@ -8,22 +9,12 @@ using UnityEngine;
 
 namespace _Rogues_Path.Pawns {
     public partial class Pawn {
-        public float CurrentHealth = 50;
+        public float CurrentHealth = 50f;
+        public CharacterStatID MaxHealthID;
         public bool IsDead = false;
         public IDStatDictionary Stats = new();
-        public CharacterStat MaxHealth;
-        public CharacterStat Strength;
-        public CharacterStat Dexterity;
-        public CharacterStat Intelligence;
-        public CharacterStat Speed;
-
         public void InitializeStats() {
-            CurrentHealth = MaxHealth.Value;
-            Stats.TryAdd(MaxHealth.CharacterStatID, MaxHealth);
-            Stats.TryAdd(Strength.CharacterStatID, Strength);
-            Stats.TryAdd(Dexterity.CharacterStatID, Dexterity);
-            Stats.TryAdd(Intelligence.CharacterStatID, Intelligence);
-            Stats.TryAdd(Speed.CharacterStatID, Speed);
+            CurrentHealth = Stats[MaxHealthID].Value;
         }
 
         public float TakeDamage(int damage, Pawn instigator) {
@@ -87,7 +78,7 @@ namespace _Rogues_Path.Pawns {
             };
             EventBus.RaiseImmediately(ref healthChangedEvent);
 
-            CurrentHealth = Mathf.Clamp(healthChangedEvent.NewHealth, 0, MaxHealth.Value);
+            CurrentHealth = Mathf.Clamp(healthChangedEvent.NewHealth, 0, Stats[MaxHealthID].Value);
 
             if (CurrentHealth <= 0) {
                 Die();

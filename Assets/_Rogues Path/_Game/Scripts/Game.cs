@@ -17,6 +17,7 @@ namespace _Rogues_Path._Game {
         [SerializeField, FoldoutGroup("Scenes")] private SceneField LevelSelection;
         [SerializeField, FoldoutGroup("Scenes")] private SceneField Combat;
         [SerializeField, FoldoutGroup("Scenes")] private SceneField Rewards;
+        [SerializeField, FoldoutGroup("Scenes")] private SceneField World;
         private void Awake() {
             Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
             InitGameState();

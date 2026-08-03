@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace _Rogues_Path.CharacterSelection {
     public class CharacterSelectionSlot : MonoBehaviour {
-        public Pawn Pawn;
+        public PawnData PawnData;
         public int Index;
 
         private void OnMouseDown() {

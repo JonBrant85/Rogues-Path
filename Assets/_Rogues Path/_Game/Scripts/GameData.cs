@@ -10,9 +10,8 @@ using UnityEngine.Serialization;
 
 namespace _Rogues_Path._Game {
     public partial class Game {
-        [FormerlySerializedAs("CurrentCharacter")]
-        [FoldoutGroup("Data")] public Pawn Player;
-        [FoldoutGroup("Data")] public LevelData CurrentLevel;
+        [FoldoutGroup("Data")] public PawnData PlayerData;
+        [FoldoutGroup("Data")] public LevelData LevelData;
         [FoldoutGroup("Data")] public EquipmentPartIntDictionary PlayerEquipment = new();
         [FoldoutGroup("Data")] public List<int> PlayerInventory = new();
         [FoldoutGroup("Data")] public List<int>  PendingRewards;

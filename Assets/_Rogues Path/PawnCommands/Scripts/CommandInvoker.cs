@@ -7,32 +7,31 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class CommandInvoker {
-        public int QueueCount { get { return commandQueue.Count; } }
-        private Queue<(Command, CommandContext)> commandQueue = new();
+    public int QueueCount { get { return commandQueue.Count; } }
+    private Queue<(Command, CommandContext)> commandQueue = new();
+
+    public async UniTask ExecuteCommand(List<Command> commands, CommandContext context) {
+        foreach (var command in commands) {
+            commandQueue.Enqueue((command, context));
+        }
+
+        while (commandQueue.Count > 0) {
+            var queueElement = commandQueue.Dequeue();
+            var queueCommand = queueElement.Item1;
+            var queueContext = queueElement.Item2;
+            await queueCommand.Execute(queueContext.Caster, queueContext.Targets);
+        }
         
-        public async UniTask ExecuteCommand(List<Command> commands, CommandContext context) {
-            foreach (var command in commands) {
-                commandQueue.Enqueue((command, context));
-            }
+        bool allPlayersDead = CombatManager.Instance.Player.IsDead;
+        bool allEnemiesDead = CombatManager.Instance.Enemy.IsDead;
 
-            while (commandQueue.Count > 0) {
-                var queueElement = commandQueue.Dequeue();
-                var queueCommand = queueElement.Item1;
-                var queueContext = queueElement.Item2;
-                await queueCommand.Execute(queueContext.Caster, queueContext.Targets);
-            } 
+        if (allEnemiesDead) {
+            await UniTask.Delay(1500);
+            Game.FireTrigger(Trigger.EnterRewardsScreen);
+        }
 
-            
-            bool allPlayersDead = Game.Instance.Player.IsDead;
-            bool allEnemiesDead = CombatManager.Instance.Enemy.IsDead;
-
-            if (allEnemiesDead) {
-                await UniTask.Delay(1500);
-                Game.FireTrigger(Trigger.EnterRewardsScreen);
-            }
-
-            if (allPlayersDead) {
-                Game.FireTrigger(Trigger.GameOver);
-            }
+        if (allPlayersDead) {
+            Game.FireTrigger(Trigger.GameOver);
         }
     }
+}

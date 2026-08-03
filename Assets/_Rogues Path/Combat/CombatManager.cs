@@ -20,12 +20,12 @@ namespace _Rogues_Path.Combat {
 
 
         private void Start() {
-            var levelData = Game.Instance.CurrentLevel;
+            var levelData = Game.Instance.LevelData;
             var randomEnemy = levelData.Enemies.GetRandomElement();
 
             // Instantiate background, player, enemies
             Instantiate(levelData.BackgroundPrefab, BackgroundContainer);
-            Player = Instantiate(Game.Instance.Player, PlayerContainer);
+            Player = Instantiate(Game.Instance.PlayerData.TwoDPawn, PlayerContainer);
             Enemy = Instantiate(randomEnemy, EnemyContainer);
 
             // Reset action timers
@@ -34,7 +34,7 @@ namespace _Rogues_Path.Combat {
 
             UIActionBar.Instance.SetPlayer(Player);
             UISpellBook.Instance.SetPlayer(Player);
-            UICharacterScreen.Instance.SetPlayer(Player);
+            UICharacterScreen.Instance.SetPlayer(Game.Instance.PlayerData);
 
             foreach (var equipment in Player.CurrentEquipment.Values) {
                 Player.Character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);

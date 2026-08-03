@@ -59,10 +59,10 @@ namespace _Rogues_Path.CharacterSelection {
             this.SelectedTransform = slot.transform;
 
             // Update text
-            NameText.text = slot.Pawn.CharacterName;
-            ClassText.text = slot.Pawn.ClassName;
+            NameText.text = slot.PawnData.Name;
+            ClassText.text = slot.PawnData.ClassName;
 
-            Game.Instance.Player = slot.Pawn;
+            Game.Instance.PlayerData = slot.PawnData;
         }
 
         public CharacterSelectionSlot GetCharacterInDirection(float direction) {
@@ -70,8 +70,7 @@ namespace _Rogues_Path.CharacterSelection {
                 return null;
 
             if (this.SelectedTransform == null && this.Slots[0] != null)
-                return this.Slots[0]
-                    .gameObject.GetComponent<CharacterSelectionSlot>();
+                return this.Slots[0].gameObject.GetComponent<CharacterSelectionSlot>();
 
             CharacterSelectionSlot closest = null;
             float lastDistance = 0f;

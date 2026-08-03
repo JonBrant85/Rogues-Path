@@ -56,7 +56,7 @@ namespace _Rogues_Path.LevelSelection {
             NameText.text = slot.LevelData.LevelName;
             DescriptionText.text = slot.LevelData.Description;
 
-            Game.Instance.CurrentLevel = slot.LevelData;
+            Game.Instance.LevelData = slot.LevelData;
         }
 
         public LevelSelectionSlot GetCharacterInDirection(float direction) {

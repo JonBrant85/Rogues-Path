@@ -10,27 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
-  m_Name: Player Pawns
+  m_Name: PawnData
   m_EditorClassIdentifier: 
   _parentID:
-    _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
-  _subcollectionIDs:
-  - _serializedGuid: f442187409e65848839ac738ea771305
-  - _serializedGuid: 8b467a465f40d24bbf084efe0471f9f3
-  _collectionName: Player Pawns
-  _id:
     _serializedGuid: 42103d56220423458ec3f17bd1ce2397
+  _subcollectionIDs: []
+  _collectionName: PawnData
+  _id:
+    _serializedGuid: f442187409e65848839ac738ea771305
   _icon: {fileID: 0}
   _rules:
     _rules: []
   _items:
     _hashSetList:
-    - f8d7dc3be0907cb4e801b164bc16f3bc
-    - b6ff70d990a6d214bb30c459650c4cb3
-    - ac4992d147dbd6145b10fef6b9009c98
-    - 5fc75776eee0b8449b21201dc923f397
-    - 85402dbbccc376c4aab6de7f262070e6
-    - 76f6b566c87aba0499ead60598b38025
+    - dd7b26dd6db98ca478fce5ac51b595e6
+    - 4f539bcbe9d212545a101b45a5c2d105
+    - 38b2898baf03d9f49a3e273a8468215e
+    - 266b4ff91dd2a924bb9efe11b6367df0
+    - d21fe802ffb5ba24ca3f20a587dd2f60
+    - 6a03e0c02e47a0c41ac767d6620fd3c1
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0
