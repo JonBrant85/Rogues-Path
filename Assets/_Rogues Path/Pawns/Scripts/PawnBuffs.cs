@@ -7,26 +7,15 @@ using UnityEngine;
 
 namespace _Rogues_Path.Pawns {
     public partial class Pawn {
-        public struct PawnBuffNames {
-            public const string Block = "Block";
-            public const string Poison = "Poison";
-            public const string Regeneration = "Regeneration";
-        }
-
-        public static PawnBuffNames BuffNames = new();
         [SerializeField] private BuffsDictionary buffs = new();
 
         public void AddBuff(PawnBuff status, int count) {
             if (buffs.ContainsKey(status.Name)) {
                 buffs[status.Name] += count;
-
-                GetComponentInChildren<UIStatusDisplay>().AddBuff(status, buffs[status.Name]);
-
+                statusDisplay.AddBuff(status, buffs[status.Name]);
             }
             else {
-
-                GetComponentInChildren<UIStatusDisplay>().AddBuff(status, count);
-
+                statusDisplay.AddBuff(status, count);
                 buffs.Add(status.Name, count);
             }
 

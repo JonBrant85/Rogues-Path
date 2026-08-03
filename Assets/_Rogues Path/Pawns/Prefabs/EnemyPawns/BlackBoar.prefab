@@ -475,14 +475,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 01011100000050006f00740065006e007400690061006c0043006f006d006d0061006e00640073002f00000000015d000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b005f0052006f0067007500650073005f0050006100740068002e0043006f006d006d0061006e00640073002e0043006f006d006d0061006e0064002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c006900620000000000060100000000000000022f01000000013e0000005f0052006f0067007500650073005f0050006100740068002e005000610077006e0043006f006d006d0061006e00640073002e0043006f006d006d0061006e00640073002e004a006100620043006f006d006d0061006e0064002c00200041007300730065006d0062006c0079002d00430053006800610072007000010000002d011200000053007400720065006e006700740068004d0075006c007400690070006c00690065007200050705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: PotentialCommands
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[_Rogues_Path.Commands.Command, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|_Rogues_Path.PawnCommands.Commands.JabCommand, Assembly-CSharp
+    - Name: StrengthMultiplier
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   KnownSpells: []
   PreparedSpells: []
   Owner: {fileID: 7609254587843330138}
@@ -502,9 +524,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterName: Black Boar
   ClassName: Pig
-  character: {fileID: 0}
+  Character: {fileID: 0}
   Brain: {fileID: 6737036103188998173}
-  Animazing: {fileID: 733662450562742692}
+  StatusDisplayPrefab: {fileID: 5598842490194436394, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
   DamageOffset: {x: -1, y: 0, z: 0}
   HealingOffset: {x: 1, y: 0, z: 0}
   IdleAnimation: {fileID: 7400000, guid: 427d73d69f8b6744aa2b4a7f69e4f4f7, type: 2}
@@ -516,6 +538,7 @@ MonoBehaviour:
   HealDamageAnimation: {fileID: 7400000, guid: 427d73d69f8b6744aa2b4a7f69e4f4f7, type: 2}
   DieAnimation: {fileID: 7400000, guid: 271e5653489ac4e4ab66f78e613da36b, type: 2}
   ReviveAnimation: {fileID: 7400000, guid: 427d73d69f8b6744aa2b4a7f69e4f4f7, type: 2}
+  VictoryAnimation: {fileID: 0}
   buffs:
     keyValueData: []
   currentEquipment:

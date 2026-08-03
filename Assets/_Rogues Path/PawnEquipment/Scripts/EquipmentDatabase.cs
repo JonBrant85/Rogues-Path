@@ -50,6 +50,7 @@ namespace _Rogues_Path.Equipment.Scripts {
 
             if (dbEntry == null) {
                 Debug.Log($"Failed to find Equipment: {name} in database. Ensure it's been added");
+                return false;
             }
 
             return dbEntry != null;

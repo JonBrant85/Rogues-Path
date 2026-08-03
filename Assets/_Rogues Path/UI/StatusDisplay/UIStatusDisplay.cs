@@ -8,10 +8,13 @@ using UnityEngine;
 
 namespace _Rogues_Path.UI {
     public class UIStatusDisplay : MonoBehaviour {
-        public Pawn Owner;
         public Dictionary<string, PawnBuff> PawnBuffs = new();
 
+        private Pawn owner;
+
         private void OnEnable() {
+
+
             EventBus.SubscribeTo<StatusChanged>(StatusChangedEventHandler);
 
             if (TryGetComponent(out Canvas canvas)) {
@@ -23,16 +26,11 @@ namespace _Rogues_Path.UI {
             EventBus.SubscribeTo<StatusChanged>(StatusChangedEventHandler);
         }
 
-        private void Update() {
-            //transform.position = Camera.main!.WorldToScreenPoint(Owner.transform.position);
-        }
-
         private void StatusChangedEventHandler(ref StatusChanged eventData) {
-            if (!eventData.Targets.Contains(Owner)) return;
+            if (!eventData.Targets.Contains(owner)) return;
 
-
-            // This can fail if the buff isn't present in the didctionary, i.e. not present
-            if (Owner.TryGetBuffCount(eventData.NewStatus, out int count)) {
+            // This can fail if the buff isn't present in the dictionary, i.e. not present
+            if (owner.TryGetBuffCount(eventData.NewStatus, out int count)) {
                 eventData.NewStatus.CountText.text = count.ToString();
 
                 if (count == 0) {
@@ -43,22 +41,26 @@ namespace _Rogues_Path.UI {
             }
         }
 
+        public void SetOwner(Pawn _owner) {
+            owner = _owner;
+        }
+
         public void AddBuff(PawnBuff buffPrefab, int count) {
             if (PawnBuffs.ContainsKey(buffPrefab.Name)) {
                 PawnBuffs[buffPrefab.Name].CountText.text = count.ToString();
             }
             else {
                 var buff = Instantiate(buffPrefab, transform);
-                buff.Owner = Owner;
+                buff.Owner = owner;
                 PawnBuffs.Add(buff.Name, buff);
                 buff.CountText.text = count.ToString();
                 buff.Image.sprite = buff.Sprite;
-                buff.OnBuffAdded(Owner, count);
+                buff.OnBuffAdded(owner, count);
             }
         }
 
         public void RemoveBuff(PawnBuff buffPrefab) {
-            if (Owner.TryGetBuffCount(buffPrefab, out int buffCount)) {
+            if (owner.TryGetBuffCount(buffPrefab, out int buffCount)) {
                 PawnBuffs[buffPrefab.Name].CountText.text = buffCount.ToString();
             }
             else {

@@ -27,8 +27,7 @@ public class CommandInvoker {
             bool allEnemiesDead = CombatManager.Instance.Enemy.IsDead;
 
             if (allEnemiesDead) {
-                await UniTask.Delay(3000);
-                Game.Instance.Player.PlayVictoryAnimation();
+                await UniTask.Delay(1500);
                 Game.FireTrigger(Trigger.EnterRewardsScreen);
             }
 

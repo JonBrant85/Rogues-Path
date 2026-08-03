@@ -37,7 +37,7 @@ namespace _Rogues_Path.Combat {
             UICharacterScreen.Instance.SetPlayer(Player);
 
             foreach (var equipment in Player.CurrentEquipment.Values) {
-                Player.character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
+                Player.Character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
             }
         }
 

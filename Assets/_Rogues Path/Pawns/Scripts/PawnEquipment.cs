@@ -92,7 +92,7 @@ namespace _Rogues_Path.Pawns {
                 // Set owner and update sprite
                 equipment.Owner = this;
                 equipment.gameObject.SetActive(true);
-                character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
+                Character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
 
                 // Raise a new EquipmentEquipped event
                 EventBus.Raise(
@@ -119,7 +119,7 @@ namespace _Rogues_Path.Pawns {
         public bool TryRemoveEquipment(EquipmentBase equipment, bool modifyGameState = true) {
             if (equipment == null) return false;
 
-            character.UnEquip(equipment.EquipType);
+            Character.UnEquip(equipment.EquipType);
             currentEquipment.Remove(equipment.EquipType);
             
             if (modifyGameState) {

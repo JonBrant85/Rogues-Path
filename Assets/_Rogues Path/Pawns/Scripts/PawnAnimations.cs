@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 namespace _Rogues_Path.Pawns {
     public partial class Pawn {
-        [FoldoutGroup("References")] public Animazing Animazing;
+        
         [FoldoutGroup("Damage Text Offset")] public Vector3 DamageOffset = new Vector3(-1, 0, 0);
         [FoldoutGroup("Damage Text Offset")] public Vector3 HealingOffset = new Vector3(1, 0, 0);
 
@@ -21,67 +21,65 @@ namespace _Rogues_Path.Pawns {
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip HealDamageAnimation;
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip DieAnimation;
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip ReviveAnimation;
-        [FormerlySerializedAs("Victory")]
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip VictoryAnimation;
+        private Animazing animazing;
 
-        public float PlayAnimation(AnimationClip clip) {
-            Animazing.Play(clip, int.MaxValue);
-            return clip.length;
+        private void InitializeAnimation() {
+            animazing = GetComponentInChildren<Animazing>();
+            animazing.SetLayerDefaultAnimation(0, IdleAnimation);
         }
-
-        public float PlayVictoryAnimation() {
-            Animazing.Stop(1);
-            Animazing.SetLayerDefaultAnimation(0, VictoryAnimation);
-            Animazing.Play(VictoryAnimation, Single.PositiveInfinity);
-            return VictoryAnimation.length;
+        
+        public float PlayAnimation(AnimationClip clip) {
+            animazing.Play(clip, int.MaxValue);
+            return clip.length;
         }
         
         public float Slash() {
-            Animazing.Play(SlashAnimation, 1);
+            animazing.Play(SlashAnimation, 1);
             return SlashAnimation.length;
         }
 
         public float ChargeAttack() {
-            Animazing.Play(ChargeAttackAnimation, 1);
+            animazing.Play(ChargeAttackAnimation, 1);
             return ChargeAttackAnimation.length;
         }
 
         public float UseSupply() {
-            Animazing.Play(UseSupplyAnimation, 1);
+            animazing.Play(UseSupplyAnimation, 1);
             return UseSupplyAnimation.length;
         }
 
 
         public float Revive() {
-            Animazing.Play(ReviveAnimation, Single.PositiveInfinity);
+            animazing.Play(ReviveAnimation, Single.PositiveInfinity);
             return ReviveAnimation.length;
         }
 
         public float Jab() {
-            Animazing.Play(JabAnimation, 1);
+            animazing.Play(JabAnimation, 1);
             return JabAnimation.length;
         }
 
         public float TakeDamage() {
             if (TakeDamageAnimation == null) {
-                Animazing.transform.DOPunchRotation(Vector3.one * 10, 0.25f);
+                animazing.transform.DOPunchRotation(Vector3.one * 10, 0.25f);
                 return 0.25f;
             }
             else {
-                Animazing.Play(TakeDamageAnimation, 1);
+                animazing.Play(TakeDamageAnimation, 1);
                 return TakeDamageAnimation.length;
             }
         }
 
         public float Heal() {
-            Animazing.Play(HealDamageAnimation, 1);
+            animazing.Play(HealDamageAnimation, 1);
             return HealDamageAnimation.length;
         }
 
         public float Die() {
-            Animazing.Stop(1);
-            Animazing.SetLayerDefaultAnimation(0, DieAnimation);
-            Animazing.Play(DieAnimation, Single.PositiveInfinity);
+            animazing.Stop(1);
+            animazing.SetLayerDefaultAnimation(0, DieAnimation);
+            animazing.Play(DieAnimation, Single.PositiveInfinity);
             IsDead = true;
             
             /*
