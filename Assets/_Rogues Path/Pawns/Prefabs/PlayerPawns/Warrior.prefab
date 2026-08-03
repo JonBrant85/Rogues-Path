@@ -1395,6 +1395,10 @@ GameObject:
   - component: {fileID: -3801627356705924400}
   - component: {fileID: -6324308059184157737}
   - component: {fileID: -2093688413056363585}
+  - component: {fileID: -7128247040368762818}
+  - component: {fileID: 3971238823558327295}
+  - component: {fileID: -2532692843275737349}
+  - component: {fileID: -3284071796792261684}
   m_Layer: 0
   m_Name: Animation
   m_TagString: Untagged
@@ -1791,6 +1795,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer: 1
 --- !u!114 &-2093688413056363585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940810291610875134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910e7d24033dc6e4299d3ec7cebd559c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 0
+--- !u!114 &-7128247040368762818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940810291610875134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910e7d24033dc6e4299d3ec7cebd559c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 1
+--- !u!114 &3971238823558327295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940810291610875134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910e7d24033dc6e4299d3ec7cebd559c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 0
+--- !u!114 &-2532692843275737349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940810291610875134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910e7d24033dc6e4299d3ec7cebd559c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 1
+--- !u!114 &-3284071796792261684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
