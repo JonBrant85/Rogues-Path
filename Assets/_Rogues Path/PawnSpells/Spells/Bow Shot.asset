@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellCommand:
     rid: 7368513049083510785
-  ID: 0
   Name: Bow shot
   Icon: {fileID: 21300000, guid: b2c4e79645a7fbf429e92645c06f7139, type: 3}
   Description: Shoots an arrow with the equipped bow
   Cooldown: 3
   Flags: 1
+  ID: 0
   Range: 0
   CastTime: 1.5
   PowerCost: 0
@@ -31,4 +31,5 @@ MonoBehaviour:
       data:
         BowShotAnimation: {fileID: 7400000, guid: 953ec4ce156642c7b7672963a6583e29, type: 2}
         DexterityMultiplier:
+          ID: {fileID: 11400000, guid: 5facc1ffa6ddc624eb5f40dac8894151, type: 2}
           Multiplier: 1

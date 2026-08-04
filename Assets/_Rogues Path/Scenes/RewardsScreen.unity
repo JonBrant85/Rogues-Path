@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerMode: 3
   SecondsDelay: 1
-  Trigger: 6
+  Trigger: 7
 --- !u!114 &1167652542 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5545061630710055911, guid: e13145e5e3b38414f98a2e53a94d7d5f, type: 3}
@@ -2038,6 +2038,10 @@ PrefabInstance:
     - target: {fileID: 1284447632391749890, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1403007222395106340, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1876545310285109615, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
       propertyPath: m_AnchorMax.y

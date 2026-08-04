@@ -29,9 +29,9 @@ namespace _Rogues_Path._Game {
         EnterMainMenu,
         EnterCharacterSelection,
         EnterLevelSelection,
-        EnterWorldMap,
         EnterCombat,
         EnterRewardsScreen,
+        EnterWorld,
         GameOver
     }
 
@@ -103,7 +103,12 @@ namespace _Rogues_Path._Game {
                         UIMenuBar.Show();
                         UIRewardsScreen.Hide();
                     })
-                .Permit(Trigger.EnterCombat, State.Combat);
+                .Permit(Trigger.EnterWorld, State.WorldMap);
+
+            gameState.Configure(State.WorldMap).OnEntry(
+                () => {
+                    LoadingScreenManager.Instance.LoadScene(World);
+                });
         }
 
         public static void FireTrigger(Trigger trigger) {

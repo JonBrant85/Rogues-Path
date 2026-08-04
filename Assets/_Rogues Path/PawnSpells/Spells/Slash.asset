@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellCommand:
     rid: 7368513045436039197
-  ID: 0
   Name: Slash
   Icon: {fileID: 21300000, guid: 4d710d2f71ec9ef4781ab1a616a6c00a, type: 3}
   Description: Performs a slash at the enemy
   Cooldown: 3.5
   Flags: 1
+  ID: 0
   Range: 0
   CastTime: 1.5
   PowerCost: 0
@@ -30,4 +30,5 @@ MonoBehaviour:
       type: {class: SlashCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:
         StrengthMultiplier:
+          ID: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
           Multiplier: 1.25
