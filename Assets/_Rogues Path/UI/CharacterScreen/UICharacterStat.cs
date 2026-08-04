@@ -9,14 +9,12 @@ namespace _Rogues_Path.UI.CharacterScreen {
         [SerializeField] private float adjustmentSpeed = 10;
         public Text LabelText;
         public Text ValueText;
-        public Pawn Owner;
 
         private CharacterStat stat;
         private float smoothedValue;
 
-        public void SetCharacterStat(CharacterStat _stat, Pawn owner, string _name) {
+        public void SetCharacterStat(CharacterStat _stat, string _name) {
             LabelText.text = _name;
-            Owner = owner;
             stat = _stat;
             gameObject.SetActive(true);
         }

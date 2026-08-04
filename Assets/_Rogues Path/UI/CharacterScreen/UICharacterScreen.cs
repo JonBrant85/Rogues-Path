@@ -50,7 +50,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
             InitializePawnPreview();
             SetupEquipmentSlots();
-            //ShowCharacterStats();
+            ShowCharacterStats();
 
             // Setup equipment slots
             void SetupEquipmentSlots() {
@@ -64,9 +64,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
                 }
 
                 void OnAssignEventHandler(Pawn owner, EquipmentBase equipment) {
-                    if (EquipmentDatabase.GetIDByName(equipment.name, out int ID)) {
-                        Game.Instance.PlayerEquipment.Add(equipment.EquipType, ID);
-                    }
+                    Game.Instance.PlayerEquipment.Add(equipment.EquipType, EquipmentDatabase.Instance.Equipment.IndexOf(equipment));
                 }
 
                 void OnUnassignEventHandler(Pawn owner, EquipmentBase equipment) {
@@ -93,22 +91,17 @@ namespace _Rogues_Path.UI.CharacterScreen {
                 }
             }
         }
-        
-        /*
+
+
         private void ShowCharacterStats() {
-            BindCharacterStat(player.MaxHealth, "Maximum Health");
-            BindCharacterStat(player.Strength, " Strength");
-            BindCharacterStat(player.Dexterity, "Dexterity");
-            BindCharacterStat(player.Intelligence, "Intelligence");
-            BindCharacterStat(player.Speed, "Speed");
+            foreach (var kvp in pawnPreview.Stats) {
+                var uiStat = Instantiate(StatPrefab, StatsContainer);
+                uiStat.SetCharacterStat(kvp.Value, kvp.Key.name);
+
+                stats.Add(kvp.Value, uiStat);
+            }
         }
 
-        private void BindCharacterStat(CharacterStat stat, string _name) {
-            var uiStat = Instantiate(StatPrefab, StatsContainer);
-            uiStat.SetCharacterStat(stat, player, _name);
-            stats.Add(stat, uiStat);
-        }
-        */
 
         public static void Show() {
             Instance.Window.Show();

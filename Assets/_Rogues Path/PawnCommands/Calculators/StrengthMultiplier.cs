@@ -10,6 +10,7 @@ namespace _Rogues_Path.PawnCommands.Calculators {
         public float Multiplier = 1;
         public override float Calculate(Pawn hero) {
             Debug.Assert(hero!=null, "Hero == null");
+            Debug.Assert(ID != null, "ID null");
             return Multiplier * hero.Stats[ID].Value;
         }
     }
