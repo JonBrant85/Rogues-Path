@@ -4469,10 +4469,6 @@ MonoBehaviour:
     collectionIds:
     - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
   - item:
-      _guid: 9644832fbdbe8634f8b2511469696d83
-    collectionIds:
-    - _serializedGuid: 8b467a465f40d24bbf084efe0471f9f3
-  - item:
       _guid: 8f8c568408e50a9478cba759b9980764
     collectionIds:
     - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2

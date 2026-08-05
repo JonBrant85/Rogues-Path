@@ -22,8 +22,7 @@ MonoBehaviour:
   _rules:
     _rules: []
   _items:
-    _hashSetList:
-    - 9644832fbdbe8634f8b2511469696d83
+    _hashSetList: []
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0
