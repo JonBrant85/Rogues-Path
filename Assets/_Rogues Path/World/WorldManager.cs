@@ -8,12 +8,13 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = System.Random;
 
 namespace _Rogues_Path.World {
     public class WorldManager : Singleton<WorldManager> {
-        [FoldoutGroup("Settings"), SerializeField] private float MovementJump = 1;
-        [FoldoutGroup("Settings"), SerializeField] private float MovementDuration = 1f;
+        [FoldoutGroup("Settings/Movement"), SerializeField] private float MovementJump = 1;
+        [FoldoutGroup("Settings/Movement"), SerializeField] private float MovementDuration = 1f;
 
         [FoldoutGroup("Settings"), SerializeField] private float DieDropHeight = 4f;
         [FoldoutGroup("Settings"), SerializeField] private float DieAngularVelocityMultiplier = 90f;
@@ -23,6 +24,7 @@ namespace _Rogues_Path.World {
 
         [FoldoutGroup("References"), SerializeField] private WorldTile StartingTile;
         [FoldoutGroup("References"), SerializeField] private Die DiePrefab;
+        [FoldoutGroup("References"), SerializeField] private Button MoveButton;
 
         [FoldoutGroup("Debug"), SerializeField] private FourDPawn PlayerPawn;
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
@@ -33,6 +35,7 @@ namespace _Rogues_Path.World {
         }
 
 
+        /*
         private void Update() {
             if (Input.GetMouseButtonDown(0)) {
                 MoveToNextTile();
@@ -42,9 +45,21 @@ namespace _Rogues_Path.World {
                 RollDie().Forget();
             }
         }
+        */
 
+        public async void MoveButtonPressed() {
+            MoveButton.interactable = false;
+            var diceRolls = await RollDice(1);
+            var total = diceRolls.Sum();
 
-        private void MoveToNextTile() {
+            for (int i = 0; i < total; i++) {
+                await MoveToNextTile();
+            }
+
+            MoveButton.interactable = true;
+        }
+
+        private async UniTask MoveToNextTile() {
             Vector3 movementDirection = currentTile.NextTile.transform.position - currentTile.transform.position;
             PlayerPawn.xDirection = movementDirection.x;
             PlayerPawn.yDirection = movementDirection.z;
@@ -56,16 +71,43 @@ namespace _Rogues_Path.World {
                         currentTile = currentTile.NextTile;
                         PlayerPawn.transform.SetParent(currentTile.PawnContainer);
                         PlayerPawn.animationManager.SetState(CharacterState.Idle);
+
                     });
+            await UniTask.Delay((int)MovementDuration * 1000);
+        }
+
+        private async UniTask<List<int>> RollDice(int numberOfDice) {
+            // Keeping a list of RollDie tasks for a UniTask.WhenAll call
+            List<UniTask<int>> diceRollTasks = new();
+
+            // Collect tasks
+            for (int i = 0; i < numberOfDice; i++) {
+                UniTask<int> dieRollTask = RollDie();
+                diceRollTasks.Add(dieRollTask);
+            }
+
+            // Execute and wait for all tasks to fill array
+            var diceRollValues = await UniTask.WhenAll(diceRollTasks);
+
+            // After all dice are finished rolling, display their values and return them
+            for (int i = 0; i < diceRollValues.Length; i++) {
+                Debug.Log($"Rolled a {diceRollValues[i]}");
+            }
+
+            return diceRollValues.ToList();
         }
 
         private async UniTask<int> RollDie() {
+            // Plane the die drops on
             var planeExtents = DiePlaneCollider.bounds.extents;
+
+            // Get a 'suitable' random position within planeExtents at dropHeight height
             var dropPosition = new Vector3(
                 UnityEngine.Random.Range(-planeExtents.x, planeExtents.x) * DieBufferCoefficient,
                 DieDropHeight,
                 UnityEngine.Random.Range(-planeExtents.y, planeExtents.y) * DieBufferCoefficient);
 
+            // Instantiate with random rotation
             var die = Instantiate(DiePrefab, dropPosition, UnityEngine.Random.rotation);
 
             // Give the die a random spin
@@ -73,7 +115,6 @@ namespace _Rogues_Path.World {
 
             // Wait until ReadDie isn't null, meaning it has stopped
             await UniTask.WaitUntil(() => die.ReadDie() != null);
-            Debug.Log($"Die value: {die.ReadDie()!.Value}");
             Destroy(die.gameObject, DieLifetime);
             return die.ReadDie()!.Value;
         }
