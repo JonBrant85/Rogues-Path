@@ -6,6 +6,7 @@ using _Rogues_Path.Utilities;
 using Assets.HeroEditor4D.Common.Scripts.Enums;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Michsky.UI.MTP;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,59 +14,75 @@ using Random = System.Random;
 
 namespace _Rogues_Path.World {
     public class WorldManager : Singleton<WorldManager> {
+        [FoldoutGroup("Settings")]
         [FoldoutGroup("Settings/Movement"), SerializeField] private float MovementJump = 1;
         [FoldoutGroup("Settings/Movement"), SerializeField] private float MovementDuration = 1f;
 
-        [FoldoutGroup("Settings"), SerializeField] private float DieDropHeight = 4f;
-        [FoldoutGroup("Settings"), SerializeField] private float DieAngularVelocityMultiplier = 90f;
-        [FoldoutGroup("Settings"), SerializeField] private float DieLifetime = 5f;
-        [FoldoutGroup("Settings"), SerializeField] private float DieBufferCoefficient = 0.8f;
-        [FoldoutGroup("Settings"), SerializeField] private MeshCollider DiePlaneCollider;
+        [FoldoutGroup("Settings/Dice"), SerializeField] private int DiceCount = 2;
+        [FoldoutGroup("Settings/Dice"), SerializeField] private float DieDropHeight = 4f;
+        [FoldoutGroup("Settings/Dice"), SerializeField] private float DieAngularVelocityMultiplier = 90f;
+        [FoldoutGroup("Settings/Dice"), SerializeField] private float DieLifetime = 5f;
+        [FoldoutGroup("Settings/Dice"), SerializeField] private float DieBufferCoefficient = 0.8f;
+        [FoldoutGroup("Settings/Dice"), SerializeField] private MeshCollider DiePlaneCollider;
 
         [FoldoutGroup("References"), SerializeField] private WorldTile StartingTile;
         [FoldoutGroup("References"), SerializeField] private Die DiePrefab;
         [FoldoutGroup("References"), SerializeField] private Button MoveButton;
+        [FoldoutGroup("References"), SerializeField] private StyleManager DiceRollAnnouncer;
 
         [FoldoutGroup("Debug"), SerializeField] private FourDPawn PlayerPawn;
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
 
         private void Awake() {
+
             PlayerPawn = Instantiate(Game.Instance.PlayerData.FourDPawn, StartingTile.PawnContainer);
             currentTile = StartingTile;
         }
 
-
-        /*
-        private void Update() {
-            if (Input.GetMouseButtonDown(0)) {
-                MoveToNextTile();
-            }
-
-            if (Input.GetMouseButtonDown(1)) {
-                RollDie().Forget();
-            }
+        public void UIMoveButtonPressed() {
+            RollDiceAndMove(DiceCount).Forget();
         }
-        */
 
-        public async void MoveButtonPressed() {
+        public async UniTask RollDiceAndMove(int numberOfDice) {
+            // Make sure number of dice makes sense, disable button
+            Debug.Assert(numberOfDice > 0, $"Can't roll {numberOfDice} dice.");
             MoveButton.interactable = false;
-            var diceRolls = await RollDice(1);
+
+            // Roll the dice, await results then total their values
+            var diceRolls = await RollDice(numberOfDice);
             var total = diceRolls.Sum();
 
+            // Update Dice Roll Announcer
+            DiceRollAnnouncer.textItems[0].text = "Rolls:";
+            DiceRollAnnouncer.textItems[1].text = diceRolls.ToCommaDelimitedString();
+            DiceRollAnnouncer.textItems[2].text = $"Total: {total}";
+            DiceRollAnnouncer.Play();
+
+            // Move 'total' tiles, waiting for Passed/StoppedOnTile on the way
             for (int i = 0; i < total; i++) {
                 await MoveToNextTile();
+
+                if (i + 1 < total) {
+                    await currentTile.PassedTile();
+                }
+                else {
+                    await currentTile.StoppedOnTile();
+                }
             }
 
+            // Enable the button again
             MoveButton.interactable = true;
         }
 
         private async UniTask MoveToNextTile() {
+            // Setup pawn facing and make the pawn 'jump'
             Vector3 movementDirection = currentTile.NextTile.transform.position - currentTile.transform.position;
             PlayerPawn.xDirection = movementDirection.x;
             PlayerPawn.yDirection = movementDirection.z;
             PlayerPawn.animationManager.SetState(CharacterState.Jump);
 
-            PlayerPawn.transform.DOJump(currentTile.NextTile.PawnContainer.transform.position, MovementJump, 1, MovementDuration, false)
+
+            Tween tween = PlayerPawn.transform.DOJump(currentTile.NextTile.PawnContainer.transform.position, MovementJump, 1, MovementDuration, false)
                 .OnComplete(
                     () => {
                         currentTile = currentTile.NextTile;
@@ -73,7 +90,7 @@ namespace _Rogues_Path.World {
                         PlayerPawn.animationManager.SetState(CharacterState.Idle);
 
                     });
-            await UniTask.Delay((int)MovementDuration * 1000);
+            await tween.AsyncWaitForCompletion();
         }
 
         private async UniTask<List<int>> RollDice(int numberOfDice) {
@@ -86,14 +103,8 @@ namespace _Rogues_Path.World {
                 diceRollTasks.Add(dieRollTask);
             }
 
-            // Execute and wait for all tasks to fill array
+            // Execute and wait for all tasks to fill array and return it
             var diceRollValues = await UniTask.WhenAll(diceRollTasks);
-
-            // After all dice are finished rolling, display their values and return them
-            for (int i = 0; i < diceRollValues.Length; i++) {
-                Debug.Log($"Rolled a {diceRollValues[i]}");
-            }
-
             return diceRollValues.ToList();
         }
 
