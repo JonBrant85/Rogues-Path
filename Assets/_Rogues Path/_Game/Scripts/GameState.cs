@@ -62,7 +62,7 @@ namespace _Rogues_Path._Game {
                         LoadingScreenManager.Instance.LoadScene(CharacterSelection);
                     })
                 .Permit(Trigger.EnterMainMenu, State.MainMenu)
-                .Permit(Trigger.EnterLevelSelection, State.LevelSelection);
+                .Permit(Trigger.EnterWorld, State.WorldMap);
 
             gameState.Configure(State.LevelSelection)
                 .OnEntry(
@@ -108,7 +108,8 @@ namespace _Rogues_Path._Game {
             gameState.Configure(State.WorldMap).OnEntry(
                 () => {
                     LoadingScreenManager.Instance.LoadScene(World);
-                });
+                })
+                .Permit(Trigger.EnterCombat, State.Combat);
         }
 
         public static void FireTrigger(Trigger trigger) {

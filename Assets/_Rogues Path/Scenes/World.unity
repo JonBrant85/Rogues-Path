@@ -1369,6 +1369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Berserker
       objectReference: {fileID: 0}
+    - target: {fileID: 202108899912417099, guid: c1742aabf290cf5409ed64a95c764723, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2611957365291375409, guid: c1742aabf290cf5409ed64a95c764723, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
