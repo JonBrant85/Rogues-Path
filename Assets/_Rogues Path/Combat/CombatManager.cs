@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _Rogues_Path._Game;
+using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Brains;
 using _Rogues_Path.UI;
@@ -30,35 +31,11 @@ namespace _Rogues_Path.Combat {
         }
 
         private void CombatStartedEventHandler(ref CombatEncounterStarted eventData) {
-            Debug.Log($"Heard combat started event!");
             var randomEnemy = eventData.Enemies.GetRandomElement();
             // Instantiate background, player, enemies
             Instantiate(eventData.BackgroundPrefab, BackgroundContainer);
             Player = Instantiate(Game.Instance.PlayerData.TwoDPawn, PlayerContainer);
             Enemy = Instantiate(randomEnemy.TwoDPawn, EnemyContainer);
-            
-            // Reset action timers
-            Enemy.Brain.TimeUntilAction = Enemy.Brain.ActionDelay;
-            Player.Brain.TimeUntilAction = Player.Brain.ActionDelay;
-            
-            UIActionBar.Instance.SetPlayer(Player);
-            UISpellBook.Instance.SetPlayer(Player);
-            UICharacterScreen.Instance.SetPlayer(Game.Instance.PlayerData);
-
-            foreach (var equipment in Player.CurrentEquipment.Values) {
-                Player.Character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
-            }
-        }
-
-        /*
-        private void Start() {
-            var levelData = Game.Instance.LevelData;
-            var randomEnemy = levelData.Enemies.GetRandomElement();
-
-            // Instantiate background, player, enemies
-            Instantiate(levelData.BackgroundPrefab, BackgroundContainer);
-            Player = Instantiate(Game.Instance.PlayerData.TwoDPawn, PlayerContainer);
-            Enemy = Instantiate(randomEnemy, EnemyContainer);
 
             // Reset action timers
             Enemy.Brain.TimeUntilAction = Enemy.Brain.ActionDelay;
@@ -68,11 +45,12 @@ namespace _Rogues_Path.Combat {
             UISpellBook.Instance.SetPlayer(Player);
             UICharacterScreen.Instance.SetPlayer(Game.Instance.PlayerData);
 
-            foreach (var equipment in Player.CurrentEquipment.Values) {
-                Player.Character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
+            foreach (var kvp in Game.Instance.PlayerEquipment) {
+                if (EquipmentDatabase.TryGetByID(kvp.Value, out EquipmentBase equipment)) {
+                    Player.Character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
+                }
             }
         }
-        */
 
         private void Update() {
             if (Player == null || Enemy == null) return;

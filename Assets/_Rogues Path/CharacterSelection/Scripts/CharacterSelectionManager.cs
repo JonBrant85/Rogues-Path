@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Rogues_Path._Game;
+using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Utilities;
 using DuloGames.UI;
 using Sirenix.OdinInspector;
@@ -62,7 +63,14 @@ namespace _Rogues_Path.CharacterSelection {
             NameText.text = slot.PawnData.Name;
             ClassText.text = slot.PawnData.ClassName;
 
+            // Set Game PlayerData and add starting equipment
             Game.Instance.PlayerData = slot.PawnData;
+
+            foreach (var equipment in Game.Instance.PlayerData.StartingEquipment) {
+                if (EquipmentDatabase.GetIDByName(equipment.Name, out int ID)) {
+                    Game.Instance.PlayerEquipment.Add(equipment.EquipType, ID);
+                }
+            }
         }
 
         public CharacterSelectionSlot GetCharacterInDirection(float direction) {

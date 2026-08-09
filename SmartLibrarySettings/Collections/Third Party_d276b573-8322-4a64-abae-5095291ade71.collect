@@ -10,27 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
-  m_Name: Scenes
+  m_Name: Third Party
   m_EditorClassIdentifier: 
   _parentID:
-    _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
-  _subcollectionIDs:
-  - _serializedGuid: 73b576d22283644aabae5095291ade71
-  _collectionName: Scenes
-  _id:
     _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
+  _subcollectionIDs: []
+  _collectionName: Third Party
+  _id:
+    _serializedGuid: 73b576d22283644aabae5095291ade71
   _icon: {fileID: 0}
   _rules:
     _rules: []
   _items:
     _hashSetList:
-    - f1a5a7ca80834b44bb14d71a4cc3ab14
-    - c858a4c9cf17fc047bdf8379add05fe9
-    - c426c4bf78d78be44ba07d6beaf9c172
-    - 4e2c0529cf7a99a41a8f30c5ecacfa25
-    - 2e9628bb6967e1e47b8c268ee4dd4a62
-    - 168df800bce8c2c4da709c592ca02615
-    - 8f8c568408e50a9478cba759b9980764
+    - 97bd551564f449d89ed52d0cd06064b7
+    - 46395c88cc7306041afeffc5eb358c47
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using _Rogues_Path._Game;
+using _Rogues_Path.Equipment.Scripts;
 using DuloGames.UI;
 using UnityEngine;
 
@@ -12,5 +13,6 @@ namespace _Rogues_Path.Pawns {
         public FourDPawn FourDPawn;
 
         public List<UISpellInfo> ClassSpells = new();
+        public List<EquipmentBase> StartingEquipment = new();
     }
 }

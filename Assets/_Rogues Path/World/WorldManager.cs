@@ -69,9 +69,6 @@ namespace _Rogues_Path.World {
                     await currentTile.StoppedOnTile();
                 }
             }
-
-            // Enable the button again
-            MoveButton.interactable = true;
         }
 
         private async UniTask MoveToNextTile() {

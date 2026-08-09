@@ -56,7 +56,14 @@ namespace _Rogues_Path.UI.CharacterScreen {
             void SetupEquipmentSlots() {
                 foreach (var kvp in EquipmentSlots) {
                     if (Game.Instance.PlayerEquipment.ContainsKey(kvp.Key)) {
-                        kvp.Value.Assign(Game.Instance.PlayerEquipment[kvp.Key]);
+                        var ID = Game.Instance.PlayerEquipment[kvp.Key];
+
+                        if (EquipmentDatabase.TryGetByID(ID, out EquipmentBase equipment)) {
+                            kvp.Value.Assign(equipment);
+                        }
+                        else    {
+                            Debug.Log($"Failed to get equipment from database");
+                        }
                     }
 
                     kvp.Value.OnAssignEvent.AddListener(OnAssignEventHandler);
