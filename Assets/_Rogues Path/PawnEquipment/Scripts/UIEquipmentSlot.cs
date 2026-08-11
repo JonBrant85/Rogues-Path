@@ -81,9 +81,11 @@ namespace _Rogues_Path.UI.Slots {
 
             if (EquipToOwnerOnAssign && Owner != null) {
                 Debug.Assert(Equipment != null);
-                Owner.TryEquip(Equipment);
-                Equipment.ApplyModifiers(Equipment.Modifiers, Owner);
-                EventBus.Raise(new PawnStatChanged());
+
+                if (Owner.TryEquip(Equipment)) {
+                    Equipment.ApplyModifiers(Equipment.Modifiers, Owner);
+                    EventBus.Raise(new PawnStatChanged());
+                }
             }
 
             return true;
@@ -264,6 +266,13 @@ namespace _Rogues_Path.UI.Slots {
             // Item types
             UITooltip.AddLineColumn(EquipTypeToString(equipment.EquipType), "ItemAttribute");
             UITooltip.AddLineColumn(equipment.Quality.ToString());
+
+            foreach (StatAndModifierPair pair in equipment.Modifiers) {
+                // pair.Modifier.Value
+                // pair.StatID.name
+                UITooltip.AddLineColumn(pair.StatID.name, "ItemAttribute");
+                UITooltip.AddLineColumn(pair.Modifier.Value.ToString("N0"), "ItemAttribute");
+            }
 
             // Set the item description if not empty
             if (!string.IsNullOrEmpty(equipment.Description)) {

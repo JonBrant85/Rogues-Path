@@ -18,13 +18,15 @@ namespace _Rogues_Path.CharacterSelection {
         [FoldoutGroup("References"), SerializeField] private Text NameText;
         [FoldoutGroup("References"), SerializeField] private Text ClassText;
 
-        private List<Transform> Slots = new List<Transform>();
+        [FoldoutGroup("References"), SerializeField] private Button NextButton;
+
+        private List<CharacterSelectionSlot> Slots = new List<CharacterSelectionSlot>();
         private int SelectedIndex = -1;
         private Transform SelectedTransform;
 
         private void Awake() {
             for (int i = 0; i < transform.childCount; i++) {
-                Slots.Add(transform.GetChild(i));
+                Slots.Add(transform.GetChild(i).GetComponent<CharacterSelectionSlot>());
             }
 
             // Pick the middle-most slot
@@ -44,16 +46,28 @@ namespace _Rogues_Path.CharacterSelection {
             }
         }
 
+        public void LockInCharacter() {
+            // Disable next button so we don't do this twice
+            NextButton.interactable = false;
+
+            // Set Game PlayerData and add starting equipment
+            Game.Instance.PlayerData = Slots[SelectedIndex].PawnData;
+
+            // Copy equipment from data's starting equipment to Game's equipment
+            foreach (var equipment in Game.Instance.PlayerData.StartingEquipment) {
+                if (EquipmentDatabase.GetIDByName(equipment.Name, out int ID)) {
+                    Game.Instance.PlayerEquipment.Add(equipment.EquipType, ID);
+                }
+            }
+            
+            // Fire state-change trigger
+            Game.FireTrigger(Trigger.EnterWorld);
+        }
+
         public void SelectCharacter(CharacterSelectionSlot slot) {
             // Check if already selected
             if (this.SelectedIndex == slot.Index)
                 return;
-
-            // Deselect
-            if (this.SelectedIndex > -1) {
-                // Get the slot
-                Transform selectedSlotTrans = this.Slots[this.SelectedIndex];
-            }
 
             // Set the selected
             this.SelectedIndex = slot.Index;
@@ -62,15 +76,6 @@ namespace _Rogues_Path.CharacterSelection {
             // Update text
             NameText.text = slot.PawnData.Name;
             ClassText.text = slot.PawnData.ClassName;
-
-            // Set Game PlayerData and add starting equipment
-            Game.Instance.PlayerData = slot.PawnData;
-
-            foreach (var equipment in Game.Instance.PlayerData.StartingEquipment) {
-                if (EquipmentDatabase.GetIDByName(equipment.Name, out int ID)) {
-                    Game.Instance.PlayerEquipment.Add(equipment.EquipType, ID);
-                }
-            }
         }
 
         public CharacterSelectionSlot GetCharacterInDirection(float direction) {
@@ -83,17 +88,15 @@ namespace _Rogues_Path.CharacterSelection {
             CharacterSelectionSlot closest = null;
             float lastDistance = 0f;
 
-            foreach (Transform trans in this.Slots) {
+            foreach (CharacterSelectionSlot slot in this.Slots) {
                 // Skip the selected one
-                if (trans.Equals(this.SelectedTransform))
+                if (slot.Equals(this.SelectedTransform.GetComponent<CharacterSelectionSlot>()))
                     continue;
 
-                float curDirection = trans.position.x - this.SelectedTransform.position.x;
+                float curDirection = slot.transform.position.x - this.SelectedTransform.position.x;
 
                 // Check direction
                 if (direction > 0f && curDirection > 0f || direction < 0f && curDirection < 0f) {
-                    // Get the character component
-                    CharacterSelectionSlot slot = trans.GetComponent<CharacterSelectionSlot>();
 
                     // Make sure we have slot component
                     if (slot == null)
@@ -102,14 +105,14 @@ namespace _Rogues_Path.CharacterSelection {
                     // If we have no closest assigned yet
                     if (closest == null) {
                         closest = slot;
-                        lastDistance = Vector3.Distance(this.SelectedTransform.position, trans.position);
+                        lastDistance = Vector3.Distance(this.SelectedTransform.position, slot.transform.position);
                         continue;
                     }
 
                     // Compare distance
-                    if (Vector3.Distance(this.SelectedTransform.position, trans.position) <= lastDistance) {
+                    if (Vector3.Distance(this.SelectedTransform.position, slot.transform.position) <= lastDistance) {
                         closest = slot;
-                        lastDistance = Vector3.Distance(this.SelectedTransform.position, trans.position);
+                        lastDistance = Vector3.Distance(this.SelectedTransform.position, slot.transform.position);
                         continue;
                     }
                 }

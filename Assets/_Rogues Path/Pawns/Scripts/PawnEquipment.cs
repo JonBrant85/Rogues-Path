@@ -64,7 +64,7 @@ namespace _Rogues_Path.Pawns {
                 Game.PlayerInventory.Remove(dbEntry);
             }
             */
-            
+
             return true;
         }
         #endregion
@@ -74,45 +74,57 @@ namespace _Rogues_Path.Pawns {
                 Debug.Log($"Attempted to assign a null equipment");
                 return false;
             }
-            // Find Database entry and use that instead of live equipment
-            var dbEntry = EquipmentDatabase.Instance.Equipment.FirstOrDefault(e => e.Name == equipment.Name);
-            Debug.Assert(dbEntry != null);
 
-            if (currentEquipment.ContainsKey(equipment.EquipType)) {
+
+            // Find Database entry and use that instead of live equipment
+            var dbEquipment = EquipmentDatabase.Instance.Equipment.FirstOrDefault(e => e.Name == equipment.Name);
+            Debug.Assert(dbEquipment != null);
+
+            // If something's already in the equipment slot, try to move it to inventory
+            if (currentEquipment.ContainsKey(dbEquipment.EquipType) && Game.Instance.PlayerEquipment.ContainsKey(dbEquipment.EquipType)) {
                 // Move existing item to inventory if possible
                 if (Inventory.Count + 1 > InventorySpaces) {
-                    Debug.Log($"Not enough inventory spaces to move {dbEntry.Name} to inventory!");
+                    Debug.Log($"Not enough inventory spaces to move {dbEquipment.Name} to inventory!");
                     return false;
                 }
                 else {
-                    return TryRemoveEquipment(dbEntry) && TryAddToInventory(dbEntry);
+                    // If successfully removed and added to inventory, equip it
+                    if (TryRemoveEquipment(dbEquipment, modifyGameState) && TryAddToInventory(dbEquipment, modifyGameState)) {
+                        EquipEquipment();
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
                 }
             }
+            // If the slot isn't occupied, take it
             else {
+                EquipEquipment();
+                return true;
+            }
+
+            void EquipEquipment() {
                 // Set owner and update sprite
-                equipment.Owner = this;
-                equipment.gameObject.SetActive(true);
-                Character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
+                dbEquipment.Owner = this;
+                dbEquipment.gameObject.SetActive(true);
+                Character.Equip(dbEquipment.Sprite, dbEquipment.EquipType, dbEquipment.SpriteColor);
+
+                // Add to dictionary
+                currentEquipment.Add(dbEquipment.EquipType, dbEquipment);
+
+                // Update game state if necessary
+                if (modifyGameState) {
+                    int ID = EquipmentDatabase.Instance.Equipment.IndexOf(dbEquipment);
+                    Game.Instance.PlayerEquipment.Add(dbEquipment.EquipType, ID);
+                }
 
                 // Raise a new EquipmentEquipped event
                 EventBus.Raise(
                     new EquipmentEquippedEvent {
-                        Equipment = dbEntry,
+                        Equipment = dbEquipment,
                         Owner = this
                     });
-
-                // Add to dictionary
-                currentEquipment.Add(dbEntry.EquipType, dbEntry);
-
-                // Update game state if necessary
-                
-                
-                if (modifyGameState) {
-                    int ID = EquipmentDatabase.Instance.Equipment.IndexOf(dbEntry);
-                    Game.Instance.PlayerEquipment.Add(dbEntry.EquipType, ID );
-                }
-
-                return true;
             }
         }
 
@@ -121,7 +133,7 @@ namespace _Rogues_Path.Pawns {
 
             Character.UnEquip(equipment.EquipType);
             currentEquipment.Remove(equipment.EquipType);
-            
+
             if (modifyGameState) {
                 Game.Instance.PlayerEquipment.Remove(equipment.EquipType);
             }

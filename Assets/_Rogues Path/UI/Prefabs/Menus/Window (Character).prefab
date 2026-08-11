@@ -14290,7 +14290,6 @@ MonoBehaviour:
   adjustmentSpeed: 1
   LabelText: {fileID: 3440350040904924935}
   ValueText: {fileID: 9067290350398987121}
-  Owner: {fileID: 0}
 --- !u!114 &7373757097860360038
 MonoBehaviour:
   m_ObjectHideFlags: 0

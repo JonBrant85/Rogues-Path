@@ -47,7 +47,7 @@ namespace _Rogues_Path.Combat {
 
             foreach (var kvp in Game.Instance.PlayerEquipment) {
                 if (EquipmentDatabase.TryGetByID(kvp.Value, out EquipmentBase equipment)) {
-                    Player.Character.Equip(equipment.Sprite, equipment.EquipType, equipment.SpriteColor);
+                    Player.TryEquip(equipment, false);
                 }
             }
         }

@@ -57,7 +57,7 @@ namespace _Rogues_Path.Equipment.Scripts {
         }
 
         public static bool TryGetByID(int ID, out EquipmentBase item) {
-            if (ID >= Instance.equipment.Count) {
+            if (ID >= Instance.equipment.Count || ID < 0) {
                 item = null;
                 Debug.Log($"Failed to find equipment by ID: {ID}");
                 return false;
