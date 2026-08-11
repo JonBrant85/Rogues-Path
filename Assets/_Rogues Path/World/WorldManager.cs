@@ -79,14 +79,11 @@ namespace _Rogues_Path.World {
             PlayerPawn.animationManager.SetState(CharacterState.Jump);
 
 
-            Tween tween = PlayerPawn.transform.DOJump(currentTile.NextTile.PawnContainer.transform.position, MovementJump, 1, MovementDuration, false)
-                .OnComplete(
-                    () => {
-                        currentTile = currentTile.NextTile;
-                        PlayerPawn.transform.SetParent(currentTile.PawnContainer);
-                        PlayerPawn.animationManager.SetState(CharacterState.Idle);
-
-                    });
+            Tween tween = PlayerPawn.transform.DOJump(currentTile.NextTile.PawnContainer.transform.position, MovementJump, 1, MovementDuration, false);
+           
+            currentTile = currentTile.NextTile;
+            PlayerPawn.transform.SetParent(currentTile.PawnContainer);
+            PlayerPawn.animationManager.SetState(CharacterState.Idle);
             await tween.AsyncWaitForCompletion();
         }
 
