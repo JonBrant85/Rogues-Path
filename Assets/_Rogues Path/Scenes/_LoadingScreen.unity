@@ -318,15 +318,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: '- Make items slide in/out properly again
 
-    - Fix equipment disappearing
+    - Fix equipment swapping
+    throwing a dictionary error
 
-    -
-    Stats display, health etc
+    - Stats display, health etc
 
-    - Fix combat inventory display, currently not
-    displaying Game''s inventory
+    - Fix combat
+    inventory display, currently not displaying Game''s inventory
 
-    - '
+    - Same with
+    reward''s screen'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
