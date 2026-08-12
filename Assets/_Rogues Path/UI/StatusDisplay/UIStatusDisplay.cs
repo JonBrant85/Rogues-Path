@@ -5,9 +5,10 @@ using _Rogues_Path.Pawns;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace _Rogues_Path.UI {
-    public class UIStatusDisplay : MonoBehaviour {
+    public class UIStatusDisplay : MonoBehaviour, IPointerEnterHandler {
         public Dictionary<string, PawnBuff> PawnBuffs = new();
 
         private Pawn owner;
@@ -25,6 +26,7 @@ namespace _Rogues_Path.UI {
         private void OnDisable() {
             EventBus.SubscribeTo<StatusChanged>(StatusChangedEventHandler);
         }
+        
 
         private void StatusChangedEventHandler(ref StatusChanged eventData) {
             if (!eventData.Targets.Contains(owner)) return;
@@ -67,6 +69,10 @@ namespace _Rogues_Path.UI {
                 Destroy(PawnBuffs[buffPrefab.Name].gameObject);
                 PawnBuffs.Remove(buffPrefab.Name);
             }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData) {
+            Debug.Log($"Mouse over {owner.CharacterName}");
         }
     }
 }

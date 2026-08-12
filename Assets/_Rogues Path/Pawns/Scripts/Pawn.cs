@@ -1,3 +1,4 @@
+using System;
 using _Rogues_Path.Pawns.Brains;
 using _Rogues_Path.UI;
 using Assets.HeroEditor.Common.Scripts.CharacterScripts;
@@ -19,6 +20,10 @@ namespace _Rogues_Path.Pawns {
             InitializeStats();
             InitializeAnimation();
             InitializeStatusDisplay();
+        }
+
+        private void OnMouseOver() {
+            Debug.Log($"Mouse over Pawn: {CharacterName}");
         }
 
         private void InitializeStatusDisplay() {

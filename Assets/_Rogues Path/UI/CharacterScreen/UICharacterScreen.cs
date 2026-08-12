@@ -74,14 +74,14 @@ namespace _Rogues_Path.UI.CharacterScreen {
                     // If slot is occupied, try moving to inventory
                     if (Game.Instance.PlayerEquipment.TryGetValue(equipment.EquipType, out int equippedID)
                         && EquipmentDatabase.TryGetByID(equippedID, out EquipmentBase equippedItem)) {
-                        // We have the equipped item and its ID, now we check if we can remove it and add it to inventory
-                        if (pawnPreview.TryRemoveEquipment(equippedItem) && pawnPreview.TryAddToInventory(equippedItem)) {
-                            // If the slot is clear, take it
-                            Game.Instance.PlayerEquipment.Add(equipment.EquipType, EquipmentDatabase.Instance.Equipment.IndexOf(equipment));
+                        // We have the equipped item and its ID, now we check if we can remove it and add it to inventory. If not, return
+                        if (!pawnPreview.TryRemoveEquipment(equippedItem) || !pawnPreview.TryAddToInventory(equippedItem)) return;
+                        
+                        // If the slot is clear, take it
+                        Game.Instance.PlayerEquipment.Add(equipment.EquipType, EquipmentDatabase.Instance.Equipment.IndexOf(equipment));
                             
-                            // Raise an InventoryChanged event
-                            EventBus.Raise(new InventoryChanged());
-                        }
+                        // Raise an InventoryChanged event
+                        EventBus.Raise(new InventoryChanged());
                         // If we're here, we couldn't move the equipment. Simply do nothing
                     }
                     else {

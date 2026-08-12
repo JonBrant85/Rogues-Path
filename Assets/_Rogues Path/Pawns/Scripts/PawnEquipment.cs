@@ -21,7 +21,7 @@ namespace _Rogues_Path.Pawns {
                 Debug.LogError("Equipment null!");
                 return false;
             }
-            
+
             if (Inventory.Count >= InventorySpaces) {
                 Debug.Log($"Inventory full!");
                 return false;
@@ -129,12 +129,10 @@ namespace _Rogues_Path.Pawns {
         }
 
         public bool TryRemoveEquipment(EquipmentBase equipment, bool modifyGameState = true) {
+            // If the equipment is null, or can't be removed from local/global inventory, return false and do nothing
             if (equipment == null) return false;
             if (!currentEquipment.Remove(equipment.EquipType)) return false;
-
-            if (modifyGameState) {
-                if (!Game.Instance.PlayerEquipment.Remove(equipment.EquipType)) return false;
-            }
+            if (modifyGameState && !Game.Instance.PlayerEquipment.Remove(equipment.EquipType)) return false;
 
             Character.UnEquip(equipment.EquipType);
             equipment.gameObject.SetActive(false);

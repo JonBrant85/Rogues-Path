@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 9155976820536524332}
   - component: {fileID: 5598842490194436394}
   - component: {fileID: -3054308267087143600}
+  - component: {fileID: 8548746192811814064}
   - component: {fileID: -8640695537340768691}
   m_Layer: 0
   m_Name: UIStatusDisplay
@@ -273,6 +274,23 @@ Canvas:
   m_SortingLayerID: -2010403429
   m_SortingOrder: 1000
   m_TargetDisplay: 0
+--- !u!114 &8548746192811814064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4373800312061090073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 65591
 --- !u!114 &-8640695537340768691
 MonoBehaviour:
   m_ObjectHideFlags: 0
