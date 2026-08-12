@@ -98,6 +98,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
             void InitializePawnPreview() {
                 pawnPreview = Instantiate(playerData.TwoDPawn, PawnPreviewCamera.transform);
                 pawnPreview.transform.localPosition = PawnPreviewOffset;
+                pawnPreview.CurrentEquipment.Clear();
 
                 foreach (var kvp in EquipmentSlots) {
                     kvp.Value.Owner = pawnPreview;

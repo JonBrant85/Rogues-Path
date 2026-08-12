@@ -17,13 +17,13 @@ namespace _Rogues_Path.Pawns {
         public int InventorySpaces = 2;
 
         public bool TryAddToInventory(EquipmentBase equipment, bool modifyGameState = true) {
-            if (Inventory.Count >= InventorySpaces) {
-                Debug.Log($"Inventory full!");
-                return false;
-            }
-
             if (equipment == null) {
                 Debug.LogError("Equipment null!");
+                return false;
+            }
+            
+            if (Inventory.Count >= InventorySpaces) {
+                Debug.Log($"Inventory full!");
                 return false;
             }
 
@@ -130,14 +130,13 @@ namespace _Rogues_Path.Pawns {
 
         public bool TryRemoveEquipment(EquipmentBase equipment, bool modifyGameState = true) {
             if (equipment == null) return false;
-
-            Character.UnEquip(equipment.EquipType);
-            currentEquipment.Remove(equipment.EquipType);
+            if (!currentEquipment.Remove(equipment.EquipType)) return false;
 
             if (modifyGameState) {
-                Game.Instance.PlayerEquipment.Remove(equipment.EquipType);
+                if (!Game.Instance.PlayerEquipment.Remove(equipment.EquipType)) return false;
             }
 
+            Character.UnEquip(equipment.EquipType);
             equipment.gameObject.SetActive(false);
             return true;
         }
