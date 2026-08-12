@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using _Rogues_Path.Buffs.Scripts;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using UnityEngine;
@@ -10,23 +11,25 @@ using UnityEngine.EventSystems;
 namespace _Rogues_Path.UI {
     public class UIStatusDisplay : MonoBehaviour, IPointerEnterHandler {
         public Dictionary<string, PawnBuff> PawnBuffs = new();
+        public UIHealthDisplay HealthDisplay;
 
         private Pawn owner;
+        [SerializeField] private CharacterStatID MaximumHealth;
 
         private void OnEnable() {
-
-
             EventBus.SubscribeTo<StatusChanged>(StatusChangedEventHandler);
+            EventBus.SubscribeTo<HealthChanged>(HealthChangedEventHandler);
 
+            // Update camera so mouse over events work
             if (TryGetComponent(out Canvas canvas)) {
                 canvas.worldCamera = Camera.main;
             }
         }
 
         private void OnDisable() {
-            EventBus.SubscribeTo<StatusChanged>(StatusChangedEventHandler);
+            EventBus.UnsubscribeFrom<StatusChanged>(StatusChangedEventHandler);
+            EventBus.UnsubscribeFrom<HealthChanged>(HealthChangedEventHandler);
         }
-        
 
         private void StatusChangedEventHandler(ref StatusChanged eventData) {
             if (!eventData.Targets.Contains(owner)) return;
@@ -43,8 +46,17 @@ namespace _Rogues_Path.UI {
             }
         }
 
+        private void HealthChangedEventHandler(ref HealthChanged eventData) {
+            if (eventData.Victim != owner) return;
+
+            HealthDisplay.TweenFillAmount(eventData.NewHealth/eventData.Victim.Stats[MaximumHealth].Value);
+        }
+
         public void SetOwner(Pawn _owner) {
             owner = _owner;
+            
+            // Update Unit Name
+            HealthDisplay.UnitNameText.text = owner.CharacterName;
         }
 
         public void AddBuff(PawnBuff buffPrefab, int count) {

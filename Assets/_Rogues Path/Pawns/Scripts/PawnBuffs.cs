@@ -12,10 +12,10 @@ namespace _Rogues_Path.Pawns {
         public void AddBuff(PawnBuff status, int count) {
             if (buffs.ContainsKey(status.Name)) {
                 buffs[status.Name] += count;
-                statusDisplay.AddBuff(status, buffs[status.Name]);
+                StatusDisplay.AddBuff(status, buffs[status.Name]);
             }
             else {
-                statusDisplay.AddBuff(status, count);
+                StatusDisplay.AddBuff(status, count);
                 buffs.Add(status.Name, count);
             }
 

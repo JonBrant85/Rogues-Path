@@ -12,9 +12,8 @@ namespace _Rogues_Path.Pawns {
         public string ClassName;
         [FoldoutGroup("References")] public Character Character;
         [FoldoutGroup("References")] public PawnBrain Brain;
-        [FoldoutGroup("References")] public UIStatusDisplay StatusDisplayPrefab;
-
-        private UIStatusDisplay statusDisplay;
+        /// Status Display. Handles buffs and Health displays. May be null for pawn previews
+        [FoldoutGroup("References")] public UIStatusDisplay StatusDisplay;
 
         private void Awake() {
             InitializeStats();
@@ -22,13 +21,14 @@ namespace _Rogues_Path.Pawns {
             InitializeStatusDisplay();
         }
 
-        private void OnMouseOver() {
-            Debug.Log($"Mouse over Pawn: {CharacterName}");
+        private void OnMouseEnter() {
+        }
+
+        private void OnMouseExit() {
         }
 
         private void InitializeStatusDisplay() {
-            statusDisplay = Instantiate(StatusDisplayPrefab, transform);
-            statusDisplay.SetOwner(this);
+            if (StatusDisplay != null) StatusDisplay.SetOwner(this);
         }
     }
 }
