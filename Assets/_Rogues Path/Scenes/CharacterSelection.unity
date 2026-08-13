@@ -779,6 +779,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 947590424}
     m_Modifications:
+    - target: {fileID: 2761202050095378812, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2761202050095378812, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
     - target: {fileID: 3609667034235466990, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -827,12 +831,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6269131777052980523, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 6269131777052980523, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
     - target: {fileID: 7182182689222504329, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
       propertyPath: m_Name
       value: Assassin
       objectReference: {fileID: 0}
+    - target: {fileID: 8850778529634385021, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
+      propertyPath: StatusDisplay
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1022673697209689902, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
@@ -849,6 +862,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1386601158}
     m_Modifications:
+    - target: {fileID: -6887772855167135278, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -6887772855167135278, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
+    - target: {fileID: 2106247968566063873, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 2106247968566063873, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
     - target: {fileID: 2323031441480914850, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -901,8 +922,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Priest
       objectReference: {fileID: 0}
+    - target: {fileID: 8235953506563568159, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
+      propertyPath: StatusDisplay
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3844494854664414547, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fc75776eee0b8449b21201dc923f397, type: 3}
@@ -2797,6 +2823,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 602474300}
     m_Modifications:
+    - target: {fileID: -6318122447838429802, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
+      propertyPath: StatusDisplay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1735137437053547570, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1735137437053547570, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
     - target: {fileID: 2281181047772055464, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
       propertyPath: m_Name
       value: Archer
@@ -2849,8 +2883,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8294659113153169260, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 8294659113153169260, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3491684596101980768, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
@@ -3229,6 +3268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 6369691731588281139, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 6369691731588281139, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
     - target: {fileID: 6449234203470031756, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -3281,8 +3324,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7688887409381401591, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
+      propertyPath: StatusDisplay
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8071917332305126753, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
@@ -3388,6 +3436,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 83790976}
     m_Modifications:
+    - target: {fileID: -723016229308348731, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -723016229308348731, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
+    - target: {fileID: 145172211139808723, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
+      propertyPath: StatusDisplay
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690132805687458831, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 6690132805687458831, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
     - target: {fileID: 7725625659908278659, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -3441,7 +3501,8 @@ PrefabInstance:
       value: Berserker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8410655626092505693, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4992d147dbd6145b10fef6b9009c98, type: 3}
@@ -3800,6 +3861,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1433568821}
     m_Modifications:
+    - target: {fileID: 446883849016778135, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 446883849016778135, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
+    - target: {fileID: 1905243712106069567, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1905243712106069567, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
     - target: {fileID: 2950549054282485171, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -3852,12 +3921,17 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 5012675720466637318, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
+    - target: {fileID: 8216523932049942430, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
+      propertyPath: StatusDisplay
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8646635251456286324, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
       propertyPath: m_Name
       value: Wizard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3338047566873054149, guid: 76f6b566c87aba0499ead60598b38025, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76f6b566c87aba0499ead60598b38025, type: 3}

@@ -9,6 +9,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace _Rogues_Path.UI {
+    /// <summary>
+    /// Displays Health and Buffs
+    /// </summary>
     public class UIStatusDisplay : MonoBehaviour, IPointerEnterHandler {
         public Dictionary<string, PawnBuff> PawnBuffs = new();
         public UIHealthDisplay HealthDisplay;

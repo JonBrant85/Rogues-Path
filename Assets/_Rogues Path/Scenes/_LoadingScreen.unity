@@ -316,12 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Make items slide in/out properly again
-
-    - Fix equipment swapping
-    throwing a dictionary error
-
-    - Stats display, health etc
+  m_text: '- Fix equipment swapping throwing a dictionary error
 
     - Fix combat
     inventory display, currently not displaying Game''s inventory

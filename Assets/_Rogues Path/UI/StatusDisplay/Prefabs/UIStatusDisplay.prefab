@@ -239,8 +239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 397, y: 18}
+  m_AnchoredPosition: {x: 0, y: 1.2813}
+  m_SizeDelta: {x: 397, y: 359.6582}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5598842490194436394
 MonoBehaviour:
@@ -565,6 +565,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5194854935878492639, guid: a2a648a4559b66145b55c3ceb4a3cdee, type: 3}
       insertIndex: 4
       addedObject: {fileID: 7331876082956118865}
+    - targetCorrespondingSourceObject: {fileID: 5194854935878492639, guid: a2a648a4559b66145b55c3ceb4a3cdee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3285607512193169154}
   m_SourcePrefab: {fileID: 100100000, guid: a2a648a4559b66145b55c3ceb4a3cdee, type: 3}
 --- !u!114 &3308085641392976854 stripped
 MonoBehaviour:
@@ -621,9 +624,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fb64c2cd1d4058a7858b6d63805ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanvasGroup: {fileID: 3285607512193169154}
   UnitNameText: {fileID: 3308085641392976854}
   ProgressBar: {fileID: 3308085642183612766}
-  Text: {fileID: 3308085642433167890}
+  ProgressBarText: {fileID: 3308085642433167890}
   Easing: 13
   TextVariant: 1
   TextValue: 100
@@ -648,3 +652,15 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!225 &3285607512193169154
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3308085642449227987}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

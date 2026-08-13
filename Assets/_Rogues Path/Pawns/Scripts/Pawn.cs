@@ -22,9 +22,11 @@ namespace _Rogues_Path.Pawns {
         }
 
         private void OnMouseEnter() {
+            if (StatusDisplay != null) StatusDisplay.HealthDisplay.Show();
         }
 
         private void OnMouseExit() {
+            if (StatusDisplay != null) StatusDisplay.HealthDisplay.Hide();
         }
 
         private void InitializeStatusDisplay() {

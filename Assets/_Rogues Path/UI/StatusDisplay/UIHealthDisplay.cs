@@ -1,14 +1,17 @@
 using System;
+using DG.Tweening;
 using DuloGames.UI;
 using DuloGames.UI.Tweens;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Rogues_Path.UI {
     public class UIHealthDisplay : MonoBehaviour {
+        public CanvasGroup CanvasGroup;
         public Text UnitNameText;
         public UIProgressBar ProgressBar;
-        public Text Text;
+        public Text ProgressBarText;
         public TweenEasing Easing = TweenEasing.InOutQuint;
         public Test_UIProgressBar.TextVariant TextVariant = Test_UIProgressBar.TextVariant.Percent;
         public int TextValue = 100;
@@ -20,7 +23,25 @@ namespace _Rogues_Path.UI {
         }
 
         public void TweenFillAmount(float amount) {
-            StartTween(amount, 0.25f);
+            StartTween(Mathf.Clamp(amount, 0, Single.MaxValue), 0.25f);
+        }
+
+        public void Show() {
+            CanvasGroup.DOFade(1, 0.5f)
+                .OnComplete(
+                    () => {
+                        CanvasGroup.blocksRaycasts = true;
+                        CanvasGroup.interactable = true;
+                    });
+        }
+
+        public void Hide() {
+            CanvasGroup.DOFade(0, 0.5f)
+                .OnComplete(
+                    () => {
+                        CanvasGroup.blocksRaycasts = false;
+                        CanvasGroup.interactable = false;
+                    });
         }
 
         private void SetFillAmount(float amount) {
@@ -29,11 +50,11 @@ namespace _Rogues_Path.UI {
 
             ProgressBar.fillAmount = amount;
 
-            Text.text = TextVariant switch {
+            ProgressBarText.text = TextVariant switch {
                 Test_UIProgressBar.TextVariant.Percent => Mathf.RoundToInt(amount * 100f) + "%",
                 Test_UIProgressBar.TextVariant.Value => (TextValue * amount).ToString(TextValueFormat),
                 Test_UIProgressBar.TextVariant.ValueMax => (TextValue * amount).ToString(TextValueFormat) + "/" + TextValue,
-                _ => Text.text
+                _ => ProgressBarText.text
             };
 
         }

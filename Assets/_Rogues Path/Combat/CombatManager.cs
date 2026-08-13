@@ -7,6 +7,7 @@ using _Rogues_Path.Pawns.Brains;
 using _Rogues_Path.UI;
 using _Rogues_Path.UI.ActionBar;
 using _Rogues_Path.UI.CharacterScreen;
+using _Rogues_Path.UI.MenuBar;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using Cysharp.Threading.Tasks;
@@ -21,6 +22,11 @@ namespace _Rogues_Path.Combat {
         [FoldoutGroup("References"), SerializeField] private Transform BackgroundContainer;
         [FoldoutGroup("References"), SerializeField] private Transform PlayerContainer;
         [FoldoutGroup("References"), SerializeField] private Transform EnemyContainer;
+
+        private void Start() {
+            UIActionBar.Show();
+            UIMenuBar.Show();
+        }
 
         private void OnEnable() {
             EventBus.SubscribeTo<CombatEncounterStarted>(CombatStartedEventHandler);

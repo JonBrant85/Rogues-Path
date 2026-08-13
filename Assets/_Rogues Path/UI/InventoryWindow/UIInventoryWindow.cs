@@ -14,6 +14,9 @@ namespace _Rogues_Path.UI.InventoryWindow {
         [SerializeField] private UIWindow Window;
         [SerializeField] private Transform SlotsContainer;
 
+        private void Awake() {
+            FillSlotsWithInventory();
+        }
 
         private void OnEnable() {
             EventBus.SubscribeTo<InventoryChanged>(InventoryChangedHandler);

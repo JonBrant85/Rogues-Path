@@ -1835,8 +1835,8 @@ RectTransform:
   - {fileID: 665432359}
   - {fileID: 1151163441}
   - {fileID: 569144325}
-  - {fileID: 563104265}
   - {fileID: 1515005516}
+  - {fileID: 563104265}
   - {fileID: 2047380072}
   - {fileID: 1167652535}
   m_Father: {fileID: 0}
@@ -2206,6 +2206,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6867141832951578937, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 563104266}
+    - target: {fileID: 6867141832951578937, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Toggle
+      objectReference: {fileID: 0}
     - target: {fileID: 7418031418781464946, guid: 53d81e9389e17de428828e655e1faa7c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2459,6 +2467,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1165199567}
     m_Modifications:
+    - target: {fileID: 738718185115572418, guid: 18da7985676f013468eeecadd14f937a, type: 3}
+      propertyPath: m_CanvasGroup
+      value: 
+      objectReference: {fileID: 2047380074}
     - target: {fileID: 1674777252538871420, guid: 18da7985676f013468eeecadd14f937a, type: 3}
       propertyPath: m_Name
       value: Black Overlay
@@ -2564,6 +2576,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b0aec806f927014c9eccadafb1ec4d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &2047380074 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 5883814851283945141, guid: 18da7985676f013468eeecadd14f937a, type: 3}
+  m_PrefabInstance: {fileID: 2047380071}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2051876366
 PrefabInstance:
   m_ObjectHideFlags: 0
