@@ -17,10 +17,10 @@ using UnityEngine.UI;
 
 namespace _Rogues_Path.UI.CharacterScreen {
     public class UICharacterScreen : Singleton<UICharacterScreen> {
-        //public List<UIEquipmentSlot> EquipmentSlots = new();
-        public Transform StatsContainer;
-        public UICharacterStat StatPrefab;
         public Vector3 PawnPreviewOffset = new Vector3(0, -1.5f, 3f);
+
+        [FoldoutGroup("References"), SerializeField] Transform StatsContainer;
+        [FoldoutGroup("References"), SerializeField] public UICharacterStat StatPrefab;
         [FoldoutGroup("References"), SerializeField] private Text CharacterNameText;
         [FoldoutGroup("References"), SerializeField] private Text CharacterClassText;
         [FoldoutGroup("References"), SerializeField] private Camera PawnPreviewCamera;
@@ -52,9 +52,23 @@ namespace _Rogues_Path.UI.CharacterScreen {
             SetupEquipmentSlots();
             ShowCharacterStats();
 
+            void InitializePawnPreview() {
+                // Instantiate PawnPreview and move it to appropriate Camera range
+                pawnPreview = Instantiate(playerData.TwoDPawn, PawnPreviewCamera.transform);
+                pawnPreview.transform.localPosition = PawnPreviewOffset;
+                
+                // Clear equipment. SetupEquipmentSlots will check for existing equipment and assign it
+                pawnPreview.CurrentEquipment = new EquipmentDictionary(playerData.TwoDPawn.CurrentEquipment);
+
+                // Assign Owner to each slot
+                foreach (var kvp in EquipmentSlots) {
+                    kvp.Value.Owner = pawnPreview;
+                }
+            }
+
             // Setup equipment slots
             void SetupEquipmentSlots() {
-                // Assign PlayerEquipment to EquipmentSlots. Do this before adding listeners to avoid problems
+                // Assign PlayerEquipment/Owner to EquipmentSlots. Do this before adding listeners to avoid problems
                 foreach (var kvp in EquipmentSlots) {
                     if (Game.Instance.PlayerEquipment.ContainsKey(kvp.Key)) {
                         var ID = Game.Instance.PlayerEquipment[kvp.Key];
@@ -69,21 +83,28 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
                     kvp.Value.OnAssignEvent.AddListener(OnAssignEventHandler);
                     kvp.Value.OnUnassignEvent.AddListener(OnUnassignEventHandler);
+                    kvp.Value.Owner = pawnPreview;
                 }
 
                 void OnAssignEventHandler(Pawn owner, EquipmentBase equipment) {
                     // If slot is occupied, try moving to inventory
-                    if (Game.Instance.PlayerEquipment.TryGetValue(equipment.EquipType, out int equippedID)
-                        && EquipmentDatabase.TryGetByID(equippedID, out EquipmentBase equippedItem)) {
-                        // We have the equipped item and its ID, now we check if we can remove it and add it to inventory. If not, return
-                        if (!pawnPreview.TryRemoveEquipment(equippedItem) || !pawnPreview.TryAddToInventory(equippedItem)) return;
+                    if (Game.Instance.PlayerEquipment.TryGetValue(equipment.EquipType, out int equippedID)) {
+                        if (EquipmentDatabase.TryGetByID(equippedID, out EquipmentBase equippedItem)) {
+                            // We have the equipped item and its ID, now we check if we can remove it and add it to inventory. If not, return
+                            if (!pawnPreview.TryRemoveEquipment(equippedItem) || !pawnPreview.TryAddToInventory(equippedItem)) {
+                                Debug.Log($"Failed to unequip or add to inventory: {equipment.Name}");
+                                return;
+                            }
 
-                        // If the slot is clear, take it
-                        Game.Instance.PlayerEquipment.Add(equipment.EquipType, EquipmentDatabase.Instance.Equipment.IndexOf(equipment));
+                            // If the slot is clear, take it
+                            Game.Instance.PlayerEquipment.Add(equipment.EquipType, EquipmentDatabase.Instance.Equipment.IndexOf(equipment));
 
-                        // Raise an InventoryChanged event
-                        EventBus.Raise(new InventoryChanged());
-                        // If we're here, we couldn't move the equipment. Simply do nothing
+                            // Raise an InventoryChanged event
+                            EventBus.Raise(new InventoryChanged());
+                        }
+                        else {
+                            Debug.Log($"Failed to find equipment By ID: {equippedID}");
+                        }
                     }
                     else {
                         // If the slot is clear, take it
@@ -93,27 +114,6 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
                 void OnUnassignEventHandler(Pawn owner, EquipmentBase equipment) {
                     Game.Instance.PlayerEquipment.Remove(equipment.EquipType);
-                }
-            }
-
-            void InitializePawnPreview() {
-                pawnPreview = Instantiate(playerData.TwoDPawn, PawnPreviewCamera.transform);
-                pawnPreview.transform.localPosition = PawnPreviewOffset;
-                pawnPreview.CurrentEquipment.Clear();
-
-                // Assign Assign/Unassign event handlers
-                foreach (var kvp in EquipmentSlots) {
-                    kvp.Value.Owner = pawnPreview;
-                    kvp.Value.OnAssignEvent.AddListener(OnAssignEventHandler);
-                    kvp.Value.OnUnassignEvent.AddListener(OnUnassignEventHandler);
-                }
-
-                void OnAssignEventHandler(Pawn pawn, EquipmentBase equipment) {
-                    pawnPreview.TryEquip(equipment, false);
-                }
-
-                void OnUnassignEventHandler(Pawn pawn, EquipmentBase equipment) {
-                    pawnPreview.TryRemoveEquipment(equipment, false);
                 }
             }
 

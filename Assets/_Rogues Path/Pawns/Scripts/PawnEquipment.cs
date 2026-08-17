@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace _Rogues_Path.Pawns {
     public partial class Pawn {
-        public EquipmentDictionary CurrentEquipment { get => currentEquipment; }
+        public EquipmentDictionary CurrentEquipment { get => currentEquipment; set => currentEquipment = value; }
         [SerializeField] private EquipmentDictionary currentEquipment = new();
 
         #region Inventory. Move to new file
@@ -89,11 +89,16 @@ namespace _Rogues_Path.Pawns {
                 }
                 else {
                     // If successfully removed and added to inventory, equip it
-                    if (TryRemoveEquipment(dbEquipment, modifyGameState) && TryAddToInventory(dbEquipment, modifyGameState)) {
+                    bool equipmentRemoved = TryRemoveEquipment(dbEquipment, modifyGameState);
+                    bool addedToInventory = TryAddToInventory(dbEquipment, modifyGameState);
+
+                    if (equipmentRemoved && addedToInventory) {
                         EquipEquipment();
                         return true;
                     }
                     else {
+                        if (!equipmentRemoved) Debug.Log($"Failed to remove equipment: {equipment.Name}");
+                        if (!addedToInventory) Debug.Log($"Failed to add to inventory: {equipment.Name}");
                         return false;
                     }
                 }
@@ -130,9 +135,22 @@ namespace _Rogues_Path.Pawns {
 
         public bool TryRemoveEquipment(EquipmentBase equipment, bool modifyGameState = true) {
             // If the equipment is null, or can't be removed from local/global inventory, return false and do nothing
-            if (equipment == null) return false;
+            if (equipment == null) {
+                Debug.Log($"Attempting to remove a null equipment");
+                return false;
+            }
+
             if (!currentEquipment.Remove(equipment.EquipType)) return false;
-            if (modifyGameState && !Game.Instance.PlayerEquipment.Remove(equipment.EquipType)) return false;
+
+            if (modifyGameState) {
+                if (!Game.Instance.PlayerEquipment.Remove(equipment.EquipType)) {
+                    return false;
+                }
+
+                if (EquipmentDatabase.GetIDByName(equipment.Name, out int ID)) {
+                    Game.Instance.PlayerInventory.Add(ID);
+                }
+            }
 
             Character.UnEquip(equipment.EquipType);
             equipment.gameObject.SetActive(false);

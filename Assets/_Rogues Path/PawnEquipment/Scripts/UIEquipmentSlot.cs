@@ -146,12 +146,14 @@ namespace _Rogues_Path.UI.Slots {
             EquipmentBase theirEquip = sourceSlot.Equipment;
 
             // Temporarily suppress Unassign side effects
+            Debug.Assert(Owner != null);
+            Equipment.RemoveModifiers(Equipment.Modifiers, Owner);
             Equipment = null;
             sourceSlot.Equipment = null;
 
             bool a = sourceSlot.Assign(myEquip, this);
             bool b = Assign(theirEquip, sourceSlot);
-
+            Equipment.ApplyModifiers(Equipment.Modifiers, Owner);
             return a && b;
         }
 
