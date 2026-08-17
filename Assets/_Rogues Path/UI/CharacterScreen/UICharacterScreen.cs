@@ -54,6 +54,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
             // Setup equipment slots
             void SetupEquipmentSlots() {
+                // Assign PlayerEquipment to EquipmentSlots. Do this before adding listeners to avoid problems
                 foreach (var kvp in EquipmentSlots) {
                     if (Game.Instance.PlayerEquipment.ContainsKey(kvp.Key)) {
                         var ID = Game.Instance.PlayerEquipment[kvp.Key];
@@ -76,10 +77,10 @@ namespace _Rogues_Path.UI.CharacterScreen {
                         && EquipmentDatabase.TryGetByID(equippedID, out EquipmentBase equippedItem)) {
                         // We have the equipped item and its ID, now we check if we can remove it and add it to inventory. If not, return
                         if (!pawnPreview.TryRemoveEquipment(equippedItem) || !pawnPreview.TryAddToInventory(equippedItem)) return;
-                        
+
                         // If the slot is clear, take it
                         Game.Instance.PlayerEquipment.Add(equipment.EquipType, EquipmentDatabase.Instance.Equipment.IndexOf(equipment));
-                            
+
                         // Raise an InventoryChanged event
                         EventBus.Raise(new InventoryChanged());
                         // If we're here, we couldn't move the equipment. Simply do nothing
@@ -100,6 +101,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
                 pawnPreview.transform.localPosition = PawnPreviewOffset;
                 pawnPreview.CurrentEquipment.Clear();
 
+                // Assign Assign/Unassign event handlers
                 foreach (var kvp in EquipmentSlots) {
                     kvp.Value.Owner = pawnPreview;
                     kvp.Value.OnAssignEvent.AddListener(OnAssignEventHandler);
@@ -114,18 +116,16 @@ namespace _Rogues_Path.UI.CharacterScreen {
                     pawnPreview.TryRemoveEquipment(equipment, false);
                 }
             }
-        }
 
+            void ShowCharacterStats() {
+                foreach (var kvp in pawnPreview.Stats) {
+                    var uiStat = Instantiate(StatPrefab, StatsContainer);
+                    uiStat.SetCharacterStat(kvp.Value, kvp.Key.name);
 
-        private void ShowCharacterStats() {
-            foreach (var kvp in pawnPreview.Stats) {
-                var uiStat = Instantiate(StatPrefab, StatsContainer);
-                uiStat.SetCharacterStat(kvp.Value, kvp.Key.name);
-
-                stats.Add(kvp.Value, uiStat);
+                    stats.Add(kvp.Value, uiStat);
+                }
             }
         }
-
 
         public static void Show() {
             Instance.Window.Show();

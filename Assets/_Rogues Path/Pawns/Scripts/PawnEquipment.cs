@@ -81,7 +81,7 @@ namespace _Rogues_Path.Pawns {
             Debug.Assert(dbEquipment != null);
 
             // If something's already in the equipment slot, try to move it to inventory
-            if (currentEquipment.ContainsKey(dbEquipment.EquipType) && Game.Instance.PlayerEquipment.ContainsKey(dbEquipment.EquipType)) {
+            if (Game.Instance.PlayerEquipment.ContainsKey(dbEquipment.EquipType)) {
                 // Move existing item to inventory if possible
                 if (Inventory.Count + 1 > InventorySpaces) {
                     Debug.Log($"Not enough inventory spaces to move {dbEquipment.Name} to inventory!");
