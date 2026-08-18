@@ -73,13 +73,9 @@ namespace _Rogues_Path.World {
         }
 
         private async UniTask MoveToNextTile() {
-            // Setup pawn facing and make the pawn 'jump'
-            Vector3 movementDirection = currentTile.NextTile.transform.position - currentTile.transform.position;
-            PlayerPawn.xDirection = movementDirection.x;
-            PlayerPawn.yDirection = movementDirection.z;
+            // ToDo: Setup Character facing during movement again. I broke it
             PlayerPawn.animationManager.SetState(CharacterState.Jump);
-
-
+            
             Tween tween = PlayerPawn.transform.DOJump(currentTile.NextTile.PawnContainer.transform.position, MovementJump, 1, MovementDuration, false);
            
             currentTile = currentTile.NextTile;

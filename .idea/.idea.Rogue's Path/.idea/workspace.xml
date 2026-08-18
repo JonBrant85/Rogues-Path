@@ -5,79 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Archer.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Assassin.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Assassin.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Berserker.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Berserker.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Priest.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Priest.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Warrior.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Warrior.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Wizard.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Wizard.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rogue's Path.sln.DotSettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyGoblins.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyGoblins.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyHeroes.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyHeroes.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyUndead.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyUndead.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/MilitaryHeroes.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/MilitaryHeroes.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Leather Tunic.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Leather Tunic.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/RustedSword.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/RustedSword.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wooden Shield.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Wooden Shield.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UtilityWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UtilityWindow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/PawnAnimations_1a960fd1-e2bf-4bd9-b8ec-34d63eae4ff0.collect" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/HeroEditor4D/Common/Scripts/CharacterScripts/CharacterSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/Common/Scripts/CharacterScripts/CharacterSetup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyHeroes/Resources/SpriteCollection [Goblins].asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyHeroes/Resources/SpriteCollection [Goblins].asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyHeroes/Resources/SpriteCollection.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/FantasyHeroes/Resources/SpriteCollection.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeroEditor4D/MilitaryHeroes/Resources/SpriteCollection.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/MilitaryHeroes/Resources/SpriteCollection.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/HeroEditor4D/UndeadHeroes/Resources/SpriteCollection.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/UndeadHeroes/Resources/SpriteCollection.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionSlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/CombatEncounterStarted.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/CombatEncounterStarted.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/EquipmentEquipped.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/EquipmentEquipped.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/HealthChanged.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/HealthChanged.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PostMitigationDamageReceived.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PostMitigationDamageReceived.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceived.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/PreMitigationDamageReceived.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/StatusChanged.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/StatusChanged.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnBuffs/Buffs/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnBuffs/Buffs/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnBuffs/Scripts/PawnBuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnBuffs/Scripts/PawnBuff.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/DexterityCalculator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/DexterityCalculator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/Flat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/Flat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/FloatCalculator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/FloatCalculator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/IntelligenceMultiplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/IntelligenceMultiplier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/StrengthMultiplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Calculators/StrengthMultiplier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/ApplyDebuff.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/ApplyDebuff.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/BowAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/BowAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/DualHandJab.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/DualHandJab.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Fireball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/JabCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/JabCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/SlashCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/SlashCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/Command.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/Command.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/CommandContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/CommandContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/ICommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/ICommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/4D/4DPlayerPawns/Berserker.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/4D/4DPlayerPawns/Berserker.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Archer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Archer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/BanditLightArmor.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/BanditLightArmor.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/FamilySword.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/FamilySword.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/FireAdeptWand.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/FireAdeptWand.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/LeatherHelm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/LeatherHelm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/WoodenShield.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/WoodenShield.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Jab.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Jab.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Slash.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Slash.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Archer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Archer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Assassin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Berserker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Berserker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Priest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Priest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Warrior.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Wizard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Wizard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/4D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/4D/4DPlayerPawns.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/4D/Berserker.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/4D/Berserker.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Goblin.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Priest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Priest.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Wizard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Wizard.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/4D.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Archer.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/4D/FourDPawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/FourDPawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/4D/FourDPawn.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/FourDPawn.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Brains/EnemyBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Brains/EnemyBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Brains/PawnBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Brains/PawnBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Brains/PlayerBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Brains/PlayerBrain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/FourDPawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/FourDPawn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnAnimations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnBuffs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnBuffs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnEquipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnEquipment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/CharacterSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/CharacterSelection.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UIEquipmentReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UIEquipmentReceiver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/InventoryWindow/UIInventoryWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/InventoryWindow/UIInventoryWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/SpellBook/UISpellBook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/SpellBook/UISpellBook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/StatusDisplay/UIStatusDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/StatusDisplay/UIStatusDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Scenes/Combat.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/StatusDisplay/Prefabs/UIStatusDisplay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/StatusDisplay/Prefabs/UIStatusDisplay.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UnitySerializedDictionary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UnitySerializedDictionary.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/World/Encounters/CombatEncounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/World/Encounters/CombatEncounter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Databases_f7ac51c2-af58-474d-8616-9bd6102b79d6.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Databases_f7ac51c2-af58-474d-8616-9bd6102b79d6.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Enemy Pawns_657a796e-238a-488e-9a15-f94920971f6c.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Enemy Pawns_657a796e-238a-488e-9a15-f94920971f6c.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Player Pawns_563d1042-0422-4523-8ec3-f17bd1ce2397.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Player Pawns_563d1042-0422-4523-8ec3-f17bd1ce2397.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +110,7 @@
     <setting file="file://$USER_HOME$/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/FantasyMonsters/Monsters/Scripts/Editor/PackageUpdater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/games.corundum.stateless-for-unity@5.11.3/Stateless/StateMachine.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.peturdarri.generic-event-bus@8246d96808/Runtime/TargetedGenericEventBus.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.peturdarri.generic-event-bus@8246d96808/Runtime/TargetedGenericEventBus.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/37cc348edc804f4cb176b63962c716e7177200/2d/c430f479/Object.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="NamedScopeManager">
@@ -234,6 +222,7 @@
       <workItem from="1786900807471" duration="1378000" />
       <workItem from="1786997636433" duration="8915000" />
       <workItem from="1787013367973" duration="3736000" />
+      <workItem from="1787084358649" duration="7838000" />
     </task>
     <servers />
   </component>

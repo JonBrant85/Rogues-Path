@@ -15,6 +15,7 @@ namespace _Rogues_Path.CharacterSelection {
 
         private void Awake() {
             foreach (var equipment in PawnData.StartingEquipment) {
+                Debug.Log($"Equipping preview {PawnData.Name} with {equipment.Name}");
                 Character.Equip(equipment.ItemSprite, equipment.EquipType);
             }
         }

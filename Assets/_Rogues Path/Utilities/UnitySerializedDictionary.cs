@@ -36,7 +36,7 @@ namespace _Rogues_Path.Utilities {
             }
 
             logString += $"Copy has {keyValueData.Count} items.";
-            Debug.Log(logString);
+            // Debug.Log(logString);
         }
     }
 

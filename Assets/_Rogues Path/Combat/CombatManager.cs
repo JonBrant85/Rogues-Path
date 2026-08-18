@@ -43,6 +43,10 @@ namespace _Rogues_Path.Combat {
             Instantiate(eventData.BackgroundPrefab, BackgroundContainer);
             Player = Instantiate(Game.Instance.PlayerData.Pawn, PlayerContainer);
             Enemy = Instantiate(randomEnemy.Pawn, EnemyContainer);
+            
+            // Face Player/Enemies the correct direction
+            Player.Character.SetDirection(Vector2.right);
+            Enemy.Character.SetDirection(Vector2.left);
 
             // Reset action timers
             Enemy.Brain.TimeUntilAction = Enemy.Brain.ActionDelay;

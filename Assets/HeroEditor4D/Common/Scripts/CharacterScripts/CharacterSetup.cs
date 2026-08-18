@@ -5,13 +5,17 @@ using Assets.HeroEditor4D.Common.Scripts.Data;
 using Assets.HeroEditor4D.Common.Scripts.Enums;
 using UnityEngine;
 
-namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts {
-    public partial class Character {
+namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts
+{
+    public partial class Character
+    {
         /// <summary>
         /// Set character's body parts.
         /// </summary>
-        public void SetBody(ItemSprite item, BodyPart part, Color? color) {
-            switch (part) {
+		public void SetBody(ItemSprite item, BodyPart part, Color? color)
+        {
+            switch (part)
+            {
                 case BodyPart.Body:
                     Body = item?.Sprites.ToList();
                     BodyRenderers.ForEach(i => i.color = color ?? i.color);
@@ -27,12 +31,7 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts {
                     HairRenderer.color = color ?? HairRenderer.color;
                     if (EquipmentTags.Contains(EquipmentTag.HideEars)) EquipmentTags.Remove(EquipmentTag.HideEars);
                     if (item != null && item.Tags.Contains("HideEars")) EquipmentTags.Add(EquipmentTag.HideEars);
-
-                    if (item != null && item.Tags.Contains("NoPaint")) {
-                        HairRenderer.color = Color.white;
-                        HairRenderer.material = new Material(Shader.Find("Sprites/Default"));
-                    }
-
+                    if (item != null && item.Tags.Contains("NoPaint")) { HairRenderer.color = Color.white; HairRenderer.material = new Material(Shader.Find("Sprites/Default")); }
                     break;
                 case BodyPart.Ears:
                     Ears = item?.Sprites.ToList();
@@ -42,44 +41,46 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts {
                     if (EyebrowsRenderer) Expressions[0].Eyebrows = EyebrowsRenderer.GetComponent<SpriteMapping>().FindSprite(item?.Sprites);
                     break;
                 case BodyPart.Eyes:
-                    if (EyesRenderer) {
+                    if (EyesRenderer)
+                    {
                         Expressions[0].Eyes = EyesRenderer.GetComponent<SpriteMapping>().FindSprite(item?.Sprites);
                         Expressions.Where(i => i.Name != "Dead").ToList().ForEach(i => i.EyesColor = color ?? EyesRenderer.color);
                         EyesRenderer.color = color ?? EyesRenderer.color;
                     }
-
                     break;
                 case BodyPart.Mouth:
                     if (MouthRenderer) Expressions[0].Mouth = MouthRenderer.GetComponent<SpriteMapping>().FindSprite(item?.Sprites);
                     break;
                 case BodyPart.Beard:
-                    if (BeardRenderer) {
+                    if (BeardRenderer)
+                    {
                         Beard = BeardRenderer.GetComponent<SpriteMapping>().FindSprite(item?.Sprites);
                         BeardRenderer.color = color ?? BeardRenderer.color;
                     }
-
                     break;
                 case BodyPart.Makeup:
-                    if (MakeupRenderer) {
+                    if (MakeupRenderer)
+                    {
                         Makeup = MakeupRenderer.GetComponent<SpriteMapping>().FindSprite(item?.Sprites);
                         MakeupRenderer.color = color ?? MakeupRenderer.color;
                     }
-
                     break;
-                default: throw new NotImplementedException($"Unsupported part: {part}.");
+                default: break;
             }
 
             Initialize();
         }
 
-        public void SetBody(ItemSprite item, BodyPart part) {
+        public void SetBody(ItemSprite item, BodyPart part)
+        {
             SetBody(item, part, null);
         }
 
         /// <summary>
         /// Set character's expression.
         /// </summary>
-        public void SetExpression(string expression) {
+        public void SetExpression(string expression)
+        {
             if (Expressions.Count < 3) throw new Exception("Character must have at least 3 basic expressions: Default, Angry and Dead.");
             if (EyesRenderer == null) return;
 
@@ -95,8 +96,10 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts {
         /// <summary>
         /// Equip something from SpriteCollection.
         /// </summary>
-        public void Equip(ItemSprite item, EquipmentPart part, Color? color) {
-            switch (part) {
+        public void Equip(ItemSprite item, EquipmentPart part, Color? color)
+        {
+            switch (part)
+            {
                 case EquipmentPart.MeleeWeapon1H:
                     CompositeWeapon = null;
                     break;
@@ -115,7 +118,8 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts {
                     break;
             }
 
-            switch (part) {
+            switch (part)
+            {
                 case EquipmentPart.Helmet:
                     if (EquipmentTags.Contains(EquipmentTag.ShowEars)) EquipmentTags.Remove(EquipmentTag.ShowEars);
                     if (EquipmentTags.Contains(EquipmentTag.FullHair)) EquipmentTags.Remove(EquipmentTag.FullHair);
@@ -196,31 +200,35 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts {
                     Mask = MaskRenderer.GetComponent<SpriteMapping>().FindSprite(item?.Sprites);
                     MaskRenderer.color = color ?? MaskRenderer.color;
                     break;
-                default: break;
+                default: throw new NotImplementedException($"Unsupported part: {part}.");
             }
 
             Initialize();
 
-            if (part == EquipmentPart.Firearm1H || part == EquipmentPart.Firearm2H) {
+            if (part == EquipmentPart.Firearm1H || part == EquipmentPart.Firearm2H)
+            {
                 SetFirearmMuzzle(item);
             }
         }
 
-        public void Equip(ItemSprite item, EquipmentPart part) {
+        public void Equip(ItemSprite item, EquipmentPart part)
+        {
             Equip(item, part, null);
         }
 
         /// <summary>
         /// Remove equipment partially.
         /// </summary>
-        public void UnEquip(EquipmentPart part) {
+        public void UnEquip(EquipmentPart part)
+        {
             Equip(null, part);
         }
 
         /// <summary>
         /// Remove all equipment.
         /// </summary>
-        public void ResetEquipment() {
+        public void ResetEquipment()
+        {
             Armor = new List<Sprite>();
             CompositeWeapon = new List<Sprite>();
             Shield = new List<Sprite>();
@@ -230,30 +238,37 @@ namespace Assets.HeroEditor4D.Common.Scripts.CharacterScripts {
             Initialize();
         }
 
-        private void SetArmorParts(List<SpriteRenderer> renderers, List<Sprite> armor, Color? color) {
-            if (Armor == null) {
+        private void SetArmorParts(List<SpriteRenderer> renderers, List<Sprite> armor, Color? color)
+        {
+            if (Armor == null)
+            {
                 Armor = new List<Sprite>();
             }
-            else {
+            else
+            {
                 Armor.RemoveAll(i => i == null);
             }
 
-            foreach (var r in renderers) {
+            foreach (var r in renderers)
+            {
                 var mapping = r.GetComponent<SpriteMapping>();
                 var sprite = armor?.SingleOrDefault(j => mapping.SpriteName == j.name || mapping.SpriteNameFallback.Contains(j.name));
 
                 Armor.RemoveAll(i => i.name == mapping.SpriteName || mapping.SpriteNameFallback.Contains(i.name));
 
-                if (sprite != null) {
+                if (sprite != null)
+                {
                     Armor.Add(sprite);
                 }
 
                 if (color != null) r.color = color.Value;
-            }
+            }            
         }
 
-        private void SetFirearmMuzzle(ItemSprite item) {
-            if (item == null || PrimaryWeaponRenderer.sprite == null) {
+        private void SetFirearmMuzzle(ItemSprite item)
+        {
+            if (item == null || PrimaryWeaponRenderer.sprite == null)
+            {
                 AnchorFireMuzzle.localPosition = Vector3.zero;
                 return;
             }

@@ -8124,6 +8124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6378716188789711986}
+  - component: {fileID: 8969452060578129308}
   - component: {fileID: 7291894641031329383}
   - component: {fileID: 2433832854637759233}
   - component: {fileID: 7001989257996616642}
@@ -8149,7 +8150,7 @@ Transform:
   m_GameObject: {fileID: 4111359045439077117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8160,6 +8161,38 @@ Transform:
   - {fileID: 5591529454151671945}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8969452060578129308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4111359045439077117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91223045b70a4ee7a95ff443db9cc1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  KnownSpells:
+  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
+  - {fileID: 11400000, guid: 54385f968776cbc41849a1075e36286b, type: 2}
+  PreparedSpells:
+  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
+  - {fileID: 11400000, guid: 54385f968776cbc41849a1075e36286b, type: 2}
+  Owner: {fileID: 7291894641031329383}
+  ActionDelay: 2
+  TimeUntilAction: 2
 --- !u!114 &7291894641031329383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8178,20 +8211,15 @@ MonoBehaviour:
   CharacterName: Rechar
   ClassName: Archer
   Character: {fileID: 2433832854637759233}
-  Brain: {fileID: 8294659113153169260, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
-  StatusDisplay: {fileID: 4716743266121243219, guid: f8d7dc3be0907cb4e801b164bc16f3bc, type: 3}
+  Brain: {fileID: 8969452060578129308}
+  StatusDisplay: {fileID: 0}
   DamageOffset: {x: -1, y: 0, z: 0}
   HealingOffset: {x: 1, y: 0, z: 0}
-  IdleAnimation: {fileID: 7400000, guid: 956157c4544547c08e5c25f3e327e9ba, type: 2}
-  SlashAnimation: {fileID: 7400000, guid: f5b2b6a5a3294d3faafd8a268570c0af, type: 2}
-  ChargeAttackAnimation: {fileID: 7400000, guid: 1ea229125dff44b1a6084e4281e63410, type: 2}
-  JabAnimation: {fileID: 7400000, guid: feb9bfe10f7b46888ad3624e130ce73b, type: 2}
-  UseSupplyAnimation: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
+  IdleAnimation: {fileID: 7400000, guid: c8af692a15e0408448b8f8020f54c45c, type: 2}
   TakeDamageAnimation: {fileID: 7400000, guid: e0f80ff69c88480493277f9b7b6b5033, type: 2}
   HealDamageAnimation: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
   DieAnimation: {fileID: 7400000, guid: e20e165bdae94ffea18d54cddfd79c59, type: 2}
-  ReviveAnimation: {fileID: 7400000, guid: a6466e9fd05d47e78a1a3b1b2ea6c7fe, type: 2}
-  VictoryAnimation: {fileID: 7400000, guid: e6c1290faad3478ca96665ccf217ef2b, type: 2}
+  animazing: {fileID: -7834838670172641667}
   buffs:
     keyValueData: []
   currentEquipment:

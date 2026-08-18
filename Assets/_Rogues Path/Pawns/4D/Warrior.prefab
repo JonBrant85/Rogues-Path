@@ -3575,7 +3575,7 @@ Transform:
   m_GameObject: {fileID: 1955919300706767653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8554,7 +8554,7 @@ Transform:
   m_GameObject: {fileID: 4085919599875623776}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10001,7 +10001,7 @@ Transform:
   m_GameObject: {fileID: 4556940001159652301}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17374,6 +17374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8621358570325991505}
+  - component: {fileID: -164582463935310161}
   - component: {fileID: -1230655027096974977}
   - component: {fileID: 5246052694874017179}
   - component: {fileID: 5203621345543722292}
@@ -17399,7 +17400,7 @@ Transform:
   m_GameObject: {fileID: 8432025529548338223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17410,6 +17411,38 @@ Transform:
   - {fileID: 9011780787127947522}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-164582463935310161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8432025529548338223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91223045b70a4ee7a95ff443db9cc1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 0
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  KnownSpells:
+  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
+  - {fileID: 11400000, guid: 54385f968776cbc41849a1075e36286b, type: 2}
+  PreparedSpells:
+  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
+  - {fileID: 11400000, guid: 54385f968776cbc41849a1075e36286b, type: 2}
+  Owner: {fileID: -1230655027096974977}
+  ActionDelay: 2
+  TimeUntilAction: 2
 --- !u!114 &-1230655027096974977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17428,20 +17461,15 @@ MonoBehaviour:
   CharacterName: Ifrin
   ClassName: Warrior
   Character: {fileID: 5246052694874017179}
-  Brain: {fileID: -7379948493390399091, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
+  Brain: {fileID: -164582463935310161}
   StatusDisplay: {fileID: 73464614248930642, guid: 85402dbbccc376c4aab6de7f262070e6, type: 3}
   DamageOffset: {x: -1, y: 0, z: 0}
   HealingOffset: {x: 1, y: 0, z: 0}
-  IdleAnimation: {fileID: 7400000, guid: 956157c4544547c08e5c25f3e327e9ba, type: 2}
-  SlashAnimation: {fileID: 7400000, guid: f5b2b6a5a3294d3faafd8a268570c0af, type: 2}
-  ChargeAttackAnimation: {fileID: 7400000, guid: 1ea229125dff44b1a6084e4281e63410, type: 2}
-  JabAnimation: {fileID: 7400000, guid: feb9bfe10f7b46888ad3624e130ce73b, type: 2}
-  UseSupplyAnimation: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
+  IdleAnimation: {fileID: 7400000, guid: c8af692a15e0408448b8f8020f54c45c, type: 2}
   TakeDamageAnimation: {fileID: 7400000, guid: e0f80ff69c88480493277f9b7b6b5033, type: 2}
   HealDamageAnimation: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
   DieAnimation: {fileID: 7400000, guid: e20e165bdae94ffea18d54cddfd79c59, type: 2}
-  ReviveAnimation: {fileID: 7400000, guid: a6466e9fd05d47e78a1a3b1b2ea6c7fe, type: 2}
-  VictoryAnimation: {fileID: 7400000, guid: e6c1290faad3478ca96665ccf217ef2b, type: 2}
+  animazing: {fileID: 6966197576061637085}
   buffs:
     keyValueData: []
   currentEquipment:
@@ -18187,7 +18215,7 @@ Transform:
   m_GameObject: {fileID: 8700858302545270149}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:

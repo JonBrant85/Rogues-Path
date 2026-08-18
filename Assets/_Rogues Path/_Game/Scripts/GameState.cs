@@ -113,7 +113,6 @@ namespace _Rogues_Path._Game {
         }
 
         public static void FireTrigger(Trigger trigger) {
-            Debug.Assert(Instance.gameState.PermittedTriggers.Contains(trigger));
             Instance.gameState.Fire(trigger);
         }
     }

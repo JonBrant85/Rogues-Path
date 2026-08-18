@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: PawnAnimations
+  m_EditorClassIdentifier: 
+  _parentID:
+    _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
+  _subcollectionIDs: []
+  _collectionName: PawnAnimations
+  _id:
+    _serializedGuid: d10f961abfe2d94bb8ec34d63eae4ff0
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - 682b26d4421508648a85c7c3af52f578
+    - b978be1436e1dbb4c8b905bbb15c63d9
+    - 1157271be38f07641aae14d770b2cbc8
+    - f26704053c537304e90521962c43bfd9
+    - b3b5abef3068e3d40a6b318ae07ea513
+    - 7a0cb161584194f47814a0c317de0f43
+    - ec0b03286d1e1ee43a553049df2f9a61
+    - bb3b00ca78ecc3b47a8c4c7afd452d99
+    - bf2fd4db7fd34c94d9e6812b70fed951
+    - 0dcbecd6a9dba8e41a247d5fee0bde91
+    - 76fbcef9f3716dc41a76fdefd11a9e77
+    - 99b95ce2635926145a57cc13661fc4d7
+    - 6e13953cf9d6f42478bb9eb9d403e8d0
+    - 7af0111b2dbad10469bf2d75b6570f3e
+    - 27c64ef7cf41140449a5dcbcc91ab2e5
+    - 2135464495d34c6438b24a791665722c
+    - a0a5823db64e2fb4a95e3936143e43a5
+    - c8af692a15e0408448b8f8020f54c45c
+    - 4f9ee2f1d88257e4b9953497eec7e496
+    - a0774546ebb10a640b19eab88775a973
+    - 9cd23951d2093cb438f0956bfad184a6
+    - 9051b2f2e0cb496458bf020d7d9e4cf8
+    - 11d018a090f69a44bb5747083a4b4278
+    - 96e8d62c0da7b094792e53ace643f192
+    - 8c24ce7815f685944bf50795cdc31a0e
+    - 0202e1d010d06c544bc183faa81a777f
+    - 870222e7b0de4a448a2687aeb122e38c
+    - 4203ed8559da4f0498a5b0dd63ee1f73
+    - 352b4c951d807b94f817dbdff2c0874c
+    - bc89c2aeedfeb7442b5e183009f12d7d
+    - 002a625e550bbdc469a2762d67501e08
+    - 91e5f2680f34269458c05dc08df31455
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []

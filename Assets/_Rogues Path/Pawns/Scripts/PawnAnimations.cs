@@ -7,56 +7,22 @@ using UnityEngine;
 
 namespace _Rogues_Path.Pawns.Scripts {
     public partial class Pawn {
-        
         [FoldoutGroup("Damage Text Offset")] public Vector3 DamageOffset = new Vector3(-1, 0, 0);
         [FoldoutGroup("Damage Text Offset")] public Vector3 HealingOffset = new Vector3(1, 0, 0);
 
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip IdleAnimation;
-        [FoldoutGroup("Animations"), SerializeField] private AnimationClip SlashAnimation;
-        [FoldoutGroup("Animations"), SerializeField] private AnimationClip ChargeAttackAnimation;
-        [FoldoutGroup("Animations"), SerializeField] private AnimationClip JabAnimation;
-        [FoldoutGroup("Animations"), SerializeField] private AnimationClip UseSupplyAnimation;
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip TakeDamageAnimation;
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip HealDamageAnimation;
         [FoldoutGroup("Animations"), SerializeField] private AnimationClip DieAnimation;
-        [FoldoutGroup("Animations"), SerializeField] private AnimationClip ReviveAnimation;
-        [FoldoutGroup("Animations"), SerializeField] private AnimationClip VictoryAnimation;
-        private Animazing animazing;
+        [FoldoutGroup("References"), SerializeField] private Animazing animazing;
 
         private void InitializeAnimation() {
-            animazing = GetComponent<Animazing>();
             animazing.SetLayerDefaultAnimation(0, IdleAnimation);
         }
-        
+
         public float PlayAnimation(AnimationClip clip) {
             animazing.Play(clip, int.MaxValue);
             return clip.length;
-        }
-        
-        public float Slash() {
-            animazing.Play(SlashAnimation, 1);
-            return SlashAnimation.length;
-        }
-
-        public float ChargeAttack() {
-            animazing.Play(ChargeAttackAnimation, 1);
-            return ChargeAttackAnimation.length;
-        }
-
-        public float UseSupply() {
-            animazing.Play(UseSupplyAnimation, 1);
-            return UseSupplyAnimation.length;
-        }
-
-
-        public float Revive() {
-            animazing.Play(ReviveAnimation, Single.PositiveInfinity);
-            return ReviveAnimation.length;
-        }
-
-        public float Jab() {
-            animazing.Play(JabAnimation, 1);
-            return JabAnimation.length;
         }
 
         public float TakeDamage() {
@@ -80,7 +46,7 @@ namespace _Rogues_Path.Pawns.Scripts {
             animazing.SetLayerDefaultAnimation(0, DieAnimation);
             animazing.Play(DieAnimation, Single.PositiveInfinity);
             IsDead = true;
-            
+
             /*
             // Disable intent game object
             var intentComponent = GetComponentInChildren<UIIntentDisplay>();

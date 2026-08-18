@@ -443,6 +443,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9155976820536524332}
     m_Modifications:
+    - target: {fileID: 5194854934821274330, guid: a2a648a4559b66145b55c3ceb4a3cdee, type: 3}
+      propertyPath: m_Text
+      value: Goblin
+      objectReference: {fileID: 0}
     - target: {fileID: 5194854934821274335, guid: a2a648a4559b66145b55c3ceb4a3cdee, type: 3}
       propertyPath: m_IsActive
       value: 1

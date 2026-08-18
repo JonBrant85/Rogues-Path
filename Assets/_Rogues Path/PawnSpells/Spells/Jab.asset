@@ -29,6 +29,7 @@ MonoBehaviour:
     - rid: 7368513045436039195
       type: {class: JabCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:
+        AnimationClip: {fileID: 7400000, guid: 4f9ee2f1d88257e4b9953497eec7e496, type: 2}
         StrengthMultiplier:
           ID: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
           Multiplier: 0.75

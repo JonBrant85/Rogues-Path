@@ -15439,6 +15439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3112571022494191160}
+  - component: {fileID: -2408596562942195320}
   - component: {fileID: 7463688952052727956}
   - component: {fileID: 5658223203294176127}
   - component: {fileID: 7469095601690709282}
@@ -15447,6 +15448,7 @@ GameObject:
   - component: {fileID: 8258263592897685535}
   - component: {fileID: 8355299695700497459}
   - component: {fileID: 4174797735423078041}
+  - component: {fileID: 3222362884811208898}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -15463,7 +15465,7 @@ Transform:
   m_GameObject: {fileID: 7747903837301588595}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15474,6 +15476,68 @@ Transform:
   - {fileID: 4465341153350937400}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2408596562942195320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747903837301588595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc9eac28d12473ba7d2151d8586b7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 7400000, guid: 4f9ee2f1d88257e4b9953497eec7e496, type: 2}
+    - {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: PotentialCommands
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[_Rogues_Path.Commands.Command, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 1|_Rogues_Path.PawnCommands.Commands.JabCommand, Assembly-CSharp
+    - Name: AnimationClip
+      Entry: 10
+      Data: 0
+    - Name: StrengthMultiplier
+      Entry: 7
+      Data: 2|_Rogues_Path.PawnCommands.Calculators.StrengthMultiplier, Assembly-CSharp
+    - Name: ID
+      Entry: 10
+      Data: 1
+    - Name: Multiplier
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  KnownSpells: []
+  PreparedSpells: []
+  Owner: {fileID: 7463688952052727956}
+  ActionDelay: 3
+  TimeUntilAction: 0.8745596
 --- !u!114 &7463688952052727956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15492,20 +15556,15 @@ MonoBehaviour:
   CharacterName: Goblin
   ClassName: Not Fluffy
   Character: {fileID: 5658223203294176127}
-  Brain: {fileID: 1510141432219828904, guid: 4b3fd4c25ce266843ac2659ddb52e780, type: 3}
-  StatusDisplay: {fileID: 7117769692765919020, guid: 4b3fd4c25ce266843ac2659ddb52e780, type: 3}
+  Brain: {fileID: -2408596562942195320}
+  StatusDisplay: {fileID: 5598842490194436394, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
   DamageOffset: {x: -1, y: 0, z: 0}
   HealingOffset: {x: 1, y: 0, z: 0}
   IdleAnimation: {fileID: 7400000, guid: b96e4b162515aa24cb94a667d2bd2b93, type: 2}
-  SlashAnimation: {fileID: 7400000, guid: b3691ae1c9c13eb4ea47e3a8bb6f0728, type: 2}
-  ChargeAttackAnimation: {fileID: 7400000, guid: b3691ae1c9c13eb4ea47e3a8bb6f0728, type: 2}
-  JabAnimation: {fileID: 7400000, guid: b3691ae1c9c13eb4ea47e3a8bb6f0728, type: 2}
-  UseSupplyAnimation: {fileID: 7400000, guid: b3691ae1c9c13eb4ea47e3a8bb6f0728, type: 2}
   TakeDamageAnimation: {fileID: 7400000, guid: b3691ae1c9c13eb4ea47e3a8bb6f0728, type: 2}
   HealDamageAnimation: {fileID: 7400000, guid: b3691ae1c9c13eb4ea47e3a8bb6f0728, type: 2}
   DieAnimation: {fileID: 7400000, guid: 2dc5cceb0b2bb0d48887d2ab04179f57, type: 2}
-  ReviveAnimation: {fileID: 7400000, guid: b96e4b162515aa24cb94a667d2bd2b93, type: 2}
-  VictoryAnimation: {fileID: 0}
+  animazing: {fileID: 3222362884811208898}
   buffs:
     keyValueData: []
   currentEquipment:
@@ -15833,6 +15892,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 1}
   m_Size: {x: 2, y: 2.5}
   m_Direction: 0
+--- !u!114 &3222362884811208898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747903837301588595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e810158de0072a44bb385d970936cef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7868836223393626209
 GameObject:
   m_ObjectHideFlags: 0

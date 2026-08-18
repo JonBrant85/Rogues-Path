@@ -25857,8 +25857,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xDirection: 0
-  yDirection: 0
   animationManager: {fileID: 0}
   CharacterName: Slyph
   ClassName: Assassin
@@ -25868,15 +25866,10 @@ MonoBehaviour:
   DamageOffset: {x: -1, y: 0, z: 0}
   HealingOffset: {x: 1, y: 0, z: 0}
   IdleAnimation: {fileID: 7400000, guid: 956157c4544547c08e5c25f3e327e9ba, type: 2}
-  SlashAnimation: {fileID: 7400000, guid: f5b2b6a5a3294d3faafd8a268570c0af, type: 2}
-  ChargeAttackAnimation: {fileID: 7400000, guid: 1ea229125dff44b1a6084e4281e63410, type: 2}
-  JabAnimation: {fileID: 7400000, guid: feb9bfe10f7b46888ad3624e130ce73b, type: 2}
-  UseSupplyAnimation: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
   TakeDamageAnimation: {fileID: 7400000, guid: e0f80ff69c88480493277f9b7b6b5033, type: 2}
   HealDamageAnimation: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
   DieAnimation: {fileID: 7400000, guid: e20e165bdae94ffea18d54cddfd79c59, type: 2}
-  ReviveAnimation: {fileID: 7400000, guid: a6466e9fd05d47e78a1a3b1b2ea6c7fe, type: 2}
-  VictoryAnimation: {fileID: 7400000, guid: e6c1290faad3478ca96665ccf217ef2b, type: 2}
+  animazing: {fileID: 0}
   buffs:
     keyValueData: []
   currentEquipment:

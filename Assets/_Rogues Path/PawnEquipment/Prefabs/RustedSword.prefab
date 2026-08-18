@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 100889207748034504}
   - component: {fileID: 2876239962352562192}
   m_Layer: 0
-  m_Name: FamilySword
+  m_Name: RustedSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,38 +45,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
+    SerializedFormat: 0
+    SerializedBytes: 03010b00000053007000720069007400650043006f006c006f0072002f000000000148000000530079007300740065006d002e004e0075006c006c00610062006c006500600031005b005b0055006e0069007400790045006e00670069006e0065002e0043006f006c006f0072002c00200055006e0069007400790045006e00670069006e0065002e0043006f00720065004d006f00640075006c0065005d005d002c0020006d00730063006f0072006c00690062002e05
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: SpriteColor
-      Entry: 7
-      Data: System.Nullable`1[[UnityEngine.Color, UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  Name: Family Sword
-  Description: Passed down generations beyond count, but you can count on it
-  FlavorText: Something interesting and profound about the item here
+    SerializationNodes: []
+  Name: Rusted Sword
+  Description: Passed down generations beyond count
+  FlavorText: Rusty but trusty
   ItemSprite:
-    Name: 
-    Id: 
-    Edition: 
-    Collection: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
+    Name: RustedSword
+    Id: FantasyHeroes.Basic.MeleeWeapon1H.RustedSword
+    Edition: FantasyHeroes
+    Collection: Basic
+    Path: Assets/HeroEditor4D/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Sword/RustedSword.png
+    Sprite: {fileID: 21300000, guid: 92e3891866919c04bbcf2abec82b2a56, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 92e3891866919c04bbcf2abec82b2a56, type: 3}
     Tags: []
     Meta: 
-  Icon: {fileID: 21300000, guid: 751ca05076224dd58e47369a4ef7150b, type: 3}
+  Icon: {fileID: 21300000, guid: 9d50a6a7356a43f2b067b58d81b39678, type: 3}
   Quality: 0
-  EquipType: 7
+  EquipType: 5
   Owner: {fileID: 0}
   Modifiers: []

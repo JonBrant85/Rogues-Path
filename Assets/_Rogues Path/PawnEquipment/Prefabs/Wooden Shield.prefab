@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5026007741656814708
+--- !u!1 &4079237685541807164
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5039146404429055803}
-  - component: {fileID: 8435493924597366058}
+  - component: {fileID: 2672540536182435690}
+  - component: {fileID: 6940672784397818861}
   m_Layer: 0
-  m_Name: BanditLightArmor
+  m_Name: Wooden Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5039146404429055803
+--- !u!4 &2672540536182435690
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5026007741656814708}
+  m_GameObject: {fileID: 4079237685541807164}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,16 +32,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8435493924597366058
+--- !u!114 &6940672784397818861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5026007741656814708}
+  m_GameObject: {fileID: 4079237685541807164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c678662648845e4b7b284e9e2dc9f65, type: 3}
+  m_Script: {fileID: 11500000, guid: f33fcf2253124f3384f93245b24c1fd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -62,9 +62,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Name: Bandit Light Armor
-  Description: Bandit's light armor
-  FlavorText: Something interesting and profound about the item here
+  Name: Wooden Shield
+  Description: Shield made of scrapwood
+  FlavorText: It works if you believe
   ItemSprite:
     Name: 
     Id: 
@@ -75,8 +75,8 @@ MonoBehaviour:
     Sprites: []
     Tags: []
     Meta: 
-  Icon: {fileID: 21300000, guid: dbe33b48676142f69478afab8e359919, type: 3}
+  Icon: {fileID: 21300000, guid: 7b34a3124bf4f424689b5fa6cde9ad43, type: 3}
   Quality: 0
-  EquipType: 0
+  EquipType: 11
   Owner: {fileID: 0}
   Modifiers: []

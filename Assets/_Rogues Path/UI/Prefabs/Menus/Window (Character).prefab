@@ -19760,9 +19760,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2322859c1d47cca3b3dcd89d1ecc86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PawnPreviewOffset: {x: 0, y: -1.5, z: 3}
   StatsContainer: {fileID: 2982779215146496343}
   StatPrefab: {fileID: 1758682065613995373}
-  PawnPreviewOffset: {x: 0, y: -1.5, z: 3}
   CharacterNameText: {fileID: 8032656257644931746}
   CharacterClassText: {fileID: 3997250435829264066}
   PawnPreviewCamera: {fileID: 8713376270457508650}
@@ -23933,15 +23933,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 680686867865514237, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 750028412761365863, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750028412761365863, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 750028412761365863, guid: 23de036d18eb1204ebb3afc13c30db7e, type: 3}
       propertyPath: m_AnchorMin.y
@@ -24875,7 +24875,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 7
+  EquipType: 5
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &1353769851736967540 stripped
@@ -28706,7 +28706,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 13
+  EquipType: 11
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &8870220767677192178 stripped
@@ -28760,7 +28760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_Name
-      value: Equip Slot (Cape)
+      value: Equip Slot (Back)
       objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
@@ -30029,7 +30029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3874214904423217641, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_Name
-      value: Equip Slot (Boots)
+      value: Equip Slot (Leggings)
       objectReference: {fileID: 0}
     - target: {fileID: 3952032455805368801, guid: e1103ff5172a8144096150dcec793276, type: 3}
       propertyPath: m_SizeDelta.x
@@ -30191,7 +30191,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  EquipType: 4
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1001 &7091553476343970033
