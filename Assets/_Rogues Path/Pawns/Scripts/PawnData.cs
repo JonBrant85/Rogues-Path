@@ -4,13 +4,12 @@ using _Rogues_Path.Equipment.Scripts;
 using DuloGames.UI;
 using UnityEngine;
 
-namespace _Rogues_Path.Pawns {
+namespace _Rogues_Path.Pawns.Scripts {
     [CreateAssetMenu(fileName = "New " + nameof(PawnData), menuName = Game.Name + "/Data/" +nameof(PawnData))]
     public class PawnData: ScriptableObject {
         public string Name;
         public string ClassName;
-        public Pawn TwoDPawn;
-        public FourDPawn FourDPawn;
+        public Pawn Pawn;
 
         public List<UISpellInfo> ClassSpells = new();
         public List<EquipmentBase> StartingEquipment = new();

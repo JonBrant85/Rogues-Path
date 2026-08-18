@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using _Rogues_Path._Game;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using Cysharp.Threading.Tasks;

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03f0490c1b56431882b103fd86cfcd07, type: 3}
-  m_Name: Assassin
+  m_Name: Archer
   m_EditorClassIdentifier: 
-  Name: Slyph
-  ClassName: Assassin
-  TwoDPawn: {fileID: 8850778529634385021, guid: b6ff70d990a6d214bb30c459650c4cb3, type: 3}
-  FourDPawn: {fileID: 8994537132649015339, guid: c1742aabf290cf5409ed64a95c764723, type: 3}
+  Name: Rehcar
+  ClassName: 
+  Pawn: {fileID: 7291894641031329383, guid: 26913076326a5a545b6356e2b24bc7ba, type: 3}
   ClassSpells: []
+  StartingEquipment: []

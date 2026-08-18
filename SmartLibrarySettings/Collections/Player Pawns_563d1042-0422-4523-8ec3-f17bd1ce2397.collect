@@ -16,7 +16,6 @@ MonoBehaviour:
     _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
   _subcollectionIDs:
   - _serializedGuid: f442187409e65848839ac738ea771305
-  - _serializedGuid: 8b467a465f40d24bbf084efe0471f9f3
   _collectionName: Player Pawns
   _id:
     _serializedGuid: 42103d56220423458ec3f17bd1ce2397

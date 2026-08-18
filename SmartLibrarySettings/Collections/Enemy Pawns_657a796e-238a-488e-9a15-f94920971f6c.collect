@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentID:
     _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
-  _subcollectionIDs: []
+  _subcollectionIDs:
+  - _serializedGuid: 428b6c0bbe9d5f4cb25d27331c693ac3
   _collectionName: Enemy Pawns
   _id:
     _serializedGuid: 6e797a658a238e489a15f94920971f6c

@@ -25857,9 +25857,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xDirection: 0
+  yDirection: 0
+  animationManager: {fileID: 0}
   CharacterName: Slyph
   ClassName: Assassin
-  Character: {fileID: 8632349046024390575}
+  Character: {fileID: 0}
   Brain: {fileID: 6269131777052980523}
   StatusDisplay: {fileID: 9164981296128220957}
   DamageOffset: {x: -1, y: 0, z: 0}
@@ -27620,6 +27623,10 @@ PrefabInstance:
     - target: {fileID: 1500361511249809227, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
       propertyPath: serializationData.SerializedFormat
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308085641392976854, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
+      propertyPath: m_Text
+      value: Slyph
       objectReference: {fileID: 0}
     - target: {fileID: 4373800312061090073, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
       propertyPath: m_Name

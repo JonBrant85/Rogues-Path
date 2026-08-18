@@ -1,9 +1,9 @@
 using _Rogues_Path.UI.Slots;
 using DuloGames.UI;
-using HeroEditor.Common.Enums;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using EquipmentPart = Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart;
 
 namespace _Rogues_Path.UI.CharacterScreen {
     public class UIEquipmentReceiver : UIBehaviour, IEventSystemHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler {

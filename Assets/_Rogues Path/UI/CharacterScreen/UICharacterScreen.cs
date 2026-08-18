@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.UI.Slots;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
@@ -54,11 +55,11 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
             void InitializePawnPreview() {
                 // Instantiate PawnPreview and move it to appropriate Camera range
-                pawnPreview = Instantiate(playerData.TwoDPawn, PawnPreviewCamera.transform);
+                pawnPreview = Instantiate(playerData.Pawn, PawnPreviewCamera.transform);
                 pawnPreview.transform.localPosition = PawnPreviewOffset;
                 
                 // Clear equipment. SetupEquipmentSlots will check for existing equipment and assign it
-                pawnPreview.CurrentEquipment = new EquipmentDictionary(playerData.TwoDPawn.CurrentEquipment);
+                pawnPreview.CurrentEquipment = new EquipmentDictionary(playerData.Pawn.CurrentEquipment);
 
                 // Assign Owner to each slot
                 foreach (var kvp in EquipmentSlots) {

@@ -1,5 +1,6 @@
 using _Rogues_Path.Pawns;
-using _Rogues_Path.Pawns.Brains;
+using _Rogues_Path.Pawns.Scripts;
+using _Rogues_Path.Pawns.Scripts.Brains;
 using _Rogues_Path.Utilities;
 using Sirenix.OdinInspector;
 using UnityEngine;

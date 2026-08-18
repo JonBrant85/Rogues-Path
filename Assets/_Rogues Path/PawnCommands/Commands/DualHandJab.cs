@@ -4,6 +4,7 @@ using System.Linq;
 using _Rogues_Path.Commands;
 using _Rogues_Path.PawnCommands.Calculators;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Pawns.Scripts;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

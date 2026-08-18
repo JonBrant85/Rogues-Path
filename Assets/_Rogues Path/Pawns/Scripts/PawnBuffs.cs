@@ -5,7 +5,7 @@ using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using UnityEngine;
 
-namespace _Rogues_Path.Pawns {
+namespace _Rogues_Path.Pawns.Scripts {
     public partial class Pawn {
         [SerializeField] private BuffsDictionary buffs = new();
 

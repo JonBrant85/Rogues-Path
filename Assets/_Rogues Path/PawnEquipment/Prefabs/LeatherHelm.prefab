@@ -65,18 +65,16 @@ MonoBehaviour:
   Name: Leather Helm
   Description: Made of, you guessed it
   FlavorText: 
-  Sprite:
-    Name: LeatherHelm
-    Collection: LeatherHelm
-    Edition: HeroEditor
-    Id: HeroEditor.Basic.Helmet.LeatherHelm
-    Path: Assets/ThirdParty/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/LeatherHelm.png
-    Sprite: {fileID: 21300000, guid: 4f1e6489aa22449f83926b1f340596ef, type: 3}
-    Sprites:
-    - {fileID: 21300000, guid: 4f1e6489aa22449f83926b1f340596ef, type: 3}
-    Multiple: 1
-    Hash: 5cacb163a28cf9b8b3d99a29156d1602
+  ItemSprite:
+    Name: 
+    Id: 
+    Edition: 
+    Collection: 
+    Path: 
+    Sprite: {fileID: 0}
+    Sprites: []
     Tags: []
+    Meta: 
   Icon: {fileID: 21300000, guid: d39d0deb2f414b7290f49563f1314a5b, type: 3}
   Quality: 0
   EquipType: 1

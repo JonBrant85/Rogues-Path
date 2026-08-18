@@ -3,7 +3,8 @@ using System.Collections;
 using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
-using _Rogues_Path.Pawns.Brains;
+using _Rogues_Path.Pawns.Scripts;
+using _Rogues_Path.Pawns.Scripts.Brains;
 using _Rogues_Path.UI;
 using _Rogues_Path.UI.ActionBar;
 using _Rogues_Path.UI.CharacterScreen;
@@ -40,8 +41,8 @@ namespace _Rogues_Path.Combat {
             var randomEnemy = eventData.Enemies.GetRandomElement();
             // Instantiate background, player, enemies
             Instantiate(eventData.BackgroundPrefab, BackgroundContainer);
-            Player = Instantiate(Game.Instance.PlayerData.TwoDPawn, PlayerContainer);
-            Enemy = Instantiate(randomEnemy.TwoDPawn, EnemyContainer);
+            Player = Instantiate(Game.Instance.PlayerData.Pawn, PlayerContainer);
+            Enemy = Instantiate(randomEnemy.Pawn, EnemyContainer);
 
             // Reset action timers
             Enemy.Brain.TimeUntilAction = Enemy.Brain.ActionDelay;

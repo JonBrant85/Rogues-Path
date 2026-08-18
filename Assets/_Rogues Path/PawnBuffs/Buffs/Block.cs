@@ -1,6 +1,7 @@
 using System;
 using _Rogues_Path.Buffs.Scripts;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using Guirao.UltimateTextDamage;

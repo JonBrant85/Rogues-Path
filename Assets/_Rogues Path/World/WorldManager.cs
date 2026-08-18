@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Rogues_Path._Game;
+using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
 using Assets.HeroEditor4D.Common.Scripts.Enums;
 using Cysharp.Threading.Tasks;
@@ -30,12 +31,12 @@ namespace _Rogues_Path.World {
         [FoldoutGroup("References"), SerializeField] private Button MoveButton;
         [FoldoutGroup("References"), SerializeField] private StyleManager DiceRollAnnouncer;
 
-        [FoldoutGroup("Debug"), SerializeField] private FourDPawn PlayerPawn;
+        [FoldoutGroup("Debug"), SerializeField] private Pawn PlayerPawn;
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
 
         private void Awake() {
 
-            PlayerPawn = Instantiate(Game.Instance.PlayerData.FourDPawn, StartingTile.PawnContainer);
+            PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, StartingTile.PawnContainer);
             currentTile = StartingTile;
         }
 

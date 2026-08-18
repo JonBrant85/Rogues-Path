@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.UI.Slots;
-using HeroEditor.Common.Enums;
 using Kryz.CharacterStats;
 using UnityEngine;
+using EquipmentPart = Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart;
 
 namespace _Rogues_Path.Utilities {
     [Serializable] public class BuffsDictionary : UnitySerializedDictionary<string, int> {}

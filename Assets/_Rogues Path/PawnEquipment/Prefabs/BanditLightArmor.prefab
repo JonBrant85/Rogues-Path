@@ -65,31 +65,16 @@ MonoBehaviour:
   Name: Bandit Light Armor
   Description: Bandit's light armor
   FlavorText: Something interesting and profound about the item here
-  Sprite:
-    Name: BanditLightArmor [Paint]
-    Collection: Basic
-    Edition: HeroEditor
-    Id: HeroEditor.Basic.Armor.BanditLightArmor [Paint]
-    Path: Assets/ThirdParty/HeroEditor/FantasyHeroes/Sprites/Equipment/Armor/Basic/BanditLightArmor
-      [Paint].png
-    Sprite: {fileID: 21300004, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    Sprites:
-    - {fileID: 21300004, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300002, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300022, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300010, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300008, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300016, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300018, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300012, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300006, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300014, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300020, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    - {fileID: 21300000, guid: 2552032f57804288b1cf3512de976866, type: 3}
-    Multiple: 1
-    Hash: cd5fa44c297dda8dea387baf07b6a76e
-    Tags:
-    - Paint
+  ItemSprite:
+    Name: 
+    Id: 
+    Edition: 
+    Collection: 
+    Path: 
+    Sprite: {fileID: 0}
+    Sprites: []
+    Tags: []
+    Meta: 
   Icon: {fileID: 21300000, guid: dbe33b48676142f69478afab8e359919, type: 3}
   Quality: 0
   EquipType: 0

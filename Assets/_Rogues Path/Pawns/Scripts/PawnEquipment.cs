@@ -4,10 +4,9 @@ using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
-using Bewildered.SmartLibrary;
 using UnityEngine;
 
-namespace _Rogues_Path.Pawns {
+namespace _Rogues_Path.Pawns.Scripts {
     public partial class Pawn {
         public EquipmentDictionary CurrentEquipment { get => currentEquipment; set => currentEquipment = value; }
         [SerializeField] private EquipmentDictionary currentEquipment = new();
@@ -113,7 +112,7 @@ namespace _Rogues_Path.Pawns {
                 // Set owner and update sprite
                 dbEquipment.Owner = this;
                 dbEquipment.gameObject.SetActive(true);
-                Character.Equip(dbEquipment.Sprite, dbEquipment.EquipType, dbEquipment.SpriteColor);
+                Character.Equip(dbEquipment.ItemSprite, dbEquipment.EquipType, dbEquipment.SpriteColor);
 
                 // Add to dictionary
                 currentEquipment.Add(dbEquipment.EquipType, dbEquipment);

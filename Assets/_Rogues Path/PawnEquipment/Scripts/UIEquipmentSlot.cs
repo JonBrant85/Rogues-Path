@@ -1,6 +1,7 @@
 using System;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
@@ -9,6 +10,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using EquipmentPart = Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart;
 using Object = System.Object;
 
 namespace _Rogues_Path.UI.Slots {
@@ -293,73 +295,30 @@ namespace _Rogues_Path.UI.Slots {
         /// Equipment part to string conversion.
         /// </summary>
         /// <returns>The string.</returns>
-        public static string EquipTypeToString(EquipmentPart type) {
-            string str = "Undefined";
-
-            switch (type) {
-
-                case EquipmentPart.Armor:
-                    str = "Armor";
-                    break;
-                case EquipmentPart.Helmet:
-                    str = "Helmet";
-                    break;
-                case EquipmentPart.Pauldrons:
-                    str = "Pauldrons";
-                    break;
-                case EquipmentPart.Vest:
-                    str = "Vest";
-                    break;
-                case EquipmentPart.Gloves:
-                    str = "Gloves";
-                    break;
-                case EquipmentPart.Belt:
-                    str = "Belt";
-                    break;
-                case EquipmentPart.Boots:
-                    str = "Boots";
-                    break;
-                case EquipmentPart.MeleeWeapon1H:
-                    str = "1 Handed Melee Weapon";
-                    break;
-                case EquipmentPart.MeleeWeapon2H:
-                    str = "2 Handed Melee Weapon";
-                    break;
-                case EquipmentPart.MeleeWeaponPaired:
-                    str = "Paired Melee Weapons";
-                    break;
-                case EquipmentPart.Bow:
-                    str = "Bow";
-                    break;
-                case EquipmentPart.Firearm1H:
-                    str = "1 Handed Firearm";
-                    break;
-                case EquipmentPart.Firearm2H:
-                    str = "2 Handed Firearm";
-                    break;
-                case EquipmentPart.Shield:
-                    str = "Shield";
-                    break;
-                case EquipmentPart.Earrings:
-                    str = "Earrings";
-                    break;
-                case EquipmentPart.Cape:
-                    str = "Cape";
-                    break;
-                case EquipmentPart.Back:
-                    str = "Back";
-                    break;
-                case EquipmentPart.Glasses:
-                    str = "Glasses";
-                    break;
-                case EquipmentPart.Mask:
-                    str = "Mask";
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
-            }
-
-            return str;
+        public static string EquipTypeToString(Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart type) {
+            return type switch {
+                EquipmentPart.Armor => "Armor",
+                EquipmentPart.Helmet => "Helmet",
+                EquipmentPart.Vest => "Vest",
+                EquipmentPart.Bracers => "Bracers",
+                EquipmentPart.Leggings => "Leggings",
+                EquipmentPart.MeleeWeapon1H => "Melee Weapon 1H",
+                EquipmentPart.MeleeWeapon2H => "Melee Weapon 2H",
+                EquipmentPart.Bow => "Bow",
+                EquipmentPart.Crossbow => "Crossbow",
+                EquipmentPart.SecondaryMelee1H => "Secondary Melee 1H",
+                EquipmentPart.SecondaryFirearm1H => "SecondaryFirearm1H",
+                EquipmentPart.Shield => "Shield",
+                EquipmentPart.Earrings => "Earrings",
+                EquipmentPart.Cape => "Cape",
+                EquipmentPart.Quiver => "Quiver",
+                EquipmentPart.Back => "Back",
+                EquipmentPart.Mask => "Mask",
+                EquipmentPart.Firearm1H => "Firearm 1H",
+                EquipmentPart.Firearm2H => "Firearm 2H",
+                EquipmentPart.Wings => "Wings",
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
         }
         #endregion
     }

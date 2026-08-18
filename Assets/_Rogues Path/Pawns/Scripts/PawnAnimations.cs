@@ -4,9 +4,8 @@ using DG.Tweening;
 using OldOdin;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace _Rogues_Path.Pawns {
+namespace _Rogues_Path.Pawns.Scripts {
     public partial class Pawn {
         
         [FoldoutGroup("Damage Text Offset")] public Vector3 DamageOffset = new Vector3(-1, 0, 0);
@@ -25,7 +24,7 @@ namespace _Rogues_Path.Pawns {
         private Animazing animazing;
 
         private void InitializeAnimation() {
-            animazing = GetComponentInChildren<Animazing>();
+            animazing = GetComponent<Animazing>();
             animazing.SetLayerDefaultAnimation(0, IdleAnimation);
         }
         

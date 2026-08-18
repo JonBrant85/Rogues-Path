@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03f0490c1b56431882b103fd86cfcd07, type: 3}
-  m_Name: Bunny
+  m_Name: Priest
   m_EditorClassIdentifier: 
-  Name: Bunny
-  ClassName: Fluffy
-  TwoDPawn: {fileID: 3471178067932725354, guid: 4b3fd4c25ce266843ac2659ddb52e780, type: 3}
-  FourDPawn: {fileID: 0}
-  ClassSpells:
-  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  Name: Priest
+  ClassName: Sitrep
+  Pawn: {fileID: -7564804374485097505, guid: 6953410fedb10da489899f4adee1b9f3, type: 3}
+  ClassSpells: []
+  StartingEquipment: []

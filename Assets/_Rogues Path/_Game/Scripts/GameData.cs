@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.LevelSelection;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
 using DuloGames.UI;
 using HeroEditor.Common.Enums;

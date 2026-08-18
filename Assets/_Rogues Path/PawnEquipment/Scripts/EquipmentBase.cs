@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.UI.CharacterScreen;
 using DG.Tweening;
 using DuloGames.UI;
-using HeroEditor.Common.Data;
-using HeroEditor.Common.Enums;
 using Kryz.CharacterStats;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
+using EquipmentPart = Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart;
+using ItemSprite = Assets.HeroEditor4D.Common.Scripts.Data.ItemSprite;
 
 namespace _Rogues_Path.Equipment.Scripts {
     [Serializable]
@@ -24,7 +25,7 @@ namespace _Rogues_Path.Equipment.Scripts {
         public string Name;
         public string Description = "Default Description";
         public string FlavorText = "Something interesting and profound about the item here";
-        public ItemSprite Sprite;
+        public ItemSprite ItemSprite;
         public Color? SpriteColor;
         public Sprite Icon;
         public UIItemQuality Quality;
@@ -57,10 +58,12 @@ namespace _Rogues_Path.Equipment.Scripts {
                     stat.AddModifier(modifierPair.Modifier);
                 }
                 else {
-                    owner.Stats.Add(modifierPair.StatID, new CharacterStat {
-                        CharacterStatID = modifierPair.StatID,
-                        BaseValue = 0
-                    });
+                    owner.Stats.Add(
+                        modifierPair.StatID,
+                        new CharacterStat {
+                            CharacterStatID = modifierPair.StatID,
+                            BaseValue = 0
+                        });
                 }
             }
         }

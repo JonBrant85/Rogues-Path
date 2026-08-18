@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using _Rogues_Path.Pawns;
+using _Rogues_Path.Pawns.Scripts;
 using DG.Tweening;
 using DuloGames.UI;
 using DuloGames.UI.Tweens;

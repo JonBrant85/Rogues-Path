@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
-  m_Name: 4D
+  m_Name: PawnData
   m_EditorClassIdentifier: 
   _parentID:
-    _serializedGuid: 42103d56220423458ec3f17bd1ce2397
+    _serializedGuid: 6e797a658a238e489a15f94920971f6c
   _subcollectionIDs: []
-  _collectionName: 4D
+  _collectionName: PawnData
   _id:
-    _serializedGuid: 8b467a465f40d24bbf084efe0471f9f3
+    _serializedGuid: 428b6c0bbe9d5f4cb25d27331c693ac3
   _icon: {fileID: 0}
   _rules:
     _rules: []
   _items:
     _hashSetList:
-    - c1742aabf290cf5409ed64a95c764723
+    - 58247c1d1ff08bc46ad734f79667a5e8
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0

@@ -1,13 +1,10 @@
-using System;
-using _Rogues_Path.Buffs.Scripts;
 using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using Guirao.UltimateTextDamage;
-using Kryz.CharacterStats;
 using UnityEngine;
 
-namespace _Rogues_Path.Pawns {
+namespace _Rogues_Path.Pawns.Scripts {
     public partial class Pawn {
         public float CurrentHealth = 50f;
         public CharacterStatID MaxHealthID;

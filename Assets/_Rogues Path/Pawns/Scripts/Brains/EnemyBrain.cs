@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using _Rogues_Path._Game;
 using _Rogues_Path.Combat;
 using _Rogues_Path.Commands;
 using _Rogues_Path.Utilities;
 using Cysharp.Threading.Tasks;
 
-namespace _Rogues_Path.Pawns.Brains {
+namespace _Rogues_Path.Pawns.Scripts.Brains {
     public class EnemyBrain : PawnBrain {
         public List<Command> PotentialCommands = new();
 
