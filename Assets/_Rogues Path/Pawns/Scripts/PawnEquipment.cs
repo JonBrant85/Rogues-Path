@@ -96,7 +96,7 @@ namespace _Rogues_Path.Pawns.Scripts {
                         return true;
                     }
                     else {
-                        if (!equipmentRemoved) Debug.Log($"Failed to remove equipment: {equipment.Name}");
+                        // if (!equipmentRemoved) Debug.Log($"Failed to remove equipment: {equipment.Name}");
                         if (!addedToInventory) Debug.Log($"Failed to add to inventory: {equipment.Name}");
                         return false;
                     }

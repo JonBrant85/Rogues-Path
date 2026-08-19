@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using _Rogues_Path._Game;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
@@ -11,7 +12,10 @@ using Michsky.UI.MTP;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using Quaternion = UnityEngine.Quaternion;
 using Random = System.Random;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 namespace _Rogues_Path.World {
     public class WorldManager : Singleton<WorldManager> {
@@ -35,8 +39,8 @@ namespace _Rogues_Path.World {
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
 
         private void Awake() {
-
             PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, StartingTile.PawnContainer);
+            PlayerPawn.Character.SetDirection(Vector2.down);
             currentTile = StartingTile;
         }
 
@@ -73,15 +77,53 @@ namespace _Rogues_Path.World {
         }
 
         private async UniTask MoveToNextTile() {
-            // ToDo: Setup Character facing during movement again. I broke it
+            // ToDo: Fix facing direction to point in direction of movement
+            Vector3 movementDirection = currentTile.NextTile.transform.position - currentTile.transform.position;
+            Vector3[] directions = {
+                Vector3.forward,
+                Vector3.back,
+                Vector3.left,
+                Vector3.right
+            };
+
+            Vector2[] facingDirections = {
+                Vector2.up,
+                Vector2.down,
+                Vector2.left,
+                Vector2.right
+            };
+
+            int closestIndex = 0;
+            float bestDot = Vector3.Dot(movementDirection, directions[0]);
+
+            for (int i = 1; i < directions.Length; i++) {
+                float dot = Vector3.Dot(movementDirection, directions[i]);
+
+                if (dot > bestDot) {
+                    bestDot = dot;
+                    closestIndex = i;
+                }
+            }
+
+            Vector2 facingDirection = facingDirections[closestIndex];
+
+            if (facingDirection == Vector2.left) {
+                facingDirection = Vector2.right;
+            }
+            else if (facingDirection == Vector2.right) {
+                facingDirection = Vector2.left;
+            }
+
+            PlayerPawn.Character.SetDirection(facingDirection);
+
             PlayerPawn.animationManager.SetState(CharacterState.Jump);
-            
+
             Tween tween = PlayerPawn.transform.DOJump(currentTile.NextTile.PawnContainer.transform.position, MovementJump, 1, MovementDuration, false);
-           
+            await tween.AsyncWaitForCompletion();
+
             currentTile = currentTile.NextTile;
             PlayerPawn.transform.SetParent(currentTile.PawnContainer);
             PlayerPawn.animationManager.SetState(CharacterState.Idle);
-            await tween.AsyncWaitForCompletion();
         }
 
         private async UniTask<List<int>> RollDice(int numberOfDice) {
