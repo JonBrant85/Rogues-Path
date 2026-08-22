@@ -32,46 +32,140 @@ namespace _Rogues_Path.UI.Slots {
         public EquipmentBase Equipment;
 
         public bool Assign(EquipmentBase equipment) {
-            if (equipment == null) {
-                Debug.LogError($"Attempting to assign null equipment to {EquipType}");
-                return false;
-            }
-
-            if (!CheckEquipType(equipment)) return false;
-
-            Unassign();
-
-            // Instantiate and OWN the instance
-            Equipment = Instantiate(equipment, transform);
-            Equipment.transform.localPosition = Vector3.zero;
-            Equipment.gameObject.SetActive(true);
-
-            Debug.Assert(Equipment != null, "Equipment instantiation failed");
-
-            // Icon
-            base.Assign(Equipment.Icon);
-
-            // Events
-            OnAssignEvent?.Invoke(Owner, Equipment);
-
-            if (EquipToOwnerOnAssign && Owner != null) {
-                Debug.Assert(Equipment != null);
-                Owner.TryEquip(Equipment);
-            }
-
-            return true;
+            return AssignInternal(equipment, null, instantiateEquipment: true);
         }
 
         public bool Assign(EquipmentBase equipment, Object source) {
-            if (equipment == null)
+            return AssignInternal(equipment, source, instantiateEquipment: false);
+        }
+
+        public bool Assign(object source) {
+            if (source is not UIEquipmentSlot sourceSlot)
                 return false;
+
+            if (sourceSlot.Equipment == null)
+                return false;
+
+            /*
+             * Static slots behave like templates.
+             * Make an instance instead of stealing the static slot's object.
+             */
+            return AssignInternal(sourceSlot.Equipment, sourceSlot, instantiateEquipment: sourceSlot.isStatic);
+        }
+
+        private bool AssignInternal(EquipmentBase equipment, Object source, bool instantiateEquipment) {
+
+            if (equipment == null) {
+                Debug.LogError($"Attempting to assign null equipment to {EquipType}");
+
+                return false;
+            }
 
             if (!CheckEquipType(equipment))
                 return false;
 
-            base.Unassign();
+            UIEquipmentSlot sourceSlot = source as UIEquipmentSlot;
 
-            Equipment = equipment;
+            /*
+             * Don't allow silent cross-Pawn transfers.
+             * They need their own explicit transaction because ownership,
+             * inventory and modifiers all need moving between Pawns.
+             */
+            if (sourceSlot != null && sourceSlot.EquipToOwnerOnAssign && EquipToOwnerOnAssign && sourceSlot.Owner != null && Owner != null && sourceSlot.Owner != Owner) {
+
+                Debug.LogWarning("Cross-Pawn equipment transfers are not supported " + "by UIEquipmentSlot.Assign.");
+
+                return false;
+            }
+
+            EquipmentBase candidate = instantiateEquipment ? Instantiate(equipment, transform) : equipment;
+
+            EquipmentBase previousUIEquipment = Equipment;
+
+            /*
+             * ------------------------------------------------------------
+             * GAMEPLAY STATE FIRST
+             * ------------------------------------------------------------
+             *
+             * Don't change the UI until we know the gameplay operation
+             * succeeded.
+             */
+
+            EquipmentBase previouslyEquipped = null;
+            bool candidateWasAlreadyEquipped = false;
+
+            /*
+             * Moving FROM an equipped slot TO a non-equipped UI slot.
+             */
+            if (!EquipToOwnerOnAssign && sourceSlot != null && sourceSlot.EquipToOwnerOnAssign && sourceSlot.Owner != null) {
+
+                if (!sourceSlot.Owner.TryRemoveEquipment(candidate)) {
+                    CleanupFailedCandidate(candidate, instantiateEquipment);
+
+                    return false;
+                }
+
+                candidate.RemoveModifiers(candidate.Modifiers, sourceSlot.Owner);
+
+                EventBus.Raise(new PawnStatChanged());
+            }
+
+            /*
+             * Moving INTO an equipped slot.
+             */
+            if (EquipToOwnerOnAssign && Owner != null) {
+                Owner.CurrentEquipment.TryGetValue(candidate.EquipType, out previouslyEquipped);
+
+                candidateWasAlreadyEquipped = previouslyEquipped == candidate;
+
+                if (!Owner.TryEquip(candidate)) {
+                    CleanupFailedCandidate(candidate, instantiateEquipment);
+
+                    return false;
+                }
+
+                /*
+                 * Pawn.TryEquip handles equipment/inventory state.
+                 *
+                 * UIEquipmentSlot remains responsible for stat modifiers.
+                 */
+                if (!candidateWasAlreadyEquipped) {
+                    if (previouslyEquipped != null && previouslyEquipped != candidate) {
+
+                        previouslyEquipped.RemoveModifiers(previouslyEquipped.Modifiers, Owner);
+                    }
+
+                    candidate.ApplyModifiers(candidate.Modifiers, Owner);
+
+                    EventBus.Raise(new PawnStatChanged());
+                }
+            }
+
+            /*
+             * ------------------------------------------------------------
+             * GAMEPLAY SUCCEEDED — COMMIT UI
+             * ------------------------------------------------------------
+             */
+
+            if (previousUIEquipment != null && previousUIEquipment != candidate) {
+
+                OnUnassignEvent?.Invoke(Owner, previousUIEquipment);
+
+                base.Unassign();
+
+                /*
+                 * Do NOT destroy it.
+                 *
+                 * Pawn.TryEquip may have just moved this exact runtime
+                 * object into Inventory.
+                 */
+                if (previousUIEquipment.transform.parent == transform) {
+                    previousUIEquipment.gameObject.SetActive(false);
+                }
+            }
+
+            Equipment = candidate;
+
             Equipment.transform.SetParent(transform);
             Equipment.transform.localPosition = Vector3.zero;
             Equipment.gameObject.SetActive(true);
@@ -79,90 +173,223 @@ namespace _Rogues_Path.UI.Slots {
             base.Assign(Equipment.Icon);
 
             OnAssignEvent?.Invoke(Owner, Equipment);
-            OnAssignWithSourceEvent?.Invoke(this, source);
 
-            if (EquipToOwnerOnAssign && Owner != null) {
-                Debug.Assert(Equipment != null);
-
-                if (Owner.TryEquip(Equipment)) {
-                    Equipment.ApplyModifiers(Equipment.Modifiers, Owner);
-                    EventBus.Raise(new PawnStatChanged());
-                }
+            if (source != null) {
+                OnAssignWithSourceEvent?.Invoke(this, source);
             }
 
             return true;
         }
 
-        public bool Assign(object source) {
-            if (source is UIEquipmentSlot sourceSlot) {
-                if (sourceSlot.Equipment == null)
-                    return false;
+        private void CleanupFailedCandidate(EquipmentBase candidate, bool instantiated) {
 
-                return Assign(sourceSlot.Equipment, sourceSlot);
-            }
+            if (!instantiated || candidate == null)
+                return;
 
-            return false;
+            Destroy(candidate.gameObject);
         }
 
         public override void Unassign() {
             if (Equipment == null)
                 return;
 
+            EquipmentBase equipment = Equipment;
+
+            /*
+             * Only alter Pawn equipment state if THIS runtime object is
+             * actually the equipped object.
+             *
+             * A stale UI slot must never unequip some other sword just
+             * because both are MeleeWeapon1H.
+             */
+            if (EquipToOwnerOnAssign && Owner != null) {
+                bool actuallyEquipped = Owner.CurrentEquipment.TryGetValue(equipment.EquipType, out EquipmentBase equipped) && equipped == equipment;
+
+                if (actuallyEquipped) {
+                    if (!Owner.TryRemoveEquipment(equipment)) {
+                        /*
+                         * Usually this means inventory is full.
+                         *
+                         * Leave the UI alone because gameplay state wasn't
+                         * changed.
+                         */
+                        return;
+                    }
+
+                    equipment.RemoveModifiers(equipment.Modifiers, Owner);
+
+                    EventBus.Raise(new PawnStatChanged());
+                }
+            }
+
             base.Unassign();
 
+            OnUnassignEvent?.Invoke(Owner, equipment);
 
+            /*
+             * Don't destroy the object here.
+             *
+             * TryRemoveEquipment() may have transferred the runtime
+             * instance into the Pawn's inventory.
+             */
+            Equipment = null;
+        }
 
-            OnUnassignEvent?.Invoke(Owner, Equipment);
+        /*
+         * Used after a successful drag transfer.
+         *
+         * Gameplay state was already handled by the destination slot, so
+         * the source must ONLY forget its UI reference.
+         */
+        private void ClearTransferredReference() {
+            if (Equipment == null)
+                return;
 
-            // Only destroy if THIS slot owns it
-            if (Equipment.transform.parent == transform) {
-                //Destroy(Equipment.gameObject);
-            }
+            EquipmentBase oldEquipment = Equipment;
 
-            if (EquipToOwnerOnAssign && Owner != null) {
-                Owner.TryRemoveEquipment(Equipment);
-                Equipment.RemoveModifiers(Equipment.Modifiers, Owner);
-                EventBus.Raise(new PawnStatChanged());
-            }
+            base.Unassign();
+
+            OnUnassignEvent?.Invoke(Owner, oldEquipment);
 
             Equipment = null;
         }
 
-        public override bool IsAssigned() => Equipment != null;
+        public override bool IsAssigned() {
+            return Equipment != null;
+        }
 
         public override void OnPointerDown(PointerEventData eventData) {
+
             base.OnPointerDown(eventData);
+
             OnClickEvent.Invoke(this);
         }
 
         public virtual bool CheckEquipType(EquipmentBase equipment) {
-            if (AcceptsAnyEquipType && equipment != null) return true;
+
+            if (AcceptsAnyEquipType && equipment != null)
+                return true;
+
             return equipment != null && equipment.EquipType == EquipType;
         }
 
         public bool PerformSlotSwap(Object sourceObject) {
-            if (sourceObject is not UIEquipmentSlot sourceSlot)
+            if (sourceObject is not UIEquipmentSlot targetSlot)
                 return false;
 
-            EquipmentBase myEquip = Equipment;
-            EquipmentBase theirEquip = sourceSlot.Equipment;
+            EquipmentBase myEquipment = Equipment;
+            EquipmentBase theirEquipment = targetSlot.Equipment;
 
-            // Temporarily suppress Unassign side effects
-            Debug.Assert(Owner != null);
-            Equipment.RemoveModifiers(Equipment.Modifiers, Owner);
-            Equipment = null;
-            sourceSlot.Equipment = null;
+            if (myEquipment == null || theirEquipment == null) {
 
-            bool a = sourceSlot.Assign(myEquip, this);
-            bool b = Assign(theirEquip, sourceSlot);
-            Equipment.ApplyModifiers(Equipment.Modifiers, Owner);
-            return a && b;
+                return false;
+            }
+
+            if (!targetSlot.CheckEquipType(myEquipment) || !CheckEquipType(theirEquipment)) {
+
+                return false;
+            }
+
+            /*
+             * Cross-Pawn swapping deserves its own transaction.
+             * Refuse it instead of silently corrupting two Pawns.
+             */
+            if (EquipToOwnerOnAssign && targetSlot.EquipToOwnerOnAssign && Owner != null && targetSlot.Owner != null && Owner != targetSlot.Owner) {
+
+                Debug.LogWarning("Cross-Pawn equipment swapping is not supported.");
+
+                return false;
+            }
+
+            /*
+             * Same-owner equipped-slot -> equipped-slot:
+             *
+             * Both items are already equipped. Their EquipmentPart doesn't
+             * change just because their visual slots swap, so gameplay
+             * state and modifiers don't need to change.
+             */
+            if (EquipToOwnerOnAssign && targetSlot.EquipToOwnerOnAssign && Owner == targetSlot.Owner) {
+
+                SetEquipmentUIOnly(theirEquipment, targetSlot);
+
+                targetSlot.SetEquipmentUIOnly(myEquipment, this);
+
+                return true;
+            }
+
+            /*
+             * Equipped slot -> inventory-like slot.
+             *
+             * Equip their item. Pawn.TryEquip atomically moves my item into
+             * inventory and removes their item from inventory.
+             */
+            if (EquipToOwnerOnAssign && !targetSlot.EquipToOwnerOnAssign && Owner != null) {
+
+                if (!Owner.TryEquip(theirEquipment))
+                    return false;
+
+                myEquipment.RemoveModifiers(myEquipment.Modifiers, Owner);
+
+                theirEquipment.ApplyModifiers(theirEquipment.Modifiers, Owner);
+
+                EventBus.Raise(new PawnStatChanged());
+            }
+            /*
+             * Inventory-like slot -> equipped slot.
+             */
+            else if (!EquipToOwnerOnAssign && targetSlot.EquipToOwnerOnAssign && targetSlot.Owner != null) {
+
+                if (!targetSlot.Owner.TryEquip(myEquipment))
+                    return false;
+
+                theirEquipment.RemoveModifiers(theirEquipment.Modifiers, targetSlot.Owner);
+
+                myEquipment.ApplyModifiers(myEquipment.Modifiers, targetSlot.Owner);
+
+                EventBus.Raise(new PawnStatChanged());
+            }
+
+            SetEquipmentUIOnly(theirEquipment, targetSlot);
+
+            targetSlot.SetEquipmentUIOnly(myEquipment, this);
+
+            return true;
+        }
+
+        private void SetEquipmentUIOnly(EquipmentBase equipment, Object source) {
+
+            EquipmentBase previous = Equipment;
+
+            if (previous != null) {
+                OnUnassignEvent?.Invoke(Owner, previous);
+            }
+
+            base.Unassign();
+
+            Equipment = equipment;
+
+            if (Equipment == null)
+                return;
+
+            Equipment.transform.SetParent(transform);
+            Equipment.transform.localPosition = Vector3.zero;
+            Equipment.gameObject.SetActive(true);
+
+            base.Assign(Equipment.Icon);
+
+            OnAssignEvent?.Invoke(Owner, Equipment);
+
+            if (source != null) {
+                OnAssignWithSourceEvent?.Invoke(this, source);
+            }
         }
 
         public bool CanSwapWith(Object target) {
             return target switch {
                 UIEquipmentSlot slot => slot.CheckEquipType(Equipment),
+
                 UIItemSlot => true,
+
                 _ => false
             };
         }
@@ -171,68 +398,71 @@ namespace _Rogues_Path.UI.Slots {
             return Equipment;
         }
 
-        /// <summary>
-        /// Raises the drop event.
-        /// </summary>
-        /// <param name="eventData">Event data.</param>
         public override void OnDrop(PointerEventData eventData) {
-            // Get the source slot
-            UIEquipmentSlot source = (eventData.pointerPress != null) ? eventData.pointerPress.GetComponent<UIEquipmentSlot>() : null;
 
-            // Make sure we have the source slot
-            if (source == null || !source.IsAssigned() || !source.dragAndDropEnabled)
+            UIEquipmentSlot source = eventData.pointerPress != null ? eventData.pointerPress.GetComponent<UIEquipmentSlot>() : null;
+
+            if (source == null || !source.IsAssigned() || !source.dragAndDropEnabled) {
+
                 return;
+            }
 
-            // Notify the source that a drop was performed so it does not unassign
             source.dropPreformed = true;
 
-            // Check if this slot is enabled and it's drag and drop feature is enabled
-            if (!this.enabled || !this.m_DragAndDropEnabled)
+            if (!enabled || !m_DragAndDropEnabled)
                 return;
 
-            // Prepare a variable indicating whether the assign process was successful
             bool assignSuccess = false;
 
-            // Normal empty slot assignment
-            if (!this.IsAssigned()) {
-                // Assign the target slot with the info from the source
-                assignSuccess = this.Assign(source);
+            /*
+             * Empty target.
+             */
+            if (!IsAssigned()) {
+                assignSuccess = Assign(source);
 
-                // Unassign the source on successful assignment and the source is not static
-                if (assignSuccess && !source.isStatic)
-                    source.Unassign();
+                if (assignSuccess && !source.isStatic) {
+                    /*
+                     * Do NOT call source.Unassign().
+                     *
+                     * The destination already handled the gameplay
+                     * transaction. Calling Unassign here can unequip the
+                     * item we JUST equipped.
+                     */
+                    source.ClearTransferredReference();
+                }
             }
-            // The target slot is assigned
+            /*
+             * Occupied target.
+             */
             else {
-                // If the target slot is not static
-                // and we have a source slot that is not static
-                if (!this.isStatic && !source.isStatic) {
-                    // Check if we can swap
-                    if (this.CanSwapWith(source) && source.CanSwapWith(this)) {
-                        // Swap the slots
+                if (!isStatic && !source.isStatic) {
+                    if (CanSwapWith(source) && source.CanSwapWith(this)) {
+
                         assignSuccess = source.PerformSlotSwap(this);
                     }
                 }
-                // If the target slot is not static
-                // and the source slot is a static one
-                else if (!this.isStatic && source.isStatic) {
-                    assignSuccess = this.Assign(source);
+                else if (!isStatic && source.isStatic) {
+                    /*
+                     * Assign() detects a static source and clones it.
+                     */
+                    assignSuccess = Assign(source);
                 }
             }
 
-            // If this slot failed to be assigned
             if (!assignSuccess) {
-                this.OnAssignBySlotFailed(source);
+                OnAssignBySlotFailed(source);
             }
         }
 
         public override void OnTooltip(bool show) {
-            UITooltip.InstantiateIfNecessary(this.gameObject);
+            UITooltip.InstantiateIfNecessary(gameObject);
 
             if (IsAssigned()) {
                 if (show) {
                     PrepareTooltip(Equipment);
-                    UITooltip.AnchorToRect(this.transform as RectTransform);
+
+                    UITooltip.AnchorToRect(transform as RectTransform);
+
                     UITooltip.Show();
                 }
                 else {
@@ -242,8 +472,11 @@ namespace _Rogues_Path.UI.Slots {
             else {
                 if (show) {
                     UITooltip.AddTitle(EquipType.ToString());
+
                     UITooltip.SetHorizontalFitMode(ContentSizeFitter.FitMode.PreferredSize);
-                    UITooltip.AnchorToRect(this.transform as RectTransform);
+
+                    UITooltip.AnchorToRect(transform as RectTransform);
+
                     UITooltip.Show();
                 }
                 else {
@@ -254,69 +487,79 @@ namespace _Rogues_Path.UI.Slots {
 
         #region Static Methods
         public static void PrepareTooltip(EquipmentBase equipment) {
+
             if (equipment == null)
                 return;
 
-            // Set the tooltip width
-            if (UITooltipManager.Instance != null)
+            if (UITooltipManager.Instance != null) {
                 UITooltip.SetWidth(UITooltipManager.Instance.itemTooltipWidth);
-
-            // Set the title and description
-            UITooltip.AddTitle("<color=#" + UIItemQualityColor.GetHexColor(equipment.Quality) + ">" + equipment.Name + "</color>");
-
-            // Spacer
-            UITooltip.AddSpacer();
-
-            // Item types
-            UITooltip.AddLineColumn(EquipTypeToString(equipment.EquipType), "ItemAttribute");
-            UITooltip.AddLineColumn(equipment.Quality.ToString());
-
-            foreach (StatAndModifierPair pair in equipment.Modifiers) {
-                // pair.Modifier.Value
-                // pair.StatID.name
-                UITooltip.AddLineColumn(pair.StatID.name, "ItemAttribute");
-                UITooltip.AddLineColumn(pair.Modifier.Value.ToString("N0"), "ItemAttribute");
             }
 
-            // Set the item description if not empty
+            UITooltip.AddTitle("<color=#" + UIItemQualityColor.GetHexColor(equipment.Quality) + ">" + equipment.Name + "</color>");
+
+            UITooltip.AddSpacer();
+
+            UITooltip.AddLineColumn(EquipTypeToString(equipment.EquipType), "ItemAttribute");
+
+            UITooltip.AddLineColumn(equipment.Quality.ToString());
+
+            if (equipment.Modifiers != null) {
+                foreach (StatAndModifierPair pair in equipment.Modifiers) {
+
+                    UITooltip.AddLineColumn(pair.StatID.name, "ItemAttribute");
+
+                    UITooltip.AddLineColumn(pair.Modifier.Value.ToString("N0"), "ItemAttribute");
+                }
+            }
+
             if (!string.IsNullOrEmpty(equipment.Description)) {
+
                 UITooltip.AddSpacer();
+
                 UITooltip.AddLine(equipment.Description, "ItemAttribute");
             }
 
-            // Set the flavor text if not empty
             if (!string.IsNullOrEmpty(equipment.FlavorText)) {
+
                 UITooltip.AddSpacer();
+
                 UITooltip.AddLine(equipment.FlavorText, "ItemDescription");
             }
         }
 
-        /// <summary>
-        /// Equipment part to string conversion.
-        /// </summary>
-        /// <returns>The string.</returns>
         public static string EquipTypeToString(Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart type) {
+
             return type switch {
                 EquipmentPart.Armor => "Armor",
                 EquipmentPart.Helmet => "Helmet",
                 EquipmentPart.Vest => "Vest",
                 EquipmentPart.Bracers => "Bracers",
                 EquipmentPart.Leggings => "Leggings",
+
                 EquipmentPart.MeleeWeapon1H => "Melee Weapon 1H",
+
                 EquipmentPart.MeleeWeapon2H => "Melee Weapon 2H",
+
                 EquipmentPart.Bow => "Bow",
                 EquipmentPart.Crossbow => "Crossbow",
+
                 EquipmentPart.SecondaryMelee1H => "Secondary Melee 1H",
+
                 EquipmentPart.SecondaryFirearm1H => "SecondaryFirearm1H",
+
                 EquipmentPart.Shield => "Shield",
                 EquipmentPart.Earrings => "Earrings",
                 EquipmentPart.Cape => "Cape",
                 EquipmentPart.Quiver => "Quiver",
                 EquipmentPart.Back => "Back",
                 EquipmentPart.Mask => "Mask",
+
                 EquipmentPart.Firearm1H => "Firearm 1H",
+
                 EquipmentPart.Firearm2H => "Firearm 2H",
+
                 EquipmentPart.Wings => "Wings",
+
                 _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
             };
         }
