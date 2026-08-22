@@ -74,29 +74,24 @@ namespace _Rogues_Path.Pawns.Scripts {
                 return false;
             }
 
-
-            // Find Database entry and use that instead of live equipment
-            var dbEquipment = EquipmentDatabase.Instance.Equipment.FirstOrDefault(e => e.Name == equipment.Name);
-            Debug.Assert(dbEquipment != null);
-
             // If something's already in the equipment slot, try to move it to inventory
-            if (Game.Instance.PlayerEquipment.ContainsKey(dbEquipment.EquipType)) {
+            if (Game.Instance.PlayerEquipment.ContainsKey(equipment.EquipType)) {
                 // Move existing item to inventory if possible
                 if (Inventory.Count + 1 > InventorySpaces) {
-                    Debug.Log($"Not enough inventory spaces to move {dbEquipment.Name} to inventory!");
+                    Debug.Log($"Not enough inventory spaces to move {equipment.Name} to inventory!");
                     return false;
                 }
                 else {
                     // If successfully removed and added to inventory, equip it
-                    bool equipmentRemoved = TryRemoveEquipment(dbEquipment, modifyGameState);
-                    bool addedToInventory = TryAddToInventory(dbEquipment, modifyGameState);
+                    bool equipmentRemoved = TryRemoveEquipment(equipment, modifyGameState);
+                    bool addedToInventory = TryAddToInventory(equipment, modifyGameState);
 
                     if (equipmentRemoved && addedToInventory) {
                         EquipEquipment();
                         return true;
                     }
                     else {
-                        // if (!equipmentRemoved) Debug.Log($"Failed to remove equipment: {equipment.Name}");
+                        if (!equipmentRemoved) Debug.Log($"Failed to remove equipment: {equipment.Name}");
                         if (!addedToInventory) Debug.Log($"Failed to add to inventory: {equipment.Name}");
                         return false;
                     }
@@ -110,12 +105,14 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             void EquipEquipment() {
                 // Set owner and update sprite
+                var dbEquipment = EquipmentDatabase.Instance.Equipment.FirstOrDefault(e => e.Name == equipment.Name);
+                Debug.Assert(dbEquipment != null);
                 dbEquipment.Owner = this;
                 dbEquipment.gameObject.SetActive(true);
                 Character.Equip(dbEquipment.ItemSprite, dbEquipment.EquipType, dbEquipment.SpriteColor);
 
                 // Add to dictionary
-                currentEquipment.Add(dbEquipment.EquipType, dbEquipment);
+                // currentEquipment.Add(dbEquipment.EquipType, dbEquipment);
 
                 // Update game state if necessary
                 if (modifyGameState) {
@@ -139,7 +136,7 @@ namespace _Rogues_Path.Pawns.Scripts {
                 return false;
             }
 
-            if (!currentEquipment.Remove(equipment.EquipType)) return false;
+            //if (!currentEquipment.Remove(equipment.EquipType)) return false;
 
             if (modifyGameState) {
                 if (!Game.Instance.PlayerEquipment.Remove(equipment.EquipType)) {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using _Rogues_Path._Game;
+using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
 using Assets.HeroEditor4D.Common.Scripts.Enums;
@@ -39,8 +40,17 @@ namespace _Rogues_Path.World {
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
 
         private void Awake() {
+            // Initialize player with equipment
             PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, StartingTile.PawnContainer);
             PlayerPawn.Character.SetDirection(Vector2.down);
+
+            foreach (var kvp in Game.Instance.PlayerEquipment) {
+                
+                if (EquipmentDatabase.TryGetByID(kvp.Value, out EquipmentBase equipment) &&!PlayerPawn.TryEquip(equipment, false)) {
+                    Debug.Log($"Failed to equip {PlayerPawn.CharacterName} with {equipment.Name}");
+                }
+            }
+            
             currentTile = StartingTile;
         }
 
@@ -77,45 +87,9 @@ namespace _Rogues_Path.World {
         }
 
         private async UniTask MoveToNextTile() {
-            // ToDo: Fix facing direction to point in direction of movement
             Vector3 movementDirection = currentTile.NextTile.transform.position - currentTile.transform.position;
-            Vector3[] directions = {
-                Vector3.forward,
-                Vector3.back,
-                Vector3.left,
-                Vector3.right
-            };
 
-            Vector2[] facingDirections = {
-                Vector2.up,
-                Vector2.down,
-                Vector2.left,
-                Vector2.right
-            };
-
-            int closestIndex = 0;
-            float bestDot = Vector3.Dot(movementDirection, directions[0]);
-
-            for (int i = 1; i < directions.Length; i++) {
-                float dot = Vector3.Dot(movementDirection, directions[i]);
-
-                if (dot > bestDot) {
-                    bestDot = dot;
-                    closestIndex = i;
-                }
-            }
-
-            Vector2 facingDirection = facingDirections[closestIndex];
-
-            if (facingDirection == Vector2.left) {
-                facingDirection = Vector2.right;
-            }
-            else if (facingDirection == Vector2.right) {
-                facingDirection = Vector2.left;
-            }
-
-            PlayerPawn.Character.SetDirection(facingDirection);
-
+            PlayerPawn.Character.SetDirection(GetFacingDirectionFromMovementDirection(movementDirection));
             PlayerPawn.animationManager.SetState(CharacterState.Jump);
 
             Tween tween = PlayerPawn.transform.DOJump(currentTile.NextTile.PawnContainer.transform.position, MovementJump, 1, MovementDuration, false);
@@ -124,6 +98,47 @@ namespace _Rogues_Path.World {
             currentTile = currentTile.NextTile;
             PlayerPawn.transform.SetParent(currentTile.PawnContainer);
             PlayerPawn.animationManager.SetState(CharacterState.Idle);
+
+            Vector2 GetFacingDirectionFromMovementDirection(Vector3 direction) {
+
+
+                Vector3[] directions = {
+                    Vector3.forward,
+                    Vector3.back,
+                    Vector3.left,
+                    Vector3.right
+                };
+
+                Vector2[] facingDirections = {
+                    Vector2.up,
+                    Vector2.down,
+                    Vector2.left,
+                    Vector2.right
+                };
+
+                int closestIndex = 0;
+                float bestDot = Vector3.Dot(direction, directions[0]);
+
+                for (int i = 1; i < directions.Length; i++) {
+                    float dot = Vector3.Dot(direction, directions[i]);
+
+                    if (dot > bestDot) {
+                        bestDot = dot;
+                        closestIndex = i;
+                    }
+                }
+
+                Vector2 facingDirection = facingDirections[closestIndex];
+
+                if (facingDirection == Vector2.left) {
+                    facingDirection = Vector2.right;
+                }
+                else if (facingDirection == Vector2.right) {
+                    facingDirection = Vector2.left;
+                }
+
+                return facingDirection;
+            }
         }
 
         private async UniTask<List<int>> RollDice(int numberOfDice) {

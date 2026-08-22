@@ -16,4 +16,5 @@ MonoBehaviour:
   ClassName: Sitrep
   Pawn: {fileID: -7564804374485097505, guid: 6953410fedb10da489899f4adee1b9f3, type: 3}
   ClassSpells: []
-  StartingEquipment: []
+  StartingEquipment:
+  - {fileID: 8435493924597366058, guid: f2d51493e7df716408975de93ddb27f8, type: 3}

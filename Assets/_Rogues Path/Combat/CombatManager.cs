@@ -58,7 +58,9 @@ namespace _Rogues_Path.Combat {
 
             foreach (var kvp in Game.Instance.PlayerEquipment) {
                 if (EquipmentDatabase.TryGetByID(kvp.Value, out EquipmentBase equipment)) {
-                    Player.TryEquip(equipment, false);
+                    if (!Player.TryEquip(equipment, false)) {
+                        Debug.Log($"Failed to equip {Player.CharacterName} with {equipment.Name}");
+                    }
                 }
             }
         }
