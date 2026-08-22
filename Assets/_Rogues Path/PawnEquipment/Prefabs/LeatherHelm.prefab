@@ -109,4 +109,9 @@ MonoBehaviour:
   Quality: 0
   EquipType: 1
   Owner: {fileID: 0}
-  Modifiers: []
+  Modifiers:
+  - StatID: {fileID: 11400000, guid: 2ef89d5bee2be4347a5a4f1027e437e7, type: 2}
+    Modifier:
+      Value: 1
+      Type: 100
+      Order: 0
