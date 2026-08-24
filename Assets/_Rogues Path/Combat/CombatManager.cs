@@ -43,7 +43,7 @@ namespace _Rogues_Path.Combat {
             Instantiate(eventData.BackgroundPrefab, BackgroundContainer);
             Player = Instantiate(Game.Instance.PlayerData.Pawn, PlayerContainer);
             Enemy = Instantiate(randomEnemy.Pawn, EnemyContainer);
-            
+
             // Face Player/Enemies the correct direction
             Player.Character.SetDirection(Vector2.right);
             Enemy.Character.SetDirection(Vector2.left);
@@ -56,11 +56,21 @@ namespace _Rogues_Path.Combat {
             UISpellBook.Instance.SetPlayer(Player);
             UICharacterScreen.Instance.SetPlayer(Game.Instance.PlayerData);
 
+            Player.SyncInventoryFromGameState();
+
             foreach (var kvp in Game.Instance.PlayerEquipment) {
-                if (EquipmentDatabase.TryGetByID(kvp.Value, out EquipmentBase equipment)) {
-                    if (!Player.TryEquip(equipment, false)) {
-                        Debug.Log($"Failed to equip {Player.CharacterName} with {equipment.Name}");
-                    }
+                if (!EquipmentDatabase.TryCreateInstance(kvp.Value, out EquipmentBase liveEquipment, Player.transform)) {
+
+                    Debug.LogError($"Failed to create equipment instance for ID {kvp.Value}");
+
+                    continue;
+                }
+
+                if (!Player.TryEquip(liveEquipment, false)) {
+
+                    Debug.LogError($"Failed to restore {Player.CharacterName} " + $"with {liveEquipment.Name}");
+
+                    Destroy(liveEquipment.gameObject);
                 }
             }
         }

@@ -47,20 +47,26 @@ namespace _Rogues_Path.CharacterSelection {
         }
 
         public void LockInCharacter() {
-            // Disable next button so we don't do this twice
             NextButton.interactable = false;
 
-            // Set Game PlayerData and add starting equipment
             Game.Instance.PlayerData = Slots[SelectedIndex].PawnData;
 
-            // Copy equipment from data's starting equipment to Game's equipment
-            foreach (var equipment in Game.Instance.PlayerData.StartingEquipment) {
-                if (EquipmentDatabase.GetIDByName(equipment.Name, out int ID)) {
-                    Game.Instance.PlayerEquipment.Add(equipment.EquipType, ID);
+            // New character = fresh authoritative equipment state.
+            Game.Instance.PlayerEquipment.Clear();
+            Game.Instance.PlayerInventory.Clear();
+
+            foreach (EquipmentBase equipment in Game.Instance.PlayerData.StartingEquipment) {
+
+                if (!EquipmentDatabase.TryGetID(equipment, out int ID)) {
+
+                    Debug.LogError($"Failed to find starting equipment " + $"{equipment.Name} in EquipmentDatabase.");
+
+                    continue;
                 }
+
+                Game.Instance.PlayerEquipment[equipment.EquipType] = ID;
             }
-            
-            // Fire state-change trigger
+
             Game.FireTrigger(Trigger.EnterWorld);
         }
 

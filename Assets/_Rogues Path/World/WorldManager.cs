@@ -44,13 +44,24 @@ namespace _Rogues_Path.World {
             PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, StartingTile.PawnContainer);
             PlayerPawn.Character.SetDirection(Vector2.down);
 
+            PlayerPawn.SyncInventoryFromGameState();
+
             foreach (var kvp in Game.Instance.PlayerEquipment) {
-                
-                if (EquipmentDatabase.TryGetByID(kvp.Value, out EquipmentBase equipment) &&!PlayerPawn.TryEquip(equipment, false)) {
-                    Debug.Log($"Failed to equip {PlayerPawn.CharacterName} with {equipment.Name}");
+                if (!EquipmentDatabase.TryCreateInstance(kvp.Value, out EquipmentBase liveEquipment, PlayerPawn.transform)) {
+
+                    Debug.LogError($"Failed to create equipment instance for ID {kvp.Value}");
+
+                    continue;
+                }
+
+                if (!PlayerPawn.TryEquip(liveEquipment, false)) {
+
+                    Debug.LogError($"Failed to restore {PlayerPawn.CharacterName} " + $"with {liveEquipment.Name}");
+
+                    Destroy(liveEquipment.gameObject);
                 }
             }
-            
+
             currentTile = StartingTile;
         }
 

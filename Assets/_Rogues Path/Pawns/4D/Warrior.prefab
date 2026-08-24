@@ -17455,8 +17455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xDirection: 0
-  yDirection: 0
   animationManager: {fileID: 5203621345543722292}
   CharacterName: Ifrin
   ClassName: Warrior
@@ -17473,13 +17471,7 @@ MonoBehaviour:
   buffs:
     keyValueData: []
   currentEquipment:
-    keyValueData:
-    - key: 0
-      value: {fileID: 8435493924597366058, guid: f2d51493e7df716408975de93ddb27f8, type: 3}
-    - key: 7
-      value: {fileID: 2876239962352562192, guid: e4a6e501869054d428afdb9449268a57, type: 3}
-    - key: 1
-      value: {fileID: 4161573146608416498, guid: 324d1bf3b32d2ba49ad199e41ff208cc, type: 3}
+    keyValueData: []
   Inventory: []
   InventorySpaces: 20
   CurrentHealth: 50
