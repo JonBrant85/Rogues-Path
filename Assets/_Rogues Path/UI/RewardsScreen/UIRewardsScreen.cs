@@ -58,7 +58,18 @@ namespace _Rogues_Path.UI.RewardsScreen {
                     var equipSlot = Instantiate(Instance.EquipSlotPrefab, Instance.SlotsContainer);
 
                     if (EquipmentDatabase.TryGetByID(ID, out EquipmentBase equipment)) {
-                        equipSlot.Assign(equipment);
+
+                        bool success = equipSlot.Assign(equipment);
+
+                        Debug.Log(
+                            $"REWARD SLOT ASSIGN | "
+                            + $"Item={equipment.Name} | "
+                            + $"ItemType={equipment.EquipType} | "
+                            + $"SlotType={equipSlot.EquipType} | "
+                            + $"AcceptsAny={equipSlot.AcceptsAnyEquipType} | "
+                            + $"EquipToOwner={equipSlot.EquipToOwnerOnAssign} | "
+                            + $"Success={success} | "
+                            + $"SlotEquipment={(equipSlot.Equipment != null ? equipSlot.Equipment.Name : "NULL")}");
                     }
                     else {
                         Debug.Log($"Failed");

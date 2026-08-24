@@ -23,20 +23,129 @@ namespace _Rogues_Path.UI.Slots {
 
     public class UIEquipmentSlot : UISlotBase {
         public bool EquipToOwnerOnAssign = false;
-
         public OnEquipmentSlotClickEvent OnClickEvent = new();
         public OnAssign OnAssignEvent = new();
         public OnAssign OnUnassignEvent = new();
         public OnAssignWithSource OnAssignWithSourceEvent = new();
-
         public bool AcceptsAnyEquipType = false;
-
         public EquipmentPart EquipType;
         public Pawn Owner;
         public EquipmentBase Equipment;
 
+        public static void PrepareTooltip(EquipmentBase equipment) {
+            if (equipment == null)
+                return;
 
-        #region Assign
+            // Set the tooltip width
+            if (UITooltipManager.Instance != null) {
+                UITooltip.SetWidth(UITooltipManager.Instance.itemTooltipWidth);
+            }
+
+            // Set the title and description
+            UITooltip.AddTitle("<color=#" + UIItemQualityColor.GetHexColor(equipment.Quality) + ">" + equipment.Name + "</color>");
+
+            // Spacer
+            UITooltip.AddSpacer();
+
+            // Item types
+            UITooltip.AddLineColumn(EquipTypeToString(equipment.EquipType), "ItemAttribute");
+
+            UITooltip.AddLineColumn(equipment.Quality.ToString());
+
+            if (equipment.Modifiers != null) {
+                foreach (StatAndModifierPair pair in equipment.Modifiers) {
+                    UITooltip.AddLineColumn(pair.StatID.name, "ItemAttribute");
+
+                    UITooltip.AddLineColumn(pair.Modifier.Value.ToString("N0"), "ItemAttribute");
+                }
+            }
+
+            // Description
+            if (!string.IsNullOrEmpty(equipment.Description)) {
+                UITooltip.AddSpacer();
+
+                UITooltip.AddLine(equipment.Description, "ItemAttribute");
+            }
+
+            // Flavor text
+            if (!string.IsNullOrEmpty(equipment.FlavorText)) {
+                UITooltip.AddSpacer();
+
+                UITooltip.AddLine(equipment.FlavorText, "ItemDescription");
+            }
+        }
+
+        public static string EquipTypeToString(Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart type) {
+
+            return type switch {
+                EquipmentPart.Armor => "Armor",
+                EquipmentPart.Helmet => "Helmet",
+                EquipmentPart.Vest => "Vest",
+                EquipmentPart.Bracers => "Bracers",
+                EquipmentPart.Leggings => "Leggings",
+                EquipmentPart.MeleeWeapon1H => "Melee Weapon 1H",
+                EquipmentPart.MeleeWeapon2H => "Melee Weapon 2H",
+                EquipmentPart.Bow => "Bow",
+                EquipmentPart.Crossbow => "Crossbow",
+                EquipmentPart.SecondaryMelee1H => "Secondary Melee 1H",
+                EquipmentPart.SecondaryFirearm1H => "SecondaryFirearm1H",
+                EquipmentPart.Shield => "Shield",
+                EquipmentPart.Earrings => "Earrings",
+                EquipmentPart.Cape => "Cape",
+                EquipmentPart.Quiver => "Quiver",
+                EquipmentPart.Back => "Back",
+                EquipmentPart.Mask => "Mask",
+                EquipmentPart.Firearm1H => "Firearm 1H",
+                EquipmentPart.Firearm2H => "Firearm 2H",
+                EquipmentPart.Wings => "Wings",
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
+        }
+
+        /// <summary>
+        /// Keeps equipped UI slots synchronized with the Pawn's
+        /// already-existing live equipment.
+        ///
+        /// This is important when:
+        /// - A Pawn was restored without equipment UI present.
+        /// - Equipment UI is created after the Pawn.
+        /// - A scene restores Game.PlayerEquipment before UI initializes.
+        ///
+        /// This does NOT equip anything and does NOT modify game state.
+        /// </summary>
+        private void LateUpdate() {
+            SyncWithOwnerIfNeeded();
+        }
+
+
+        private void SyncWithOwnerIfNeeded() {
+            if (!EquipToOwnerOnAssign)
+                return;
+
+            if (Owner == null)
+                return;
+
+            if (Owner.CurrentEquipment.TryGetValue(EquipType, out EquipmentBase liveEquipment)) {
+
+                if (Equipment == liveEquipment)
+                    return;
+
+                BindLiveReference(liveEquipment, null, invokeEvents: false);
+
+                return;
+            }
+
+            if (!ReferenceEquals(Equipment, null)) {
+                ClearReferenceOnly(invokeEvents: false);
+            }
+        }
+
+        public EquipmentBase GetEquipmentInfo() {
+            SyncWithOwnerIfNeeded();
+
+            return Equipment;
+        }
+
         public bool Assign(EquipmentBase equipment) {
             return AssignDirect(equipment, null);
         }
@@ -88,24 +197,39 @@ namespace _Rogues_Path.UI.Slots {
                     return false;
                 }
 
+
                 /*
+                 * -----------------------------------------------------
                  * DATABASE TEMPLATE
+                 * -----------------------------------------------------
                  *
-                 * Create a fresh live object and ask the Pawn to perform
-                 * the actual gameplay transaction.
+                 * EquipmentDatabase creates the LIVE instance.
                  */
                 if (EquipmentDatabase.IsDatabaseEntry(equipment)) {
-                    if (!EquipmentDatabase.TryCreateInstance(equipment, out EquipmentBase liveEquipment, transform)) {
+                    if (!EquipmentDatabase.TryCreateInstance(equipment, out EquipmentBase liveEquipment, Owner.transform)) {
 
                         return false;
                     }
 
+
+                    /*
+                     * Pawn performs the authoritative transaction.
+                     *
+                     * It updates:
+                     * Game.PlayerEquipment
+                     * Game.PlayerInventory
+                     * CurrentEquipment
+                     * Character
+                     * modifiers
+                     * event subscriptions
+                     */
                     if (!Owner.TryEquip(liveEquipment, true)) {
 
                         Destroy(liveEquipment.gameObject);
 
                         return false;
                     }
+
 
                     BindLiveReference(liveEquipment, source);
 
@@ -114,12 +238,12 @@ namespace _Rogues_Path.UI.Slots {
 
 
                 /*
-                 * LIVE INSTANCE
+                 * -----------------------------------------------------
+                 * EXISTING LIVE INSTANCE
+                 * -----------------------------------------------------
                  *
-                 * If the Pawn already owns this exact live object,
-                 * we're merely attaching UI to existing runtime state.
-                 *
-                 * This is useful when UI is instantiated AFTER the Pawn.
+                 * This is particularly important when the Pawn existed
+                 * BEFORE the UI.
                  */
                 if (Owner.CurrentEquipment.TryGetValue(equipment.EquipType, out EquipmentBase current) && current == equipment) {
 
@@ -130,13 +254,15 @@ namespace _Rogues_Path.UI.Slots {
 
 
                 /*
-                 * Otherwise this is a new live instance supplied by
-                 * something other than the database factory call above.
+                 * It's live, but not currently equipped.
+                 *
+                 * Let Pawn perform the normal gameplay transaction.
                  */
                 if (!Owner.TryEquip(equipment, true)) {
 
                     return false;
                 }
+
 
                 BindLiveReference(equipment, source);
 
@@ -149,15 +275,16 @@ namespace _Rogues_Path.UI.Slots {
              * INVENTORY / NON-EQUIPPED SLOT
              * =========================================================
              *
-             * Never keep the live object here.
-             *
-             * Always display its database/template representation.
+             * Inventory UI always displays DATABASE REFERENCES.
              */
 
             if (!EquipmentDatabase.TryFind(equipment, out EquipmentBase dbEquipment)) {
 
+                Debug.LogError($"Could not find {equipment.Name} in EquipmentDatabase.");
+
                 return false;
             }
+
 
             BindDatabaseReference(dbEquipment, source);
 
@@ -182,17 +309,21 @@ namespace _Rogues_Path.UI.Slots {
 
 
             /*
-             * Static slots are templates/sources.
+             * =========================================================
+             * STATIC SOURCE
+             * =========================================================
              *
-             * Copy from them; never remove their reference.
+             * Static slots behave like templates.
+             * Never clear them after assignment.
              */
+
             if (sourceSlot.isStatic) {
                 return AssignDirect(sourceSlot.Equipment, sourceSlot);
             }
 
 
             /*
-             * An occupied target means this is really a swap.
+             * Occupied target = swap.
              */
             if (IsAssigned()) {
                 return sourceSlot.PerformSlotSwap(this);
@@ -208,6 +339,9 @@ namespace _Rogues_Path.UI.Slots {
              * =========================================================
              * INVENTORY -> INVENTORY
              * =========================================================
+             *
+             * Database reference moves visually.
+             * Gameplay state does not change.
              */
 
             if (!sourceEquipped && !targetEquipped) {
@@ -217,7 +351,9 @@ namespace _Rogues_Path.UI.Slots {
                     return false;
                 }
 
+
                 BindDatabaseReference(dbEquipment, sourceSlot);
+
 
                 sourceSlot.ClearReferenceOnly();
 
@@ -236,10 +372,12 @@ namespace _Rogues_Path.UI.Slots {
                 if (Owner == null)
                     return false;
 
-                if (!EquipmentDatabase.TryCreateInstance(sourceSlot.Equipment, out EquipmentBase liveEquipment, transform)) {
+
+                if (!EquipmentDatabase.TryCreateInstance(sourceSlot.Equipment, out EquipmentBase liveEquipment, Owner.transform)) {
 
                     return false;
                 }
+
 
                 if (!Owner.TryEquip(liveEquipment, true)) {
 
@@ -248,7 +386,13 @@ namespace _Rogues_Path.UI.Slots {
                     return false;
                 }
 
+
+                /*
+                 * Gameplay succeeded first.
+                 * NOW update UI.
+                 */
                 BindLiveReference(liveEquipment, sourceSlot);
+
 
                 sourceSlot.ClearReferenceOnly();
 
@@ -267,25 +411,39 @@ namespace _Rogues_Path.UI.Slots {
                 if (sourceSlot.Owner == null)
                     return false;
 
+
                 EquipmentBase liveEquipment = sourceSlot.Equipment;
 
+
+                /*
+                 * Save the database representation BEFORE Pawn destroys
+                 * the live object.
+                 */
                 if (!EquipmentDatabase.TryFind(liveEquipment, out EquipmentBase dbEquipment)) {
 
                     return false;
                 }
+
 
                 if (!sourceSlot.Owner.TryRemoveEquipment(liveEquipment, true)) {
 
                     return false;
                 }
 
+
                 /*
-                 * Gameplay succeeded.
+                 * Pawn has now:
                  *
-                 * Pawn destroyed the live object and added the DB ID
-                 * back into Game.PlayerInventory.
+                 * - removed ID from PlayerEquipment
+                 * - added ID to PlayerInventory
+                 * - removed CurrentEquipment entry
+                 * - removed modifiers
+                 * - destroyed the live object
                  */
+
+
                 BindDatabaseReference(dbEquipment, sourceSlot);
+
 
                 sourceSlot.ClearReferenceOnly();
 
@@ -298,20 +456,25 @@ namespace _Rogues_Path.UI.Slots {
              * EQUIPPED -> EQUIPPED
              * =========================================================
              *
-             * No gameplay state changes.
+             * Both items are already live.
              *
-             * The live object is still equipped with the same EquipType.
-             * We're just moving which UI slot displays it.
+             * This only changes presentation.
              */
 
             if (sourceEquipped && targetEquipped) {
 
-                if (sourceSlot.Owner != Owner)
+                if (sourceSlot.Owner != Owner) {
+                    Debug.LogWarning("Cross-Pawn equipped-item transfer is not supported.");
+
                     return false;
+                }
+
 
                 EquipmentBase liveEquipment = sourceSlot.Equipment;
 
+
                 BindLiveReference(liveEquipment, sourceSlot);
+
 
                 sourceSlot.ClearReferenceOnly();
 
@@ -321,30 +484,38 @@ namespace _Rogues_Path.UI.Slots {
 
             return false;
         }
-        #endregion
 
 
-        #region Unassign
         public override void Unassign() {
-            if (Equipment == null)
+            if (ReferenceEquals(Equipment, null))
                 return;
+
 
             EquipmentBase oldEquipment = Equipment;
 
 
             /*
+             * =========================================================
              * EQUIPPED SLOT
+             * =========================================================
              */
-            if (EquipToOwnerOnAssign && Owner != null && !EquipmentDatabase.IsDatabaseEntry(oldEquipment)) {
+
+            if (EquipToOwnerOnAssign && Owner != null && oldEquipment != null && !EquipmentDatabase.IsDatabaseEntry(oldEquipment)) {
 
                 bool actuallyEquipped = Owner.CurrentEquipment.TryGetValue(oldEquipment.EquipType, out EquipmentBase current) && current == oldEquipment;
 
+
                 if (actuallyEquipped) {
+                    /*
+                     * Gameplay transaction FIRST.
+                     */
                     if (!Owner.TryRemoveEquipment(oldEquipment, true)) {
 
                         /*
-                         * Do not change UI if gameplay refused
-                         * the unequip.
+                         * Could fail because inventory is full.
+                         *
+                         * Leave the UI alone if gameplay state wasn't
+                         * changed.
                          */
                         return;
                     }
@@ -354,94 +525,198 @@ namespace _Rogues_Path.UI.Slots {
 
             base.Unassign();
 
-            OnUnassignEvent?.Invoke(Owner, oldEquipment);
+
+            /*
+             * Pawn may have destroyed the live Unity object already.
+             * Only pass a still-valid object through the event.
+             */
+            if (oldEquipment != null) {
+                OnUnassignEvent?.Invoke(Owner, oldEquipment);
+            }
+
 
             Equipment = null;
         }
 
 
-        private void ClearReferenceOnly() {
-            if (Equipment == null)
+        public override void OnTooltip(bool show) {
+            UITooltip.InstantiateIfNecessary(gameObject);
+
+            if (IsAssigned()) {
+                if (show) {
+                    PrepareTooltip(Equipment);
+                    UITooltip.AnchorToRect(transform as RectTransform);
+                    UITooltip.Show();
+                }
+                else {
+                    UITooltip.Hide();
+                }
+            }
+            else {
+                if (show) {
+                    UITooltip.AddTitle(EquipType.ToString());
+                    UITooltip.SetHorizontalFitMode(ContentSizeFitter.FitMode.PreferredSize);
+                    UITooltip.AnchorToRect(transform as RectTransform);
+                    UITooltip.Show();
+                }
+                else {
+                    UITooltip.Hide();
+                }
+            }
+        }
+
+        private void ClearReferenceOnly(bool invokeEvents = true) {
+
+            /*
+             * Use ReferenceEquals because a destroyed Unity object can
+             * compare == null while the C# field still contains a
+             * reference.
+             */
+            if (ReferenceEquals(Equipment, null))
                 return;
+
 
             EquipmentBase oldEquipment = Equipment;
 
+
             base.Unassign();
 
-            OnUnassignEvent?.Invoke(Owner, oldEquipment);
+
+            if (invokeEvents && oldEquipment != null) {
+
+                OnUnassignEvent?.Invoke(Owner, oldEquipment);
+            }
+
 
             Equipment = null;
         }
-        #endregion
 
+        /// <summary>
+        /// Inventory slots point directly at database templates.
+        /// They NEVER activate, parent or instantiate them.
+        /// </summary>
+        private void BindDatabaseReference(EquipmentBase dbEquipment, Object source, bool invokeEvents = true) {
 
-        #region Reference Binding
-        private void BindDatabaseReference(EquipmentBase dbEquipment, Object source) {
+            if (dbEquipment == null)
+                return;
+
 
             EquipmentBase previous = Equipment;
 
-            if (previous != null && previous != dbEquipment) {
+
+            /*
+             * Clear the previous UI state even if its Unity object was
+             * destroyed elsewhere.
+             */
+            if (!ReferenceEquals(previous, null) && previous != dbEquipment) {
 
                 base.Unassign();
 
-                OnUnassignEvent?.Invoke(Owner, previous);
+
+                if (invokeEvents && previous != null) {
+
+                    OnUnassignEvent?.Invoke(Owner, previous);
+                }
             }
 
-            /*
-             * NEVER parent or activate database equipment.
-             */
+
             Equipment = dbEquipment;
 
+
+            /*
+             * IMPORTANT:
+             *
+             * Do not:
+             * - SetParent()
+             * - SetActive()
+             * - Instantiate()
+             *
+             * Database equipment stays non-live.
+             */
             base.Assign(Equipment.Icon);
 
-            OnAssignEvent?.Invoke(Owner, Equipment);
 
-            if (source != null) {
-                OnAssignWithSourceEvent?.Invoke(this, source);
+            if (invokeEvents) {
+                OnAssignEvent?.Invoke(Owner, Equipment);
+
+
+                if (source != null) {
+                    OnAssignWithSourceEvent?.Invoke(this, source);
+                }
             }
         }
 
 
-        private void BindLiveReference(EquipmentBase liveEquipment, Object source) {
+        /// <summary>
+        /// Equipped slots reference a LIVE object already owned by Pawn.
+        ///
+        /// The UI does NOT own the live object's transform or lifetime.
+        /// </summary>
+        private void BindLiveReference(EquipmentBase liveEquipment, Object source, bool invokeEvents = true) {
+
+            if (liveEquipment == null)
+                return;
+
+
+            if (EquipmentDatabase.IsDatabaseEntry(liveEquipment)) {
+
+                Debug.LogError($"Attempted to bind database template " + $"{liveEquipment.Name} as LIVE equipment in {name}.");
+
+                return;
+            }
+
 
             EquipmentBase previous = Equipment;
 
-            if (previous != null && previous != liveEquipment) {
+
+            if (!ReferenceEquals(previous, null) && previous != liveEquipment) {
 
                 base.Unassign();
 
-                OnUnassignEvent?.Invoke(Owner, previous);
+
+                if (invokeEvents && previous != null) {
+
+                    OnUnassignEvent?.Invoke(Owner, previous);
+                }
             }
+
 
             Equipment = liveEquipment;
 
-            Equipment.transform.SetParent(transform, false);
-
-            Equipment.transform.localPosition = Vector3.zero;
 
             /*
-             * Pawn controls activation.
-             * Don't toggle it here.
+             * IMPORTANT CHANGE:
+             *
+             * Do NOT parent live equipment to the UI.
+             *
+             * The Pawn/runtime owns the live instance.
+             * UI may disappear while the Pawn remains alive.
              */
-
             base.Assign(Equipment.Icon);
 
-            OnAssignEvent?.Invoke(Owner, Equipment);
 
-            if (source != null) {
-                OnAssignWithSourceEvent?.Invoke(this, source);
+            if (invokeEvents) {
+                OnAssignEvent?.Invoke(Owner, Equipment);
+
+
+                if (source != null) {
+                    OnAssignWithSourceEvent?.Invoke(this, source);
+                }
             }
         }
-        #endregion
 
 
-        public override bool IsAssigned() =>
-            Equipment != null;
+        public override bool IsAssigned() {
+            return Equipment != null;
+        }
 
 
         public override void OnPointerDown(PointerEventData eventData) {
 
+            SyncWithOwnerIfNeeded();
+
             base.OnPointerDown(eventData);
+
 
             OnClickEvent.Invoke(this);
         }
@@ -454,365 +729,8 @@ namespace _Rogues_Path.UI.Slots {
                 return true;
             }
 
+
             return equipment != null && equipment.EquipType == EquipType;
         }
-
-
-        #region Swap
-        public bool PerformSlotSwap(Object sourceObject) {
-
-            if (sourceObject is not UIEquipmentSlot otherSlot)
-                return false;
-
-            if (Equipment == null || otherSlot.Equipment == null) {
-
-                return false;
-            }
-
-            /*
-             * Each item must be legal in its destination.
-             */
-            if (!otherSlot.CheckEquipType(Equipment) || !CheckEquipType(otherSlot.Equipment)) {
-
-                return false;
-            }
-
-
-            bool thisEquipped = EquipToOwnerOnAssign;
-
-            bool otherEquipped = otherSlot.EquipToOwnerOnAssign;
-
-
-            /*
-             * =========================================================
-             * INVENTORY <-> INVENTORY
-             * =========================================================
-             *
-             * Both DB IDs remain in PlayerInventory.
-             * This is strictly presentation.
-             */
-
-            if (!thisEquipped && !otherEquipped) {
-
-                if (!EquipmentDatabase.TryFind(Equipment, out EquipmentBase mine)) {
-
-                    return false;
-                }
-
-                if (!EquipmentDatabase.TryFind(otherSlot.Equipment, out EquipmentBase theirs)) {
-
-                    return false;
-                }
-
-                BindDatabaseReference(theirs, otherSlot);
-
-                otherSlot.BindDatabaseReference(mine, this);
-
-                return true;
-            }
-
-
-            /*
-             * =========================================================
-             * EQUIPPED <-> EQUIPPED
-             * =========================================================
-             *
-             * Both live objects remain equipped.
-             * Game.PlayerEquipment doesn't change.
-             */
-
-            if (thisEquipped && otherEquipped) {
-
-                if (Owner == null || Owner != otherSlot.Owner) {
-
-                    Debug.LogWarning("Cross-Pawn equipped-slot swapping is not supported.");
-
-                    return false;
-                }
-
-                EquipmentBase mine = Equipment;
-
-                EquipmentBase theirs = otherSlot.Equipment;
-
-                BindLiveReference(theirs, otherSlot);
-
-                otherSlot.BindLiveReference(mine, this);
-
-                return true;
-            }
-
-
-            /*
-             * =========================================================
-             * INVENTORY <-> EQUIPPED
-             * =========================================================
-             *
-             * THIS is the real gameplay swap.
-             */
-
-            UIEquipmentSlot equippedSlot = thisEquipped ? this : otherSlot;
-
-            UIEquipmentSlot inventorySlot = thisEquipped ? otherSlot : this;
-
-            Pawn owner = equippedSlot.Owner;
-
-            if (owner == null)
-                return false;
-
-
-            EquipmentBase oldLiveEquipment = equippedSlot.Equipment;
-
-            if (!EquipmentDatabase.TryFind(oldLiveEquipment, out EquipmentBase oldDBEquipment)) {
-
-                return false;
-            }
-
-
-            if (!EquipmentDatabase.TryFind(inventorySlot.Equipment, out EquipmentBase incomingDBEquipment)) {
-
-                return false;
-            }
-
-
-            /*
-             * Create the incoming LIVE representation.
-             */
-            if (!EquipmentDatabase.TryCreateInstance(incomingDBEquipment, out EquipmentBase newLiveEquipment, equippedSlot.transform)) {
-
-                return false;
-            }
-
-
-            /*
-             * Pawn performs the WHOLE authoritative transaction:
-             *
-             * Game.PlayerInventory:
-             *     remove incoming ID
-             *     add old equipped ID
-             *
-             * Game.PlayerEquipment:
-             *     replace old ID with incoming ID
-             *
-             * Runtime:
-             *     destroy old live object
-             *     install new live object
-             *     replace modifiers/events
-             */
-            if (!owner.TryEquip(newLiveEquipment, true)) {
-
-                Destroy(newLiveEquipment.gameObject);
-
-                return false;
-            }
-
-
-            /*
-             * Only now that gameplay succeeded do we commit UI.
-             */
-            equippedSlot.BindLiveReference(newLiveEquipment, inventorySlot);
-
-            inventorySlot.BindDatabaseReference(oldDBEquipment, equippedSlot);
-
-            return true;
-        }
-
-
-        public bool CanSwapWith(Object target) {
-            return target switch {
-                UIEquipmentSlot slot => slot.CheckEquipType(Equipment),
-
-                UIItemSlot => true,
-
-                _ => false
-            };
-        }
-        #endregion
-
-
-        public EquipmentBase GetEquipmentInfo() =>
-            Equipment;
-
-
-        #region Drag / Drop
-        public override void OnDrop(PointerEventData eventData) {
-
-            UIEquipmentSlot source = eventData.pointerPress != null ? eventData.pointerPress.GetComponent<UIEquipmentSlot>() : null;
-
-            if (source == null || !source.IsAssigned() || !source.dragAndDropEnabled) {
-
-                return;
-            }
-
-            source.dropPreformed = true;
-
-            if (!enabled || !m_DragAndDropEnabled) {
-
-                return;
-            }
-
-            bool assignSuccess = false;
-
-
-            /*
-             * EMPTY DESTINATION
-             *
-             * Assign(source) performs the entire move and clears the
-             * source reference itself.
-             */
-            if (!IsAssigned()) {
-                assignSuccess = Assign(source);
-            }
-            /*
-             * OCCUPIED DESTINATION
-             */
-            else {
-                if (!isStatic && !source.isStatic) {
-
-                    if (CanSwapWith(source) && source.CanSwapWith(this)) {
-
-                        assignSuccess = source.PerformSlotSwap(this);
-                    }
-                }
-                else if (!isStatic && source.isStatic) {
-
-                    /*
-                     * Static source gets copied rather than moved.
-                     */
-                    assignSuccess = Assign(source);
-                }
-            }
-
-
-            if (!assignSuccess) {
-                OnAssignBySlotFailed(source);
-            }
-        }
-        #endregion
-
-
-        #region Tooltip
-        public override void OnTooltip(bool show) {
-            UITooltip.InstantiateIfNecessary(gameObject);
-
-            if (IsAssigned()) {
-                if (show) {
-                    PrepareTooltip(Equipment);
-
-                    UITooltip.AnchorToRect(transform as RectTransform);
-
-                    UITooltip.Show();
-                }
-                else {
-                    UITooltip.Hide();
-                }
-            }
-            else {
-                if (show) {
-                    UITooltip.AddTitle(EquipType.ToString());
-
-                    UITooltip.SetHorizontalFitMode(ContentSizeFitter.FitMode.PreferredSize);
-
-                    UITooltip.AnchorToRect(transform as RectTransform);
-
-                    UITooltip.Show();
-                }
-                else {
-                    UITooltip.Hide();
-                }
-            }
-        }
-        #endregion
-
-
-        #region Static Methods
-        public static void PrepareTooltip(EquipmentBase equipment) {
-
-            if (equipment == null)
-                return;
-
-            if (UITooltipManager.Instance != null) {
-                UITooltip.SetWidth(UITooltipManager.Instance.itemTooltipWidth);
-            }
-
-            UITooltip.AddTitle("<color=#" + UIItemQualityColor.GetHexColor(equipment.Quality) + ">" + equipment.Name + "</color>");
-
-            UITooltip.AddSpacer();
-
-            UITooltip.AddLineColumn(EquipTypeToString(equipment.EquipType), "ItemAttribute");
-
-            UITooltip.AddLineColumn(equipment.Quality.ToString());
-
-            if (equipment.Modifiers != null) {
-                foreach (StatAndModifierPair pair in equipment.Modifiers) {
-
-                    UITooltip.AddLineColumn(pair.StatID.name, "ItemAttribute");
-
-                    UITooltip.AddLineColumn(pair.Modifier.Value.ToString("N0"), "ItemAttribute");
-                }
-            }
-
-            if (!string.IsNullOrEmpty(equipment.Description)) {
-
-                UITooltip.AddSpacer();
-
-                UITooltip.AddLine(equipment.Description, "ItemAttribute");
-            }
-
-            if (!string.IsNullOrEmpty(equipment.FlavorText)) {
-
-                UITooltip.AddSpacer();
-
-                UITooltip.AddLine(equipment.FlavorText, "ItemDescription");
-            }
-        }
-
-
-        public static string EquipTypeToString(Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart type) {
-
-            return type switch {
-                EquipmentPart.Armor => "Armor",
-
-                EquipmentPart.Helmet => "Helmet",
-
-                EquipmentPart.Vest => "Vest",
-
-                EquipmentPart.Bracers => "Bracers",
-
-                EquipmentPart.Leggings => "Leggings",
-
-                EquipmentPart.MeleeWeapon1H => "Melee Weapon 1H",
-
-                EquipmentPart.MeleeWeapon2H => "Melee Weapon 2H",
-
-                EquipmentPart.Bow => "Bow",
-
-                EquipmentPart.Crossbow => "Crossbow",
-
-                EquipmentPart.SecondaryMelee1H => "Secondary Melee 1H",
-
-                EquipmentPart.SecondaryFirearm1H => "SecondaryFirearm1H",
-
-                EquipmentPart.Shield => "Shield",
-
-                EquipmentPart.Earrings => "Earrings",
-
-                EquipmentPart.Cape => "Cape",
-
-                EquipmentPart.Quiver => "Quiver",
-
-                EquipmentPart.Back => "Back",
-
-                EquipmentPart.Mask => "Mask",
-
-                EquipmentPart.Firearm1H => "Firearm 1H",
-
-                EquipmentPart.Firearm2H => "Firearm 2H",
-
-                EquipmentPart.Wings => "Wings",
-
-                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-            };
-        }
-        #endregion
     }
 }

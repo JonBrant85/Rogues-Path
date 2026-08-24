@@ -45,82 +45,173 @@ namespace _Rogues_Path.UI.CharacterScreen {
         public void SetPlayer(PawnData _playerData) {
             playerData = _playerData;
 
-            // Set character name/class
             CharacterNameText.text = playerData.Name;
             CharacterClassText.text = playerData.ClassName;
 
             InitializePawnPreview();
+            RestoreEquipment();
             SetupEquipmentSlots();
             ShowCharacterStats();
 
-            void InitializePawnPreview() {
-                // Instantiate PawnPreview and move it to appropriate Camera range
-                pawnPreview = Instantiate(playerData.Pawn, PawnPreviewCamera.transform);
-                pawnPreview.transform.localPosition = PawnPreviewOffset;
-                
-                // Clear equipment. SetupEquipmentSlots will check for existing equipment and assign it
-                pawnPreview.CurrentEquipment = new EquipmentDictionary(playerData.Pawn.CurrentEquipment);
 
-                // Assign Owner to each slot
+            void InitializePawnPreview() {
+                pawnPreview = Instantiate(playerData.Pawn, PawnPreviewCamera.transform);
+
+                pawnPreview.transform.localPosition = PawnPreviewOffset;
+
+                /*
+                 * Runtime equipment must ALWAYS start empty.
+                 *
+                 * Game.PlayerEquipment is authoritative and we'll
+                 * materialize fresh live instances from it below.
+                 */
+                pawnPreview.CurrentEquipment = new EquipmentDictionary();
+
+                /*
+                 * Inventory is also reconstructed from authoritative
+                 * Game.PlayerInventory.
+                 */
+                pawnPreview.SyncInventoryFromGameState();
+
+                /*
+                 * Give every slot its Pawn before doing anything with
+                 * equipment.
+                 */
                 foreach (var kvp in EquipmentSlots) {
                     kvp.Value.Owner = pawnPreview;
                 }
             }
 
-            // Setup equipment slots
-            void SetupEquipmentSlots() {
-                // Assign PlayerEquipment/Owner to EquipmentSlots. Do this before adding listeners to avoid problems
-                foreach (var kvp in EquipmentSlots) {
-                    if (Game.Instance.PlayerEquipment.ContainsKey(kvp.Key)) {
-                        var ID = Game.Instance.PlayerEquipment[kvp.Key];
 
-                        if (EquipmentDatabase.TryGetByID(ID, out EquipmentBase equipment)) {
-                            kvp.Value.Assign(equipment);
-                        }
-                        else {
-                            Debug.Log($"Failed to get equipment from database");
+            void RestoreEquipment() {
+                /*
+                 * Game.PlayerEquipment already contains the correct state.
+                 *
+                 * We are ONLY creating the live representation required by
+                 * this new Pawn preview.
+                 */
+                foreach (var kvp in Game.Instance.PlayerEquipment) {
+                    EquipmentPart equipType = (EquipmentPart)kvp.Key;
+                    int equipmentID = kvp.Value;
+
+                    if (!EquipmentDatabase.TryCreateInstance(equipmentID, out EquipmentBase liveEquipment, pawnPreview.transform)) {
+
+                        Debug.LogError($"Failed to create live equipment for " + $"{equipType}, ID {equipmentID}.");
+
+                        continue;
+                    }
+
+                    /*
+                     * false:
+                     *
+                     * Do NOT modify Game.PlayerEquipment / PlayerInventory.
+                     * We're reconstructing runtime state FROM them.
+                     */
+                    if (!pawnPreview.TryEquip(liveEquipment, false)) {
+
+                        Debug.LogError($"Failed to restore {liveEquipment.Name} " + $"on {pawnPreview.CharacterName}.");
+
+                        Destroy(liveEquipment.gameObject);
+                    }
+                }
+            }
+
+
+            void SetupEquipmentSlots() {
+                foreach (var kvp in EquipmentSlots) {
+                    UIEquipmentSlot slot = kvp.Value;
+
+                    slot.Owner = pawnPreview;
+
+                    Debug.Log(
+                        $"UI SLOT: {slot.name} | " +
+                        $"Dictionary Key={kvp.Key} | " +
+                        $"Slot EquipType={slot.EquipType} | " +
+                        $"Pawn Has Key={pawnPreview.CurrentEquipment.ContainsKey(kvp.Key)}"
+                    );
+
+                    if (pawnPreview.CurrentEquipment.TryGetValue(
+                        slot.EquipType,
+                        out EquipmentBase liveEquipment)) {
+
+                        Debug.Log(
+                            $"FOUND EQUIPMENT | " +
+                            $"Slot={slot.name} | " +
+                            $"Equipment={liveEquipment.Name} | " +
+                            $"Equipment Type={liveEquipment.EquipType} | " +
+                            $"Icon={(liveEquipment.Icon != null ? liveEquipment.Icon.name : "NULL")} | " +
+                            $"Is DB={EquipmentDatabase.IsDatabaseEntry(liveEquipment)}"
+                        );
+
+                        bool success = slot.Assign(liveEquipment);
+
+                        Debug.Log(
+                            $"ASSIGN RESULT | " +
+                            $"Equipment={liveEquipment.Name} | " +
+                            $"Success={success} | " +
+                            $"Slot Equipment={(slot.Equipment != null ? slot.Equipment.Name : "NULL")}"
+                        );
+                    }
+                }
+                foreach (var kvp in EquipmentSlots) {
+                    UIEquipmentSlot slot = kvp.Value;
+
+                    slot.Owner = pawnPreview;
+
+                    /*
+                     * CurrentEquipment contains the fresh LIVE objects we
+                     * just restored.
+                     *
+                     * Assigning that exact live instance will cause the new
+                     * UIEquipmentSlot implementation to simply BIND to it.
+                     *
+                     * It will NOT equip it again.
+                     */
+                    if (pawnPreview.CurrentEquipment.TryGetValue(kvp.Key, out EquipmentBase liveEquipment)) {
+
+                        if (!slot.Assign(liveEquipment)) {
+                            Debug.LogError($"Failed to bind {liveEquipment.Name} " + $"to UI slot {kvp.Key}.");
                         }
                     }
 
-                    kvp.Value.OnAssignEvent.AddListener(OnAssignEventHandler);
-                    kvp.Value.OnUnassignEvent.AddListener(OnUnassignEventHandler);
-                    kvp.Value.Owner = pawnPreview;
+                    /*
+                     * Gameplay state is now handled by Pawn.TryEquip() /
+                     * TryRemoveEquipment().
+                     *
+                     * These events should NOT mutate PlayerEquipment again.
+                     */
+                    slot.OnAssignEvent.AddListener(OnAssignEventHandler);
+
+                    slot.OnUnassignEvent.AddListener(OnUnassignEventHandler);
                 }
+
 
                 void OnAssignEventHandler(Pawn owner, EquipmentBase equipment) {
-                    // If slot is occupied, try moving to inventory
-                    if (Game.Instance.PlayerEquipment.TryGetValue(equipment.EquipType, out int equippedID)) {
-                        if (EquipmentDatabase.TryGetByID(equippedID, out EquipmentBase equippedItem)) {
-                            // We have the equipped item and its ID, now we check if we can remove it and add it to inventory. If not, return
-                            if (!pawnPreview.TryRemoveEquipment(equippedItem) || !pawnPreview.TryAddToInventory(equippedItem)) {
-                                Debug.Log($"Failed to unequip or add to inventory: {equipment.Name}");
-                                return;
-                            }
 
-                            // If the slot is clear, take it
-                            Game.Instance.PlayerEquipment.Add(equipment.EquipType, EquipmentDatabase.Instance.Equipment.IndexOf(equipment));
-
-                            // Raise an InventoryChanged event
-                            EventBus.Raise(new InventoryChanged());
-                        }
-                        else {
-                            Debug.Log($"Failed to find equipment By ID: {equippedID}");
-                        }
-                    }
-                    else {
-                        // If the slot is clear, take it
-                        Game.Instance.PlayerEquipment.Add(equipment.EquipType, EquipmentDatabase.Instance.Equipment.IndexOf(equipment));
-                    }
+                    /*
+                     * By the time this event fires, Pawn has already
+                     * committed the gameplay transaction.
+                     *
+                     * Just notify other UI.
+                     */
+                    EventBus.Raise(new InventoryChanged());
                 }
+
 
                 void OnUnassignEventHandler(Pawn owner, EquipmentBase equipment) {
-                    Game.Instance.PlayerEquipment.Remove(equipment.EquipType);
+
+                    /*
+                     * Same here: don't touch Game.PlayerEquipment.
+                     */
+                    EventBus.Raise(new InventoryChanged());
                 }
             }
+
 
             void ShowCharacterStats() {
                 foreach (var kvp in pawnPreview.Stats) {
-                    var uiStat = Instantiate(StatPrefab, StatsContainer);
+                    UICharacterStat uiStat = Instantiate(StatPrefab, StatsContainer);
+
                     uiStat.SetCharacterStat(kvp.Value, kvp.Key.name);
 
                     stats.Add(kvp.Value, uiStat);
