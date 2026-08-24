@@ -4,332 +4,153 @@ using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
-using Assets.HeroEditor4D.Common.Scripts.Enums;
 using UnityEngine;
 
 namespace _Rogues_Path.Pawns.Scripts {
     public partial class Pawn {
         public EquipmentDictionary CurrentEquipment { get => currentEquipment; set => currentEquipment = value; }
+        [SerializeField] private EquipmentDictionary currentEquipment = new();
 
-        [SerializeField]
-        private EquipmentDictionary currentEquipment = new();
-
-        #region Inventory
+        #region Inventory. Move to new file
         public List<EquipmentBase> Inventory = new();
         public int InventorySpaces = 2;
 
         public bool TryAddToInventory(EquipmentBase equipment, bool modifyGameState = true) {
-
             if (equipment == null) {
                 Debug.LogError("Equipment null!");
                 return false;
             }
 
-            // Don't add the same runtime instance twice.
-            if (Inventory.Contains(equipment))
-                return true;
-
             if (Inventory.Count >= InventorySpaces) {
-                Debug.Log("Inventory full!");
+                Debug.Log($"Inventory full!");
                 return false;
             }
 
-            if (!TryGetDatabaseEquipment(equipment, out EquipmentBase dbEquipment)) {
-                Debug.LogError($"Failed to find {equipment.Name} in {nameof(EquipmentDatabase)}. " + "Ensure it's added.");
+            var equipmentDBEntry = EquipmentDatabase.Instance.Equipment.FirstOrDefault(entry => entry.Name == equipment.Name);
 
+            if (equipmentDBEntry == null) {
+                Debug.LogError($"Failed to find {equipment.Name} in {nameof(EquipmentDatabase)}. Ensure it's added");
                 return false;
             }
-
-            int id = EquipmentDatabase.Instance.Equipment.IndexOf(dbEquipment);
 
             Inventory.Add(equipment);
-
+            /*
             if (modifyGameState) {
-                Game.Instance.PlayerInventory.Add(id);
+                Game.PlayerInventory.Add(equipment);
             }
+            */
 
             return true;
         }
 
         public bool TryRemoveFromInventory(EquipmentBase equipment, bool modifyGameState = true) {
+            if (equipment == null) return false;
+            var dbEntry = EquipmentDatabase.Instance.Equipment.FirstOrDefault(e => e.Name == equipment.Name);
 
-            if (equipment == null)
-                return false;
-
-            if (!TryGetDatabaseEquipment(equipment, out EquipmentBase dbEquipment)) {
+            if (dbEntry == null) {
                 Debug.LogError($"Failed to find {equipment.Name} in {nameof(EquipmentDatabase)}");
-
-                return false;
             }
 
-            /*
-             * Prefer the actual runtime instance.
-             *
-             * As a compatibility fallback, if somebody passes a database
-             * definition instead, find an item with the same name.
-             */
-            int index = Inventory.IndexOf(equipment);
-
-            if (index < 0) {
-                index = Inventory.FindIndex(e => e != null && e.Name == equipment.Name);
-            }
-
-            if (index < 0) {
+            if (!Inventory.Contains(dbEntry)) {
                 Debug.Log($"Inventory doesn't contain {equipment.Name}");
                 return false;
             }
 
-            int id = EquipmentDatabase.Instance.Equipment.IndexOf(dbEquipment);
+            Inventory.Remove(dbEntry);
 
-            Inventory.RemoveAt(index);
-
-            if (modifyGameState) {
-                // Remove one occurrence. Multiple copies of the same item
-                // are still allowed.
-                Game.Instance.PlayerInventory.Remove(id);
+            /*
+             if (modifyGameState) {
+                Game.PlayerInventory.Remove(dbEntry);
             }
+            */
 
             return true;
         }
         #endregion
 
         public bool TryEquip(EquipmentBase equipment, bool modifyGameState = true) {
-
             if (equipment == null) {
-                Debug.Log("Attempted to assign null equipment.");
+                Debug.Log($"Attempted to assign a null equipment");
                 return false;
             }
 
-            if (!TryGetDatabaseEquipment(equipment, out EquipmentBase dbEquipment)) {
-                Debug.LogError($"Failed to find {equipment.Name} in {nameof(EquipmentDatabase)}.");
-
-                return false;
-            }
-
-            EquipmentPart equipType = equipment.EquipType;
-            int newEquipmentID = EquipmentDatabase.Instance.Equipment.IndexOf(dbEquipment);
-
-            currentEquipment.TryGetValue(equipType, out EquipmentBase currentlyEquipped);
-
-            /*
-             * If this exact instance is already equipped, this is effectively
-             * a no-op.
-             */
-            if (currentlyEquipped == equipment) {
-                equipment.Owner = this;
-                equipment.gameObject.SetActive(true);
-
-                if (modifyGameState) {
-                    Game.Instance.PlayerEquipment.Remove(equipType);
-                    Game.Instance.PlayerEquipment.Add(equipType, newEquipmentID);
-                }
-
-                return true;
-            }
-
-            bool incomingIsInInventory = Inventory.Contains(equipment);
-
-            bool currentAlreadyInInventory = currentlyEquipped != null && Inventory.Contains(currentlyEquipped);
-
-            /*
-             * Calculate inventory size AFTER the swap.
-             *
-             * This fixes the case:
-             *
-             * Inventory = FULL
-             * New sword = currently in inventory
-             * Old sword = currently equipped
-             *
-             * That swap should be legal because removing the new sword frees
-             * the space needed for the old sword.
-             */
-            int projectedInventoryCount = Inventory.Count;
-
-            if (incomingIsInInventory)
-                projectedInventoryCount--;
-
-            if (currentlyEquipped != null && !currentAlreadyInInventory)
-                projectedInventoryCount++;
-
-            if (projectedInventoryCount > InventorySpaces) {
-                Debug.Log($"Not enough inventory space to replace " + $"{currentlyEquipped?.Name} with {equipment.Name}.");
-
-                return false;
-            }
-
-            int oldEquipmentID = -1;
-
-            /*
-             * Resolve EVERYTHING before changing state.
-             * This prevents half-completed equipment changes.
-             */
-            if (currentlyEquipped != null) {
-                if (!TryGetDatabaseEquipment(currentlyEquipped, out EquipmentBase oldDBEquipment)) {
-
-                    Debug.LogError($"Failed to find currently equipped item " + $"{currentlyEquipped.Name} in EquipmentDatabase.");
-
+            // If something's already in the equipment slot, try to move it to inventory
+            if (Game.Instance.PlayerEquipment.ContainsKey(equipment.EquipType)) {
+                // Move existing item to inventory if possible
+                if (Inventory.Count + 1 > InventorySpaces) {
+                    Debug.Log($"Not enough inventory spaces to move {equipment.Name} to inventory!");
                     return false;
                 }
+                else {
+                    // If successfully removed and added to inventory, equip it
+                    bool equipmentRemoved = TryRemoveEquipment(equipment, modifyGameState);
+                    bool addedToInventory = TryAddToInventory(equipment, modifyGameState);
 
-                oldEquipmentID = EquipmentDatabase.Instance.Equipment.IndexOf(oldDBEquipment);
-            }
-
-            /*
-             * ------------------------------------------------------------
-             * COMMIT TRANSACTION
-             * ------------------------------------------------------------
-             */
-
-            // Remove the incoming runtime instance from inventory first.
-            if (incomingIsInInventory) {
-                Inventory.Remove(equipment);
-
-                if (modifyGameState) {
-                    Game.Instance.PlayerInventory.Remove(newEquipmentID);
-                }
-            }
-
-            /*
-             * Remove the ACTUAL currently equipped item.
-             *
-             * This is the important difference from the old implementation.
-             * We do NOT call TryRemoveEquipment(dbEquipment).
-             */
-            if (currentlyEquipped != null) {
-                currentEquipment.Remove(equipType);
-
-                if (modifyGameState) {
-                    Game.Instance.PlayerEquipment.Remove(equipType);
-                }
-
-                Character.UnEquip(equipType);
-
-                currentlyEquipped.gameObject.SetActive(false);
-                currentlyEquipped.Owner = null;
-
-                // Move the OLD equipment into inventory.
-                if (!currentAlreadyInInventory) {
-                    Inventory.Add(currentlyEquipped);
-
-                    if (modifyGameState) {
-                        Game.Instance.PlayerInventory.Add(oldEquipmentID);
+                    if (equipmentRemoved && addedToInventory) {
+                        EquipEquipment();
+                        return true;
+                    }
+                    else {
+                        if (!equipmentRemoved) Debug.Log($"Failed to remove equipment: {equipment.Name}");
+                        if (!addedToInventory) Debug.Log($"Failed to add to inventory: {equipment.Name}");
+                        return false;
                     }
                 }
             }
-
-            /*
-             * Equip the actual runtime instance passed to us.
-             */
-            equipment.Owner = this;
-            equipment.gameObject.SetActive(true);
-
-            Character.Equip(equipment.ItemSprite, equipment.EquipType, equipment.SpriteColor);
-
-            // Synchronize local equipment state.
-            currentEquipment.Remove(equipType);
-            currentEquipment.Add(equipType, equipment);
-
-            // Synchronize persistent/global equipment state.
-            if (modifyGameState) {
-                Game.Instance.PlayerEquipment.Remove(equipType);
-                Game.Instance.PlayerEquipment.Add(equipType, newEquipmentID);
+            // If the slot isn't occupied, take it
+            else {
+                EquipEquipment();
+                return true;
             }
 
-            EventBus.Raise(
-                new EquipmentEquippedEvent {
-                    Equipment = equipment,
-                    Owner = this
-                });
+            void EquipEquipment() {
+                // Set owner and update sprite
+                var dbEquipment = EquipmentDatabase.Instance.Equipment.FirstOrDefault(e => e.Name == equipment.Name);
+                Debug.Assert(dbEquipment != null);
+                dbEquipment.Owner = this;
+                dbEquipment.gameObject.SetActive(true);
+                Character.Equip(dbEquipment.ItemSprite, dbEquipment.EquipType, dbEquipment.SpriteColor);
 
-            return true;
+                // Add to dictionary
+                // currentEquipment.Add(dbEquipment.EquipType, dbEquipment);
+
+                // Update game state if necessary
+                if (modifyGameState) {
+                    int ID = EquipmentDatabase.Instance.Equipment.IndexOf(dbEquipment);
+                    Game.Instance.PlayerEquipment.Add(dbEquipment.EquipType, ID);
+                }
+
+                // Raise a new EquipmentEquipped event
+                EventBus.Raise(
+                    new EquipmentEquippedEvent {
+                        Equipment = dbEquipment,
+                        Owner = this
+                    });
+            }
         }
 
         public bool TryRemoveEquipment(EquipmentBase equipment, bool modifyGameState = true) {
-
+            // If the equipment is null, or can't be removed from local/global inventory, return false and do nothing
             if (equipment == null) {
-                Debug.Log("Attempting to remove null equipment.");
+                Debug.Log($"Attempting to remove a null equipment");
                 return false;
             }
 
-            /*
-             * The dictionary is the authority for the actual equipped
-             * runtime object.
-             */
-            if (!currentEquipment.TryGetValue(equipment.EquipType, out EquipmentBase currentlyEquipped)) {
-
-                Debug.Log($"{equipment.EquipType} isn't currently equipped.");
-
-                return false;
-            }
-
-            /*
-             * If it's already present because of some previous state
-             * inconsistency, don't add another copy.
-             */
-            bool alreadyInInventory = Inventory.Contains(currentlyEquipped);
-
-            if (!alreadyInInventory && Inventory.Count >= InventorySpaces) {
-
-                Debug.Log($"Cannot unequip {currentlyEquipped.Name}: inventory full.");
-
-                return false;
-            }
-
-            if (!TryGetDatabaseEquipment(currentlyEquipped, out EquipmentBase dbEquipment)) {
-
-                Debug.LogError($"Failed to find {currentlyEquipped.Name} " + $"in {nameof(EquipmentDatabase)}.");
-
-                return false;
-            }
-
-            int id = EquipmentDatabase.Instance.Equipment.IndexOf(dbEquipment);
-
-            /*
-             * Everything has been validated.
-             * Now we can safely mutate state.
-             */
-            currentEquipment.Remove(currentlyEquipped.EquipType);
+            //if (!currentEquipment.Remove(equipment.EquipType)) return false;
 
             if (modifyGameState) {
-                /*
-                 * Don't use a failed Remove as a reason to abort.
-                 *
-                 * currentEquipment is our runtime authority.
-                 * This also heals a stale PlayerEquipment dictionary.
-                 */
-                Game.Instance.PlayerEquipment.Remove(currentlyEquipped.EquipType);
-            }
+                if (!Game.Instance.PlayerEquipment.Remove(equipment.EquipType)) {
+                    return false;
+                }
 
-            Character.UnEquip(currentlyEquipped.EquipType);
-
-            currentlyEquipped.gameObject.SetActive(false);
-            currentlyEquipped.Owner = null;
-
-            if (!alreadyInInventory) {
-                Inventory.Add(currentlyEquipped);
-
-                if (modifyGameState) {
-                    Game.Instance.PlayerInventory.Add(id);
+                if (EquipmentDatabase.GetIDByName(equipment.Name, out int ID)) {
+                    Game.Instance.PlayerInventory.Add(ID);
                 }
             }
 
+            Character.UnEquip(equipment.EquipType);
+            equipment.gameObject.SetActive(false);
             return true;
         }
-
-        #region Equipment Helpers
-        private bool TryGetDatabaseEquipment(EquipmentBase equipment, out EquipmentBase dbEquipment) {
-
-            dbEquipment = null;
-
-            if (equipment == null || EquipmentDatabase.Instance == null) {
-
-                return false;
-            }
-
-            dbEquipment = EquipmentDatabase.Instance.Equipment.FirstOrDefault(e => e != null && e.Name == equipment.Name);
-
-            return dbEquipment != null;
-        }
-        #endregion
     }
 }

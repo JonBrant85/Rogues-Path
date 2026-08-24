@@ -30,11 +30,10 @@ namespace _Rogues_Path.Equipment.Scripts {
         public Sprite Icon;
         public UIItemQuality Quality;
         public EquipmentPart EquipType = EquipmentPart.Armor;
-
-        [FoldoutGroup("Debug")]
-        public Pawn Owner;
+        [FoldoutGroup("Debug")] public Pawn Owner;
 
         public List<StatAndModifierPair> Modifiers;
+
 
         private void OnEnable() {
             HandleSubscribing();
@@ -45,39 +44,34 @@ namespace _Rogues_Path.Equipment.Scripts {
         }
 
         protected void OnTriggerUI() {
-            transform.parent!.DOShakeRotation(0.5f, 10f);
+            this.transform.parent.DOShakeRotation(0.5f, 10f);
         }
 
-        protected virtual void HandleSubscribing() {}
-
-        protected virtual void HandleUnsubscribing() {}
+        virtual protected void HandleSubscribing() {}
+        virtual protected void HandleUnsubscribing() {}
 
         public void ApplyModifiers(List<StatAndModifierPair> modifiers, Pawn owner) {
-            if (modifiers == null || owner == null)
-                return;
+            for (int index = 0; index < modifiers.Count; index++) {
+                StatAndModifierPair modifierPair = modifiers[index];
 
-            foreach (StatAndModifierPair modifierPair in modifiers) {
-                if (!owner.Stats.TryGetValue(modifierPair.StatID, out CharacterStat stat)) {
-                    stat = new CharacterStat {
-                        CharacterStatID = modifierPair.StatID,
-                        BaseValue = 0
-                    };
-
-                    owner.Stats.Add(modifierPair.StatID, stat);
+                if (owner.Stats.TryGetValue(modifierPair.StatID, out CharacterStat stat)) {
+                    stat.AddModifier(modifierPair.Modifier);
                 }
-
-                // Important: this was missing when the stat had to be created.
-                stat.AddModifier(modifierPair.Modifier);
+                else {
+                    owner.Stats.Add(
+                        modifierPair.StatID,
+                        new CharacterStat {
+                            CharacterStatID = modifierPair.StatID,
+                            BaseValue = 0
+                        });
+                }
             }
         }
 
         public void RemoveModifiers(List<StatAndModifierPair> modifiers, Pawn owner) {
-            if (modifiers == null || owner == null)
-                return;
-
-            // Reverse order in case modifier ordering matters.
-            for (int i = modifiers.Count - 1; i >= 0; i--) {
-                StatAndModifierPair modifierPair = modifiers[i];
+            // Remove modifiers in reverse juuuust in case
+            for (int index = modifiers.Count - 1; index >= 0; index--) {
+                StatAndModifierPair modifierPair = modifiers[index];
 
                 if (owner.Stats.TryGetValue(modifierPair.StatID, out CharacterStat stat)) {
                     stat.RemoveModifier(modifierPair.Modifier);
