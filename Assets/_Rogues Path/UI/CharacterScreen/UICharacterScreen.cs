@@ -124,35 +124,29 @@ namespace _Rogues_Path.UI.CharacterScreen {
                     slot.Owner = pawnPreview;
 
                     Debug.Log(
-                        $"UI SLOT: {slot.name} | " +
-                        $"Dictionary Key={kvp.Key} | " +
-                        $"Slot EquipType={slot.EquipType} | " +
-                        $"Pawn Has Key={pawnPreview.CurrentEquipment.ContainsKey(kvp.Key)}"
-                    );
+                        $"UI SLOT: {slot.name} | "
+                        + $"Dictionary Key={kvp.Key} | "
+                        + $"Slot EquipType={slot.EquipType} | "
+                        + $"Pawn Has Key={pawnPreview.CurrentEquipment.ContainsKey(kvp.Key)}");
 
-                    if (pawnPreview.CurrentEquipment.TryGetValue(
-                        slot.EquipType,
-                        out EquipmentBase liveEquipment)) {
-
-                        Debug.Log(
-                            $"FOUND EQUIPMENT | " +
-                            $"Slot={slot.name} | " +
-                            $"Equipment={liveEquipment.Name} | " +
-                            $"Equipment Type={liveEquipment.EquipType} | " +
-                            $"Icon={(liveEquipment.Icon != null ? liveEquipment.Icon.name : "NULL")} | " +
-                            $"Is DB={EquipmentDatabase.IsDatabaseEntry(liveEquipment)}"
-                        );
+                    if (pawnPreview.CurrentEquipment.TryGetValue(slot.EquipType, out EquipmentBase liveEquipment)) {
 
                         bool success = slot.Assign(liveEquipment);
 
                         Debug.Log(
-                            $"ASSIGN RESULT | " +
-                            $"Equipment={liveEquipment.Name} | " +
-                            $"Success={success} | " +
-                            $"Slot Equipment={(slot.Equipment != null ? slot.Equipment.Name : "NULL")}"
-                        );
+                            $"CHARACTER SLOT | "
+                            + $"Scene={UnityEngine.SceneManagement.SceneManager.GetActiveScene().name} | "
+                            + $"Slot={slot.name} | "
+                            + $"SlotType={slot.EquipType} | "
+                            + $"Equipment={liveEquipment.Name} | "
+                            + $"EquipmentType={liveEquipment.EquipType} | "
+                            + $"Icon={(liveEquipment.Icon != null ? liveEquipment.Icon.name : "NULL")} | "
+                            + $"Success={success} | "
+                            + $"SlotEquipment={(slot.Equipment != null ? slot.Equipment.Name : "NULL")} | "
+                            + $"EquipToOwner={slot.EquipToOwnerOnAssign}");
                     }
                 }
+
                 foreach (var kvp in EquipmentSlots) {
                     UIEquipmentSlot slot = kvp.Value;
 
