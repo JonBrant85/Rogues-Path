@@ -23,7 +23,7 @@ namespace _Rogues_Path.UI.InventoryWindow {
             EventBus.SubscribeTo<InventoryChanged>(InventoryChangedHandler);
 
             // Update each Slot's OnAssign and OnUnassign
-            for (int i = 0; i < SlotsContainer.childCount && i < Game.Instance.PlayerInventory.Count; i++) {
+            for (int i = 0; i < SlotsContainer.childCount; i++) {
                 var child = SlotsContainer.GetChild(i);
 
                 if (child.TryGetComponent(out UIEquipmentSlot slot)) {
@@ -45,7 +45,7 @@ namespace _Rogues_Path.UI.InventoryWindow {
             EventBus.UnsubscribeFrom<InventoryChanged>(InventoryChangedHandler);
 
             // Update each Slot's OnAssign and OnUnassign
-            for (int i = 0; i < SlotsContainer.childCount && i < Game.Instance.PlayerInventory.Count; i++) {
+            for (int i = 0; i < SlotsContainer.childCount; i++) {
                 var child = SlotsContainer.GetChild(i);
 
                 if (child.TryGetComponent(out UIEquipmentSlot slot)) {

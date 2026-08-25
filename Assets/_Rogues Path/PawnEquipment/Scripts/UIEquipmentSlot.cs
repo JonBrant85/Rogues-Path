@@ -151,7 +151,7 @@ namespace _Rogues_Path.UI.Slots {
         }
 
 
-        public bool Assign(EquipmentBase equipment, Object source) {
+        public bool Assign(EquipmentBase equipment, UnityEngine.Object source) {
 
             if (source is UIEquipmentSlot sourceSlot) {
                 return AssignFromSlot(sourceSlot);
@@ -326,9 +326,10 @@ namespace _Rogues_Path.UI.Slots {
             /*
              * Occupied target = swap.
              */
-            if (IsAssigned()) {
-                //return sourceSlot.PerformSlotSwap(this);
-            }
+            // if (IsAssigned()) {
+            //     return sourceSlot.PerformSlotSwap(this);
+            // }
+            
 
 
             bool sourceEquipped = sourceSlot.EquipToOwnerOnAssign;
