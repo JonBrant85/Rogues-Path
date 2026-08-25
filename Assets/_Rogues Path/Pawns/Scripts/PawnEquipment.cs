@@ -142,10 +142,8 @@ namespace _Rogues_Path.Pawns.Scripts {
 
         #region Equipment
         public bool TryEquip(EquipmentBase equipment, bool modifyGameState = true) {
-
             if (equipment == null) {
                 Debug.LogError("Attempted to equip null equipment.");
-
                 return false;
             }
 
@@ -154,25 +152,21 @@ namespace _Rogues_Path.Pawns.Scripts {
              */
             if (EquipmentDatabase.IsDatabaseEntry(equipment)) {
                 Debug.LogError($"Attempted to equip database template " + $"{equipment.Name} directly. " + $"Create a live instance with EquipmentDatabase first.");
-
                 return false;
             }
 
             if (!EquipmentDatabase.TryFind(equipment, out EquipmentBase dbEquipment)) {
 
                 Debug.LogError($"Failed to find {equipment.Name} in EquipmentDatabase.");
-
                 return false;
             }
 
             if (!EquipmentDatabase.TryGetID(dbEquipment, out int newEquipmentID)) {
-
                 return false;
             }
 
             if (equipment.EquipType != dbEquipment.EquipType) {
                 Debug.LogError($"Equipment type mismatch for {equipment.Name}. " + $"Live = {equipment.EquipType}, " + $"Database = {dbEquipment.EquipType}.");
-
                 return false;
             }
 
@@ -219,9 +213,7 @@ namespace _Rogues_Path.Pawns.Scripts {
                 }
 
                 if (projectedInventoryCount > InventorySpaces) {
-
                     Debug.Log($"Cannot equip {equipment.Name}: " + $"inventory would become " + $"{projectedInventoryCount}/{InventorySpaces}.");
-
                     return false;
                 }
 

@@ -34,15 +34,11 @@ namespace _Rogues_Path.UI.InventoryWindow {
         }
 
         private void OnAssignEventHandler(Pawn owner, EquipmentBase equipment) {
-            if (EquipmentDatabase.GetIDByName(equipment.Name, out int ID)) {
-                Game.Instance.PlayerInventory.Add(ID);
-            }
+            EventBus.Raise(new InventoryChanged());
         }
 
         private void OnUnassignEventHandler(Pawn owner, EquipmentBase equipment) {
-            if (EquipmentDatabase.GetIDByName(equipment.Name, out int ID)) {
-                Game.Instance.PlayerInventory.Remove(ID);
-            }
+            EventBus.Raise(new InventoryChanged());
         }
 
         private void OnDisable() {
@@ -78,11 +74,11 @@ namespace _Rogues_Path.UI.InventoryWindow {
         }
 
         private void ClearAllSlots() {
-            for (int i = 0; i < SlotsContainer.childCount && i < Game.Instance.PlayerInventory.Count; i++) {
+            for (int i = 0; i < SlotsContainer.childCount; i++) {
                 var child = SlotsContainer.GetChild(i);
 
                 if (child.TryGetComponent(out UIEquipmentSlot slot)) {
-                    slot.Unassign();
+                    slot.ClearUIReference();
                 }
             }
         }

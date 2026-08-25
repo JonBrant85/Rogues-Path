@@ -10414,7 +10414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -10423,13 +10423,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   KnownSpells:
-  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
-  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
-  - {fileID: 11400000, guid: 54385f968776cbc41849a1075e36286b, type: 2}
+  - {fileID: 11400000, guid: 4f7b692d4d5e21847a048e0de3c72d56, type: 2}
   PreparedSpells:
-  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
-  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
-  - {fileID: 11400000, guid: 54385f968776cbc41849a1075e36286b, type: 2}
+  - {fileID: 11400000, guid: 4f7b692d4d5e21847a048e0de3c72d56, type: 2}
   Owner: {fileID: -8804177444592076990}
   ActionDelay: 2
   TimeUntilAction: 2
@@ -10445,8 +10441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xDirection: 0
-  yDirection: 0
   animationManager: {fileID: 4330697911598043013}
   CharacterName: Dazwir
   ClassName: Wizard

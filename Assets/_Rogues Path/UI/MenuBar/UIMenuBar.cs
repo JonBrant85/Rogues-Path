@@ -23,7 +23,7 @@ namespace _Rogues_Path.UI.MenuBar {
 
         [Button]
         public static void Hide() {
-            Instance.transform.DOLocalMove(Instance.InitialPosition + Instance.HiddenPosition, Instance.TransitionDuration);
+            //Instance.transform.DOLocalMove(Instance.InitialPosition + Instance.HiddenPosition, Instance.TransitionDuration);
         }
     }
 }

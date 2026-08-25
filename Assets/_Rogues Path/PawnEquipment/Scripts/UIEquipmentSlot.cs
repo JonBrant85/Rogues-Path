@@ -161,7 +161,8 @@ namespace _Rogues_Path.UI.Slots {
         }
 
 
-        public bool Assign(object source) {
+        public override bool Assign(UnityEngine.Object source) {
+
             if (source is not UIEquipmentSlot sourceSlot)
                 return false;
 
@@ -326,7 +327,7 @@ namespace _Rogues_Path.UI.Slots {
              * Occupied target = swap.
              */
             if (IsAssigned()) {
-                return sourceSlot.PerformSlotSwap(this);
+                //return sourceSlot.PerformSlotSwap(this);
             }
 
 
@@ -538,6 +539,9 @@ namespace _Rogues_Path.UI.Slots {
             Equipment = null;
         }
 
+        public void ClearUIReference() {
+            ClearReferenceOnly(false);
+        }
 
         public override void OnTooltip(bool show) {
             UITooltip.InstantiateIfNecessary(gameObject);

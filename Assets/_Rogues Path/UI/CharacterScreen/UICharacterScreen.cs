@@ -1,19 +1,13 @@
-using System;
-using System.Collections.Generic;
 using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
-using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.UI.Slots;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
 using HeroEditor.Common.Enums;
-using Kryz.CharacterStats;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Rogues_Path.UI.CharacterScreen {
@@ -123,27 +117,8 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
                     slot.Owner = pawnPreview;
 
-                    Debug.Log(
-                        $"UI SLOT: {slot.name} | "
-                        + $"Dictionary Key={kvp.Key} | "
-                        + $"Slot EquipType={slot.EquipType} | "
-                        + $"Pawn Has Key={pawnPreview.CurrentEquipment.ContainsKey(kvp.Key)}");
-
                     if (pawnPreview.CurrentEquipment.TryGetValue(slot.EquipType, out EquipmentBase liveEquipment)) {
-
                         bool success = slot.Assign(liveEquipment);
-
-                        Debug.Log(
-                            $"CHARACTER SLOT | "
-                            + $"Scene={UnityEngine.SceneManagement.SceneManager.GetActiveScene().name} | "
-                            + $"Slot={slot.name} | "
-                            + $"SlotType={slot.EquipType} | "
-                            + $"Equipment={liveEquipment.Name} | "
-                            + $"EquipmentType={liveEquipment.EquipType} | "
-                            + $"Icon={(liveEquipment.Icon != null ? liveEquipment.Icon.name : "NULL")} | "
-                            + $"Success={success} | "
-                            + $"SlotEquipment={(slot.Equipment != null ? slot.Equipment.Name : "NULL")} | "
-                            + $"EquipToOwner={slot.EquipToOwnerOnAssign}");
                     }
                 }
 

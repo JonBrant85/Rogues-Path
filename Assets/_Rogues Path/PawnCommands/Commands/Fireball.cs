@@ -22,11 +22,12 @@ namespace _Rogues_Path.PawnCommands.Commands {
         public Fireball(Pawn hero) : base(hero) {}
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
-            ShootFireball(instigator, victims.First()).Forget();
+            instigator.Character.AnimationManager.Spring();
+            await ShootFireball(instigator, victims.First());
             await UniTask.Delay((int)instigator.PlayAnimation(AnimationClip) * 1000);
         }
 
-        private async UniTaskVoid ShootFireball(Pawn caster, Pawn target) {
+        private async UniTask ShootFireball(Pawn caster, Pawn target) {
             var fireball = GameObject.Instantiate(FireballPrefab);
             fireball.transform.position = caster.transform.position + Offset;
             float totalTime = TravelTime;

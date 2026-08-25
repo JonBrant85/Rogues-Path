@@ -29,7 +29,7 @@ MonoBehaviour:
     - rid: 7368513045436039191
       type: {class: Fireball, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
       data:
-        AnimationClip: {fileID: 7400000, guid: d440bdd9c0a448f8b8e93daaa11d9508, type: 2}
+        AnimationClip: {fileID: 7400000, guid: 99b95ce2635926145a57cc13661fc4d7, type: 2}
         FireballPrefab: {fileID: 5509305661840162670, guid: 93493751bafa07b4ebec5bc245d5d2b4, type: 3}
         ImpactVFX: {fileID: 5781927832435029351, guid: 3fcfd62e155bcc5459718e0edecf9874, type: 3}
         DistortionVFX: {fileID: 6091849738672977877, guid: af7931239aa7b5e479e4e5c2e6b460c3, type: 3}
