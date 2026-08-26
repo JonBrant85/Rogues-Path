@@ -386,16 +386,6 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             bool isDatabaseEntry = EquipmentDatabase.IsDatabaseEntry(equipment);
 
-            Debug.Log(
-                $"REMOVE LIVE EQUIPMENT\n"
-                + $"Name: {equipment.Name}\n"
-                + $"Type: {equipment.EquipType}\n"
-                + $"Instance ID: {equipment.GetInstanceID()}\n"
-                + $"Is Database Entry: {isDatabaseEntry}\n"
-                + $"Scene Valid: {equipment.gameObject.scene.IsValid()}\n"
-                + $"Scene: {equipment.gameObject.scene.name}\n"
-                + $"Stack:\n{System.Environment.StackTrace}");
-
             if (isDatabaseEntry) {
                 Debug.LogError($"DATABASE EQUIPMENT REACHED RemoveLiveEquipment: " + $"{equipment.Name}");
 

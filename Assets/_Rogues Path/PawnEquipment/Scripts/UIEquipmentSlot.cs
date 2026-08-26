@@ -295,13 +295,6 @@ namespace _Rogues_Path.UI.Slots {
 
 
         private bool AssignFromSlot(UIEquipmentSlot sourceSlot) {
-            Debug.Log(
-                $"ASSIGN FROM SLOT | "
-                + $"{sourceSlot.name} -> {name} | "
-                + $"SourceEquipped={sourceSlot.EquipToOwnerOnAssign} | "
-                + $"TargetEquipped={EquipToOwnerOnAssign} | "
-                + $"TargetAssigned={IsAssigned()}");
-
             if (sourceSlot == null || sourceSlot.Equipment == null) {
                 return false;
             }
@@ -678,21 +671,6 @@ namespace _Rogues_Path.UI.Slots {
             return Equipment != null;
         }
 
-
-        public override void OnBeginDrag(PointerEventData eventData) {
-            Debug.Log(
-                $"BEGIN DRAG | "
-                + $"Slot={name} | "
-                + $"Enabled={enabled} | "
-                + $"Assigned={IsAssigned()} | "
-                + $"DragEnabled={dragAndDropEnabled} | "
-                + $"Static={isStatic} | "
-                + $"Modifier={dragKeyModifier} | "
-                + $"Equipment={(Equipment != null ? Equipment.Name : "NULL")}");
-
-            base.OnBeginDrag(eventData);
-        }
-
         public override void OnDrop(PointerEventData eventData) {
 
             UIEquipmentSlot sourceSlot = eventData.pointerPress != null ? eventData.pointerPress.GetComponent<UIEquipmentSlot>() : null;
@@ -715,7 +693,6 @@ namespace _Rogues_Path.UI.Slots {
 
             bool success = AssignFromSlot(sourceSlot);
 
-            Debug.Log($"EQUIPMENT DROP | " + $"{sourceSlot.name} -> {name} | " + $"Success={success}");
 
             if (!success) {
                 OnAssignBySlotFailed(sourceSlot);
@@ -731,7 +708,6 @@ namespace _Rogues_Path.UI.Slots {
 
             OnClickEvent.Invoke(this);
         }
-
 
         public virtual bool CheckEquipType(EquipmentBase equipment) {
 
