@@ -1,5 +1,8 @@
-﻿namespace Assets.HeroEditor4D.Common.Scripts.Enums
+﻿using System;
+
+namespace Assets.HeroEditor4D.Common.Scripts.Enums
 {
+    [Flags]
     public enum EquipmentPart
     {
         Armor,
