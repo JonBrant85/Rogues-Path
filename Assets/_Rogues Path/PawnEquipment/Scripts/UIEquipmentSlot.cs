@@ -369,10 +369,8 @@ namespace _Rogues_Path.UI.Slots {
                  * Gameplay succeeded first.
                  * NOW update UI.
                  */
-                BindLiveReference(liveEquipment, sourceSlot);
-
-
                 sourceSlot.ClearReferenceOnly();
+                BindLiveReference(liveEquipment, sourceSlot);
 
                 return true;
             }
@@ -424,20 +422,9 @@ namespace _Rogues_Path.UI.Slots {
 
 
                 sourceSlot.ClearReferenceOnly();
-
+                EventBus.Raise(new InventoryChanged());
                 return true;
             }
-
-
-            /*
-             * =========================================================
-             * EQUIPPED -> EQUIPPED
-             * =========================================================
-             *
-             * Both items are already live.
-             *
-             * This only changes presentation.
-             */
 
             if (sourceEquipped && targetEquipped) {
 
@@ -455,7 +442,7 @@ namespace _Rogues_Path.UI.Slots {
 
 
                 sourceSlot.ClearReferenceOnly();
-
+                EventBus.Raise(new InventoryChanged());
                 return true;
             }
 
