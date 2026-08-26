@@ -22347,7 +22347,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &666604870662388716 stripped
@@ -22565,7 +22565,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &1121859506700896257 stripped
@@ -22773,7 +22773,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &998703791508282010 stripped
@@ -22986,7 +22986,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &962711062005530040 stripped
@@ -23240,7 +23240,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  AcceptedEquipTypes: 5
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!224 &4534008126393775816 stripped
@@ -23695,7 +23695,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1001 &1698524838172251368
@@ -23865,7 +23865,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &2077183386832349357 stripped
@@ -24224,7 +24224,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &1643410773000179980 stripped
@@ -24432,7 +24432,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &2948667711019219276 stripped
@@ -24683,7 +24683,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!224 &3350939175812164329 stripped
@@ -24875,7 +24875,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 5
+  AcceptedEquipTypes: 32
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &1353769851736967540 stripped
@@ -25088,7 +25088,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &3280143654520260128 stripped
@@ -25301,7 +25301,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &2478935184864501540 stripped
@@ -25526,7 +25526,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1001 &3132200131734890952
@@ -25696,7 +25696,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &2321099227464078733 stripped
@@ -25921,7 +25921,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!224 &1876545310285109615 stripped
@@ -26137,7 +26137,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &6366575544556099526
@@ -26331,7 +26331,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &2780429963656075126 stripped
@@ -26555,7 +26555,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 4
+  AcceptedEquipTypes: 4
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!224 &569837123645034429 stripped
@@ -26768,7 +26768,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &4568488326622958473 stripped
@@ -26981,7 +26981,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &3684556573815059630 stripped
@@ -27290,7 +27290,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &3953698118367379560 stripped
@@ -27511,7 +27511,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1001 &4716287275892981941
@@ -27693,7 +27693,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!224 &8623047919705430764 stripped
@@ -27873,7 +27873,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &5320025425563938194 stripped
@@ -28104,7 +28104,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 2
+  AcceptedEquipTypes: 2
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &8179531679280946684 stripped
@@ -28296,7 +28296,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!224 &8807824871271595161 stripped
@@ -28476,7 +28476,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &5092225878933307950 stripped
@@ -28706,7 +28706,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 11
+  AcceptedEquipTypes: 2560
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &8870220767677192178 stripped
@@ -28921,7 +28921,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 15
+  AcceptedEquipTypes: 32768
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!224 &7418031418781464946 stripped
@@ -29137,7 +29137,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &7736268900586671227
@@ -29359,7 +29359,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &6733681660585641695 stripped
@@ -29539,7 +29539,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &6644722514634307535 stripped
@@ -29790,7 +29790,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &6045623589794025472 stripped
@@ -29970,7 +29970,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &5960263630125909844 stripped
@@ -30191,7 +30191,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 4
+  AcceptedEquipTypes: 16
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1001 &7091553476343970033
@@ -30401,7 +30401,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &5072785610243511432
@@ -30650,7 +30650,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 1
+  AcceptedEquipTypes: 2
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1001 &8278675581689458678
@@ -30853,7 +30853,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &8764637695031874483 stripped
@@ -31038,7 +31038,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &8755304217405053539 stripped
@@ -31251,7 +31251,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!114 &8757613325973427312 stripped
@@ -31497,7 +31497,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 1
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &9191657817979049964 stripped

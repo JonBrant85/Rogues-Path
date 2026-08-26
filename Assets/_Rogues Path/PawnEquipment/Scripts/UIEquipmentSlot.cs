@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using _Rogues_Path.Equipment.Scripts;
+using _Rogues_Path.PawnEquipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
@@ -10,6 +11,7 @@ using HeroEditor.Common.Enums;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using EquipmentPart = Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart;
 using Object = System.Object;
@@ -28,7 +30,9 @@ namespace _Rogues_Path.UI.Slots {
         public OnAssign OnUnassignEvent = new();
         public OnAssignWithSource OnAssignWithSourceEvent = new();
         public bool AcceptsAnyEquipType = false;
-        public EquipmentPart EquipType;
+        [FormerlySerializedAs("AccepterEquipTypes")]
+        [FormerlySerializedAs("EquipType")]
+        public EquipmentPartMask AcceptedEquipTypes;
         public Pawn Owner;
         public EquipmentBase Equipment;
 
@@ -125,7 +129,12 @@ namespace _Rogues_Path.UI.Slots {
             if (Owner == null)
                 return;
 
-            if (Owner.CurrentEquipment.TryGetValue(EquipType, out EquipmentBase liveEquipment)) {
+            foreach (var pair in Owner.CurrentEquipment) {
+                EquipmentPart equipType = pair.Key;
+                EquipmentBase liveEquipment = pair.Value;
+
+                if ((AcceptedEquipTypes & equipType.ToMask()) == 0)
+                    continue;
 
                 if (Equipment == liveEquipment)
                     return;
@@ -177,7 +186,7 @@ namespace _Rogues_Path.UI.Slots {
         private bool AssignDirect(EquipmentBase equipment, Object source) {
 
             if (equipment == null) {
-                Debug.LogError($"Attempting to assign null equipment to {EquipType}.");
+                Debug.LogError($"Attempting to assign null equipment to {AcceptedEquipTypes}.");
 
                 return false;
             }
@@ -515,7 +524,7 @@ namespace _Rogues_Path.UI.Slots {
             }
             else {
                 if (show) {
-                    UITooltip.AddTitle(EquipType.ToString());
+                    UITooltip.AddTitle(AcceptedEquipTypes.ToString());
                     UITooltip.SetHorizontalFitMode(ContentSizeFitter.FitMode.PreferredSize);
                     UITooltip.AnchorToRect(transform as RectTransform);
                     UITooltip.Show();
@@ -711,13 +720,13 @@ namespace _Rogues_Path.UI.Slots {
 
         public virtual bool CheckEquipType(EquipmentBase equipment) {
 
-            if (AcceptsAnyEquipType && equipment != null) {
+            if (equipment == null)
+                return false;
 
-                return true;
-            }
+            EquipmentPartMask equipmentMask =
+                (EquipmentPartMask)(1 << (int)equipment.EquipType);
 
-
-            return equipment != null && equipment.EquipType == EquipType;
+            return (AcceptedEquipTypes & equipmentMask) != 0;
         }
     }
 }

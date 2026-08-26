@@ -15,8 +15,10 @@ MonoBehaviour:
   Name: Slyph
   ClassName: Assassin
   Pawn: {fileID: 7133015221166647856, guid: 1b07b6693d2715441acf9e24585821de, type: 3}
-  ClassSpells: []
+  ClassSpells:
+  - {fileID: 11400000, guid: 156246bacbcd3d343a3a22310ca48f1a, type: 2}
   StartingEquipment:
   - {fileID: 4251580448335463900, guid: 788a3fbdc67837e4488467cedcd6c577, type: 3}
   - {fileID: 3713092360695952283, guid: cf1939d77ea3b0941af268afb0b686e7, type: 3}
   - {fileID: 4646043539179916852, guid: 18ae9792360184e4f91de006ee29beea, type: 3}
+  - {fileID: 0}

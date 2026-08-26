@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: EquipmentDatabase
   m_EditorClassIdentifier: 
   equipment:
+  - {fileID: 4251580448335463900, guid: 788a3fbdc67837e4488467cedcd6c577, type: 3}
+  - {fileID: 3713092360695952283, guid: cf1939d77ea3b0941af268afb0b686e7, type: 3}
+  - {fileID: 4646043539179916852, guid: 18ae9792360184e4f91de006ee29beea, type: 3}
   - {fileID: 8435493924597366058, guid: f2d51493e7df716408975de93ddb27f8, type: 3}
-  - {fileID: 2876239962352562192, guid: e4a6e501869054d428afdb9449268a57, type: 3}
-  - {fileID: 6313658867237682471, guid: 4d46cd60ecdf4a04f98f2a721f35f8fe, type: 3}
-  - {fileID: 2651259425135837003, guid: 0bffa56b051eb0d4794401be60fa170d, type: 3}
   - {fileID: 4161573146608416498, guid: 324d1bf3b32d2ba49ad199e41ff208cc, type: 3}
+  - {fileID: 6313658867237682471, guid: 4d46cd60ecdf4a04f98f2a721f35f8fe, type: 3}
+  - {fileID: 2876239962352562192, guid: e4a6e501869054d428afdb9449268a57, type: 3}
   - {fileID: 3019813795083459405, guid: fb3a14b49c078d64ba4149486cbf3297, type: 3}
+  - {fileID: 2651259425135837003, guid: 0bffa56b051eb0d4794401be60fa170d, type: 3}
   - {fileID: 6940672784397818861, guid: d1413ea531e10b74d9da56ff8a4d205b, type: 3}
-  - {fileID: 8435493924597366058, guid: f2d51493e7df716408975de93ddb27f8, type: 3}

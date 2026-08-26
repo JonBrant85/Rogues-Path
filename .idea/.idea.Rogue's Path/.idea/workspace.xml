@@ -5,24 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Assassin's Armor.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Assassin's Armor.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Assassin's Mask.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Assassin's Mask.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/AssassinArmor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/AssassinArmor.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/AssassinMask.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/AssassinMask.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/Dagger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/Dagger.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentPartMask.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentPartMask.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/EquipmentPartExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/EquipmentPartExtensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/HeroEditor4D/Common/Scripts/Enums/EquipmentPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HeroEditor4D/Common/Scripts/Enums/EquipmentPart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Databases/EquipmentDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Databases/EquipmentDatabase.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/PawnData/Players/Wizard.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/PawnData/Players/Wizard.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Equipment_6326d74e-5f2c-4259-b413-d176011af60d.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Equipment_6326d74e-5f2c-4259-b413-d176011af60d.collect" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Assassin's Mask.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Assassin's Mask.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Dagger.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Dagger.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UIEquipmentReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UIEquipmentReceiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Character).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Character).prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +183,7 @@
       <workItem from="1787522763975" duration="188000" />
       <workItem from="1787602570706" duration="8764000" />
       <workItem from="1787681783306" duration="6721000" />
-      <workItem from="1787769208752" duration="4994000" />
+      <workItem from="1787769208752" duration="7664000" />
     </task>
     <servers />
   </component>

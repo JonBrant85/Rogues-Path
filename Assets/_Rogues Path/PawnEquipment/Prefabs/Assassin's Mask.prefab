@@ -45,29 +45,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 03010b00000053007000720069007400650043006f006c006f0072002f000000000148000000530079007300740065006d002e004e0075006c006c00610062006c006500600031005b005b0055006e0069007400790045006e00670069006e0065002e0043006f006c006f0072002c00200055006e0069007400790045006e00670069006e0065002e0043006f00720065004d006f00640075006c0065005d005d002c0020006d00730063006f0072006c00690062002e05
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: SpriteColor
+      Entry: 7
+      Data: System.Nullable`1[[UnityEngine.Color, UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   Name: 
   Description: Default Description
   FlavorText: Something interesting and profound about the item here
   ItemSprite:
-    Name: 
-    Id: 
-    Edition: 
-    Collection: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
+    Name: SkullBanditOutfit
+    Id: FantasyHeroes.Basic.Armor.SkullBanditOutfit
+    Edition: FantasyHeroes
+    Collection: Basic
+    Path: Assets/HeroEditor4D/FantasyHeroes/Sprites/Equipment/Armor/Basic/SkullBanditOutfit.png
+    Sprite: {fileID: 21300040, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    Sprites:
+    - {fileID: 21300040, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300044, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300042, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300074, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300020, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300072, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300008, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300036, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300046, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300048, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300030, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300026, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300028, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300006, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300068, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300024, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300060, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300032, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300018, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300070, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300058, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300050, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300052, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300084, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300010, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300016, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300038, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300056, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300054, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
+    - {fileID: 21300082, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
     Tags: []
     Meta: 
   Icon: {fileID: 0}
   Quality: 0
-  EquipType: 0
+  EquipType: 1
   Owner: {fileID: 0}
   Modifiers: []

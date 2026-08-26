@@ -1,4 +1,5 @@
 using _Rogues_Path.UI.Slots;
+using _Rogues_Path.Utilities;
 using DuloGames.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -48,7 +49,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
             // Find a suitable slot for the given type
             foreach (UIEquipmentSlot slot in slots) {
-                if (slot.enabled && slot.gameObject.activeSelf && slot.EquipType == type)
+                if (slot.enabled && slot.gameObject.activeSelf && slot.AcceptedEquipTypes.Accepts(type))
                     return slot;
             }
 

@@ -45,29 +45,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 03010b00000053007000720069007400650043006f006c006f0072002f000000000148000000530079007300740065006d002e004e0075006c006c00610062006c006500600031005b005b0055006e0069007400790045006e00670069006e0065002e0043006f006c006f0072002c00200055006e0069007400790045006e00670069006e0065002e0043006f00720065004d006f00640075006c0065005d005d002c0020006d00730063006f0072006c00690062002e05
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: SpriteColor
+      Entry: 7
+      Data: System.Nullable`1[[UnityEngine.Color, UnityEngine.CoreModule]], mscorlib
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   Name: Dagger
   Description: Initiate dagger
   FlavorText: Pointy end toward the enemy
   ItemSprite:
-    Name: 
-    Id: 
-    Edition: 
-    Collection: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
+    Name: EnhancedDagger
+    Id: FantasyHeroes.Basic.MeleeWeapon1H.EnhancedDagger
+    Edition: FantasyHeroes
+    Collection: Basic
+    Path: Assets/HeroEditor4D/FantasyHeroes/Sprites/Equipment/MeleeWeapon1H/Basic/Dagger/EnhancedDagger.png
+    Sprite: {fileID: 21300000, guid: 598c67fa788aba445ba54ce08ea8d976, type: 3}
+    Sprites:
+    - {fileID: 21300000, guid: 598c67fa788aba445ba54ce08ea8d976, type: 3}
     Tags: []
     Meta: 
   Icon: {fileID: 0}
   Quality: 0
-  EquipType: 0
+  EquipType: 5
   Owner: {fileID: 0}
   Modifiers: []

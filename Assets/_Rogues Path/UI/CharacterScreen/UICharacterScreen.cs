@@ -112,66 +112,39 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
 
             void SetupEquipmentSlots() {
+
                 foreach (var kvp in EquipmentSlots) {
                     UIEquipmentSlot slot = kvp.Value;
 
                     slot.Owner = pawnPreview;
 
-                    if (pawnPreview.CurrentEquipment.TryGetValue(slot.EquipType, out EquipmentBase liveEquipment)) {
-                        bool success = slot.Assign(liveEquipment);
+                    EquipmentBase matchingEquipment = null;
+
+                    foreach (var equipmentKvp in pawnPreview.CurrentEquipment) {
+                        Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart equipType = equipmentKvp.Key;
+
+                        if (!slot.AcceptedEquipTypes.Accepts(equipType))
+                            continue;
+
+                        matchingEquipment = equipmentKvp.Value;
+                        break;
                     }
-                }
 
-                foreach (var kvp in EquipmentSlots) {
-                    UIEquipmentSlot slot = kvp.Value;
-
-                    slot.Owner = pawnPreview;
-
-                    /*
-                     * CurrentEquipment contains the fresh LIVE objects we
-                     * just restored.
-                     *
-                     * Assigning that exact live instance will cause the new
-                     * UIEquipmentSlot implementation to simply BIND to it.
-                     *
-                     * It will NOT equip it again.
-                     */
-                    if (pawnPreview.CurrentEquipment.TryGetValue(kvp.Key, out EquipmentBase liveEquipment)) {
-
-                        if (!slot.Assign(liveEquipment)) {
-                            Debug.LogError($"Failed to bind {liveEquipment.Name} " + $"to UI slot {kvp.Key}.");
+                    if (matchingEquipment != null) {
+                        if (!slot.Assign(matchingEquipment)) {
+                            Debug.LogError($"Failed to bind {matchingEquipment.Name} " + $"to UI slot {slot.name}.");
                         }
                     }
 
-                    /*
-                     * Gameplay state is now handled by Pawn.TryEquip() /
-                     * TryRemoveEquipment().
-                     *
-                     * These events should NOT mutate PlayerEquipment again.
-                     */
                     slot.OnAssignEvent.AddListener(OnAssignEventHandler);
-
                     slot.OnUnassignEvent.AddListener(OnUnassignEventHandler);
                 }
 
-
                 void OnAssignEventHandler(Pawn owner, EquipmentBase equipment) {
-
-                    /*
-                     * By the time this event fires, Pawn has already
-                     * committed the gameplay transaction.
-                     *
-                     * Just notify other UI.
-                     */
                     EventBus.Raise(new InventoryChanged());
                 }
 
-
                 void OnUnassignEventHandler(Pawn owner, EquipmentBase equipment) {
-
-                    /*
-                     * Same here: don't touch Game.PlayerEquipment.
-                     */
                     EventBus.Raise(new InventoryChanged());
                 }
             }
