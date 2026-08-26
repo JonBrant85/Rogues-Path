@@ -21,38 +21,10 @@ namespace _Rogues_Path.UI.InventoryWindow {
 
         private void OnEnable() {
             EventBus.SubscribeTo<InventoryChanged>(InventoryChangedHandler);
-
-            // Update each Slot's OnAssign and OnUnassign
-            for (int i = 0; i < SlotsContainer.childCount; i++) {
-                var child = SlotsContainer.GetChild(i);
-
-                if (child.TryGetComponent(out UIEquipmentSlot slot)) {
-                    slot.OnAssignEvent.AddListener(OnAssignEventHandler);
-                    slot.OnUnassignEvent.AddListener(OnUnassignEventHandler);
-                }
-            }
-        }
-
-        private void OnAssignEventHandler(Pawn owner, EquipmentBase equipment) {
-            EventBus.Raise(new InventoryChanged());
-        }
-
-        private void OnUnassignEventHandler(Pawn owner, EquipmentBase equipment) {
-            EventBus.Raise(new InventoryChanged());
         }
 
         private void OnDisable() {
             EventBus.UnsubscribeFrom<InventoryChanged>(InventoryChangedHandler);
-
-            // Update each Slot's OnAssign and OnUnassign
-            for (int i = 0; i < SlotsContainer.childCount; i++) {
-                var child = SlotsContainer.GetChild(i);
-
-                if (child.TryGetComponent(out UIEquipmentSlot slot)) {
-                    slot.OnAssignEvent.RemoveListener(OnAssignEventHandler);
-                    slot.OnUnassignEvent.RemoveListener(OnUnassignEventHandler);
-                }
-            }
         }
 
         [Button]

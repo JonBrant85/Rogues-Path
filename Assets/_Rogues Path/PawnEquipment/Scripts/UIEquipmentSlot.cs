@@ -162,6 +162,7 @@ namespace _Rogues_Path.UI.Slots {
 
 
         public override bool Assign(UnityEngine.Object source) {
+            Debug.Log($"ASSIGN OVERRIDE | " + $"Target={name} | " + $"Source={source?.name ?? "NULL"} | " + $"SourceType={source?.GetType().Name ?? "NULL"}");
 
             if (source is not UIEquipmentSlot sourceSlot)
                 return false;
@@ -294,57 +295,32 @@ namespace _Rogues_Path.UI.Slots {
 
 
         private bool AssignFromSlot(UIEquipmentSlot sourceSlot) {
+            Debug.Log(
+                $"ASSIGN FROM SLOT | "
+                + $"{sourceSlot.name} -> {name} | "
+                + $"SourceEquipped={sourceSlot.EquipToOwnerOnAssign} | "
+                + $"TargetEquipped={EquipToOwnerOnAssign} | "
+                + $"TargetAssigned={IsAssigned()}");
 
             if (sourceSlot == null || sourceSlot.Equipment == null) {
-
                 return false;
             }
 
             if (sourceSlot == this)
                 return true;
 
-            if (!CheckEquipType(sourceSlot.Equipment)) {
+            bool sourceEquipped = sourceSlot.EquipToOwnerOnAssign;
+            bool targetEquipped = EquipToOwnerOnAssign;
 
+            // Only actual equipment slots restrict equipment type.
+            // Generic inventory slots accept all equipment.
+            if (targetEquipped && !CheckEquipType(sourceSlot.Equipment)) {
                 return false;
             }
-
-
-            /*
-             * =========================================================
-             * STATIC SOURCE
-             * =========================================================
-             *
-             * Static slots behave like templates.
-             * Never clear them after assignment.
-             */
 
             if (sourceSlot.isStatic) {
                 return AssignDirect(sourceSlot.Equipment, sourceSlot);
             }
-
-
-            /*
-             * Occupied target = swap.
-             */
-            // if (IsAssigned()) {
-            //     return sourceSlot.PerformSlotSwap(this);
-            // }
-            
-
-
-            bool sourceEquipped = sourceSlot.EquipToOwnerOnAssign;
-
-            bool targetEquipped = EquipToOwnerOnAssign;
-
-
-            /*
-             * =========================================================
-             * INVENTORY -> INVENTORY
-             * =========================================================
-             *
-             * Database reference moves visually.
-             * Gameplay state does not change.
-             */
 
             if (!sourceEquipped && !targetEquipped) {
 
@@ -715,6 +691,49 @@ namespace _Rogues_Path.UI.Slots {
             return Equipment != null;
         }
 
+
+        public override void OnBeginDrag(PointerEventData eventData) {
+            Debug.Log(
+                $"BEGIN DRAG | "
+                + $"Slot={name} | "
+                + $"Enabled={enabled} | "
+                + $"Assigned={IsAssigned()} | "
+                + $"DragEnabled={dragAndDropEnabled} | "
+                + $"Static={isStatic} | "
+                + $"Modifier={dragKeyModifier} | "
+                + $"Equipment={(Equipment != null ? Equipment.Name : "NULL")}");
+
+            base.OnBeginDrag(eventData);
+        }
+
+        public override void OnDrop(PointerEventData eventData) {
+
+            UIEquipmentSlot sourceSlot = eventData.pointerPress != null ? eventData.pointerPress.GetComponent<UIEquipmentSlot>() : null;
+
+            if (sourceSlot == null)
+                return;
+
+            if (sourceSlot == this)
+                return;
+
+            if (!sourceSlot.IsAssigned())
+                return;
+
+            if (!sourceSlot.dragAndDropEnabled || !dragAndDropEnabled)
+                return;
+
+            // Tell UISlotBase.OnEndDrag that the item was dropped
+            // onto a valid slot, so it doesn't try to throw it away.
+            sourceSlot.dropPreformed = true;
+
+            bool success = AssignFromSlot(sourceSlot);
+
+            Debug.Log($"EQUIPMENT DROP | " + $"{sourceSlot.name} -> {name} | " + $"Success={success}");
+
+            if (!success) {
+                OnAssignBySlotFailed(sourceSlot);
+            }
+        }
 
         public override void OnPointerDown(PointerEventData eventData) {
 
