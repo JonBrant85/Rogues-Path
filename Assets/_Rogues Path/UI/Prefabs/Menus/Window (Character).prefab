@@ -19766,7 +19766,7 @@ MonoBehaviour:
   CharacterNameText: {fileID: 8032656257644931746}
   CharacterClassText: {fileID: 3997250435829264066}
   PawnPreviewCamera: {fileID: 8713376270457508650}
-  Window: {fileID: 0}
+  Window: {fileID: 2907457598616377738}
   EquipmentSlots:
     keyValueData:
     - key: 0
@@ -19782,6 +19782,7 @@ MonoBehaviour:
   stats:
     keyValueData: []
   pawnPreview: {fileID: 0}
+  ModifierDatabase: {fileID: 11400000, guid: ec638b69b8c15c64d8a37c2304cf5f73, type: 2}
 --- !u!114 &2907457598616377738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30417,7 +30418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 0}
-  Equipment: {fileID: 3019813795083459405, guid: 0894203ef85d1db4cac3472284178b5d, type: 3}
+  Equipment: {fileID: 0}
 --- !u!1 &7578360047767930036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 811206620730326085, guid: 8aedf3bbabd630d478c83440ee58ea05, type: 3}

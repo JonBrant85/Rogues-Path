@@ -35,10 +35,16 @@ namespace _Rogues_Path.UI.InventoryWindow {
 
         private void FillSlotsWithInventory() {
             for (int i = 0; i < SlotsContainer.childCount && i < Game.Instance.PlayerInventory.Count; i++) {
+                var instanceData = Game.Instance.PlayerInventory[i];
+
+                if (instanceData == null)
+                    continue;
+
                 var child = SlotsContainer.GetChild(i);
 
                 if (child.TryGetComponent(out UIEquipmentSlot slot)) {
-                    if (EquipmentDatabase.TryGetByID(Game.Instance.PlayerInventory[i], out EquipmentBase equipment)) {
+                    if (EquipmentDatabase.TryGetByID(instanceData.EquipmentID, out EquipmentBase equipment)) {
+
                         slot.Assign(equipment);
                     }
                 }

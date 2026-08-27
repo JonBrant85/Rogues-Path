@@ -5,44 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/CraftingDebug.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/CraftingDebug.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/CraftingSystem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/CraftingSystem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers/EquipmentModifierDefinition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers/EquipmentModifierDefinition.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers/EquipmentModifiersDatabase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers/EquipmentModifiersDatabase.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers/RolledEquipmentModifier.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers/RolledEquipmentModifier.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/EquipmentModifierDatabase.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/EquipmentModifierDatabase.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers/Minor Dexterity.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers/Minor Dexterity.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers/Minor Health.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers/Minor Health.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers/Minor Intelligence.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers/Minor Intelligence.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers/Minor Strength.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Modifiers/Minor Strength.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/OrbDatabase.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/OrbDatabase.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentInstanceData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentInstanceData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/OrbDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/OrbDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/Orb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/Orb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/EquipmentDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Assassin.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UnitySerializedDictionary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UnitySerializedDictionary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnEquipment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnEquipment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/InventoryWindow/UIInventoryWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/InventoryWindow/UIInventoryWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -211,7 +180,7 @@
       <workItem from="1787602570706" duration="8764000" />
       <workItem from="1787681783306" duration="6721000" />
       <workItem from="1787769208752" duration="8329000" />
-      <workItem from="1787855670983" duration="10244000" />
+      <workItem from="1787855670983" duration="11546000" />
     </task>
     <servers />
   </component>
@@ -255,13 +224,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/_Rogues Path/UI/RewardsScreen/UIRewardsScreen.cs</url>
-          <line>26</line>
+          <line>27</line>
           <properties documentPath="H:\Rogue's Path\Assets\_Rogues Path\UI\RewardsScreen\UIRewardsScreen.cs" initialLine="26" containingFunctionPresentation="method 'Awake'">
             <startOffsets>
-              <option value="1081" />
+              <option value="1110" />
             </startOffsets>
             <endOffsets>
-              <option value="1082" />
+              <option value="1111" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />

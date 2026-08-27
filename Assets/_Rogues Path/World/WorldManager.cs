@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns.Scripts;
@@ -13,8 +11,7 @@ using Michsky.UI.MTP;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
-using Quaternion = UnityEngine.Quaternion;
-using Random = System.Random;
+using _Rogues_Path.Crafting;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
@@ -35,27 +32,30 @@ namespace _Rogues_Path.World {
         [FoldoutGroup("References"), SerializeField] private Die DiePrefab;
         [FoldoutGroup("References"), SerializeField] private Button MoveButton;
         [FoldoutGroup("References"), SerializeField] private StyleManager DiceRollAnnouncer;
-
+        [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
         [FoldoutGroup("Debug"), SerializeField] private Pawn PlayerPawn;
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
+
 
         private void Awake() {
             // Initialize player with equipment
             PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, StartingTile.PawnContainer);
+
             PlayerPawn.Character.SetDirection(Vector2.down);
 
             PlayerPawn.SyncInventoryFromGameState();
 
             foreach (var kvp in Game.Instance.PlayerEquipment) {
-                if (!EquipmentDatabase.TryCreateInstance(kvp.Value, out EquipmentBase liveEquipment, PlayerPawn.transform)) {
+                EquipmentInstanceData instanceData = kvp.Value;
 
-                    Debug.LogError($"Failed to create equipment instance for ID {kvp.Value}");
+                if (!EquipmentDatabase.TryCreateInstance(instanceData, ModifierDatabase, out EquipmentBase liveEquipment, PlayerPawn.transform)) {
+
+                    Debug.LogError($"Failed to create equipment instance for ID " + $"{instanceData.EquipmentID}");
 
                     continue;
                 }
 
                 if (!PlayerPawn.TryEquip(liveEquipment, false)) {
-
                     Debug.LogError($"Failed to restore {PlayerPawn.CharacterName} " + $"with {liveEquipment.Name}");
 
                     Destroy(liveEquipment.gameObject);

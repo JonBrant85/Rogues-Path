@@ -163,7 +163,8 @@ MonoBehaviour:
   DiePrefab: {fileID: 4253064422868852640, guid: 62d0c3fc13cf78e418f218ed701df701, type: 3}
   MoveButton: {fileID: 1305546033}
   DiceRollAnnouncer: {fileID: 719807642}
-  PlayerPawn: {fileID: 1137167406}
+  ModifierDatabase: {fileID: 11400000, guid: ec638b69b8c15c64d8a37c2304cf5f73, type: 2}
+  PlayerPawn: {fileID: 0}
   currentTile: {fileID: 277949008}
 --- !u!4 &47461733
 Transform:
@@ -1525,17 +1526,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1742aabf290cf5409ed64a95c764723, type: 3}
---- !u!114 &1137167406 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8994537132649015339, guid: c1742aabf290cf5409ed64a95c764723, type: 3}
-  m_PrefabInstance: {fileID: 1137167405}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9bf62f47556494d907c6f7d06a5b4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1236420993
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -157,6 +157,8 @@ namespace _Rogues_Path.Equipment.Scripts {
                 equipment.Modifiers.Add(modifier);
             }
 
+            equipment.InstanceData = instanceData;
+
             return true;
         }
 

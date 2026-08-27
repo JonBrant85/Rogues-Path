@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Rogues_Path._Game;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
@@ -14,35 +15,35 @@ namespace _Rogues_Path.Pawns.Scripts {
         [SerializeField]
         private EquipmentDictionary currentEquipment = new();
 
-
-        #region Inventory
         public List<EquipmentBase> Inventory = new();
         public int InventorySpaces = 2;
 
-
         /// <summary>
         /// Rebuilds the Pawn's local inventory mirror from the
-        /// authoritative Game.PlayerInventory IDs.
+        /// authoritative Game.PlayerInventory instance data.
         /// </summary>
         public void SyncInventoryFromGameState() {
             Inventory.Clear();
 
-            foreach (int ID in Game.Instance.PlayerInventory) {
-                if (EquipmentDatabase.TryGetByID(ID, out EquipmentBase dbEquipment)) {
+            foreach (EquipmentInstanceData instanceData in Game.Instance.PlayerInventory) {
+                if (instanceData == null)
+                    continue;
+
+                if (EquipmentDatabase.TryGetByID(instanceData.EquipmentID, out EquipmentBase dbEquipment)) {
 
                     Inventory.Add(dbEquipment);
                 }
                 else {
-                    Debug.LogError($"Failed to restore inventory equipment ID {ID}.");
+                    Debug.LogError($"Failed to restore inventory equipment ID " + $"{instanceData.EquipmentID}.");
                 }
             }
         }
-
 
         public bool TryAddToInventory(EquipmentBase equipment, bool modifyGameState = true) {
 
             if (equipment == null) {
                 Debug.LogError("Equipment null!");
+
                 return false;
             }
 
@@ -58,31 +59,34 @@ namespace _Rogues_Path.Pawns.Scripts {
                 return false;
             }
 
-            /*
-             * Game.PlayerInventory is authoritative.
-             */
             if (modifyGameState) {
                 if (Game.Instance.PlayerInventory.Count >= InventorySpaces) {
-
                     Debug.Log("Inventory full!");
+
                     return false;
                 }
 
-                Game.Instance.PlayerInventory.Add(equipmentID);
+                EquipmentInstanceData instanceData = equipment.InstanceData;
+
+                if (instanceData == null) {
+                    instanceData = new EquipmentInstanceData(equipmentID);
+                }
+                else if (instanceData.EquipmentID != equipmentID) {
+                    Debug.LogError($"EquipmentInstanceData mismatch for {equipment.Name}. " + $"InstanceData ID={instanceData.EquipmentID}, " + $"Database ID={equipmentID}.");
+
+                    return false;
+                }
+
+                Game.Instance.PlayerInventory.Add(instanceData);
 
                 SyncInventoryFromGameState();
 
                 return true;
             }
 
-            /*
-             * Local-only operation.
-             *
-             * Useful while constructing a Pawn from already-existing
-             * Game state.
-             */
             if (Inventory.Count >= InventorySpaces) {
                 Debug.Log("Inventory full!");
+
                 return false;
             }
 
@@ -90,7 +94,6 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             return true;
         }
-
 
         public bool TryRemoveFromInventory(EquipmentBase equipment, bool modifyGameState = true) {
 
@@ -109,11 +112,14 @@ namespace _Rogues_Path.Pawns.Scripts {
                 return false;
             }
 
-            /*
-             * Game state is authoritative.
-             */
             if (modifyGameState) {
-                if (!Game.Instance.PlayerInventory.Remove(equipmentID)) {
+                EquipmentInstanceData instanceData = equipment.InstanceData;
+
+                if (instanceData == null) {
+                    instanceData = Game.Instance.PlayerInventory.FirstOrDefault(x => x != null && x.EquipmentID == equipmentID);
+                }
+
+                if (instanceData == null || !Game.Instance.PlayerInventory.Remove(instanceData)) {
 
                     Debug.Log($"PlayerInventory doesn't contain {equipment.Name}.");
 
@@ -125,10 +131,6 @@ namespace _Rogues_Path.Pawns.Scripts {
                 return true;
             }
 
-            /*
-             * Local inventory contains DB references,
-             * so reference-based removal is valid here.
-             */
             if (!Inventory.Remove(dbEquipment)) {
                 Debug.Log($"Inventory doesn't contain {equipment.Name}.");
 
@@ -137,36 +139,36 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             return true;
         }
-        #endregion
 
-
-        #region Equipment
         public bool TryEquip(EquipmentBase equipment, bool modifyGameState = true) {
+
             if (equipment == null) {
                 Debug.LogError("Attempted to equip null equipment.");
+
                 return false;
             }
 
-            /*
-             * Database templates must NEVER become live equipment.
-             */
             if (EquipmentDatabase.IsDatabaseEntry(equipment)) {
                 Debug.LogError($"Attempted to equip database template " + $"{equipment.Name} directly. " + $"Create a live instance with EquipmentDatabase first.");
+
                 return false;
             }
 
             if (!EquipmentDatabase.TryFind(equipment, out EquipmentBase dbEquipment)) {
 
                 Debug.LogError($"Failed to find {equipment.Name} in EquipmentDatabase.");
+
                 return false;
             }
 
             if (!EquipmentDatabase.TryGetID(dbEquipment, out int newEquipmentID)) {
+
                 return false;
             }
 
             if (equipment.EquipType != dbEquipment.EquipType) {
-                Debug.LogError($"Equipment type mismatch for {equipment.Name}. " + $"Live = {equipment.EquipType}, " + $"Database = {dbEquipment.EquipType}.");
+                Debug.LogError($"Equipment type mismatch for {equipment.Name}. " + $"Live={equipment.EquipType}, " + $"Database={dbEquipment.EquipType}.");
+
                 return false;
             }
 
@@ -174,121 +176,85 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             currentEquipment.TryGetValue(equipType, out EquipmentBase currentLiveEquipment);
 
-            if (currentLiveEquipment == equipment) {
+            if (currentLiveEquipment == equipment)
                 return true;
+
+            EquipmentInstanceData newInstanceData = equipment.InstanceData;
+
+            if (newInstanceData == null) {
+                newInstanceData = new EquipmentInstanceData(newEquipmentID);
+                equipment.InstanceData = newInstanceData;
+            }
+            else if (newInstanceData.EquipmentID != newEquipmentID) {
+                Debug.LogError($"EquipmentInstanceData mismatch for {equipment.Name}. " + $"InstanceData ID={newInstanceData.EquipmentID}, " + $"Database ID={newEquipmentID}.");
+
+                return false;
             }
 
-
-            int oldEquipmentID = -1;
+            EquipmentInstanceData oldInstanceData = null;
             bool gameHasOldEquipment = false;
 
-            /*
-             * =========================================================
-             * AUTHORITATIVE GAME-STATE TRANSACTION
-             * =========================================================
-             */
-
             if (modifyGameState) {
-                gameHasOldEquipment = Game.Instance.PlayerEquipment.TryGetValue(equipType, out oldEquipmentID);
+                gameHasOldEquipment = Game.Instance.PlayerEquipment.TryGetValue(equipType, out oldInstanceData);
 
-                bool incomingIsInInventory = Game.Instance.PlayerInventory.Contains(newEquipmentID);
+                bool incomingIsInInventory = Game.Instance.PlayerInventory.Contains(newInstanceData);
 
-                /*
-                 * Calculate inventory count AFTER the transaction.
-                 *
-                 * If the incoming item came from inventory:
-                 *     -1
-                 *
-                 * If we're replacing equipped equipment:
-                 *     +1
-                 */
                 int projectedInventoryCount = Game.Instance.PlayerInventory.Count;
 
-                if (incomingIsInInventory) {
+                if (incomingIsInInventory)
                     projectedInventoryCount--;
-                }
 
-                if (gameHasOldEquipment) {
+                if (gameHasOldEquipment)
                     projectedInventoryCount++;
-                }
 
                 if (projectedInventoryCount > InventorySpaces) {
                     Debug.Log($"Cannot equip {equipment.Name}: " + $"inventory would become " + $"{projectedInventoryCount}/{InventorySpaces}.");
+
                     return false;
                 }
 
-                /*
-                 * Commit authoritative inventory state.
-                 */
                 if (incomingIsInInventory) {
-                    Game.Instance.PlayerInventory.Remove(newEquipmentID);
+                    Game.Instance.PlayerInventory.Remove(newInstanceData);
                 }
 
-                if (gameHasOldEquipment) {
-                    Game.Instance.PlayerInventory.Add(oldEquipmentID);
+                if (gameHasOldEquipment && oldInstanceData != null) {
+                    Game.Instance.PlayerInventory.Add(oldInstanceData);
                 }
 
-                /*
-                 * Commit authoritative equipment state.
-                 */
-                Game.Instance.PlayerEquipment.Remove(equipType);
+                Game.Instance.PlayerEquipment[equipType] = newInstanceData;
 
-                Game.Instance.PlayerEquipment.Add(equipType, newEquipmentID);
-
-                /*
-                 * Rebuild the local/template mirror from the now-correct
-                 * authoritative inventory state.
-                 */
                 SyncInventoryFromGameState();
             }
 
-
-            /*
-             * =========================================================
-             * REMOVE OLD LIVE REPRESENTATION
-             * =========================================================
-             */
-
             if (currentLiveEquipment != null) {
-                if (EquipmentDatabase.TryGetID(currentLiveEquipment, out int currentLiveID) && modifyGameState && gameHasOldEquipment && currentLiveID != oldEquipmentID) {
+                if (modifyGameState
+                    && gameHasOldEquipment
+                    && oldInstanceData != null
+                    && currentLiveEquipment.InstanceData != null
+                    && !ReferenceEquals(currentLiveEquipment.InstanceData, oldInstanceData)) {
 
                     Debug.LogWarning(
                         $"Runtime equipment mismatch for {equipType}. "
-                        + $"Game state says ID {oldEquipmentID}, "
-                        + $"runtime object is ID {currentLiveID}. "
+                        + $"Game state and runtime equipment reference "
+                        + $"different EquipmentInstanceData objects. "
                         + $"Game state is being treated as authoritative.");
                 }
 
                 RemoveLiveEquipment(currentLiveEquipment);
             }
 
-
-            /*
-             * =========================================================
-             * MATERIALIZE NEW RUNTIME REPRESENTATION
-             * =========================================================
-             */
-
-            /*
-             * Ensure it cannot receive events until its runtime state
-             * is fully configured.
-             */
             equipment.gameObject.SetActive(false);
 
             equipment.Owner = this;
+            equipment.InstanceData = newInstanceData;
 
             currentEquipment.Remove(equipType);
-
             currentEquipment.Add(equipType, equipment);
 
             Character.Equip(equipment.ItemSprite, equipment.EquipType, equipment.SpriteColor);
 
             equipment.ApplyModifiers(equipment.Modifiers, this);
 
-            /*
-             * Last step:
-             * enable event participation.
-             */
             equipment.gameObject.SetActive(true);
 
             EventBus.Raise(
@@ -301,7 +267,6 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             return true;
         }
-
 
         public bool TryRemoveEquipment(EquipmentBase equipment, bool modifyGameState = true) {
 
@@ -319,12 +284,6 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             EquipmentPart equipType = equipment.EquipType;
 
-            /*
-             * The game state tells us WHAT should be equipped.
-             *
-             * currentEquipment tells us WHICH live object currently
-             * represents it in this scene.
-             */
             if (!currentEquipment.TryGetValue(equipType, out EquipmentBase currentLiveEquipment)) {
 
                 Debug.Log($"No live {equipType} equipment exists on " + $"{CharacterName}.");
@@ -338,15 +297,8 @@ namespace _Rogues_Path.Pawns.Scripts {
                 return false;
             }
 
-
-            /*
-             * =========================================================
-             * AUTHORITATIVE GAME-STATE TRANSACTION
-             * =========================================================
-             */
-
             if (modifyGameState) {
-                if (!Game.Instance.PlayerEquipment.TryGetValue(equipType, out int equippedID)) {
+                if (!Game.Instance.PlayerEquipment.TryGetValue(equipType, out EquipmentInstanceData equippedInstanceData)) {
 
                     Debug.LogError(
                         $"Game.PlayerEquipment does not contain {equipType}. " + $"Runtime equipment exists, but authoritative " + $"game state says it is not equipped.");
@@ -355,23 +307,23 @@ namespace _Rogues_Path.Pawns.Scripts {
                 }
 
                 if (Game.Instance.PlayerInventory.Count >= InventorySpaces) {
-
                     Debug.Log($"Cannot unequip {equipment.Name}: inventory full.");
 
                     return false;
                 }
 
+                if (equipment.InstanceData != null && !ReferenceEquals(equipment.InstanceData, equippedInstanceData)) {
+
+                    Debug.LogWarning($"Runtime equipment mismatch for {equipment.Name}. " + $"Game state is being treated as authoritative.");
+                }
+
                 Game.Instance.PlayerEquipment.Remove(equipType);
 
-                Game.Instance.PlayerInventory.Add(equippedID);
+                Game.Instance.PlayerInventory.Add(equippedInstanceData);
 
                 SyncInventoryFromGameState();
             }
 
-
-            /*
-             * Remove runtime representation.
-             */
             RemoveLiveEquipment(currentLiveEquipment);
 
             EventBus.Raise(new PawnStatChanged());
@@ -379,15 +331,12 @@ namespace _Rogues_Path.Pawns.Scripts {
             return true;
         }
 
-
         private void RemoveLiveEquipment(EquipmentBase equipment) {
             if (equipment == null)
                 return;
 
-            bool isDatabaseEntry = EquipmentDatabase.IsDatabaseEntry(equipment);
-
-            if (isDatabaseEntry) {
-                Debug.LogError($"DATABASE EQUIPMENT REACHED RemoveLiveEquipment: " + $"{equipment.Name}");
+            if (EquipmentDatabase.IsDatabaseEntry(equipment)) {
+                Debug.LogError($"DATABASE EQUIPMENT REACHED " + $"{nameof(RemoveLiveEquipment)}: {equipment.Name}");
 
                 return;
             }
@@ -404,6 +353,5 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             Destroy(equipment.gameObject);
         }
-        #endregion
     }
 }

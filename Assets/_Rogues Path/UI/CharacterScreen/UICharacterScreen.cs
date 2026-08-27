@@ -1,4 +1,5 @@
 using _Rogues_Path._Game;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.UI.Slots;
@@ -25,7 +26,7 @@ namespace _Rogues_Path.UI.CharacterScreen {
         [SerializeField] private StatUIStat stats = new();
 
         [FoldoutGroup("Debug"), SerializeField] private Pawn pawnPreview;
-
+        [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
         private PawnData playerData;
 
         private void Update() {
@@ -86,11 +87,11 @@ namespace _Rogues_Path.UI.CharacterScreen {
                  */
                 foreach (var kvp in Game.Instance.PlayerEquipment) {
                     EquipmentPart equipType = (EquipmentPart)kvp.Key;
-                    int equipmentID = kvp.Value;
+                    EquipmentInstanceData instanceData = kvp.Value;
 
-                    if (!EquipmentDatabase.TryCreateInstance(equipmentID, out EquipmentBase liveEquipment, pawnPreview.transform)) {
+                    if (!EquipmentDatabase.TryCreateInstance(instanceData, ModifierDatabase, out EquipmentBase liveEquipment, pawnPreview.transform)) {
 
-                        Debug.LogError($"Failed to create live equipment for " + $"{equipType}, ID {equipmentID}.");
+                        Debug.LogError($"Failed to create live equipment for " + $"{equipType}, ID {instanceData.EquipmentID}.");
 
                         continue;
                     }
@@ -102,7 +103,6 @@ namespace _Rogues_Path.UI.CharacterScreen {
                      * We're reconstructing runtime state FROM them.
                      */
                     if (!pawnPreview.TryEquip(liveEquipment, false)) {
-
                         Debug.LogError($"Failed to restore {liveEquipment.Name} " + $"on {pawnPreview.CharacterName}.");
 
                         Destroy(liveEquipment.gameObject);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Rogues_Path._Game;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.UI.CharacterScreen;
@@ -36,20 +37,27 @@ namespace _Rogues_Path.UI.RewardsScreen {
 
             void AcceptButtonClicked() {
                 AcceptButton.interactable = false;
+
                 CollectRewards();
 
                 void CollectRewards() {
-                    foreach (var ID in Game.Instance.PendingRewards) {
-                        Game.Instance.PlayerInventory.Add(ID);
+                    foreach (int ID in Game.Instance.PendingRewards) {
+                        EquipmentInstanceData instanceData = new(ID);
+
+                        Game.Instance.PlayerInventory.Add(instanceData);
                     }
 
                     Game.Instance.PendingRewards.Clear();
+
                     EventBus.Raise(new InventoryChanged());
                 }
 
                 Hide();
+
                 UICharacterScreen.Show();
+
                 UIInventoryWindow.Show();
+
                 ContinueButton.gameObject.SetActive(true);
             }
 

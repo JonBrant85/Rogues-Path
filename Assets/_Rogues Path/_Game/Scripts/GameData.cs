@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Crafting._Rogues_Path.Crafting;
 using _Rogues_Path.Crafting.Orbs._Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
@@ -16,7 +17,7 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public PawnData PlayerData;
         [FoldoutGroup("Data")] public LevelData LevelData;
         [FoldoutGroup("Data")] public EquipmentPartInstanceDictionary PlayerEquipment = new();
-        [FoldoutGroup("Data")] public List<int> PlayerInventory = new();
+        [FoldoutGroup("Data")] public List<EquipmentInstanceData> PlayerInventory = new();
         [FoldoutGroup("Data")] public Dictionary<int, int> PlayerOrbs = new();
         [FoldoutGroup("Data")] public List<int> PendingRewards;
 
