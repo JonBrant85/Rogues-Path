@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.UI.CharacterScreen;
@@ -34,6 +35,8 @@ namespace _Rogues_Path.Equipment.Scripts {
 
         [FoldoutGroup("Debug")]
         public Pawn Owner;
+        [NonSerialized, FoldoutGroup("Debug")]
+        public EquipmentInstanceData InstanceData;
 
         public List<StatAndModifierPair> Modifiers;
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _Rogues_Path._Game;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Scripts;
@@ -23,6 +24,7 @@ namespace _Rogues_Path.Combat {
         [FoldoutGroup("References"), SerializeField] private Transform BackgroundContainer;
         [FoldoutGroup("References"), SerializeField] private Transform PlayerContainer;
         [FoldoutGroup("References"), SerializeField] private Transform EnemyContainer;
+        [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
 
         private void Start() {
             UIActionBar.Show();
@@ -58,18 +60,17 @@ namespace _Rogues_Path.Combat {
 
             Player.SyncInventoryFromGameState();
 
-            foreach (var kvp in Game.Instance.PlayerEquipment) {
-                if (!EquipmentDatabase.TryCreateInstance(kvp.Value, out EquipmentBase liveEquipment, Player.transform)) {
+            foreach (var pair in Game.Instance.PlayerEquipment) {
+                EquipmentInstanceData instanceData = pair.Value;
 
-                    Debug.LogError($"Failed to create equipment instance for ID {kvp.Value}");
+                if (!EquipmentDatabase.TryCreateInstance(instanceData, ModifierDatabase, out EquipmentBase liveEquipment, Player.transform)) {
+
+                    Debug.LogError($"Failed to create equipment instance for ID " + $"{instanceData.EquipmentID}.");
 
                     continue;
                 }
 
                 if (!Player.TryEquip(liveEquipment, false)) {
-
-                    Debug.LogError($"Failed to restore {Player.CharacterName} " + $"with {liveEquipment.Name}");
-
                     Destroy(liveEquipment.gameObject);
                 }
             }

@@ -450,6 +450,10 @@ namespace _Rogues_Path.UI.Slots {
         }
 
         public override void OnTooltip(bool show) {
+            if (show && Equipment != null) {
+                Debug.Log($"TOOLTIP | " + $"Equipment={Equipment.Name} | " + $"InstanceID={Equipment.GetInstanceID()} | " + $"Modifiers={Equipment.Modifiers.Count}");
+            }
+
             UITooltip.InstantiateIfNecessary(gameObject);
 
             if (IsAssigned()) {

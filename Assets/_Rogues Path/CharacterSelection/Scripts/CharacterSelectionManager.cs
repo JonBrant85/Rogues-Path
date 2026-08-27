@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _Rogues_Path._Game;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Utilities;
 using DuloGames.UI;
@@ -55,16 +56,12 @@ namespace _Rogues_Path.CharacterSelection {
             Game.Instance.PlayerEquipment.Clear();
             Game.Instance.PlayerInventory.Clear();
 
-            foreach (EquipmentBase equipment in Game.Instance.PlayerData.StartingEquipment) {
-
-                if (!EquipmentDatabase.TryGetID(equipment, out int ID)) {
-
-                    Debug.LogError($"Failed to find starting equipment " + $"{equipment.Name} in EquipmentDatabase.");
-
+            foreach (EquipmentBase equipment in Slots[SelectedIndex].PawnData.StartingEquipment) {
+                if (!EquipmentDatabase.TryGetID(equipment, out int equipmentID))
                     continue;
-                }
 
-                Game.Instance.PlayerEquipment[equipment.EquipType] = ID;
+                Game.Instance.PlayerEquipment[equipment.EquipType] =
+                    new EquipmentInstanceData(equipmentID);
             }
 
             Game.FireTrigger(Trigger.EnterWorld);

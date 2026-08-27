@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Rogues_Path._Game;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Utilities;
 using HeroEditor.Common.Enums;
+using Kryz.CharacterStats;
 using UnityEngine;
 
 namespace _Rogues_Path.Equipment.Scripts {
@@ -124,16 +126,38 @@ namespace _Rogues_Path.Equipment.Scripts {
 
 
         #region Instantiation
-        public static bool TryCreateInstance(int ID, out EquipmentBase instance, Transform parent = null) {
+        public static bool TryCreateInstance(EquipmentInstanceData instanceData, EquipmentModifierDatabase modifierDatabase, out EquipmentBase equipment, Transform parent = null) {
 
-            instance = null;
+            equipment = null;
 
-            if (!TryGetByID(ID, out EquipmentBase template)) {
+            if (instanceData == null || modifierDatabase == null)
+                return false;
+
+            if (!TryGetByID(instanceData.EquipmentID, out EquipmentBase databaseEquipment)) {
 
                 return false;
             }
 
-            return TryCreateInstanceFromTemplate(template, out instance, parent);
+            if (!TryCreateInstance(databaseEquipment, out equipment, parent)) {
+
+                return false;
+            }
+
+            foreach (RolledEquipmentModifier rolledModifier in instanceData.CraftedModifiers) {
+                if (!modifierDatabase.TryGetByID(rolledModifier.ModifierID, out EquipmentModifierDefinition definition)) {
+
+                    continue;
+                }
+
+                StatAndModifierPair modifier = new() {
+                    StatID = definition.StatID,
+                    Modifier = new StatModifier(rolledModifier.Value, definition.ModifierType)
+                };
+
+                equipment.Modifiers.Add(modifier);
+            }
+
+            return true;
         }
 
         public static bool TryCreateInstance(EquipmentBase equipment, out EquipmentBase instance, Transform parent = null) {
