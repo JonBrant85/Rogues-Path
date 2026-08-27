@@ -4788,7 +4788,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AcceptsAnyEquipType: 0
-  EquipType: 0
+  AcceptedEquipTypes: 0
   Owner: {fileID: 0}
   Equipment: {fileID: 0}
 --- !u!1 &2537587206234021860 stripped

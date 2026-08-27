@@ -2,9 +2,9 @@ using System.Text;
 using _Rogues_Path._Game;
 using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
+using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.UI.InventoryWindow;
 using _Rogues_Path.Utilities;
-using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -43,9 +43,8 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
         private void Awake() {
             CraftButton.onClick.AddListener(CraftButtonClicked);
-
-            ClearSelection();
-            RefreshOrb();
+            Game.Instance.AddOrb(AddModifierOrb, 10);
+            Refresh();
         }
 
         private void OnEnable() {
@@ -60,8 +59,7 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
             selectedEquipment = instanceData;
 
-            RefreshEquipment();
-            RefreshOrb();
+            Refresh();
         }
 
         private void CraftButtonClicked() {
@@ -74,31 +72,41 @@ namespace _Rogues_Path.UI.CraftingWindow {
             if (ModifierDatabase == null)
                 return;
 
-            if (!Game.Instance.TryConsumeOrb(AddModifierOrb))
+            if (Game.Instance.GetOrbCount(AddModifierOrb) <= 0)
                 return;
 
             if (!CraftingSystem.TryAddRandomModifier(selectedEquipment, ModifierDatabase)) {
 
-                Game.Instance.AddOrb(AddModifierOrb);
+                return;
+            }
+
+            if (!Game.Instance.TryConsumeOrb(AddModifierOrb)) {
+                Debug.LogError("Crafting succeeded but failed to consume orb.");
 
                 return;
             }
 
+            Refresh();
+        }
+
+        private void Refresh() {
             RefreshEquipment();
             RefreshOrb();
-
-            EventBus.Raise(new InventoryChanged());
         }
 
         private void RefreshEquipment() {
             if (selectedEquipment == null) {
-                ClearSelection();
+                EquipmentIcon.sprite = null;
+                EquipmentIcon.enabled = false;
+
+                EquipmentNameText.text = "Select Equipment";
+                ModifiersText.text = string.Empty;
+
                 return;
             }
 
             if (!EquipmentDatabase.TryGetByID(selectedEquipment.EquipmentID, out EquipmentBase databaseEquipment)) {
 
-                ClearSelection();
                 return;
             }
 
@@ -114,6 +122,11 @@ namespace _Rogues_Path.UI.CraftingWindow {
                 builder.AppendLine($"{modifier.StatID.name}: " + $"{modifier.Modifier.Value:N1}");
             }
 
+            if (selectedEquipment.CraftedModifiers.Count > 0) {
+                builder.AppendLine();
+                builder.AppendLine("CRAFTED");
+            }
+
             foreach (RolledEquipmentModifier rolledModifier in selectedEquipment.CraftedModifiers) {
 
                 if (!ModifierDatabase.TryGetByID(rolledModifier.ModifierID, out EquipmentModifierDefinition definition)) {
@@ -121,9 +134,7 @@ namespace _Rogues_Path.UI.CraftingWindow {
                     continue;
                 }
 
-                string modifierName = string.IsNullOrEmpty(definition.Name) ? definition.StatID.name : definition.Name;
-
-                builder.AppendLine($"{modifierName}: " + $"{rolledModifier.Value:N1}");
+                builder.AppendLine($"{definition.Name}: " + $"{rolledModifier.Value:N1}");
             }
 
             ModifiersText.text = builder.ToString();
@@ -150,24 +161,11 @@ namespace _Rogues_Path.UI.CraftingWindow {
             CraftButton.interactable = selectedEquipment != null && count > 0;
         }
 
-        private void ClearSelection() {
-            selectedEquipment = null;
-
-            EquipmentIcon.sprite = null;
-            EquipmentIcon.enabled = false;
-
-            EquipmentNameText.text = "Select Equipment";
-            ModifiersText.text = string.Empty;
-
-            CraftButton.interactable = false;
-        }
-
         public static void Show() {
             Instance.Window.Show();
-
             UIInventoryWindow.Show();
 
-            Instance.RefreshOrb();
+            Instance.Refresh();
         }
 
         public static void Hide() {
