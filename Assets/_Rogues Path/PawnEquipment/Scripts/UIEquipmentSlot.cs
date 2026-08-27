@@ -321,88 +321,76 @@ namespace _Rogues_Path.UI.Slots {
                 return AssignDirect(sourceSlot.Equipment, sourceSlot);
 
             return (sourceEquipped, targetEquipped) switch {
-                (false, false) => MoveInventoryToInventory(sourceSlot),
-                (false, true) => MoveInventoryToEquipped(sourceSlot),
-                (true, false) => MoveEquippedToInventory(sourceSlot),
-                (true, true) => MoveEquippedToEquipped(sourceSlot)
+                (false, false) => MoveInventoryToInventory(),
+                (false, true) => MoveInventoryToEquipped(),
+                (true, false) => MoveEquippedToInventory(),
+                (true, true) => MoveEquippedToEquipped()
             };
-        }
 
-        private bool MoveInventoryToInventory(UIEquipmentSlot sourceSlot) {
-            int sourceIndex = sourceSlot.transform.GetSiblingIndex();
-            int targetIndex = transform.GetSiblingIndex();
+            bool MoveInventoryToInventory() {
+                int sourceIndex = sourceSlot.transform.GetSiblingIndex();
+                int targetIndex = transform.GetSiblingIndex();
 
-            if (sourceIndex < 0 || sourceIndex >= Game.Instance.PlayerInventory.Count)
-                return false;
+                if (sourceIndex < 0 || sourceIndex >= Game.Instance.PlayerInventory.Count)
+                    return false;
 
-            if (targetIndex < 0 || targetIndex >= Game.Instance.PlayerInventory.Count)
-                return false;
+                if (targetIndex < 0 || targetIndex >= Game.Instance.PlayerInventory.Count)
+                    return false;
 
-            (Game.Instance.PlayerInventory[sourceIndex], Game.Instance.PlayerInventory[targetIndex]) =
-                (Game.Instance.PlayerInventory[targetIndex], Game.Instance.PlayerInventory[sourceIndex]);
+                (Game.Instance.PlayerInventory[sourceIndex], Game.Instance.PlayerInventory[targetIndex]) =
+                    (Game.Instance.PlayerInventory[targetIndex], Game.Instance.PlayerInventory[sourceIndex]);
 
-            EventBus.Raise(new InventoryChanged());
-
-            return true;
-        }
-
-        private bool MoveInventoryToEquipped(UIEquipmentSlot sourceSlot) {
-            if (Owner == null)
-                return false;
-
-            if (!EquipmentDatabase.TryCreateInstance(sourceSlot.Equipment, out EquipmentBase liveEquipment, Owner.transform)) {
-
-                return false;
+                EventBus.Raise(new InventoryChanged());
+                return true;
             }
 
-            if (!Owner.TryEquip(liveEquipment, true)) {
-                Destroy(liveEquipment.gameObject);
+            bool MoveInventoryToEquipped() {
+                if (Owner == null)
+                    return false;
 
-                return false;
+                if (!EquipmentDatabase.TryCreateInstance(sourceSlot.Equipment, out EquipmentBase liveEquipment, Owner.transform)) {
+                    return false;
+                }
+
+                if (!Owner.TryEquip(liveEquipment, true)) {
+                    Destroy(liveEquipment.gameObject);
+                    return false;
+                }
+
+                sourceSlot.ClearReferenceOnly(false);
+                BindLiveReference(liveEquipment, sourceSlot);
+                return true;
             }
 
-            sourceSlot.ClearReferenceOnly(false);
+            bool MoveEquippedToInventory() {
+                if (sourceSlot.Owner == null)
+                    return false;
 
-            BindLiveReference(liveEquipment, sourceSlot);
+                EquipmentBase liveEquipment = sourceSlot.Equipment;
 
-            return true;
-        }
+                if (!EquipmentDatabase.TryFind(liveEquipment, out EquipmentBase dbEquipment))
+                    return false;
 
-        private bool MoveEquippedToInventory(UIEquipmentSlot sourceSlot) {
-            if (sourceSlot.Owner == null)
-                return false;
+                if (!sourceSlot.Owner.TryRemoveEquipment(liveEquipment, true))
+                    return false;
 
-            EquipmentBase liveEquipment = sourceSlot.Equipment;
-
-            if (!EquipmentDatabase.TryFind(liveEquipment, out EquipmentBase dbEquipment))
-                return false;
-
-            if (!sourceSlot.Owner.TryRemoveEquipment(liveEquipment, true))
-                return false;
-
-            BindDatabaseReference(dbEquipment, sourceSlot);
-
-            sourceSlot.ClearReferenceOnly(false);
-
-            EventBus.Raise(new InventoryChanged());
-
-            return true;
-        }
-
-        private bool MoveEquippedToEquipped(UIEquipmentSlot sourceSlot) {
-            if (sourceSlot.Owner != Owner) {
-                Debug.LogWarning("Cross-Pawn equipped-item transfer is not supported.");
-
-                return false;
+                BindDatabaseReference(dbEquipment, sourceSlot);
+                sourceSlot.ClearReferenceOnly(false);
+                EventBus.Raise(new InventoryChanged());
+                return true;
             }
 
-            EquipmentBase liveEquipment = sourceSlot.Equipment;
+            bool MoveEquippedToEquipped() {
+                if (sourceSlot.Owner != Owner) {
+                    Debug.LogWarning("Cross-Pawn equipped-item transfer is not supported.");
+                    return false;
+                }
 
-            BindLiveReference(liveEquipment, sourceSlot);
-
-            sourceSlot.ClearReferenceOnly(false);
-
-            return true;
+                EquipmentBase liveEquipment = sourceSlot.Equipment;
+                BindLiveReference(liveEquipment, sourceSlot);
+                sourceSlot.ClearReferenceOnly(false);
+                return true;
+            }
         }
 
         public override void Unassign() {
