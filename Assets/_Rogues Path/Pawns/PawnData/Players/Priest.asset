@@ -17,4 +17,6 @@ MonoBehaviour:
   Pawn: {fileID: -7564804374485097505, guid: 6953410fedb10da489899f4adee1b9f3, type: 3}
   ClassSpells: []
   StartingEquipment:
-  - {fileID: 8435493924597366058, guid: f2d51493e7df716408975de93ddb27f8, type: 3}
+  - {fileID: 7155900795693132837, guid: 4e6eff27de811e54085791d3315815d7, type: 3}
+  - {fileID: 6795162852302816827, guid: 9689c7b82c0c22e4db4a130c197c2204, type: 3}
+  - {fileID: 8791142974607295191, guid: 29debd5fc5968704393c6c5adee74cb6, type: 3}
