@@ -44,12 +44,6 @@ namespace _Rogues_Path.World {
             PlayerPawn.Character.SetDirection(Vector2.down);
 
             PlayerPawn.SyncInventoryFromGameState();
-            Debug.Log(
-                $"WORLD EQUIPMENT RESTORE | "
-                + $"Scene={gameObject.scene.name} | "
-                + $"WorldManager={name} | "
-                + $"ModifierDatabase={(ModifierDatabase == null ? "NULL" : ModifierDatabase.name)} | "
-                + $"EquipmentCount={Game.Instance.PlayerEquipment.Count}");
 
             foreach (var kvp in Game.Instance.PlayerEquipment) {
                 EquipmentInstanceData instanceData = kvp.Value;

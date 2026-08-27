@@ -62,29 +62,74 @@ namespace _Rogues_Path.UI.CraftingWindow {
             Refresh();
         }
 
+        [Button]
+        private void GiveTestOrbs() {
+            if (AddModifierOrb == null) {
+                Debug.LogError("AddModifierOrb is null.");
+                return;
+            }
+
+            if (!Game.Instance.AddOrb(AddModifierOrb, 10)) {
+                Debug.LogError(
+                    $"Failed to add orb: {AddModifierOrb.Name}");
+
+                return;
+            }
+
+            Debug.Log(
+                $"Added 10 {AddModifierOrb.Name}. " +
+                $"Count={Game.Instance.GetOrbCount(AddModifierOrb)}");
+
+            CraftButton.interactable = true;
+
+            Refresh();
+        }
+        
         private void CraftButtonClicked() {
-            if (selectedEquipment == null)
-                return;
+            Debug.Log("CRAFT | Button clicked");
 
-            if (AddModifierOrb == null)
+            if (selectedEquipment == null) {
+                Debug.LogError("CRAFT | No equipment selected.");
                 return;
+            }
 
-            if (ModifierDatabase == null)
+            if (AddModifierOrb == null) {
+                Debug.LogError("CRAFT | AddModifierOrb is null.");
                 return;
+            }
 
-            if (Game.Instance.GetOrbCount(AddModifierOrb) <= 0)
+            if (ModifierDatabase == null) {
+                Debug.LogError("CRAFT | ModifierDatabase is null.");
                 return;
+            }
+
+            int orbCount = Game.Instance.GetOrbCount(AddModifierOrb);
+
+            Debug.Log(
+                $"CRAFT | EquipmentID={selectedEquipment.EquipmentID} | "
+                + $"Orb={AddModifierOrb.Name} | "
+                + $"OrbCount={orbCount} | "
+                + $"CurrentCraftedModifiers={selectedEquipment.CraftedModifiers.Count}");
+
+            if (orbCount <= 0) {
+                Debug.LogError("CRAFT | Player has no orbs.");
+                return;
+            }
 
             if (!CraftingSystem.TryAddRandomModifier(selectedEquipment, ModifierDatabase)) {
+
+                Debug.LogError("CRAFT | TryAddRandomModifier returned false.");
 
                 return;
             }
 
             if (!Game.Instance.TryConsumeOrb(AddModifierOrb)) {
-                Debug.LogError("Crafting succeeded but failed to consume orb.");
+                Debug.LogError("CRAFT | Modifier was added, but orb consumption failed.");
 
                 return;
             }
+
+            Debug.Log($"CRAFT SUCCESS | EquipmentID={selectedEquipment.EquipmentID} | " + $"CraftedModifiers={selectedEquipment.CraftedModifiers.Count}");
 
             Refresh();
         }
