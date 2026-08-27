@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.PawnEquipment.Scripts;
 using _Rogues_Path.Pawns;
@@ -304,9 +305,8 @@ namespace _Rogues_Path.UI.Slots {
 
 
         private bool AssignFromSlot(UIEquipmentSlot sourceSlot) {
-            if (sourceSlot == null || sourceSlot.Equipment == null) {
+            if (sourceSlot == null || sourceSlot.Equipment == null)
                 return false;
-            }
 
             if (sourceSlot == this)
                 return true;
@@ -314,144 +314,96 @@ namespace _Rogues_Path.UI.Slots {
             bool sourceEquipped = sourceSlot.EquipToOwnerOnAssign;
             bool targetEquipped = EquipToOwnerOnAssign;
 
-            // Only actual equipment slots restrict equipment type.
-            // Generic inventory slots accept all equipment.
-            if (targetEquipped && !CheckEquipType(sourceSlot.Equipment)) {
+            if (targetEquipped && !CheckEquipType(sourceSlot.Equipment))
+                return false;
+
+            if (sourceSlot.isStatic)
+                return AssignDirect(sourceSlot.Equipment, sourceSlot);
+
+            return (sourceEquipped, targetEquipped) switch {
+                (false, false) => MoveInventoryToInventory(sourceSlot),
+                (false, true) => MoveInventoryToEquipped(sourceSlot),
+                (true, false) => MoveEquippedToInventory(sourceSlot),
+                (true, true) => MoveEquippedToEquipped(sourceSlot)
+            };
+        }
+
+        private bool MoveInventoryToInventory(UIEquipmentSlot sourceSlot) {
+            int sourceIndex = sourceSlot.transform.GetSiblingIndex();
+            int targetIndex = transform.GetSiblingIndex();
+
+            if (sourceIndex < 0 || sourceIndex >= Game.Instance.PlayerInventory.Count)
+                return false;
+
+            if (targetIndex < 0 || targetIndex >= Game.Instance.PlayerInventory.Count)
+                return false;
+
+            (Game.Instance.PlayerInventory[sourceIndex], Game.Instance.PlayerInventory[targetIndex]) =
+                (Game.Instance.PlayerInventory[targetIndex], Game.Instance.PlayerInventory[sourceIndex]);
+
+            EventBus.Raise(new InventoryChanged());
+
+            return true;
+        }
+
+        private bool MoveInventoryToEquipped(UIEquipmentSlot sourceSlot) {
+            if (Owner == null)
+                return false;
+
+            if (!EquipmentDatabase.TryCreateInstance(sourceSlot.Equipment, out EquipmentBase liveEquipment, Owner.transform)) {
+
                 return false;
             }
 
-            if (sourceSlot.isStatic) {
-                return AssignDirect(sourceSlot.Equipment, sourceSlot);
+            if (!Owner.TryEquip(liveEquipment, true)) {
+                Destroy(liveEquipment.gameObject);
+
+                return false;
             }
 
-            if (!sourceEquipped && !targetEquipped) {
+            sourceSlot.ClearReferenceOnly(false);
 
-                if (!EquipmentDatabase.TryFind(sourceSlot.Equipment, out EquipmentBase dbEquipment)) {
+            BindLiveReference(liveEquipment, sourceSlot);
 
-                    return false;
-                }
-
-
-                BindDatabaseReference(dbEquipment, sourceSlot);
-
-
-                sourceSlot.ClearReferenceOnly();
-
-                return true;
-            }
-
-
-            /*
-             * =========================================================
-             * INVENTORY -> EQUIPPED
-             * =========================================================
-             */
-
-            if (!sourceEquipped && targetEquipped) {
-
-                if (Owner == null)
-                    return false;
-
-
-                if (!EquipmentDatabase.TryCreateInstance(sourceSlot.Equipment, out EquipmentBase liveEquipment, Owner.transform)) {
-
-                    return false;
-                }
-
-
-                if (!Owner.TryEquip(liveEquipment, true)) {
-
-                    Destroy(liveEquipment.gameObject);
-
-                    return false;
-                }
-
-
-                /*
-                 * Gameplay succeeded first.
-                 * NOW update UI.
-                 */
-                sourceSlot.ClearReferenceOnly();
-                BindLiveReference(liveEquipment, sourceSlot);
-
-                return true;
-            }
-
-
-            /*
-             * =========================================================
-             * EQUIPPED -> INVENTORY
-             * =========================================================
-             */
-
-            if (sourceEquipped && !targetEquipped) {
-
-                if (sourceSlot.Owner == null)
-                    return false;
-
-
-                EquipmentBase liveEquipment = sourceSlot.Equipment;
-
-
-                /*
-                 * Save the database representation BEFORE Pawn destroys
-                 * the live object.
-                 */
-                if (!EquipmentDatabase.TryFind(liveEquipment, out EquipmentBase dbEquipment)) {
-
-                    return false;
-                }
-
-
-                if (!sourceSlot.Owner.TryRemoveEquipment(liveEquipment, true)) {
-
-                    return false;
-                }
-
-
-                /*
-                 * Pawn has now:
-                 *
-                 * - removed ID from PlayerEquipment
-                 * - added ID to PlayerInventory
-                 * - removed CurrentEquipment entry
-                 * - removed modifiers
-                 * - destroyed the live object
-                 */
-
-
-                BindDatabaseReference(dbEquipment, sourceSlot);
-
-
-                sourceSlot.ClearReferenceOnly();
-                EventBus.Raise(new InventoryChanged());
-                return true;
-            }
-
-            if (sourceEquipped && targetEquipped) {
-
-                if (sourceSlot.Owner != Owner) {
-                    Debug.LogWarning("Cross-Pawn equipped-item transfer is not supported.");
-
-                    return false;
-                }
-
-
-                EquipmentBase liveEquipment = sourceSlot.Equipment;
-
-
-                BindLiveReference(liveEquipment, sourceSlot);
-
-
-                sourceSlot.ClearReferenceOnly();
-                EventBus.Raise(new InventoryChanged());
-                return true;
-            }
-
-
-            return false;
+            return true;
         }
 
+        private bool MoveEquippedToInventory(UIEquipmentSlot sourceSlot) {
+            if (sourceSlot.Owner == null)
+                return false;
+
+            EquipmentBase liveEquipment = sourceSlot.Equipment;
+
+            if (!EquipmentDatabase.TryFind(liveEquipment, out EquipmentBase dbEquipment))
+                return false;
+
+            if (!sourceSlot.Owner.TryRemoveEquipment(liveEquipment, true))
+                return false;
+
+            BindDatabaseReference(dbEquipment, sourceSlot);
+
+            sourceSlot.ClearReferenceOnly(false);
+
+            EventBus.Raise(new InventoryChanged());
+
+            return true;
+        }
+
+        private bool MoveEquippedToEquipped(UIEquipmentSlot sourceSlot) {
+            if (sourceSlot.Owner != Owner) {
+                Debug.LogWarning("Cross-Pawn equipped-item transfer is not supported.");
+
+                return false;
+            }
+
+            EquipmentBase liveEquipment = sourceSlot.Equipment;
+
+            BindLiveReference(liveEquipment, sourceSlot);
+
+            sourceSlot.ClearReferenceOnly(false);
+
+            return true;
+        }
 
         public override void Unassign() {
             if (ReferenceEquals(Equipment, null))
@@ -723,8 +675,7 @@ namespace _Rogues_Path.UI.Slots {
             if (equipment == null)
                 return false;
 
-            EquipmentPartMask equipmentMask =
-                (EquipmentPartMask)(1 << (int)equipment.EquipType);
+            EquipmentPartMask equipmentMask = (EquipmentPartMask)(1 << (int)equipment.EquipType);
 
             return (AcceptedEquipTypes & equipmentMask) != 0;
         }

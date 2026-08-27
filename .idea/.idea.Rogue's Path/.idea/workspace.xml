@@ -7,6 +7,7 @@
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Assassin's Armor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Assassin's Armor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UtilityWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UtilityWindow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Databases_f7ac51c2-af58-474d-8616-9bd6102b79d6.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Databases_f7ac51c2-af58-474d-8616-9bd6102b79d6.collect" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" afterDir="false" />
@@ -177,7 +178,7 @@
       <workItem from="1787602570706" duration="8764000" />
       <workItem from="1787681783306" duration="6721000" />
       <workItem from="1787769208752" duration="8329000" />
-      <workItem from="1787855670983" duration="692000" />
+      <workItem from="1787855670983" duration="2063000" />
     </task>
     <servers />
   </component>

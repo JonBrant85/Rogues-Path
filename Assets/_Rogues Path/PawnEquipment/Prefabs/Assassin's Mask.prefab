@@ -62,7 +62,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  Name: 
+  Name: Assassin's Mask
   Description: Default Description
   FlavorText: Something interesting and profound about the item here
   ItemSprite:
@@ -105,7 +105,7 @@ MonoBehaviour:
     - {fileID: 21300082, guid: 5436a5ef627c6884c99d6299252fbc8a, type: 3}
     Tags: []
     Meta: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: fdf240db8da5826418abfd47c1da4281, type: 3}
   Quality: 0
   EquipType: 1
   Owner: {fileID: 0}
