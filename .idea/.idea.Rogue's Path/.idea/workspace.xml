@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/BerserkerArmor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/BerserkerArmor.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/BerserkerHelmet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/BerserkerHelmet.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/DoubleBladedAxe.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/DoubleBladedAxe.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/ArcherArmor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/ArcherArmor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/ArcherHelmet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/ArcherHelmet.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/WillowBow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/WillowBow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/BerserkerHelmet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/BerserkerHelmet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Double Bladed Axe.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Prefabs/Double Bladed Axe.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +180,7 @@
       <workItem from="1787602570706" duration="8764000" />
       <workItem from="1787681783306" duration="6721000" />
       <workItem from="1787769208752" duration="8329000" />
-      <workItem from="1787855670983" duration="4117000" />
+      <workItem from="1787855670983" duration="4766000" />
     </task>
     <servers />
   </component>

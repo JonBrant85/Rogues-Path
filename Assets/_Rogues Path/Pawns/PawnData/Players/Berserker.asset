@@ -15,5 +15,9 @@ MonoBehaviour:
   Name: Blitz
   ClassName: Berserker
   Pawn: {fileID: 6466090224402382103, guid: c1742aabf290cf5409ed64a95c764723, type: 3}
-  ClassSpells: []
-  StartingEquipment: []
+  ClassSpells:
+  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
+  StartingEquipment:
+  - {fileID: 4860473374979285496, guid: 8a0011abc7051624db55456eddfe8b7a, type: 3}
+  - {fileID: 5370656413054276788, guid: 7a4a4695ef7c4ac4d958d7e60eececda, type: 3}
+  - {fileID: 1517173619233635846, guid: f8190d891f7b3954bbbb60d2861acb54, type: 3}
