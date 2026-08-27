@@ -640,6 +640,7 @@ MonoBehaviour:
   BackgroundContainer: {fileID: 1755255856}
   PlayerContainer: {fileID: 466412910}
   EnemyContainer: {fileID: 1813755808}
+  ModifierDatabase: {fileID: 11400000, guid: ec638b69b8c15c64d8a37c2304cf5f73, type: 2}
 --- !u!4 &1809668577
 Transform:
   m_ObjectHideFlags: 0
