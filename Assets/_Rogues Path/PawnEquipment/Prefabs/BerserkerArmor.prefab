@@ -66,16 +66,48 @@ MonoBehaviour:
   Description: Default Description
   FlavorText: Something interesting and profound about the item here
   ItemSprite:
-    Name: 
-    Id: 
-    Edition: 
-    Collection: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
-    Tags: []
+    Name: NativeVillagerType01 [ShowEars]
+    Id: FantasyHeroes.Basic.Armor.NativeVillagerType01 [ShowEars]
+    Edition: FantasyHeroes
+    Collection: Basic
+    Path: Assets/HeroEditor4D/FantasyHeroes/Sprites/Equipment/Armor/Basic/NativeVillagerType01
+      [ShowEars].png
+    Sprite: {fileID: 21300040, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    Sprites:
+    - {fileID: 21300040, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300044, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300042, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300074, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300020, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300072, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300008, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300036, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300046, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300048, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300030, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300026, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300028, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300006, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300068, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300024, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300060, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300032, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300018, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300070, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300092, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300084, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300086, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300100, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300094, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300096, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300082, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300090, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300088, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    - {fileID: 21300098, guid: 5aed61e2de40c49498e49e8de39e9200, type: 3}
+    Tags:
+    - ShowEars
     Meta: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: ba7477948b692cb488072089e708e699, type: 3}
   Quality: 0
   EquipType: 0
   Owner: {fileID: 0}

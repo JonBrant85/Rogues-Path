@@ -60,9 +60,9 @@ namespace _Rogues_Path.Utilities {
         }
 
         private void ApplySpritesToEquipment() {
-            if (equipment == null || spriteCollection == null) return;
+            if (equipment == null || spriteCollection == null)
+                return;
 
-            // Get a list of all equipment so we can search it
             List<List<ItemSprite>> listOfLists = new() {
                 spriteCollection.Armor,
                 spriteCollection.MeleeWeapon1H,
@@ -73,30 +73,42 @@ namespace _Rogues_Path.Utilities {
                 spriteCollection.Firearm2H,
                 spriteCollection.Shield,
                 spriteCollection.Back,
-                spriteCollection.Back,
                 spriteCollection.Throwable,
                 spriteCollection.Supplies
             };
-            var flatList = listOfLists.SelectMany(x => x).ToList();
-            var itemSprite = flatList.FirstOrDefault(sprite => sprite.Id == spriteName);
+
+            List<ItemSprite> flatList = listOfLists.SelectMany(x => x).ToList();
+            ItemSprite itemSprite = flatList.FirstOrDefault(sprite => sprite.Id == spriteName);
 
             if (itemSprite == null) {
                 Debug.Log($"Couldn't find ItemSprite.Id: {spriteName}");
+
                 return;
             }
-            else {
-                Debug.Log($"Found Sprite");
-                equipment.ItemSprite.Name = itemSprite.Name;
-                equipment.ItemSprite.Id = itemSprite.Id;
-                equipment.ItemSprite.Edition = itemSprite.Edition;
-                equipment.ItemSprite.Collection = itemSprite.Collection;
-                equipment.ItemSprite.Path = itemSprite.Path;
-                equipment.ItemSprite.Sprite = itemSprite.Sprite;
-                equipment.ItemSprite.Sprites = new List<Sprite>(itemSprite.Sprites);
-                equipment.ItemSprite.Tags = new List<string>(itemSprite.Tags);
-                equipment.ItemSprite.Meta = itemSprite.Meta;
-                equipment.Icon = iconCollection.Icons.FirstOrDefault(icon => icon.Id == spriteName)?.Sprite;
+
+            Undo.RecordObject(equipment, "Apply Equipment Sprites");
+
+            equipment.ItemSprite.Name = itemSprite.Name;
+            equipment.ItemSprite.Id = itemSprite.Id;
+            equipment.ItemSprite.Edition = itemSprite.Edition;
+            equipment.ItemSprite.Collection = itemSprite.Collection;
+            equipment.ItemSprite.Path = itemSprite.Path;
+            equipment.ItemSprite.Sprite = itemSprite.Sprite;
+            equipment.ItemSprite.Sprites = new List<Sprite>(itemSprite.Sprites);
+            equipment.ItemSprite.Tags = new List<string>(itemSprite.Tags);
+            equipment.ItemSprite.Meta = itemSprite.Meta;
+
+            equipment.Icon = iconCollection.Icons.FirstOrDefault(icon => icon.Id == spriteName)?.Sprite;
+
+            EditorUtility.SetDirty(equipment);
+
+            if (PrefabUtility.IsPartOfPrefabAsset(equipment)) {
+                PrefabUtility.SavePrefabAsset(equipment.transform.root.gameObject);
             }
+
+            AssetDatabase.SaveAssets();
+
+            Debug.Log($"Applied and saved sprites to {equipment.Name}.");
         }
 
         private void DrawSettingsTab() {}

@@ -66,16 +66,48 @@ MonoBehaviour:
   Description: Default Description
   FlavorText: I have offficially run out of inspiration
   ItemSprite:
-    Name: 
-    Id: 
-    Edition: 
-    Collection: 
-    Path: 
-    Sprite: {fileID: 0}
-    Sprites: []
-    Tags: []
+    Name: BowmanVest [ShowEars]
+    Id: FantasyHeroes.Basic.Armor.BowmanVest [ShowEars]
+    Edition: FantasyHeroes
+    Collection: Basic
+    Path: Assets/HeroEditor4D/FantasyHeroes/Sprites/Equipment/Armor/Basic/BowmanVest
+      [ShowEars].png
+    Sprite: {fileID: 21300040, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    Sprites:
+    - {fileID: 21300040, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300044, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300042, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300074, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300020, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300072, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300008, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300036, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300046, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300048, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300030, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300026, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300028, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300006, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300068, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300024, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300060, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300032, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300018, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300070, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300092, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300084, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300086, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300100, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300094, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300096, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300082, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300090, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300088, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    - {fileID: 21300098, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+    Tags:
+    - ShowEars
     Meta: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 6330c397ed64dd94fa8f61340957925c, type: 3}
   Quality: 0
   EquipType: 1
   Owner: {fileID: 0}

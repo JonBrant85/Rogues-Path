@@ -11,6 +11,8 @@
       <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/PriestHelmet.cs.meta" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/PriestWeapon.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/Equipment/PriestWeapon.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UtilityWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/UtilityWindow.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +180,7 @@
       <workItem from="1787602570706" duration="8764000" />
       <workItem from="1787681783306" duration="6721000" />
       <workItem from="1787769208752" duration="8329000" />
-      <workItem from="1787855670983" duration="5303000" />
+      <workItem from="1787855670983" duration="5915000" />
     </task>
     <servers />
   </component>
