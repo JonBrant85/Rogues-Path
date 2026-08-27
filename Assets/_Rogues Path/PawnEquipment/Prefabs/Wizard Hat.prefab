@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9192110510729778907
+--- !u!1 &5067652808171933469
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 553131925837902811}
-  - component: {fileID: 3019813795083459405}
+  - component: {fileID: 6218355726427746743}
+  - component: {fileID: 1831859087682553781}
   m_Layer: 0
   m_Name: Wizard Hat
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &553131925837902811
+--- !u!4 &6218355726427746743
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9192110510729778907}
+  m_GameObject: {fileID: 5067652808171933469}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3019813795083459405
+--- !u!114 &1831859087682553781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9192110510729778907}
+  m_GameObject: {fileID: 5067652808171933469}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56053e242248491c94513607f7b0778e, type: 3}
@@ -65,19 +65,47 @@ MonoBehaviour:
   Name: Wizard Hat
   Description: Default Description
   FlavorText: Something interesting and profound about the item here
-  Sprite:
-    Name: HalfmoonHat
+  ItemSprite:
+    Name: AdvancedWizardRobe
+    Id: FantasyHeroes.Basic.Armor.AdvancedWizardRobe
+    Edition: FantasyHeroes
     Collection: Basic
-    Edition: HeroEditor
-    Id: HeroEditor.Basic.Helmet.HalfmoonHat
-    Path: Assets/ThirdParty/HeroEditor/FantasyHeroes/Sprites/Equipment/Helmet/Basic/HalfmoonHat.png
-    Sprite: {fileID: 21300000, guid: c91f1dd496234b9d8b884b95b6ff36db, type: 3}
+    Path: Assets/HeroEditor4D/FantasyHeroes/Sprites/Equipment/Armor/Basic/AdvancedWizardRobe.png
+    Sprite: {fileID: 21300040, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
     Sprites:
-    - {fileID: 21300000, guid: c91f1dd496234b9d8b884b95b6ff36db, type: 3}
-    Multiple: 1
-    Hash: a76ec3a43216adf8713f95d33462f0d6
+    - {fileID: 21300040, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300044, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300042, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300074, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300020, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300072, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300008, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300036, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300046, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300048, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300030, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300026, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300028, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300006, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300068, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300024, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300060, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300032, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300018, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300070, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300092, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300084, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300086, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300100, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300094, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300096, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300082, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300090, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300088, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+    - {fileID: 21300098, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
     Tags: []
-  Icon: {fileID: 21300000, guid: 0456f1ac712740ccbee0557093075d52, type: 3}
+    Meta: 
+  Icon: {fileID: 21300000, guid: 71945b7d3fd3995408e99443f5a8df07, type: 3}
   Quality: 0
   EquipType: 1
   Owner: {fileID: 0}

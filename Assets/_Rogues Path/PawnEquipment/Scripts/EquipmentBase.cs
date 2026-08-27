@@ -25,6 +25,7 @@ namespace _Rogues_Path.Equipment.Scripts {
         public string Name;
         public string Description = "Default Description";
         public string FlavorText = "Something interesting and profound about the item here";
+        [FormerlySerializedAs("Sprite")]
         public ItemSprite ItemSprite;
         public Color? SpriteColor;
         public Sprite Icon;
