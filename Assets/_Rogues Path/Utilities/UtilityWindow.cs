@@ -11,6 +11,7 @@ namespace _Rogues_Path.Utilities {
     public class UtilityWindow : EditorWindow {
         private EquipmentBase equipment;
         private SpriteCollection spriteCollection;
+        private IconCollection iconCollection;
         private string spriteName = "Default Sprite Name";
 
         private int selectedTab = 0;
@@ -44,13 +45,13 @@ namespace _Rogues_Path.Utilities {
 
 
         private void DrawEquipmentSpriteFillerTab() {
-            spriteName = EditorGUILayout.TextField(new GUIContent("ItemSprite.Id","Given by 4D MegaPack scene"), spriteName);
+            spriteName = EditorGUILayout.TextField(new GUIContent("ItemSprite.Id", "Given by 4D MegaPack scene"), spriteName);
 
             GUILayout.Space(10);
 
             equipment = (EquipmentBase)EditorGUILayout.ObjectField("Equipment", equipment, typeof(EquipmentBase), false);
             spriteCollection = (SpriteCollection)EditorGUILayout.ObjectField("Sprite Collection", spriteCollection, typeof(SpriteCollection), false);
-
+            iconCollection = (IconCollection)EditorGUILayout.ObjectField("Icon Collection", iconCollection, typeof(IconCollection));
             GUILayout.Space(10);
 
             if (GUILayout.Button("Apply")) {
@@ -94,6 +95,7 @@ namespace _Rogues_Path.Utilities {
                 equipment.ItemSprite.Sprites = new List<Sprite>(itemSprite.Sprites);
                 equipment.ItemSprite.Tags = new List<string>(itemSprite.Tags);
                 equipment.ItemSprite.Meta = itemSprite.Meta;
+                equipment.Icon = iconCollection.Icons.FirstOrDefault(icon => icon.Id == spriteName)?.Sprite;
             }
         }
 
