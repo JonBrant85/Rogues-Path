@@ -1,5 +1,6 @@
 using System;
 using _Rogues_Path._Game;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Scripts;
@@ -12,10 +13,12 @@ using UnityEngine;
 
 namespace _Rogues_Path.UI.InventoryWindow {
     public class UIInventoryWindow : Singleton<UIInventoryWindow> {
+        public static event Action<EquipmentInstanceData> EquipmentClicked;
         [SerializeField] private UIWindow Window;
         [SerializeField] private Transform SlotsContainer;
 
         private void Awake() {
+            RegisterSlotClickEvents();
             FillSlotsWithInventory();
         }
 
@@ -67,6 +70,25 @@ namespace _Rogues_Path.UI.InventoryWindow {
 
         public static void Hide() {
             Instance.Window.Hide();
+        }
+
+        private void RegisterSlotClickEvents() {
+            for (int i = 0; i < SlotsContainer.childCount; i++) {
+                Transform child = SlotsContainer.GetChild(i);
+
+                if (child.TryGetComponent(out UIEquipmentSlot slot)) {
+                    slot.OnClickEvent.AddListener(InventorySlotClicked);
+                }
+            }
+        }
+
+        private void InventorySlotClicked(UIEquipmentSlot slot) {
+            int index = slot.transform.GetSiblingIndex();
+
+            if (index < 0 || index >= Game.Instance.PlayerInventory.Count)
+                return;
+
+            EquipmentClicked?.Invoke(Game.Instance.PlayerInventory[index]);
         }
     }
 }

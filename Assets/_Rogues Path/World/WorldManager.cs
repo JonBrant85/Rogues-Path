@@ -44,19 +44,25 @@ namespace _Rogues_Path.World {
             PlayerPawn.Character.SetDirection(Vector2.down);
 
             PlayerPawn.SyncInventoryFromGameState();
+            Debug.Log(
+                $"WORLD EQUIPMENT RESTORE | "
+                + $"Scene={gameObject.scene.name} | "
+                + $"WorldManager={name} | "
+                + $"ModifierDatabase={(ModifierDatabase == null ? "NULL" : ModifierDatabase.name)} | "
+                + $"EquipmentCount={Game.Instance.PlayerEquipment.Count}");
 
             foreach (var kvp in Game.Instance.PlayerEquipment) {
                 EquipmentInstanceData instanceData = kvp.Value;
 
                 if (!EquipmentDatabase.TryCreateInstance(instanceData, ModifierDatabase, out EquipmentBase liveEquipment, PlayerPawn.transform)) {
 
-                    Debug.LogError($"Failed to create equipment instance for ID " + $"{instanceData.EquipmentID}");
+                    Debug.LogError($"Failed to create equipment instance for ID " + $"{instanceData.EquipmentID}.");
 
                     continue;
                 }
 
                 if (!PlayerPawn.TryEquip(liveEquipment, false)) {
-                    Debug.LogError($"Failed to restore {PlayerPawn.CharacterName} " + $"with {liveEquipment.Name}");
+                    Debug.LogError($"Failed to restore {PlayerPawn.CharacterName} " + $"with {liveEquipment.Name}.");
 
                     Destroy(liveEquipment.gameObject);
                 }

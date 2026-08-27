@@ -130,8 +130,16 @@ namespace _Rogues_Path.Equipment.Scripts {
 
             equipment = null;
 
-            if (instanceData == null || modifierDatabase == null)
+            if (instanceData == null) {
+                Debug.LogError("TryCreateInstance failed: instanceData is null.");
                 return false;
+            }
+
+            if (modifierDatabase == null) {
+                Debug.LogError($"TryCreateInstance failed for Equipment ID " + $"{instanceData.EquipmentID}: modifierDatabase is null.");
+
+                return false;
+            }
 
             if (!TryGetByID(instanceData.EquipmentID, out EquipmentBase databaseEquipment)) {
 
