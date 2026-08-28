@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/IOrbCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/IOrbCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/OrbCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/OrbCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/OrbCommandContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/OrbCommandContext.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/OrbCommands.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/OrbCommands/AddRandomModifier.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/OrbCommands/AddRandomModifier.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Slots.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Slots/UIOrbSlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Slots/UIOrbSlot.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers/EquipmentModifiersDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/EquipmentModifiers/EquipmentModifiersDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/Orb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/Orbs/Orb.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CraftingWindow/UICraftingWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CraftingWindow/UICraftingWindow.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,6 +190,7 @@
       <workItem from="1787769208752" duration="8329000" />
       <workItem from="1787855670983" duration="17175000" />
       <workItem from="1787875988581" duration="603000" />
+      <workItem from="1787943292265" duration="2942000" />
     </task>
     <servers />
   </component>
@@ -229,6 +244,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/_Rogues Path/UI/CraftingWindow/UICraftingWindow.cs</url>
+          <line>48</line>
+          <properties documentPath="H:\Rogue's Path\Assets\_Rogues Path\UI\CraftingWindow\UICraftingWindow.cs" initialLine="48" containingFunctionPresentation="method 'Awake'">
+            <startOffsets>
+              <option value="1515" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1516" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

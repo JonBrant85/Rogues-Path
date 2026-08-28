@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Rogues_Path.Crafting {
-    [CreateAssetMenu(menuName = "Rogue's Path/Crafting/Equipment Modifier Database", fileName = "EquipmentModifierDatabase")]
+    [CreateAssetMenu(menuName = "Assets/_Rogues Path/Crafting/ScriptableObjects/Resources/Databases/EquipmentModifierDatabase", fileName = "EquipmentModifierDatabase")]
     public class EquipmentModifierDatabase : ScriptableObject {
         public List<EquipmentModifierDefinition> Modifiers => modifiers;
         [SerializeField]

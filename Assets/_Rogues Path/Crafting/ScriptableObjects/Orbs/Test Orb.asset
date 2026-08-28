@@ -15,3 +15,11 @@ MonoBehaviour:
   Name: Test Orb
   Description: Test Orb
   Icon: {fileID: 21300000, guid: da1892f6b98ea02448877f807d684675, type: 3}
+  Command:
+    rid: 3717655074950873088
+  references:
+    version: 2
+    RefIds:
+    - rid: 3717655074950873088
+      type: {class: AddRandomModifier, ns: _Rogues_Path.Crafting.Commands, asm: Assembly-CSharp}
+      data: 

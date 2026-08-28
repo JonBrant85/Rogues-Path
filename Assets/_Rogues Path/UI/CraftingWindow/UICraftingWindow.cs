@@ -1,10 +1,11 @@
 using System.Text;
 using _Rogues_Path._Game;
 using _Rogues_Path.Crafting;
+using _Rogues_Path.Crafting.Commands;
 using _Rogues_Path.Equipment.Scripts;
-using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.UI.InventoryWindow;
 using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -39,9 +40,15 @@ namespace _Rogues_Path.UI.CraftingWindow {
         [FoldoutGroup("References"), SerializeField]
         private EquipmentModifierDatabase ModifierDatabase;
 
+        [FoldoutGroup("References"), SerializeField]
+        private Transform OrbSlotsContainer;
+
+        private UIOrbSlot selectedOrbSlot;
         private EquipmentInstanceData selectedEquipment;
 
         private void Awake() {
+            RegisterOrbSlots();
+            FillOrbSlots();
             CraftButton.onClick.AddListener(CraftButtonClicked);
             Game.Instance.AddOrb(AddModifierOrb, 10);
             Refresh();
@@ -55,11 +62,75 @@ namespace _Rogues_Path.UI.CraftingWindow {
             UIInventoryWindow.EquipmentClicked -= EquipmentClickedHandler;
         }
 
-        private void EquipmentClickedHandler(EquipmentInstanceData instanceData) {
+        private void RegisterOrbSlots() {
+            foreach (UIOrbSlot slot in OrbSlotsContainer.GetComponentsInChildren<UIOrbSlot>()) {
+                slot.OnRightClickEvent.AddListener(OrbRightClicked);
+            }
 
-            selectedEquipment = instanceData;
+            void OrbRightClicked(UIOrbSlot slot) {
+                if (slot == null || slot.Orb == null)
+                    return;
 
-            Refresh();
+                if (Game.Instance.GetOrbCount(slot.Orb) <= 0)
+                    return;
+
+                selectedOrbSlot = slot;
+            }
+        }
+
+        private void FillOrbSlots() {
+            var orbs = OrbDatabase.Instance.Orbs;
+
+            for (int i = 0; i < OrbSlotsContainer.childCount && i < orbs.Count; i++) {
+
+                UIOrbSlot slot = OrbSlotsContainer.GetChild(i).GetComponent<UIOrbSlot>();
+
+                if (slot == null)
+                    continue;
+
+                slot.Assign(orbs[i]);
+            }
+        }
+
+        private bool TryApplyOrb(Orb orb, EquipmentInstanceData equipment) {
+
+            if (orb == null || equipment == null)
+                return false;
+
+            if (orb.Command == null) {
+                Debug.LogError($"{orb.Name} has no crafting command.");
+
+                return false;
+            }
+
+            OrbCommandContext context = new(equipment, ModifierDatabase);
+
+            return orb.Command.Execute(context);
+        }
+
+        private void EquipmentClickedHandler(EquipmentInstanceData equipment) {
+
+            if (selectedOrbSlot == null)
+                return;
+
+            Orb orb = selectedOrbSlot.Orb;
+
+            if (orb == null)
+                return;
+
+            if (!TryApplyOrb(orb, equipment))
+                return;
+
+            if (!Game.Instance.TryConsumeOrb(orb)) {
+                Debug.LogError($"Failed to consume {orb.Name}.");
+
+                return;
+            }
+
+            selectedOrbSlot.RefreshCount();
+            selectedOrbSlot = null;
+
+            EventBus.Raise(new InventoryChanged());
         }
 
         [Button]
@@ -70,21 +141,18 @@ namespace _Rogues_Path.UI.CraftingWindow {
             }
 
             if (!Game.Instance.AddOrb(AddModifierOrb, 10)) {
-                Debug.LogError(
-                    $"Failed to add orb: {AddModifierOrb.Name}");
+                Debug.LogError($"Failed to add orb: {AddModifierOrb.Name}");
 
                 return;
             }
 
-            Debug.Log(
-                $"Added 10 {AddModifierOrb.Name}. " +
-                $"Count={Game.Instance.GetOrbCount(AddModifierOrb)}");
+            Debug.Log($"Added 10 {AddModifierOrb.Name}. " + $"Count={Game.Instance.GetOrbCount(AddModifierOrb)}");
 
             CraftButton.interactable = true;
 
             Refresh();
         }
-        
+
         private void CraftButtonClicked() {
             Debug.Log("CRAFT | Button clicked");
 
@@ -136,7 +204,6 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
         private void Refresh() {
             RefreshEquipment();
-            RefreshOrb();
         }
 
         private void RefreshEquipment() {
@@ -183,27 +250,6 @@ namespace _Rogues_Path.UI.CraftingWindow {
             }
 
             ModifiersText.text = builder.ToString();
-        }
-
-        private void RefreshOrb() {
-            if (AddModifierOrb == null) {
-                OrbIcon.sprite = null;
-                OrbIcon.enabled = false;
-
-                OrbCountText.text = "0";
-                CraftButton.interactable = false;
-
-                return;
-            }
-
-            OrbIcon.sprite = AddModifierOrb.Icon;
-            OrbIcon.enabled = AddModifierOrb.Icon != null;
-
-            int count = Game.Instance.GetOrbCount(AddModifierOrb);
-
-            OrbCountText.text = count.ToString();
-
-            CraftButton.interactable = selectedEquipment != null && count > 0;
         }
 
         public static void Show() {
