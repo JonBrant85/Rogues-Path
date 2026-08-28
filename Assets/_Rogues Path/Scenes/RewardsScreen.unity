@@ -3546,6 +3546,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2982615038669216136, guid: 5f8c95c747d0f2d4c8e927ea33101acb, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982615038669216136, guid: 5f8c95c747d0f2d4c8e927ea33101acb, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2982615038669216137, guid: 5f8c95c747d0f2d4c8e927ea33101acb, type: 3}
+      propertyPath: m_StartingState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2982615038669216138, guid: 5f8c95c747d0f2d4c8e927ea33101acb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -679,6 +679,17 @@ namespace _Rogues_Path.UI.Slots {
 
             base.OnPointerDown(eventData);
 
+            if (eventData.button != PointerEventData.InputButton.Left) {
+
+                return;
+            }
+
+            if (Equipment == null || InstanceData == null) {
+
+                return;
+            }
+
+            EventBus.Raise(new EquipmentSlotClicked(this, InstanceData));
 
             OnClickEvent.Invoke(this);
         }

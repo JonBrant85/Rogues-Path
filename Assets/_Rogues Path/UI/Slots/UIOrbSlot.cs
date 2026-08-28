@@ -17,7 +17,12 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
         [SerializeField]
         private Text CountText;
+        [SerializeField]
+        private GameObject ActivatedHighlight;
 
+        public bool IsActivated { get; private set; }
+
+        
         public bool Assign(Orb orb) {
             if (orb == null) {
                 Debug.LogError($"Attempted to assign a null Orb to {name}.");
@@ -111,6 +116,13 @@ namespace _Rogues_Path.UI.CraftingWindow {
             UITooltip.AddSpacer();
 
             UITooltip.AddLine("Right-click to use", "ItemAttribute");
+        }
+        
+        public void SetActivated(bool activated) {
+            IsActivated = activated;
+
+            if (ActivatedHighlight != null)
+                ActivatedHighlight.SetActive(activated);
         }
     }
 }

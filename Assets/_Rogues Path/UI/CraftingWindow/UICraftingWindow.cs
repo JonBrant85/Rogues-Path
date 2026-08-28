@@ -1,14 +1,17 @@
+using System.Collections.Generic;
 using System.Text;
 using _Rogues_Path._Game;
 using _Rogues_Path.Crafting;
 using _Rogues_Path.Crafting.Commands;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.UI.InventoryWindow;
+using _Rogues_Path.UI.Slots;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace _Rogues_Path.UI.CraftingWindow {
@@ -54,28 +57,96 @@ namespace _Rogues_Path.UI.CraftingWindow {
             Refresh();
         }
 
+        private void Update() {
+            if (selectedOrbSlot == null)
+                return;
+
+            if (!Input.GetMouseButtonDown(0))
+                return;
+
+            PointerEventData pointerData = new(EventSystem.current) {
+                position = Input.mousePosition
+            };
+
+            List<RaycastResult> results = new();
+
+            EventSystem.current.RaycastAll(pointerData, results);
+
+            foreach (RaycastResult result in results) {
+                if (result.gameObject.GetComponentInParent<UIEquipmentSlot>() != null) {
+
+                    return;
+                }
+            }
+
+            selectedOrbSlot = null;
+        }
+
         private void OnEnable() {
-            UIInventoryWindow.EquipmentClicked += EquipmentClickedHandler;
+            EventBus.SubscribeTo<EquipmentSlotClicked>(EquipmentSlotClickedHandler);
         }
 
         private void OnDisable() {
-            UIInventoryWindow.EquipmentClicked -= EquipmentClickedHandler;
+            EventBus.UnsubscribeFrom<EquipmentSlotClicked>(EquipmentSlotClickedHandler);
+        }
+
+        private void ActivateOrb(UIOrbSlot slot) {
+            if (selectedOrbSlot != null)
+                selectedOrbSlot.SetActivated(false);
+
+            selectedOrbSlot = slot;
+            selectedOrbSlot.SetActivated(true);
+        }
+
+        private void DeactivateOrb() {
+            if (selectedOrbSlot != null)
+                selectedOrbSlot.SetActivated(false);
+
+            selectedOrbSlot = null;
+        }
+
+        private void EquipmentSlotClickedHandler(ref EquipmentSlotClicked eventData) {
+
+            if (selectedOrbSlot == null)
+                return;
+
+            Orb orb = selectedOrbSlot.Orb;
+
+            if (orb == null)
+                return;
+
+            if (!TryApplyOrb(orb, eventData.InstanceData)) {
+
+                return;
+            }
+
+            if (!Game.Instance.TryConsumeOrb(orb))
+                return;
+
+            selectedOrbSlot.RefreshCount();
+
+            bool shiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+            if (!shiftHeld || Game.Instance.GetOrbCount(orb) <= 0) {
+
+                selectedOrbSlot = null;
+            }
         }
 
         private void RegisterOrbSlots() {
             foreach (UIOrbSlot slot in OrbSlotsContainer.GetComponentsInChildren<UIOrbSlot>()) {
                 slot.OnRightClickEvent.AddListener(OrbRightClicked);
             }
+        }
 
-            void OrbRightClicked(UIOrbSlot slot) {
-                if (slot == null || slot.Orb == null)
-                    return;
+        private void OrbRightClicked(UIOrbSlot slot) {
+            if (slot == null || slot.Orb == null)
+                return;
 
-                if (Game.Instance.GetOrbCount(slot.Orb) <= 0)
-                    return;
+            if (Game.Instance.GetOrbCount(slot.Orb) <= 0)
+                return;
 
-                selectedOrbSlot = slot;
-            }
+            ActivateOrb(slot);
         }
 
         private void FillOrbSlots() {

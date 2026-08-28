@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: EquipmentModifierDatabase
   m_EditorClassIdentifier: 
   modifiers:
+  - {fileID: 11400000, guid: 9f640299a72b2ac4981e3ca49423c6f0, type: 2}
+  - {fileID: 11400000, guid: c09b2a8827bd0f04fa863fc55203e14d, type: 2}
+  - {fileID: 11400000, guid: cf34931fd8082e04cb319b7dd30f86d6, type: 2}
   - {fileID: 11400000, guid: f03088eefbbf98a4084658d3d3f9518b, type: 2}
