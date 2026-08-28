@@ -48,6 +48,7 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
         private UIOrbSlot selectedOrbSlot;
         private EquipmentInstanceData selectedEquipment;
+        private bool shiftRepeatActive;
 
         private void Awake() {
             RegisterOrbSlots();
@@ -60,6 +61,12 @@ namespace _Rogues_Path.UI.CraftingWindow {
         private void Update() {
             if (selectedOrbSlot == null)
                 return;
+
+            if (shiftRepeatActive && !Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift)) {
+
+                DeactivateOrb();
+                return;
+            }
 
             if (!Input.GetMouseButtonDown(0))
                 return;
@@ -79,7 +86,7 @@ namespace _Rogues_Path.UI.CraftingWindow {
                 }
             }
 
-            selectedOrbSlot = null;
+            DeactivateOrb();
         }
 
         private void OnEnable() {
@@ -95,6 +102,8 @@ namespace _Rogues_Path.UI.CraftingWindow {
                 selectedOrbSlot.SetActivated(false);
 
             selectedOrbSlot = slot;
+            shiftRepeatActive = false;
+
             selectedOrbSlot.SetActivated(true);
         }
 
@@ -103,6 +112,7 @@ namespace _Rogues_Path.UI.CraftingWindow {
                 selectedOrbSlot.SetActivated(false);
 
             selectedOrbSlot = null;
+            shiftRepeatActive = false;
         }
 
         private void EquipmentSlotClickedHandler(ref EquipmentSlotClicked eventData) {
@@ -127,9 +137,12 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
             bool shiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 
-            if (!shiftHeld || Game.Instance.GetOrbCount(orb) <= 0) {
+            if (shiftHeld && Game.Instance.GetOrbCount(orb) > 0) {
 
-                selectedOrbSlot = null;
+                shiftRepeatActive = true;
+            }
+            else {
+                DeactivateOrb();
             }
         }
 
@@ -201,7 +214,7 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
             if (!shiftHeld || Game.Instance.GetOrbCount(orb) <= 0) {
 
-                selectedOrbSlot = null;
+                DeactivateOrb();
             }
         }
 
