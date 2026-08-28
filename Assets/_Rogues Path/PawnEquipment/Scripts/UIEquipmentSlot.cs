@@ -375,7 +375,24 @@ namespace _Rogues_Path.UI.Slots {
                 if (Owner == null)
                     return false;
 
-                if (!EquipmentDatabase.TryCreateInstance(sourceSlot.Equipment, out EquipmentBase liveEquipment, Owner.transform)) {
+                EquipmentInstanceData instanceData = sourceSlot.InstanceData;
+
+                if (instanceData == null) {
+                    Debug.LogError($"Cannot equip {sourceSlot.Equipment.Name}: " + $"source slot has no EquipmentInstanceData.");
+
+                    return false;
+                }
+
+                EquipmentModifierDatabase sourceModifierDatabase = sourceSlot.modifierDatabase;
+
+                if (sourceModifierDatabase == null) {
+                    Debug.LogError($"Cannot equip {sourceSlot.Equipment.Name}: " + $"source slot has no EquipmentModifierDatabase.");
+
+                    return false;
+                }
+
+                if (!EquipmentDatabase.TryCreateInstance(instanceData, sourceModifierDatabase, out EquipmentBase liveEquipment, Owner.transform)) {
+
                     return false;
                 }
 
@@ -384,8 +401,12 @@ namespace _Rogues_Path.UI.Slots {
                     return false;
                 }
 
-                sourceSlot.ClearReferenceOnly(false);
                 BindLiveReference(liveEquipment, sourceSlot);
+
+                sourceSlot.ClearReferenceOnly(false);
+
+                EventBus.Raise(new InventoryChanged());
+
                 return true;
             }
 
@@ -596,47 +617,32 @@ namespace _Rogues_Path.UI.Slots {
             if (liveEquipment == null)
                 return;
 
-
             if (EquipmentDatabase.IsDatabaseEntry(liveEquipment)) {
-
                 Debug.LogError($"Attempted to bind database template " + $"{liveEquipment.Name} as LIVE equipment in {name}.");
 
                 return;
             }
 
-
             EquipmentBase previous = Equipment;
-
 
             if (!ReferenceEquals(previous, null) && previous != liveEquipment) {
 
                 base.Unassign();
 
-
                 if (invokeEvents && previous != null) {
-
                     OnUnassignEvent?.Invoke(Owner, previous);
                 }
             }
 
-
             Equipment = liveEquipment;
 
+            // THIS IS THE IMPORTANT PART
+            InstanceData = liveEquipment.InstanceData;
 
-            /*
-             * IMPORTANT CHANGE:
-             *
-             * Do NOT parent live equipment to the UI.
-             *
-             * The Pawn/runtime owns the live instance.
-             * UI may disappear while the Pawn remains alive.
-             */
             base.Assign(Equipment.Icon);
-
 
             if (invokeEvents) {
                 OnAssignEvent?.Invoke(Owner, Equipment);
-
 
                 if (source != null) {
                     OnAssignWithSourceEvent?.Invoke(this, source);
