@@ -505,18 +505,8 @@ namespace _Rogues_Path.UI.Slots {
 
             if (IsAssigned()) {
                 if (show) {
-                    Debug.Log(
-                        $"TOOLTIP | "
-                        + $"Equipment={Equipment.Name} | "
-                        + $"BaseModifiers={Equipment.Modifiers?.Count ?? 0} | "
-                        + $"HasInstanceData={InstanceData != null} | "
-                        + $"EquipmentID={InstanceData?.EquipmentID ?? -1} | "
-                        + $"CraftedModifiers={InstanceData?.CraftedModifiers?.Count ?? -1}");
-
                     PrepareTooltip(Equipment, InstanceData, modifierDatabase);
-
                     UITooltip.AnchorToRect(transform as RectTransform);
-
                     UITooltip.Show();
                 }
                 else {

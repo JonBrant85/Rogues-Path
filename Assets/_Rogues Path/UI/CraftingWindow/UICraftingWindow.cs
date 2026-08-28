@@ -121,16 +121,17 @@ namespace _Rogues_Path.UI.CraftingWindow {
             if (!TryApplyOrb(orb, equipment))
                 return;
 
-            if (!Game.Instance.TryConsumeOrb(orb)) {
-                Debug.LogError($"Failed to consume {orb.Name}.");
-
+            if (!Game.Instance.TryConsumeOrb(orb))
                 return;
-            }
 
             selectedOrbSlot.RefreshCount();
-            selectedOrbSlot = null;
 
-            EventBus.Raise(new InventoryChanged());
+            bool shiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+            if (!shiftHeld || Game.Instance.GetOrbCount(orb) <= 0) {
+
+                selectedOrbSlot = null;
+            }
         }
 
         [Button]

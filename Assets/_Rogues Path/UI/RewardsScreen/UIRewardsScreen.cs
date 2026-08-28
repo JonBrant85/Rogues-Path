@@ -5,6 +5,7 @@ using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.UI.CharacterScreen;
+using _Rogues_Path.UI.CraftingWindow;
 using _Rogues_Path.UI.InventoryWindow;
 using _Rogues_Path.UI.Slots;
 using _Rogues_Path.Utilities;
@@ -55,7 +56,7 @@ namespace _Rogues_Path.UI.RewardsScreen {
                 Hide();
 
                 UICharacterScreen.Show();
-
+                UICraftingWindow.Show();
                 UIInventoryWindow.Show();
 
                 ContinueButton.gameObject.SetActive(true);
