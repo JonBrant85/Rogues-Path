@@ -1017,6 +1017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Window: {fileID: 0}
   SlotsContainer: {fileID: 5386237382240090250}
+  ModifierDatabase: {fileID: 11400000, guid: ec638b69b8c15c64d8a37c2304cf5f73, type: 2}
 --- !u!114 &6003503114886691161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4574,7 +4575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot: {fileID: 9001700282940803770}
-  Equipment: {fileID: 3019813795083459405, guid: 0894203ef85d1db4cac3472284178b5d, type: 3}
+  Equipment: {fileID: 0}
 --- !u!1001 &1543142073796009977
 PrefabInstance:
   m_ObjectHideFlags: 0

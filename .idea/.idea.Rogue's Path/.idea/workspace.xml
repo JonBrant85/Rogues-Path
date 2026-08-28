@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CraftingWindow/UICraftingWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CraftingWindow/UICraftingWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Resources/OrbDatabase.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Resources/OrbDatabase.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnEquipment/Scripts/UIEquipmentSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/InventoryWindow/UIInventoryWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/InventoryWindow/UIInventoryWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Inventory).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menus/Window (Inventory).prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +178,7 @@
       <workItem from="1787602570706" duration="8764000" />
       <workItem from="1787681783306" duration="6721000" />
       <workItem from="1787769208752" duration="8329000" />
-      <workItem from="1787855670983" duration="15081000" />
+      <workItem from="1787855670983" duration="17175000" />
     </task>
     <servers />
   </component>

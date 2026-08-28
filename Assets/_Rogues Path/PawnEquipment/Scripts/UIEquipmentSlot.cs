@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using _Rogues_Path._Game;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.PawnEquipment.Scripts;
 using _Rogues_Path.Pawns;
@@ -36,8 +37,17 @@ namespace _Rogues_Path.UI.Slots {
         public EquipmentPartMask AcceptedEquipTypes;
         public Pawn Owner;
         public EquipmentBase Equipment;
+        [NonSerialized]
+        public EquipmentInstanceData InstanceData;
+        private EquipmentModifierDatabase modifierDatabase;
 
-        public static void PrepareTooltip(EquipmentBase equipment) {
+        public void BindInstanceData(EquipmentInstanceData instanceData, EquipmentModifierDatabase _modifierDatabase) {
+
+            InstanceData = instanceData;
+            this.modifierDatabase = _modifierDatabase;
+        }
+
+        public static void PrepareTooltip(EquipmentBase equipment, EquipmentInstanceData instanceData = null, EquipmentModifierDatabase modifierDatabase = null) {
             if (equipment == null)
                 return;
 
@@ -61,9 +71,27 @@ namespace _Rogues_Path.UI.Slots {
                 foreach (StatAndModifierPair pair in equipment.Modifiers) {
                     UITooltip.AddLineColumn(pair.StatID.name, "ItemAttribute");
 
-                    UITooltip.AddLineColumn(pair.Modifier.Value.ToString("N0"), "ItemAttribute");
+                    UITooltip.AddLineColumn(pair.Modifier.Value.ToString("N1"), "ItemAttribute");
                 }
             }
+
+            if (instanceData != null && modifierDatabase != null && instanceData.CraftedModifiers != null && instanceData.CraftedModifiers.Count > 0) {
+
+                UITooltip.AddSpacer();
+                UITooltip.AddLine("CRAFTED", "ItemAttribute");
+
+                foreach (RolledEquipmentModifier rolledModifier in instanceData.CraftedModifiers) {
+
+                    if (!modifierDatabase.TryGetByID(rolledModifier.ModifierID, out EquipmentModifierDefinition definition)) {
+
+                        continue;
+                    }
+
+                    string modifierName = string.IsNullOrEmpty(definition.Name) ? definition.StatID.name : definition.Name;
+                    UITooltip.AddLine($"{definition.StatID.name}: +{rolledModifier.Value:N1}", "ItemAttribute");
+                }
+            }
+
 
             // Description
             if (!string.IsNullOrEmpty(equipment.Description)) {
@@ -75,7 +103,6 @@ namespace _Rogues_Path.UI.Slots {
             // Flavor text
             if (!string.IsNullOrEmpty(equipment.FlavorText)) {
                 UITooltip.AddSpacer();
-
                 UITooltip.AddLine(equipment.FlavorText, "ItemDescription");
             }
         }
@@ -447,30 +474,28 @@ namespace _Rogues_Path.UI.Slots {
 
         public void ClearUIReference() {
             ClearReferenceOnly(false);
+
+            InstanceData = null;
+            modifierDatabase = null;
         }
 
         public override void OnTooltip(bool show) {
-            if (show && Equipment != null) {
-                Debug.Log($"TOOLTIP | " + $"Equipment={Equipment.Name} | " + $"InstanceID={Equipment.GetInstanceID()} | " + $"Modifiers={Equipment.Modifiers.Count}");
-            }
-
             UITooltip.InstantiateIfNecessary(gameObject);
 
             if (IsAssigned()) {
                 if (show) {
-                    PrepareTooltip(Equipment);
+                    Debug.Log(
+                        $"TOOLTIP | "
+                        + $"Equipment={Equipment.Name} | "
+                        + $"BaseModifiers={Equipment.Modifiers?.Count ?? 0} | "
+                        + $"HasInstanceData={InstanceData != null} | "
+                        + $"EquipmentID={InstanceData?.EquipmentID ?? -1} | "
+                        + $"CraftedModifiers={InstanceData?.CraftedModifiers?.Count ?? -1}");
+
+                    PrepareTooltip(Equipment, InstanceData, modifierDatabase);
+
                     UITooltip.AnchorToRect(transform as RectTransform);
-                    UITooltip.Show();
-                }
-                else {
-                    UITooltip.Hide();
-                }
-            }
-            else {
-                if (show) {
-                    UITooltip.AddTitle(AcceptedEquipTypes.ToString());
-                    UITooltip.SetHorizontalFitMode(ContentSizeFitter.FitMode.PreferredSize);
-                    UITooltip.AnchorToRect(transform as RectTransform);
+
                     UITooltip.Show();
                 }
                 else {

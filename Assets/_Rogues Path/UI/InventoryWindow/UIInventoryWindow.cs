@@ -16,6 +16,7 @@ namespace _Rogues_Path.UI.InventoryWindow {
         public static event Action<EquipmentInstanceData> EquipmentClicked;
         [SerializeField] private UIWindow Window;
         [SerializeField] private Transform SlotsContainer;
+        [SerializeField] private EquipmentModifierDatabase ModifierDatabase;
 
         private void Awake() {
             RegisterSlotClickEvents();
@@ -38,19 +39,25 @@ namespace _Rogues_Path.UI.InventoryWindow {
 
         private void FillSlotsWithInventory() {
             for (int i = 0; i < SlotsContainer.childCount && i < Game.Instance.PlayerInventory.Count; i++) {
-                var instanceData = Game.Instance.PlayerInventory[i];
+
+                EquipmentInstanceData instanceData = Game.Instance.PlayerInventory[i];
 
                 if (instanceData == null)
                     continue;
 
-                var child = SlotsContainer.GetChild(i);
+                Transform child = SlotsContainer.GetChild(i);
 
-                if (child.TryGetComponent(out UIEquipmentSlot slot)) {
-                    if (EquipmentDatabase.TryGetByID(instanceData.EquipmentID, out EquipmentBase equipment)) {
+                if (!child.TryGetComponent(out UIEquipmentSlot slot))
+                    continue;
 
-                        slot.Assign(equipment);
-                    }
+                if (!EquipmentDatabase.TryGetByID(instanceData.EquipmentID, out EquipmentBase equipment)) {
+
+                    continue;
                 }
+
+                slot.Assign(equipment);
+
+                slot.BindInstanceData(instanceData, ModifierDatabase);
             }
         }
 
