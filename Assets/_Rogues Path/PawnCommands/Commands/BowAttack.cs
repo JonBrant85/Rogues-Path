@@ -17,7 +17,6 @@ namespace _Rogues_Path.PawnCommands.Commands {
         public async override UniTask Execute(Pawn instigator, List<Pawn> victims) {
             await UniTask.Delay((int)(instigator.PlayAnimation(BowShotAnimation) * 1000));
             await UniTask.Delay((int)(victims.First().TakeDamage((int)DexterityMultiplier.Calculate(instigator), instigator) * 1000));
-
         }
     }
 }

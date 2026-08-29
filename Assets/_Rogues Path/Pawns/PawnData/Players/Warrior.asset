@@ -15,9 +15,13 @@ MonoBehaviour:
   Name: Ifrin
   ClassName: Warrior
   Pawn: {fileID: -1230655027096974977, guid: 498ae73d7b1f2ba48a6f0c3c7aec1ba5, type: 3}
-  ClassSpells: []
+  ClassSpells:
+  - {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  - {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
+  - {fileID: 11400000, guid: 54385f968776cbc41849a1075e36286b, type: 2}
   StartingEquipment:
   - {fileID: 2876239962352562192, guid: e4a6e501869054d428afdb9449268a57, type: 3}
   - {fileID: 6940672784397818861, guid: d1413ea531e10b74d9da56ff8a4d205b, type: 3}
   - {fileID: 4161573146608416498, guid: 324d1bf3b32d2ba49ad199e41ff208cc, type: 3}
   - {fileID: 8435493924597366058, guid: f2d51493e7df716408975de93ddb27f8, type: 3}
+  - {fileID: 2876239962352562192, guid: e4a6e501869054d428afdb9449268a57, type: 3}

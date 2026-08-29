@@ -52,6 +52,10 @@ namespace _Rogues_Path.CharacterSelection {
 
             Game.Instance.PlayerData = Slots[SelectedIndex].PawnData;
 
+            // Prepare spells
+            Game.Instance.PlayerPreparedSpells.Clear();
+            Game.Instance.PlayerPreparedSpells.AddRange(Game.Instance.PlayerData.ClassSpells);
+
             // New character = fresh authoritative equipment state.
             Game.Instance.PlayerEquipment.Clear();
             Game.Instance.PlayerInventory.Clear();
@@ -60,8 +64,7 @@ namespace _Rogues_Path.CharacterSelection {
                 if (!EquipmentDatabase.TryGetID(equipment, out int equipmentID))
                     continue;
 
-                Game.Instance.PlayerEquipment[equipment.EquipType] =
-                    new EquipmentInstanceData(equipmentID);
+                Game.Instance.PlayerEquipment[equipment.EquipType] = new EquipmentInstanceData(equipmentID);
             }
 
             Game.FireTrigger(Trigger.EnterWorld);

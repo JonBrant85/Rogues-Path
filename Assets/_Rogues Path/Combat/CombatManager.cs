@@ -45,6 +45,12 @@ namespace _Rogues_Path.Combat {
             Player = Instantiate(Game.Instance.PlayerData.Pawn, PlayerContainer);
             Enemy = Instantiate(randomEnemy.Pawn, EnemyContainer);
 
+            // Setup spells
+            Player.Brain.KnownSpells.Clear();
+            Player.Brain.KnownSpells.AddRange(Game.Instance.PlayerData.ClassSpells);
+            Player.Brain.PreparedSpells.Clear();
+            Player.Brain.PreparedSpells.AddRange(Game.Instance.PlayerPreparedSpells);
+
             // Face Player/Enemies the correct direction
             Player.Character.SetDirection(Vector2.right);
             Enemy.Character.SetDirection(Vector2.left);

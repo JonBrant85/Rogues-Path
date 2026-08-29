@@ -5,22 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/CombatEncounterEnded.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/CombatEncounterEnded.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/EquipmentCrafted.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Events/Scripts/Events/EquipmentCrafted.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Smite.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Smite.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Divine Shield.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Divine Shield.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Heal.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Heal.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Smite.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnSpells/Spells/Smite.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/VFX.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/VFX/Divine Shield VFX.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/VFX/Divine Shield VFX.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Combat/CombatManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/CommandInvoker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Scripts/CommandInvoker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/FourDPawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/FourDPawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CraftingWindow/UICraftingWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CraftingWindow/UICraftingWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar/UIMenuBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/MenuBar/UIMenuBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menu Bar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/Prefabs/Menu Bar.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/StatusDisplay/Prefabs/UIStatusDisplay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/StatusDisplay/Prefabs/UIStatusDisplay.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/ListSelection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Utilities/ListSelection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/BowAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/BowAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Archer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Archer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Assassin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Assassin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Berserker.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Berserker.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Priest.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Priest.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Warrior.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Wizard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/4D/Wizard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/PawnData/Players/Priest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/PawnData/Players/Priest.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/PawnData/Players/Warrior.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/PawnData/Players/Warrior.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/PlayerPawns/Warrior.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/ROOT_fd7e1630-e07a-4ab8-9f5e-e23ea3383e7a.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Spells_4178fe36-b24e-4160-8b21-a7046cff77ee.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Spells_4178fe36-b24e-4160-8b21-a7046cff77ee.collect" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Third Party_d276b573-8322-4a64-abae-5095291ade71.collect" beforeDir="false" afterPath="$PROJECT_DIR$/SmartLibrarySettings/Collections/Third Party_d276b573-8322-4a64-abae-5095291ade71.collect" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +54,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.7/Editor/Items/ItemsPerTrack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/Block.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.7/Editor/inspectors/AnimationPlayableAssetInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.services.core@1.14.0/Runtime/Core/CommonErrorCodes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Selectable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/218a8db5828946b3b377d18eae48eb8e4400/49/6099f771/EquipmentPart.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Flow/Ports/ValueInputWidget.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.2.5/Runtime/UniTaskScheduler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@2.2.5/Runtime/UniTaskScheduler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../INTERFACE - Fantasy Warrior HUD/Library/PackageCache/com.unity.visualscripting@1b53f46e931b/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.12.4/Editor/AssetMenu/Dialogs/AddToCloudDriveDialog.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/Motion Titles Pack/Scripts/StyleManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,13 +79,16 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/Api/CallbacksDelegatorListener.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/31/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/FourDPawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/JabCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.settings-manager@2.1.0/Samples~/PackageWithProjectAndUserSettings/SettingsExamples.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/37cc348edc804f4cb176b63962c716e7177200/fc/af735f47/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Core/Unity/Singleton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThirdParty/FantasyMonsters/Monsters/Scripts/Editor/PackageUpdater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.7/Runtime/TrackAsset.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/games.corundum.stateless-for-unity@5.11.3/Stateless/StateMachine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/HealCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.peturdarri.generic-event-bus@8246d96808/Runtime/TargetedGenericEventBus.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Rogues Path/PawnCommands/Commands/BowAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/37cc348edc804f4cb176b63962c716e7177200/2d/c430f479/Object.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="NamedScopeManager">
@@ -196,7 +214,7 @@
       <workItem from="1787855670983" duration="17175000" />
       <workItem from="1787875988581" duration="603000" />
       <workItem from="1787943292265" duration="10181000" />
-      <workItem from="1788022675051" duration="5082000" />
+      <workItem from="1788022675051" duration="9659000" />
     </task>
     <servers />
   </component>
@@ -214,29 +232,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionManager.cs</url>
-          <line>134</line>
+          <line>137</line>
           <properties documentPath="H:\Rogue's Path\Assets\_Rogues Path\CharacterSelection\Scripts\CharacterSelectionManager.cs" initialLine="128" containingFunctionPresentation="method 'SelectPrevious'">
             <startOffsets>
-              <option value="5245" />
+              <option value="5407" />
             </startOffsets>
             <endOffsets>
-              <option value="5246" />
+              <option value="5408" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionManager.cs</url>
-          <line>34</line>
-          <properties documentPath="H:\Rogue's Path\Assets\_Rogues Path\CharacterSelection\Scripts\CharacterSelectionManager.cs" initialLine="33" containingFunctionPresentation="method 'Awake'">
-            <startOffsets>
-              <option value="1466" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1467" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs</url>
@@ -250,19 +255,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs</url>
-          <line>74</line>
-          <properties documentPath="H:\Rogue's Path\Assets\_Rogues Path\UI\ActionBar\UIActionBar.cs" initialLine="74" containingFunctionPresentation="method 'GetFirstSpellOffCooldown'">
-            <startOffsets>
-              <option value="2742" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2743" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

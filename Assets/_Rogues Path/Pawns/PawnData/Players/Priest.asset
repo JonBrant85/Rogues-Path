@@ -15,7 +15,10 @@ MonoBehaviour:
   Name: Priest
   ClassName: Sitrep
   Pawn: {fileID: -7564804374485097505, guid: 6953410fedb10da489899f4adee1b9f3, type: 3}
-  ClassSpells: []
+  ClassSpells:
+  - {fileID: 11400000, guid: 7833e5b5a14929b43a498f9cdc495d5f, type: 2}
+  - {fileID: 11400000, guid: 0a4f774633ca4f147a35fc5c109981af, type: 2}
+  - {fileID: 11400000, guid: 983914c8a6806ea408c580e2646c47af, type: 2}
   StartingEquipment:
   - {fileID: 7155900795693132837, guid: 4e6eff27de811e54085791d3315815d7, type: 3}
   - {fileID: 6795162852302816827, guid: 9689c7b82c0c22e4db4a130c197c2204, type: 3}

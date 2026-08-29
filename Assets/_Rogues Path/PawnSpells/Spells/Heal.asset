@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebb9db76c2649247a784602929aeb1b, type: 3}
+  m_Name: Heal
+  m_EditorClassIdentifier: 
+  SpellCommand:
+    rid: 3717655096487837696
+  Name: Heal
+  Icon: {fileID: 21300000, guid: dbd76c305bef5d94cb5c25e9b1b6c78c, type: 3}
+  Description: Heals the caster
+  Cooldown: 6
+  Flags: 4
+  ID: 0
+  Range: 0
+  CastTime: 0
+  PowerCost: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 3717655096487837696
+      type: {class: HealCommand, ns: _Rogues_Path.PawnCommands.Commands, asm: Assembly-CSharp}
+      data:
+        TargetCaster: 1
+        AnimationDuration: 1
+        DamageToHeal:
+          ID: {fileID: 11400000, guid: 7d87ff68130a0e04eacf33f56dbf3773, type: 2}
+          Multiplier: 0.8

@@ -3,11 +3,13 @@ using _Rogues_Path.Crafting;
 using _Rogues_Path.LevelSelection;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
+using DuloGames.UI;
 using Sirenix.OdinInspector;
 
 namespace _Rogues_Path._Game {
     public partial class Game {
         [FoldoutGroup("Data")] public PawnData PlayerData;
+        [FoldoutGroup("Data")] public List<UISpellInfo> PlayerPreparedSpells = new();
         [FoldoutGroup("Data")] public LevelData LevelData;
         [FoldoutGroup("Data")] public EquipmentPartInstanceDictionary PlayerEquipment = new();
         [FoldoutGroup("Data")] public List<EquipmentInstanceData> PlayerInventory = new();
