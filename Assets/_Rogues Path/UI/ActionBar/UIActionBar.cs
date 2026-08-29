@@ -1,26 +1,52 @@
-using System;
 using System.Linq;
-using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Scripts;
+using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using DG.Tweening;
 using DuloGames.UI;
-using DuloGames.UI.Tweens;
 using Sirenix.OdinInspector;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Rogues_Path.UI.ActionBar {
-    public class UIActionBar : Utilities.Singleton<UIActionBar> {
+    public class UIActionBar : Singleton<UIActionBar> {
         public const int NumberOfSlots = 10;
+        public float TransitionDuration = 0.5f;
+        public Vector2 ShownPosition;
+        public Vector2 HiddenPosition;
+
         [FoldoutGroup("References"), SerializeField] private Pawn Player;
         [FoldoutGroup("References"), SerializeField] private UIProgressBar ActionTimeRemaining;
         [FoldoutGroup("References"), SerializeField] private UISpellSlot[] Slots = new UISpellSlot[NumberOfSlots];
+
+        private RectTransform rectTransform;
+
+        private void Awake() {
+            rectTransform = GetComponent<RectTransform>();
+        }
+
+        private void OnEnable() {
+            EventBus.SubscribeTo<CombatEncounterStarted>(CombatEncounterStartedEventHandler);
+            EventBus.SubscribeTo<CombatEncounterEnded>(CombatEncounterEndedEventHandler);
+        }
+
+        private void OnDisable() {
+            EventBus.UnsubscribeFrom<CombatEncounterStarted>(CombatEncounterStartedEventHandler);
+            EventBus.UnsubscribeFrom<CombatEncounterEnded>(CombatEncounterEndedEventHandler);
+        }
 
         private void Update() {
             if (Player == null) return;
 
             ActionTimeRemaining.fillAmount = Player.Brain.TimeUntilAction / Player.Brain.ActionDelay;
             ActionTimeRemaining.UpdateBarFill();
+        }
+
+        private void CombatEncounterStartedEventHandler(ref CombatEncounterStarted eventData) {
+            Show();
+        }
+
+        private void CombatEncounterEndedEventHandler(ref CombatEncounterEnded eventData) {
+            Hide();
         }
 
         public void SetPlayer(Pawn player) {
@@ -32,6 +58,7 @@ namespace _Rogues_Path.UI.ActionBar {
                 if (Slots[i] == null) {
                     Debug.Log($"{gameObject.name}");
                 }
+
                 Debug.Assert(Player != null);
                 Debug.Assert(Player.Brain != null);
                 Debug.Assert(Player.Brain.PreparedSpells != null);
@@ -55,14 +82,14 @@ namespace _Rogues_Path.UI.ActionBar {
             return null;
         }
 
-        [Button]
-        public static void Show() {
-            Instance.transform.DOMoveY(0, 0.5f);
+        public void Show() {
+            rectTransform.DOKill();
+            rectTransform.DOAnchorPos(ShownPosition, TransitionDuration);
         }
 
-        [Button]
-        public static void Hide() {
-            Instance.transform.DOMoveY(-110, 0.5f);
+        public void Hide() {
+            rectTransform.DOKill();
+            rectTransform.DOAnchorPos(HiddenPosition, TransitionDuration);
         }
     }
 }

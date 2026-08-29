@@ -13,7 +13,8 @@ using UnityEngine.UI;
 
 namespace _Rogues_Path.UI.CharacterScreen {
     public class UICharacterScreen : Singleton<UICharacterScreen> {
-        public Vector3 PawnPreviewOffset = new Vector3(0, -1.5f, 3f);
+        [SerializeField] private Vector3 PawnPreviewOffset = new Vector3(0, -1.5f, 3f);
+        [SerializeField] private Vector3 PawnPreviewRotation;
 
         [FoldoutGroup("References"), SerializeField] Transform StatsContainer;
         [FoldoutGroup("References"), SerializeField] public UICharacterStat StatPrefab;
@@ -29,11 +30,49 @@ namespace _Rogues_Path.UI.CharacterScreen {
         [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
         private PawnData playerData;
 
+        private void OnEnable() {
+            EventBus.SubscribeTo<EquipmentCrafted>(EquipmentCraftedEventHandler);
+        }
+
+        private void OnDisable() {
+            EventBus.UnsubscribeFrom<EquipmentCrafted>(EquipmentCraftedEventHandler);
+        }
+
         private void Update() {
             // Poll Character stats
             foreach (var kvp in stats) {
                 kvp.Value.LabelText.text = kvp.Key.Name;
                 kvp.Value.UpdateValue();
+            }
+        }
+
+        private void EquipmentCraftedEventHandler(ref EquipmentCrafted data) {
+            if (pawnPreview == null || data.Equipment == null) {
+                return;
+            }
+
+            bool isEquipped = false;
+
+            foreach (var kvp in Game.Instance.PlayerEquipment) {
+                if (!ReferenceEquals(kvp.Value, data.Equipment)) {
+
+                    continue;
+                }
+
+                isEquipped = true;
+                break;
+            }
+
+            if (!isEquipped)
+                return;
+
+            if (!EquipmentDatabase.TryCreateInstance(data.Equipment, ModifierDatabase, out EquipmentBase refreshedEquipment, pawnPreview.transform)) {
+                return;
+            }
+
+            if (!pawnPreview.TryEquip(refreshedEquipment, false)) {
+
+                Destroy(refreshedEquipment.gameObject);
             }
         }
 
@@ -51,8 +90,10 @@ namespace _Rogues_Path.UI.CharacterScreen {
 
             void InitializePawnPreview() {
                 pawnPreview = Instantiate(playerData.Pawn, PawnPreviewCamera.transform);
-
                 pawnPreview.transform.localPosition = PawnPreviewOffset;
+                pawnPreview.transform.localRotation = Quaternion.Euler(PawnPreviewRotation);
+                pawnPreview.Character.SetDirection(Vector2.down);
+                pawnPreview.SetBillboardCamera(PawnPreviewCamera);
 
                 /*
                  * Runtime equipment must ALWAYS start empty.

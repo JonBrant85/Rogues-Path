@@ -27,8 +27,7 @@ namespace _Rogues_Path.Combat {
         [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
 
         private void Start() {
-            UIActionBar.Show();
-            UIMenuBar.Show();
+            EventBus.Raise(new CombatEncounterStarted());
         }
 
         private void OnEnable() {

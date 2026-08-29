@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using _Rogues_Path._Game;
 using _Rogues_Path.Combat;
 using _Rogues_Path.Commands;
+using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -28,10 +30,12 @@ public class CommandInvoker {
         if (allEnemiesDead) {
             await UniTask.Delay(1500);
             Game.FireTrigger(Trigger.EnterRewardsScreen);
+            EventBus.Raise(new CombatEncounterEnded());
         }
 
         if (allPlayersDead) {
             Game.FireTrigger(Trigger.GameOver);
+            EventBus.Raise(new CombatEncounterEnded());
         }
     }
 }

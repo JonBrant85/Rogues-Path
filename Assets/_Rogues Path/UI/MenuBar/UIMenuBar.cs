@@ -1,29 +1,52 @@
 using System;
 using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _Rogues_Path.UI.MenuBar {
-    public class UIMenuBar : Singleton<UIMenuBar> {
+    public class UIMenuBar : MonoBehaviour {
         public float TransitionDuration = 0.5f;
-        public Vector3 ShownPosition;
-        public Vector3 HiddenPosition;
+        public Vector2 ShownPosition;
+        public Vector2 HiddenPosition;
 
-        private Vector3 InitialPosition = Vector3.zero;
+        private RectTransform rectTransform;
 
         private void Awake() {
-            InitialPosition = transform.localPosition;
+            rectTransform = GetComponent<RectTransform>();
+        }
+
+        private void OnEnable() {
+            EventBus.SubscribeTo<CombatEncounterStarted>(CombatEncounterStartedEventHandler);
+            EventBus.SubscribeTo<CombatEncounterEnded>(CombatEncounterEndedEventHandler);
+        }
+
+        private void OnDisable() {
+            EventBus.UnsubscribeFrom<CombatEncounterStarted>(CombatEncounterStartedEventHandler);
+            EventBus.UnsubscribeFrom<CombatEncounterEnded>(CombatEncounterEndedEventHandler);
+        }
+
+        private void CombatEncounterStartedEventHandler(ref CombatEncounterStarted eventData) {
+            Show();
+        }
+
+        private void CombatEncounterEndedEventHandler(ref CombatEncounterEnded eventData) {
+            Hide();
         }
 
         [Button]
-        public static void Show() {
-            Instance.transform.DOLocalMove(Instance.InitialPosition + Instance.ShownPosition, Instance.TransitionDuration);
+        public void Show() {
+            rectTransform.DOKill();
+
+            rectTransform.DOAnchorPos(ShownPosition, TransitionDuration);
         }
 
         [Button]
-        public static void Hide() {
-            //Instance.transform.DOLocalMove(Instance.InitialPosition + Instance.HiddenPosition, Instance.TransitionDuration);
+        public void Hide() {
+            rectTransform.DOKill();
+
+            rectTransform.DOAnchorPos(HiddenPosition, TransitionDuration);
         }
     }
 }

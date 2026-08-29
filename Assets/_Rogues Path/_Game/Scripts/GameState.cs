@@ -86,8 +86,6 @@ namespace _Rogues_Path._Game {
                             }
                         }
                         LoadingScreenManager.Instance.LoadScene(Rewards);
-                        UIActionBar.Hide();
-                        UIMenuBar.Hide();
                     })
                 .Permit(Trigger.EnterMainMenu, State.MainMenu)
                 .Permit(Trigger.EnterRewardsScreen, State.RewardsScreen);
@@ -100,7 +98,6 @@ namespace _Rogues_Path._Game {
                     })
                 .OnExit(
                     () => {
-                        UIMenuBar.Show();
                         UIRewardsScreen.Hide();
                     })
                 .Permit(Trigger.EnterWorld, State.WorldMap);

@@ -20260,6 +20260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PawnPreviewOffset: {x: 0, y: -1.5, z: 3}
+  PawnPreviewRotation: {x: 0, y: 0, z: 0}
   StatsContainer: {fileID: 2982779215146496343}
   StatPrefab: {fileID: 1758682065613995373}
   CharacterNameText: {fileID: 8032656257644931746}

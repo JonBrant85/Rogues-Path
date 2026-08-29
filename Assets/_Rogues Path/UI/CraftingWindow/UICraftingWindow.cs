@@ -97,6 +97,7 @@ namespace _Rogues_Path.UI.CraftingWindow {
             EventBus.UnsubscribeFrom<EquipmentSlotClicked>(EquipmentSlotClickedHandler);
         }
 
+
         private void ActivateOrb(UIOrbSlot slot) {
             if (selectedOrbSlot != null)
                 selectedOrbSlot.SetActivated(false);
@@ -129,6 +130,13 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
                 return;
             }
+
+            EventBus.Raise(
+                new EquipmentCrafted {
+                    Equipment = eventData.InstanceData
+                });
+
+
 
             if (!Game.Instance.TryConsumeOrb(orb))
                 return;

@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TransitionDuration: 0.5
-  ShownPosition: {x: 0, y: 0, z: 0}
-  HiddenPosition: {x: 0, y: 70, z: 0}
+  ShownPosition: {x: 0, y: 0}
+  HiddenPosition: {x: 0, y: 70}
 --- !u!1 &810792854510501130
 GameObject:
   m_ObjectHideFlags: 0

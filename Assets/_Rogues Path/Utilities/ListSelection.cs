@@ -7,6 +7,9 @@ namespace _Rogues_Path.Utilities {
         private static System.Random _random = new System.Random();
 
         public static T GetRandomElement<T>(this IList<T> collection) {
+            if (collection == null) {
+                return default;
+            }
             int count = collection.Count();
 
             if (count == 0) {

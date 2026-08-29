@@ -8,10 +8,27 @@ namespace _Rogues_Path.Pawns.Scripts {
     public partial class Pawn : MonoBehaviour {
         [FoldoutGroup("References"), SerializeField] public AnimationManager animationManager;
 
+        private Camera billboardCamera;
+
+        public void SetBillboardCamera(Camera cam) {
+            billboardCamera = cam;
+        }
+        
         private void Update() {
-            // Billboarding
-            Vector3 targetPosition = Camera.main!.transform.position;
-            targetPosition.y = transform.position.y;
+            Camera cam =
+                billboardCamera != null
+                    ? billboardCamera
+                    : Camera.main;
+
+            if (cam == null)
+                return;
+
+            Vector3 targetPosition =
+                cam.transform.position;
+
+            targetPosition.y =
+                transform.position.y;
+
             transform.LookAt(targetPosition);
         }
     }
