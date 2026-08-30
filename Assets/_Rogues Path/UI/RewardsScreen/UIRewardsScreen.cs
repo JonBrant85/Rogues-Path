@@ -21,6 +21,7 @@ namespace _Rogues_Path.UI.RewardsScreen {
         [FoldoutGroup("References"), SerializeField] private UIWindow Window;
         [FoldoutGroup("References"), SerializeField] private Button AcceptButton;
         [FoldoutGroup("References"), SerializeField] private UIEquipmentSlot EquipSlotPrefab;
+        [FoldoutGroup("References"), SerializeField] private UIOrbSlot OrbSlotPrefab;
         [FoldoutGroup("References"), SerializeField] private Transform SlotsContainer;
         [FoldoutGroup("References"), SerializeField] private Button ContinueButton;
 
@@ -29,11 +30,11 @@ namespace _Rogues_Path.UI.RewardsScreen {
         private void Awake() {
             PrepareUI();
             PopulateRewards();
-            Show();
+            ShowInternal();
             UICharacterScreen.Instance.SetPlayer(Game.Instance.PlayerData);
 
             void PrepareUI() {
-                Instance.AcceptButton.onClick.AddListener(AcceptButtonClicked);
+                AcceptButton.onClick.AddListener(AcceptButtonClicked);
             }
 
             void AcceptButtonClicked() {
@@ -42,14 +43,20 @@ namespace _Rogues_Path.UI.RewardsScreen {
                 CollectRewards();
 
                 void CollectRewards() {
-                    foreach (int ID in Game.Instance.PendingRewards) {
+                    // Equipment rewards
+                    foreach (int ID in Game.Instance.PendingEquipmentRewards) {
                         EquipmentInstanceData instanceData = new(ID);
-
                         Game.Instance.PlayerInventory.Add(instanceData);
                     }
 
-                    Game.Instance.PendingRewards.Clear();
+                    Game.Instance.PendingEquipmentRewards.Clear();
 
+                    // Orb rewards
+                    foreach (var reward in Game.Instance.PendingOrbRewards) {
+                        Game.Instance.AddOrb(reward.Key, reward.Value);
+                    }
+
+                    Game.Instance.PendingOrbRewards.Clear();
                     EventBus.Raise(new InventoryChanged());
                 }
 
@@ -63,7 +70,8 @@ namespace _Rogues_Path.UI.RewardsScreen {
             }
 
             void PopulateRewards() {
-                foreach (var ID in Game.Instance.PendingRewards) {
+                // Equipment rewards
+                foreach (var ID in Game.Instance.PendingEquipmentRewards) {
                     var equipSlot = Instantiate(Instance.EquipSlotPrefab, Instance.SlotsContainer);
 
                     if (EquipmentDatabase.TryGetByID(ID, out EquipmentBase equipment)) {
@@ -75,14 +83,40 @@ namespace _Rogues_Path.UI.RewardsScreen {
 
                     equipSlot.gameObject.SetActive(true);
                 }
+
+                // Orb Rewards
+                foreach (var reward in Game.Instance.PendingOrbRewards) {
+                    UIOrbSlot orbSlot = Instantiate(OrbSlotPrefab, SlotsContainer);
+
+                    orbSlot.Assign(reward.Key);
+                    orbSlot.SetCount(reward.Value);
+                }
             }
         }
 
+        public void AddOrbReward(Orb orb, int amount = 1) {
+
+            if (orb == null || amount <= 0)
+                return;
+
+            if (Game.Instance.PendingOrbRewards.ContainsKey(orb)) {
+                Game.Instance.PendingOrbRewards[orb] += amount;
+                return;
+            }
+
+            Game.Instance.PendingOrbRewards.Add(orb, amount);
+        }
+
+        private void ShowInternal() {
+            Window.Show();
+
+            blackOverlay = UIBlackOverlayManager.Instance.Create(null);
+
+            blackOverlay.Show();
+        }
 
         public static void Show() {
-            Instance.Window.Show();
-            Instance.blackOverlay = UIBlackOverlayManager.Instance.Create(null);
-            Instance.blackOverlay.Show();
+            Instance.ShowInternal();
         }
 
         public static void Hide() {

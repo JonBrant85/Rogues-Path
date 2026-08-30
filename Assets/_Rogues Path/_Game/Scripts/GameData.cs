@@ -14,8 +14,8 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public EquipmentPartInstanceDictionary PlayerEquipment = new();
         [FoldoutGroup("Data")] public List<EquipmentInstanceData> PlayerInventory = new();
         [FoldoutGroup("Data")] public Dictionary<int, int> PlayerOrbs = new();
-        [FoldoutGroup("Data")] public List<int> PendingRewards;
-
+        [FoldoutGroup("Data")] public List<int> PendingEquipmentRewards;
+        public Dictionary<Orb, int> PendingOrbRewards = new();
 
         public int GetOrbCount(int orbID) {
             return PlayerOrbs.GetValueOrDefault(orbID);

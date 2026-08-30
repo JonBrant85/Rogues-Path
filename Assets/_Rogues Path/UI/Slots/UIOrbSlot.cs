@@ -52,6 +52,13 @@ namespace _Rogues_Path.UI.CraftingWindow {
         public override bool IsAssigned() {
             return Orb != null;
         }
+        
+        public void SetCount(int count) {
+            if (CountText == null)
+                return;
+
+            CountText.text = count.ToString();
+        }
 
         public void RefreshCount() {
             if (CountText == null)

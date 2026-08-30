@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.UI.ActionBar;
 using _Rogues_Path.UI.MenuBar;
@@ -39,8 +40,7 @@ namespace _Rogues_Path._Game {
         private StateMachine<State, Trigger> gameState = new StateMachine<State, Trigger>(State.Boot);
 
         public void InitGameState() {
-            gameState.Configure(State.Boot)
-                .Permit(Trigger.EnterInitialLoad, State.InitialLoad);
+            gameState.Configure(State.Boot).Permit(Trigger.EnterInitialLoad, State.InitialLoad);
 
             gameState.Configure(State.InitialLoad)
                 .OnEntry(
@@ -82,9 +82,19 @@ namespace _Rogues_Path._Game {
                         // Prepare Rewards
                         for (int i = 0; i < 2; i++) {
                             if (EquipmentDatabase.GetIDByName(EquipmentDatabase.Instance.Equipment.GetRandomElement().Name, out int ID)) {
-                                Instance.PendingRewards.Add(ID);
+                                Instance.PendingEquipmentRewards.Add(ID);
                             }
                         }
+
+                        Orb orb = OrbDatabase.Instance.GetRandomOrb();
+
+                        if (Instance.PendingOrbRewards.ContainsKey(orb)) {
+                            PendingOrbRewards[orb]++;
+                        }
+                        else {
+                            PendingOrbRewards.Add(orb, 1);
+                        }
+
                         LoadingScreenManager.Instance.LoadScene(Rewards);
                     })
                 .Permit(Trigger.EnterMainMenu, State.MainMenu)
@@ -93,7 +103,7 @@ namespace _Rogues_Path._Game {
             gameState.Configure(State.RewardsScreen)
                 .OnEntry(
                     () => {
-                        
+
                         EventBus.Raise(new InventoryChanged());
                     })
                 .OnExit(
@@ -102,10 +112,11 @@ namespace _Rogues_Path._Game {
                     })
                 .Permit(Trigger.EnterWorld, State.WorldMap);
 
-            gameState.Configure(State.WorldMap).OnEntry(
-                () => {
-                    LoadingScreenManager.Instance.LoadScene(World);
-                })
+            gameState.Configure(State.WorldMap)
+                .OnEntry(
+                    () => {
+                        LoadingScreenManager.Instance.LoadScene(World);
+                    })
                 .Permit(Trigger.EnterCombat, State.Combat);
         }
 

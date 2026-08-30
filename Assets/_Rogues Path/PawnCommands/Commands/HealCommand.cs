@@ -16,7 +16,6 @@ namespace _Rogues_Path.PawnCommands.Commands {
         public async override UniTask Execute(Pawn instigator, List<Pawn> victims) {
             if (TargetCaster) {
                 await UniTask.Delay((int)AnimationDuration*1000);
-                Debug.Log($"Healing caster for {DamageToHeal.Calculate(instigator)}");
                 await UniTask.Delay((int)instigator.TakeDamage(-(int)DamageToHeal.Calculate(instigator), instigator)* 1000);
             }
             else {

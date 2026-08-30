@@ -4,17 +4,14 @@ using _Rogues_Path._Game;
 using UnityEngine;
 
 namespace _Rogues_Path.Crafting {
-    [CreateAssetMenu(
-        menuName = Game.Name + "/" + nameof(OrbDatabase),
-        fileName = nameof(OrbDatabase))]
+    [CreateAssetMenu(menuName = Game.Name + "/" + nameof(OrbDatabase), fileName = nameof(OrbDatabase))]
     public class OrbDatabase : ScriptableObject {
         private static OrbDatabase m_Instance;
 
         public static OrbDatabase Instance {
             get {
                 if (m_Instance == null) {
-                    m_Instance = Resources.Load<OrbDatabase>(
-                        "Databases/OrbDatabase");
+                    m_Instance = Resources.Load<OrbDatabase>("Databases/OrbDatabase");
                 }
 
                 return m_Instance;
@@ -25,6 +22,13 @@ namespace _Rogues_Path.Crafting {
 
         [SerializeField]
         private List<Orb> orbs = new();
+
+        public Orb GetRandomOrb() {
+            if (Orbs == null || Orbs.Count == 0)
+                return null;
+
+            return Orbs[Random.Range(0, Orbs.Count)];
+        }
 
         public static bool TryGetByID(int id, out Orb orb) {
             orb = null;
@@ -59,8 +63,7 @@ namespace _Rogues_Path.Crafting {
             if (Instance == null || string.IsNullOrEmpty(name))
                 return false;
 
-            orb = Instance.orbs.FirstOrDefault(
-                x => x != null && x.Name == name);
+            orb = Instance.orbs.FirstOrDefault(x => x != null && x.Name == name);
 
             return orb != null;
         }
