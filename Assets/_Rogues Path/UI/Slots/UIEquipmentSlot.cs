@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using _Rogues_Path._Game;
 using _Rogues_Path.Crafting;
@@ -67,18 +68,22 @@ namespace _Rogues_Path.UI.Slots {
 
             UITooltip.AddLineColumn(equipment.Quality.ToString());
 
+            Dictionary<string, float> modifierTotals = new();
+
             if (equipment.Modifiers != null) {
                 foreach (StatAndModifierPair pair in equipment.Modifiers) {
-                    UITooltip.AddLineColumn(pair.StatID.name, "ItemAttribute");
+                    string key = pair.StatID.name;
 
-                    UITooltip.AddLineColumn(pair.Modifier.Value.ToString("N1"), "ItemAttribute");
+                    if (modifierTotals.ContainsKey(key))
+                        modifierTotals[key] += pair.Modifier.Value;
+                    else
+                        modifierTotals.Add(key, pair.Modifier.Value);
                 }
             }
 
-            if (instanceData != null && modifierDatabase != null && instanceData.CraftedModifiers != null && instanceData.CraftedModifiers.Count > 0) {
-
-                UITooltip.AddSpacer();
-                UITooltip.AddLine("CRAFTED", "ItemAttribute");
+            // Database/inventory equipment doesn't have crafted modifiers
+            // materialized into Equipment.Modifiers, so add them from D.
+            if (EquipmentDatabase.IsDatabaseEntry(equipment) && instanceData != null && modifierDatabase != null && instanceData.CraftedModifiers != null) {
 
                 foreach (RolledEquipmentModifier rolledModifier in instanceData.CraftedModifiers) {
 
@@ -87,11 +92,20 @@ namespace _Rogues_Path.UI.Slots {
                         continue;
                     }
 
-                    string modifierName = string.IsNullOrEmpty(definition.Name) ? definition.StatID.name : definition.Name;
-                    UITooltip.AddLine($"{definition.StatID.name}: +{rolledModifier.Value:N1}", "ItemAttribute");
+                    string key = definition.StatID.name;
+
+                    if (modifierTotals.ContainsKey(key))
+                        modifierTotals[key] += rolledModifier.Value;
+                    else
+                        modifierTotals.Add(key, rolledModifier.Value);
                 }
             }
 
+            foreach (var modifier in modifierTotals) {
+                UITooltip.AddLineColumn(modifier.Key, "ItemAttribute");
+
+                UITooltip.AddLineColumn(modifier.Value.ToString("N1"), "ItemAttribute");
+            }
 
             // Description
             if (!string.IsNullOrEmpty(equipment.Description)) {
