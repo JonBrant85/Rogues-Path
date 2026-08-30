@@ -325,6 +325,11 @@ namespace _Rogues_Path.Pawns.Scripts {
             }
 
             RemoveLiveEquipment(currentLiveEquipment);
+            EventBus.Raise(
+                new EquipmentUnequippedEvent {
+                    Owner = this,
+                    EquipType = equipType
+                });
 
             EventBus.Raise(new PawnStatChanged());
 

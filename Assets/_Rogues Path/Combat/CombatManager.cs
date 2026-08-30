@@ -32,10 +32,14 @@ namespace _Rogues_Path.Combat {
 
         private void OnEnable() {
             EventBus.SubscribeTo<CombatEncounterStarted>(CombatStartedEventHandler);
+            EventBus.SubscribeTo<EquipmentEquippedEvent>(EquipmentEquippedHandler);
+            EventBus.SubscribeTo<EquipmentUnequippedEvent>(EquipmentUnequippedEventHandler);
         }
 
         private void OnDisable() {
             EventBus.UnsubscribeFrom<CombatEncounterStarted>(CombatStartedEventHandler);
+            EventBus.UnsubscribeFrom<EquipmentEquippedEvent>(EquipmentEquippedHandler);
+            EventBus.UnsubscribeFrom<EquipmentUnequippedEvent>(EquipmentUnequippedEventHandler);
         }
 
         private void CombatStartedEventHandler(ref CombatEncounterStarted eventData) {
@@ -78,6 +82,45 @@ namespace _Rogues_Path.Combat {
                 if (!Player.TryEquip(liveEquipment, false)) {
                     Destroy(liveEquipment.gameObject);
                 }
+            }
+        }
+
+        private void EquipmentUnequippedEventHandler(ref EquipmentUnequippedEvent eventData) {
+
+            if (Player == null)
+                return;
+
+            if (eventData.Owner == Player)
+                return;
+
+            if (!Player.CurrentEquipment.TryGetValue(eventData.EquipType, out EquipmentBase liveEquipment)) {
+
+                return;
+            }
+
+            Player.TryRemoveEquipment(liveEquipment, false);
+        }
+
+        private void EquipmentEquippedHandler(ref EquipmentEquippedEvent eventData) {
+
+            if (Player == null || eventData.Equipment == null || eventData.Owner == Player) {
+
+                return;
+            }
+
+            EquipmentInstanceData instanceData = eventData.Equipment.InstanceData;
+
+            if (instanceData == null)
+                return;
+
+            if (!EquipmentDatabase.TryCreateInstance(instanceData, ModifierDatabase, out EquipmentBase liveEquipment, Player.transform)) {
+
+                return;
+            }
+
+            if (!Player.TryEquip(liveEquipment, false)) {
+
+                Destroy(liveEquipment.gameObject);
             }
         }
 
