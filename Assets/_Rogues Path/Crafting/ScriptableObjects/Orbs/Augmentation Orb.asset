@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7c553991464779a00d5ec48c6ed792, type: 3}
+  m_Name: Augmentation Orb
+  m_EditorClassIdentifier: 
+  Name: Augmentation Orb
+  Description: Adds one random modifier to an item
+  Icon: {fileID: 21300000, guid: 1dca856e9e3585c4e9dc7952ff91a175, type: 3}
+  Commands: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,9 +1,19 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using _Rogues_Path._Game;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Rogues_Path.Crafting {
+    [Serializable]
+    public class WeightedOrb {
+        public Orb Orb;
+
+        [Min(1)]
+        public int Weight = 100;
+    }
+
     [CreateAssetMenu(menuName = Game.Name + "/" + nameof(OrbDatabase), fileName = nameof(OrbDatabase))]
     public class OrbDatabase : ScriptableObject {
         private static OrbDatabase m_Instance;
@@ -18,16 +28,40 @@ namespace _Rogues_Path.Crafting {
             }
         }
 
-        public List<Orb> Orbs => new(orbs);
+        public List<WeightedOrb> Orbs => new(orbs);
 
         [SerializeField]
-        private List<Orb> orbs = new();
+        public List<WeightedOrb> orbs = new();
 
         public Orb GetRandomOrb() {
             if (Orbs == null || Orbs.Count == 0)
                 return null;
 
-            return Orbs[Random.Range(0, Orbs.Count)];
+            int totalWeight = 0;
+
+            foreach (WeightedOrb weightedOrb in Orbs) {
+                if (weightedOrb?.Orb == null)
+                    continue;
+
+                totalWeight += weightedOrb.Weight;
+            }
+
+            if (totalWeight <= 0)
+                return null;
+
+            int roll = Random.Range(0, totalWeight);
+
+            foreach (WeightedOrb weightedOrb in Orbs) {
+                if (weightedOrb?.Orb == null)
+                    continue;
+
+                if (roll < weightedOrb.Weight)
+                    return weightedOrb.Orb;
+
+                roll -= weightedOrb.Weight;
+            }
+
+            return null;
         }
 
         public static bool TryGetByID(int id, out Orb orb) {
@@ -41,31 +75,48 @@ namespace _Rogues_Path.Crafting {
                 return false;
             }
 
-            orb = Instance.orbs[id];
+            orb = Instance.orbs[id]?.Orb;
 
             return orb != null;
         }
 
-        public static bool TryGetID(Orb orb, out int id) {
+        public bool TryGetID(Orb orb, out int id) {
             id = -1;
 
-            if (orb == null || Instance == null)
+            if (orb == null)
                 return false;
 
-            id = Instance.orbs.IndexOf(orb);
+            for (int i = 0; i < Orbs.Count; i++) {
+                if (Orbs[i]?.Orb != orb)
+                    continue;
 
-            return id >= 0;
+                id = i;
+
+                return true;
+            }
+
+            return false;
         }
 
-        public static bool TryFindByName(string name, out Orb orb) {
+        public bool TryFindByName(string orbName, out Orb orb) {
             orb = null;
 
-            if (Instance == null || string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(orbName))
                 return false;
 
-            orb = Instance.orbs.FirstOrDefault(x => x != null && x.Name == name);
+            foreach (WeightedOrb weightedOrb in Orbs) {
+                if (weightedOrb?.Orb == null)
+                    continue;
 
-            return orb != null;
+                if (weightedOrb.Orb.Name != orbName)
+                    continue;
+
+                orb = weightedOrb.Orb;
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

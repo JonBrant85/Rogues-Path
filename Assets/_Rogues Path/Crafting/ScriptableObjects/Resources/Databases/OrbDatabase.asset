@@ -13,4 +13,9 @@ MonoBehaviour:
   m_Name: OrbDatabase
   m_EditorClassIdentifier: 
   orbs:
-  - {fileID: 11400000, guid: 9cfa645801a3716469eba19f678d03e0, type: 2}
+  - Orb: {fileID: 11400000, guid: 9cfa645801a3716469eba19f678d03e0, type: 2}
+    Weight: 100
+  - Orb: {fileID: 11400000, guid: e0b0eb5c2c9746a4e8824b805bb7c760, type: 2}
+    Weight: 10
+  - Orb: {fileID: 11400000, guid: 008a98ad7cd505249b80b24bc270a405, type: 2}
+    Weight: 10

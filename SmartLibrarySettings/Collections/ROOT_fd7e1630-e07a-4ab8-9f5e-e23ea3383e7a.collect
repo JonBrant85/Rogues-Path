@@ -18,6 +18,7 @@ MonoBehaviour:
   - _serializedGuid: b3bbcb90d2492d4c83f6d9032f84c4e2
   - _serializedGuid: 42103d56220423458ec3f17bd1ce2397
   - _serializedGuid: 6e797a658a238e489a15f94920971f6c
+  - _serializedGuid: 7aa1b1f35966e44b9fa97e9a248e8f26
   - _serializedGuid: 36fe78414eb260418b21a7046cff77ee
   - _serializedGuid: 47f4a65bea4c6c48bfc78efb2adf33bf
   - _serializedGuid: 4ed726632c5f5942b413d176011af60d
@@ -4693,6 +4694,10 @@ MonoBehaviour:
       _guid: c267b79ba6ecf4642983433afc2fc760
     collectionIds:
     - _serializedGuid: 73b576d22283644aabae5095291ade71
+  - item:
+      _guid: f0089ec4094a0e24d8b5ad3ee39632d7
+    collectionIds:
+    - _serializedGuid: c251acf758af4d4786169bd6102b79d6
   references:
     version: 2
     RefIds: []

@@ -17,6 +17,10 @@ namespace _Rogues_Path.CharacterSelection {
             foreach (var equipment in PawnData.StartingEquipment) {
                 Character.Equip(equipment.ItemSprite, equipment.EquipType);
             }
+
+            if (Character.TryGetComponent(out Pawn pawn)) {
+                pawn.StatusDisplay = null;
+            }
         }
 
         private void OnMouseDown() {

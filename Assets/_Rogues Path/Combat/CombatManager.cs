@@ -3,6 +3,7 @@ using System.Collections;
 using _Rogues_Path._Game;
 using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
+using _Rogues_Path.Levels;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Pawns.Scripts.Brains;
@@ -26,9 +27,7 @@ namespace _Rogues_Path.Combat {
         [FoldoutGroup("References"), SerializeField] private Transform EnemyContainer;
         [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
 
-        private void Start() {
-            EventBus.Raise(new CombatEncounterStarted());
-        }
+       
 
         private void OnEnable() {
             EventBus.SubscribeTo<CombatEncounterStarted>(CombatStartedEventHandler);
@@ -45,7 +44,7 @@ namespace _Rogues_Path.Combat {
         private void CombatStartedEventHandler(ref CombatEncounterStarted eventData) {
             var randomEnemy = eventData.Enemies.GetRandomElement();
             // Instantiate background, player, enemies
-            Instantiate(eventData.BackgroundPrefab, BackgroundContainer);
+            if (eventData.BackgroundPrefab != null) Instantiate(eventData.BackgroundPrefab, BackgroundContainer);
             Player = Instantiate(Game.Instance.PlayerData.Pawn, PlayerContainer);
             Enemy = Instantiate(randomEnemy.Pawn, EnemyContainer);
 

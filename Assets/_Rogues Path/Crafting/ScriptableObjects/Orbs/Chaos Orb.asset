@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7c553991464779a00d5ec48c6ed792, type: 3}
+  m_Name: Chaos Orb
+  m_EditorClassIdentifier: 
+  Name: Chaos Orb
+  Description: Removes a random modifier, adds a random modifier
+  Icon: {fileID: 0}
+  Commands:
+  - rid: 3717655118378696709
+  - rid: 3717655118378696708
+  references:
+    version: 2
+    RefIds:
+    - rid: 3717655118378696708
+      type: {class: AddRandomModifiers, ns: _Rogues_Path.Crafting.Commands, asm: Assembly-CSharp}
+      data:
+        Amount: 1
+    - rid: 3717655118378696709
+      type: {class: RemoveRandomModifier, ns: _Rogues_Path.Crafting.Commands, asm: Assembly-CSharp}
+      data: 

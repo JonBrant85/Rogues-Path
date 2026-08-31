@@ -10,25 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
-  m_Name: Databases
+  m_Name: Orbs
   m_EditorClassIdentifier: 
   _parentID:
     _serializedGuid: 30167efd7ae0b84a9f5ee23ea3383e7a
   _subcollectionIDs: []
-  _collectionName: Databases
+  _collectionName: Orbs
   _id:
-    _serializedGuid: c251acf758af4d4786169bd6102b79d6
+    _serializedGuid: 7aa1b1f35966e44b9fa97e9a248e8f26
   _icon: {fileID: 0}
   _rules:
     _rules: []
   _items:
-    _hashSetList:
-    - 3c850c0a54def0b40874e7cc751a3bbf
-    - cacdc738fd7665e478986589bfbb5266
-    - ed0b296bc13a33144a4e9ea08d0ad5d5
-    - 83af5b247e841f5468a89890dddc7d78
-    - 6a4f3277b8d26f649ab8de430921a523
-    - f0089ec4094a0e24d8b5ad3ee39632d7
+    _hashSetList: []
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0

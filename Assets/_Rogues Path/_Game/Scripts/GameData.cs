@@ -22,10 +22,15 @@ namespace _Rogues_Path._Game {
         }
 
         public int GetOrbCount(Orb orb) {
-            if (!OrbDatabase.TryGetID(orb, out int orbID))
+            if (orb == null)
                 return 0;
 
-            return GetOrbCount(orbID);
+            if (!OrbDatabase.Instance.TryGetID(orb, out int orbID)) {
+
+                return 0;
+            }
+
+            return PlayerOrbs.TryGetValue(orbID, out int count) ? count : 0;
         }
 
         public bool AddOrb(int orbID, int count = 1) {
@@ -42,11 +47,22 @@ namespace _Rogues_Path._Game {
             return true;
         }
 
-        public bool AddOrb(Orb orb, int count = 1) {
-            if (!OrbDatabase.TryGetID(orb, out int orbID))
+        public bool AddOrb(Orb orb, int amount = 1) {
+
+            if (orb == null || amount <= 0)
                 return false;
 
-            return AddOrb(orbID, count);
+            if (!OrbDatabase.Instance.TryGetID(orb, out int orbID)) {
+
+                return false;
+            }
+
+            if (PlayerOrbs.ContainsKey(orbID))
+                PlayerOrbs[orbID] += amount;
+            else
+                PlayerOrbs.Add(orbID, amount);
+
+            return true;
         }
 
         public bool TryConsumeOrb(int orbID, int count = 1) {
@@ -71,11 +87,29 @@ namespace _Rogues_Path._Game {
             return true;
         }
 
-        public bool TryConsumeOrb(Orb orb, int count = 1) {
-            if (!OrbDatabase.TryGetID(orb, out int orbID))
+        public bool TryConsumeOrb(Orb orb, int amount = 1) {
+
+            if (orb == null || amount <= 0)
                 return false;
 
-            return TryConsumeOrb(orbID, count);
+            if (!OrbDatabase.Instance.TryGetID(orb, out int orbID)) {
+
+                return false;
+            }
+
+            if (!PlayerOrbs.TryGetValue(orbID, out int count) || count < amount) {
+
+                return false;
+            }
+
+            count -= amount;
+
+            if (count <= 0)
+                PlayerOrbs.Remove(orbID);
+            else
+                PlayerOrbs[orbID] = count;
+
+            return true;
         }
     }
 }

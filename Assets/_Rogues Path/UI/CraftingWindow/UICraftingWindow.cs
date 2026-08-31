@@ -16,43 +16,25 @@ using UnityEngine.UI;
 
 namespace _Rogues_Path.UI.CraftingWindow {
     public class UICraftingWindow : Singleton<UICraftingWindow> {
-        [FoldoutGroup("References"), SerializeField]
-        private UIWindow Window;
-
-        [FoldoutGroup("References"), SerializeField]
-        private Image EquipmentIcon;
-
-        [FoldoutGroup("References"), SerializeField]
-        private Text EquipmentNameText;
-
-        [FoldoutGroup("References"), SerializeField]
-        private Text ModifiersText;
-
-        [FoldoutGroup("References"), SerializeField]
-        private Image OrbIcon;
-
-        [FoldoutGroup("References"), SerializeField]
-        private Text OrbCountText;
-
-        [FoldoutGroup("References"), SerializeField]
-        private Button CraftButton;
-
-        [FoldoutGroup("References"), SerializeField]
-        private Orb AddModifierOrb;
-
-        [FoldoutGroup("References"), SerializeField]
-        private EquipmentModifierDatabase ModifierDatabase;
-
-        [FoldoutGroup("References"), SerializeField]
-        private Transform OrbSlotsContainer;
+        [FoldoutGroup("References"), SerializeField] private UIWindow Window;
+        [FoldoutGroup("References"), SerializeField] private Image EquipmentIcon;
+        [FoldoutGroup("References"), SerializeField] private Text EquipmentNameText;
+        [FoldoutGroup("References"), SerializeField] private Text ModifiersText;
+        [FoldoutGroup("References"), SerializeField] private Image OrbIcon;
+        [FoldoutGroup("References"), SerializeField] private Text OrbCountText;
+        [FoldoutGroup("References"), SerializeField] private Button CraftButton;
+        [FoldoutGroup("References"), SerializeField] private Orb AddModifierOrb;
+        [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
+        [FoldoutGroup("References"), SerializeField] private Transform OrbSlotsContainer;
+        [FoldoutGroup("References"), SerializeField] private UIOrbSlot OrbSlotPrefab;
 
         private UIOrbSlot selectedOrbSlot;
         private EquipmentInstanceData selectedEquipment;
         private bool shiftRepeatActive;
 
         private void Awake() {
-            RegisterOrbSlots();
             FillOrbSlots();
+            RegisterOrbSlots();
             CraftButton.onClick.AddListener(CraftButtonClicked);
             Game.Instance.AddOrb(AddModifierOrb, 10);
             Refresh();
@@ -171,16 +153,9 @@ namespace _Rogues_Path.UI.CraftingWindow {
         }
 
         private void FillOrbSlots() {
-            var orbs = OrbDatabase.Instance.Orbs;
-
-            for (int i = 0; i < OrbSlotsContainer.childCount && i < orbs.Count; i++) {
-
-                UIOrbSlot slot = OrbSlotsContainer.GetChild(i).GetComponent<UIOrbSlot>();
-
-                if (slot == null)
-                    continue;
-
-                slot.Assign(orbs[i]);
+            for (int i = 0; i < OrbDatabase.Instance.Orbs.Count; i++) {
+                UIOrbSlot slot = Instantiate(OrbSlotPrefab, OrbSlotsContainer);
+                slot.Assign(OrbDatabase.Instance.Orbs[i].Orb);
             }
         }
 
@@ -189,15 +164,24 @@ namespace _Rogues_Path.UI.CraftingWindow {
             if (orb == null || equipment == null)
                 return false;
 
-            if (orb.Command == null) {
-                Debug.LogError($"{orb.Name} has no crafting command.");
+            if (orb.Commands == null || orb.Commands.Count == 0) {
+
+                Debug.LogError($"{orb.Name} has no crafting commands.");
 
                 return false;
             }
 
             OrbCommandContext context = new(equipment, ModifierDatabase);
 
-            return orb.Command.Execute(context);
+            foreach (OrbCommand command in orb.Commands) {
+                if (command == null)
+                    continue;
+
+                if (!command.Execute(context))
+                    return false;
+            }
+
+            return true;
         }
 
         private void EquipmentClickedHandler(EquipmentInstanceData equipment) {

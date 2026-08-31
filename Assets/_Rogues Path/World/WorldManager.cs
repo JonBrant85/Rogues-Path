@@ -40,10 +40,9 @@ namespace _Rogues_Path.World {
         private void Awake() {
             // Initialize player with equipment
             PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, StartingTile.PawnContainer);
-
             PlayerPawn.Character.SetDirection(Vector2.down);
-
             PlayerPawn.SyncInventoryFromGameState();
+            PlayerPawn.StatusDisplay = null;
 
             foreach (var kvp in Game.Instance.PlayerEquipment) {
                 EquipmentInstanceData instanceData = kvp.Value;

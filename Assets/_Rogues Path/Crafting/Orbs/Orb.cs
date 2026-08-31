@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _Rogues_Path._Game;
 using _Rogues_Path.Crafting.Commands;
 using UnityEngine;
@@ -10,6 +11,6 @@ namespace _Rogues_Path.Crafting {
         public Sprite Icon;
 
         [SerializeReference]
-        public OrbCommand Command;
+        public List<OrbCommand> Commands = new();
     }
 }

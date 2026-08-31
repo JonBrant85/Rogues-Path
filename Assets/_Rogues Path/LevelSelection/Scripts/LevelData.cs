@@ -10,6 +10,6 @@ namespace _Rogues_Path.LevelSelection {
         public string LevelName;
         public string Description;
         public GameObject BackgroundPrefab;
-        public List<Pawn> Enemies = new List<Pawn>();
+        public List<PawnData> Enemies = new();
     }
 }
