@@ -34,7 +34,6 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
         private void Awake() {
             FillOrbSlots();
-            RegisterOrbSlots();
             CraftButton.onClick.AddListener(CraftButtonClicked);
             Game.Instance.AddOrb(AddModifierOrb, 10);
             Refresh();
@@ -156,6 +155,7 @@ namespace _Rogues_Path.UI.CraftingWindow {
             for (int i = 0; i < OrbDatabase.Instance.Orbs.Count; i++) {
                 UIOrbSlot slot = Instantiate(OrbSlotPrefab, OrbSlotsContainer);
                 slot.Assign(OrbDatabase.Instance.Orbs[i].Orb);
+                slot.OnRightClickEvent.AddListener(OrbRightClicked);
             }
         }
 
