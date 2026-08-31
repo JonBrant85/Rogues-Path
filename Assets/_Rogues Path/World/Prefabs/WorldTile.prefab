@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6758062472103008588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3880198914547079555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1131654166255106437}
+  m_Layer: 0
+  m_Name: EnemyContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1131654166255106437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3880198914547079555}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6758062472103008588}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6158722837109924356
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +95,7 @@ Transform:
   - {fileID: 3527886405890115883}
   - {fileID: 3147431454262956670}
   - {fileID: 5547237829909478544}
+  - {fileID: 1131654166255106437}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3394435974357432237
@@ -78,10 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25104eceacf467e88b35538da77cbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level: {fileID: 0}
+  Encounter: {fileID: 0}
   NextTile: {fileID: 0}
   IndicatorSprite: {fileID: 5326907322496412638}
   PawnContainer: {fileID: 5547237829909478544}
   Model: {fileID: 2370648876325292228}
+  EnemyContainer: {fileID: 1131654166255106437}
 --- !u!1 &7739361107880270326
 GameObject:
   m_ObjectHideFlags: 0

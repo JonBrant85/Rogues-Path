@@ -1,5 +1,7 @@
 using System.Linq;
+using _Rogues_Path._Game;
 using _Rogues_Path.Pawns.Scripts;
+using _Rogues_Path.Spells;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
 using DG.Tweening;
@@ -19,6 +21,9 @@ namespace _Rogues_Path.UI.ActionBar {
         [FoldoutGroup("References"), SerializeField] private UISpellSlot[] Slots = new UISpellSlot[NumberOfSlots];
 
         private RectTransform rectTransform;
+        private const int EmptySpellSlot = -1;
+        private bool spellOrderDirty;
+        private bool restoringSpellOrder;
 
         private void Awake() {
             rectTransform = GetComponent<RectTransform>();
@@ -27,11 +32,53 @@ namespace _Rogues_Path.UI.ActionBar {
         private void OnEnable() {
             EventBus.SubscribeTo<CombatEncounterStarted>(CombatEncounterStartedEventHandler);
             EventBus.SubscribeTo<CombatEncounterEnded>(CombatEncounterEndedEventHandler);
+
+            foreach (UISpellSlot slot in Slots) {
+                slot.onAssign.AddListener(SpellSlotChanged);
+                slot.onUnassign.AddListener(SpellSlotChanged);
+            }
         }
 
         private void OnDisable() {
             EventBus.UnsubscribeFrom<CombatEncounterStarted>(CombatEncounterStartedEventHandler);
             EventBus.UnsubscribeFrom<CombatEncounterEnded>(CombatEncounterEndedEventHandler);
+
+            foreach (UISpellSlot slot in Slots) {
+                slot.onAssign.RemoveListener(SpellSlotChanged);
+                slot.onUnassign.RemoveListener(SpellSlotChanged);
+            }
+        }
+
+        private void LateUpdate() {
+            if (!spellOrderDirty)
+                return;
+
+            spellOrderDirty = false;
+            SaveSpellOrder();
+        }
+
+        private void SpellSlotChanged(UISpellSlot slot) {
+            if (restoringSpellOrder)
+                return;
+
+            spellOrderDirty = true;
+        }
+
+        private void SaveSpellOrder() {
+            Game.Instance.ActionBarSpellOrder.Clear();
+
+            foreach (UISpellSlot slot in Slots) {
+                UISpellInfo spell = slot.GetSpellInfo();
+
+                if (spell == null) {
+                    Game.Instance.ActionBarSpellOrder.Add(EmptySpellSlot);
+                    continue;
+                }
+
+                if (SpellDatabase.Instance.TryGetID(spell, out int id)) {
+                    Game.Instance.ActionBarSpellOrder.Add(id);
+                }
+            }
         }
 
         private void Update() {
@@ -51,19 +98,37 @@ namespace _Rogues_Path.UI.ActionBar {
 
         public void SetPlayer(Pawn player) {
             Player = player;
+            restoringSpellOrder = true;
 
-            for (int i = 0; i < NumberOfSlots && i < Player.Brain.PreparedSpells.Count; i++) {
-                Debug.Assert(Slots[i] != null);
-
-                if (Slots[i] == null) {
-                    Debug.Log($"{gameObject.name}");
-                }
-
-                Debug.Assert(Player != null);
-                Debug.Assert(Player.Brain != null);
-                Debug.Assert(Player.Brain.PreparedSpells != null);
-                Slots[i].Assign(Player.Brain.PreparedSpells[i]);
+            foreach (UISpellSlot slot in Slots) {
+                slot.Unassign();
             }
+
+            if (Game.Instance.ActionBarSpellOrder.Count != NumberOfSlots) {
+                Game.Instance.ActionBarSpellOrder.Clear();
+
+                for (int i = 0; i < NumberOfSlots; i++) {
+                    if (i < Player.Brain.PreparedSpells.Count && SpellDatabase.Instance.TryGetID(Player.Brain.PreparedSpells[i], out int id)) {
+                        Game.Instance.ActionBarSpellOrder.Add(id);
+                    }
+                    else {
+                        Game.Instance.ActionBarSpellOrder.Add(EmptySpellSlot);
+                    }
+                }
+            }
+
+            for (int i = 0; i < NumberOfSlots; i++) {
+                int spellID = Game.Instance.ActionBarSpellOrder[i];
+
+                if (spellID == EmptySpellSlot)
+                    continue;
+
+                if (SpellDatabase.TryGetByID(spellID, out UISpellInfo spell)) {
+                    Slots[i].Assign(spell);
+                }
+            }
+
+            restoringSpellOrder = false;
         }
 
         public void TriggerSpellCooldown(UISpellInfo spell) {

@@ -33,5 +33,15 @@ namespace _Rogues_Path.Levels {
             id = Levels.IndexOf(level);
             return id >= 0;
         }
+
+        public LevelData GetRandomLevel() {
+            if (Levels == null || Levels.Count == 0) {
+                Debug.LogError("LevelDatabase contains no LevelData.");
+
+                return null;
+            }
+
+            return Levels[Random.Range(0, Levels.Count)];
+        }
     }
 }

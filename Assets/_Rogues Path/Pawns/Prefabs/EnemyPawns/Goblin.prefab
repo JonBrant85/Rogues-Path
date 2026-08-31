@@ -15550,8 +15550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76e2e4d4a6e419cbff008949ff1401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xDirection: 0
-  yDirection: 0
   animationManager: {fileID: 7469095601690709282}
   CharacterName: Goblin
   ClassName: Not Fluffy

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Rogues_Path.UI;
 using DG.Tweening;
 using OldOdin;
 using Sirenix.OdinInspector;
@@ -42,16 +43,13 @@ namespace _Rogues_Path.Pawns.Scripts {
         }
 
         public float Die() {
+            /*
             animazing.Stop(1);
             animazing.SetLayerDefaultAnimation(0, DieAnimation);
             animazing.Play(DieAnimation, Single.PositiveInfinity);
-            IsDead = true;
-
-            /*
-            // Disable intent game object
-            var intentComponent = GetComponentInChildren<UIIntentDisplay>();
-            intentComponent.gameObject.SetActive(false);
             */
+            Character.AnimationManager.Die();
+            IsDead = true;
 
             // Remove buffs
             List<string> buffsToRemove = new();
@@ -70,6 +68,7 @@ namespace _Rogues_Path.Pawns.Scripts {
             UIStatusDisplay statusDisplay = GetComponentInChildren<UIStatusDisplay>();
             statusDisplay.gameObject.SetActive(false);
             */
+            
 
             // Disable box collider
             if (TryGetComponent(out BoxCollider2D col)) {
