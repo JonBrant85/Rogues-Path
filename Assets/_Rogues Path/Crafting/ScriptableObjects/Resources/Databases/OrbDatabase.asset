@@ -18,4 +18,4 @@ MonoBehaviour:
   - Orb: {fileID: 11400000, guid: e0b0eb5c2c9746a4e8824b805bb7c760, type: 2}
     Weight: 10
   - Orb: {fileID: 11400000, guid: 008a98ad7cd505249b80b24bc270a405, type: 2}
-    Weight: 10
+    Weight: 35

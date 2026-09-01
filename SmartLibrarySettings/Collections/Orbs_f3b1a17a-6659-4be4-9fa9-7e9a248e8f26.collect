@@ -22,7 +22,10 @@ MonoBehaviour:
   _rules:
     _rules: []
   _items:
-    _hashSetList: []
+    _hashSetList:
+    - 9cfa645801a3716469eba19f678d03e0
+    - 008a98ad7cd505249b80b24bc270a405
+    - e0b0eb5c2c9746a4e8824b805bb7c760
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0
