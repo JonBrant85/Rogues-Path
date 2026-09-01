@@ -5,19 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Spells.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Spells/Resources/SpellDatabase.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Spells/Resources/SpellDatabase.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Spells/SpellDatabase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Spells/SpellDatabase.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Scripts/LevelDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Goblin.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Goblin.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/CharacterSelection/Scripts/CharacterSelectionSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Orbs/Augmentation Orb.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Orbs/Augmentation Orb.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Orbs/Chaos Orb.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Crafting/ScriptableObjects/Orbs/Chaos Orb.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Resources/LevelDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/Resources/LevelDatabase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Dark Forest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Dark Forest.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Desert.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Desert.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Shinedown Forest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Shinedown Forest.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Swamp.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Swamp.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Volcano.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Volcano.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Winter Forest.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/LevelSelection/ScriptableObjects/LevelData/Winter Forest.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Pawns/Scripts/PawnAnimations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/ActionBar/UIActionBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/World/Prefabs/WorldTile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/World/Prefabs/WorldTile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldTile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldTile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/_Game/Scripts/GameData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/Spells/Resources/SpellDatabase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/Spells/Resources/SpellDatabase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/StatusDisplay/Prefabs/UIStatusDisplay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/StatusDisplay/Prefabs/UIStatusDisplay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/World/WorldManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +202,7 @@
       <workItem from="1788022675051" duration="9659000" />
       <workItem from="1788089457354" duration="5242000" />
       <workItem from="1788201485863" duration="8129000" />
+      <workItem from="1788294474205" duration="358000" />
     </task>
     <servers />
   </component>

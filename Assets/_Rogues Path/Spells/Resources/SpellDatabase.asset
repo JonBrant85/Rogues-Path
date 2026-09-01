@@ -12,4 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abafe2852fc241d09d5cd5f23125ea8c, type: 3}
   m_Name: SpellDatabase
   m_EditorClassIdentifier: 
-  spells: []
+  spells:
+  - Guid: 1a2b4999-83ed-4bed-9279-3ac8f6afa97f
+    ID: 0
+    Spell: {fileID: 11400000, guid: 54385f968776cbc41849a1075e36286b, type: 2}
+  - Guid: 93ffb641-4b27-4875-b1f2-fa518c8a9647
+    ID: 1
+    Spell: {fileID: 11400000, guid: abc751bd389cb754a9cd8792504d58ca, type: 2}
+  - Guid: 6d2cc5fa-fb85-4ad2-924b-343c617693a3
+    ID: 2
+    Spell: {fileID: 11400000, guid: 0a4f774633ca4f147a35fc5c109981af, type: 2}
+  - Guid: 8bebc068-0893-4b16-b45d-41d4239b2465
+    ID: 3
+    Spell: {fileID: 11400000, guid: 156246bacbcd3d343a3a22310ca48f1a, type: 2}
+  - Guid: 443dd3c6-812a-4202-b273-6b852c6b0a58
+    ID: 4
+    Spell: {fileID: 11400000, guid: a2f98e22f8033f64e9646a5504a90897, type: 2}
+  - Guid: cc106f54-aa06-4b57-8410-e1a033061ca7
+    ID: 5
+    Spell: {fileID: 11400000, guid: 4f7b692d4d5e21847a048e0de3c72d56, type: 2}
+  - Guid: 89b9c741-92f8-4397-abd2-b1bcdf82b706
+    ID: 6
+    Spell: {fileID: 11400000, guid: 7833e5b5a14929b43a498f9cdc495d5f, type: 2}
+  - Guid: bbe2975e-d228-4671-8ee7-afbb50142ce9
+    ID: 7
+    Spell: {fileID: 11400000, guid: ce63be8985c9d78459369658aca43841, type: 2}
+  - Guid: 8ee86b4b-c234-4068-a377-cad82df7e9da
+    ID: 8
+    Spell: {fileID: 11400000, guid: 048b69801390b2c418c7bcadc8a19978, type: 2}
+  - Guid: 3cd55ca7-9926-4bdd-a9da-4060085f7071
+    ID: 9
+    Spell: {fileID: 11400000, guid: 983914c8a6806ea408c580e2646c47af, type: 2}

@@ -16,4 +16,4 @@ MonoBehaviour:
   Description: A life drenching bog
   BackgroundPrefab: {fileID: 8050423717121017735, guid: 44a9f2c31f3ad3a48ba588e96d09f4dc, type: 3}
   Enemies:
-  - {fileID: 3471178067932725354, guid: 4b3fd4c25ce266843ac2659ddb52e780, type: 3}
+  - {fileID: 11400000, guid: 58247c1d1ff08bc46ad734f79667a5e8, type: 2}

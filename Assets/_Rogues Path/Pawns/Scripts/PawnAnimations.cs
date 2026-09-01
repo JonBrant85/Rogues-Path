@@ -64,11 +64,7 @@ namespace _Rogues_Path.Pawns.Scripts {
                 }
             }
 
-            /*
-            UIStatusDisplay statusDisplay = GetComponentInChildren<UIStatusDisplay>();
-            statusDisplay.gameObject.SetActive(false);
-            */
-            
+            if (StatusDisplay != null) StatusDisplay.gameObject.SetActive(false);
 
             // Disable box collider
             if (TryGetComponent(out BoxCollider2D col)) {

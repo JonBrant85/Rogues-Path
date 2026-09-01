@@ -755,7 +755,7 @@ MonoBehaviour:
   ClassName: Berserk
   Character: {fileID: 3365907472849808439}
   Brain: {fileID: -1481339296081815886}
-  StatusDisplay: {fileID: 0}
+  StatusDisplay: {fileID: 3447677436945634150}
   DamageOffset: {x: -1, y: 0, z: 0}
   HealingOffset: {x: 1, y: 0, z: 0}
   IdleAnimation: {fileID: 7400000, guid: c8af692a15e0408448b8f8020f54c45c, type: 2}
@@ -19209,9 +19209,25 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1500361511249809227, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
+    - target: {fileID: 3285607512193169154, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285607512193169154, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3285607512193169154, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4373800312061090073, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
       propertyPath: m_Name
       value: UIStatusDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373800312061090073, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9155976820536524332, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
       propertyPath: m_Pivot.x
@@ -19303,3 +19319,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9155976820536524332, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
   m_PrefabInstance: {fileID: 7091913532259775052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3447677436945634150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5598842490194436394, guid: 59eb431929494dc43a1cf1045dd7004e, type: 3}
+  m_PrefabInstance: {fileID: 7091913532259775052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abfe748210b44cef858a0c54ef8a0253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

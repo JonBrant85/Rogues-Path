@@ -15,7 +15,12 @@ MonoBehaviour:
   Name: Augmentation Orb
   Description: Adds one random modifier to an item
   Icon: {fileID: 21300000, guid: 1dca856e9e3585c4e9dc7952ff91a175, type: 3}
-  Commands: []
+  Commands:
+  - rid: 3717655142549946369
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3717655142549946369
+      type: {class: AddRandomModifiers, ns: _Rogues_Path.Crafting.Commands, asm: Assembly-CSharp}
+      data:
+        Amount: 1

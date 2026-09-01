@@ -19,6 +19,7 @@ namespace _Rogues_Path.CharacterSelection {
             }
 
             if (Character.TryGetComponent(out Pawn pawn)) {
+                if (pawn.StatusDisplay != null) Destroy(pawn.StatusDisplay.gameObject);
                 pawn.StatusDisplay = null;
             }
         }

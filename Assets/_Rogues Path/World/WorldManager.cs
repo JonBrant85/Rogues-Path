@@ -44,6 +44,11 @@ namespace _Rogues_Path.World {
             PlayerPawn.SyncInventoryFromGameState();
             PlayerPawn.StatusDisplay = null;
 
+            if (PlayerPawn.StatusDisplay != null) {
+                Destroy(PlayerPawn.StatusDisplay.gameObject);
+                PlayerPawn.StatusDisplay = null;
+            }
+
             foreach (var kvp in Game.Instance.PlayerEquipment) {
                 EquipmentInstanceData instanceData = kvp.Value;
 

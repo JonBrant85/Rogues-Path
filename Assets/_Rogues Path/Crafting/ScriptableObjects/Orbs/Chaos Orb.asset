@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Chaos Orb
   Description: Removes a random modifier, adds a random modifier
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 1cc30476857d69d488efa2213a515825, type: 3}
   Commands:
   - rid: 3717655118378696709
   - rid: 3717655118378696708
