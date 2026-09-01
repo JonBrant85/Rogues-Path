@@ -11,6 +11,8 @@ using EquipmentPart = Assets.HeroEditor4D.Common.Scripts.Enums.EquipmentPart;
 namespace _Rogues_Path.Utilities {
     [Serializable] public class BuffsDictionary : UnitySerializedDictionary<string, int> {}
 
+    [Serializable] public class OrbCountDictionary : UnitySerializedDictionary<int, int> {}
+
     [Serializable] public class StatUIStat : UnitySerializedDictionary<CharacterStat, UICharacterStat> {}
 
     [Serializable]  public class IDStatDictionary : UnitySerializedDictionary<CharacterStatID, CharacterStat> {}
