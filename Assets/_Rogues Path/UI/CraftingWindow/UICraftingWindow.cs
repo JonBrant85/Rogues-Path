@@ -35,7 +35,6 @@ namespace _Rogues_Path.UI.CraftingWindow {
         private void Awake() {
             FillOrbSlots();
             CraftButton.onClick.AddListener(CraftButtonClicked);
-            Game.Instance.AddOrb(AddModifierOrb, 10);
             Refresh();
         }
 
@@ -208,26 +207,6 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
                 DeactivateOrb();
             }
-        }
-
-        [Button]
-        private void GiveTestOrbs() {
-            if (AddModifierOrb == null) {
-                Debug.LogError("AddModifierOrb is null.");
-                return;
-            }
-
-            if (!Game.Instance.AddOrb(AddModifierOrb, 10)) {
-                Debug.LogError($"Failed to add orb: {AddModifierOrb.Name}");
-
-                return;
-            }
-
-            Debug.Log($"Added 10 {AddModifierOrb.Name}. " + $"Count={Game.Instance.GetOrbCount(AddModifierOrb)}");
-
-            CraftButton.interactable = true;
-
-            Refresh();
         }
 
         private void CraftButtonClicked() {

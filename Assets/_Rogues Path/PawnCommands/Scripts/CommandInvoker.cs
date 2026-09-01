@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class CommandInvoker {
     public int QueueCount { get { return commandQueue.Count; } }
+    public bool IsBusy => isExecuting || commandQueue.Count > 0;
+
+    private bool isExecuting;
     private Queue<(Command, CommandContext)> commandQueue = new();
 
     public async UniTask ExecuteCommand(List<Command> commands, CommandContext context) {
@@ -21,9 +24,16 @@ public class CommandInvoker {
             var queueElement = commandQueue.Dequeue();
             var queueCommand = queueElement.Item1;
             var queueContext = queueElement.Item2;
-            await queueCommand.Execute(queueContext.Caster, queueContext.Targets);
+            isExecuting = true;
+
+            try {
+                await queueCommand.Execute(queueContext.Caster, queueContext.Targets);
+            }
+            finally {
+                isExecuting = false;
+            }
         }
-        
+
         bool allPlayersDead = CombatManager.Instance.Player.IsDead;
         bool allEnemiesDead = CombatManager.Instance.Enemy.IsDead;
 

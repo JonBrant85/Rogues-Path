@@ -27,7 +27,6 @@ namespace _Rogues_Path.Combat {
         [FoldoutGroup("References"), SerializeField] private Transform EnemyContainer;
         [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
 
-       
 
         private void OnEnable() {
             EventBus.SubscribeTo<CombatEncounterStarted>(CombatStartedEventHandler);
@@ -134,13 +133,13 @@ namespace _Rogues_Path.Combat {
                 playerBrain.TimeUntilAction -= Time.deltaTime;
                 enemyBrain.TimeUntilAction -= Time.deltaTime;
 
-                if (Game.CommandInvoker.QueueCount == 0 && playerBrain.TimeUntilAction <= 0) {
+                if (!Game.CommandInvoker.IsBusy && playerBrain.TimeUntilAction <= 0) {
                     playerBrain.HandleTurn().Forget();
                     playerBrain.TimeUntilAction = playerBrain.ActionDelay;
                 }
 
 
-                if (Game.CommandInvoker.QueueCount == 0 && enemyBrain.TimeUntilAction <= 0) {
+                if (!Game.CommandInvoker.IsBusy && enemyBrain.TimeUntilAction <= 0) {
                     enemyBrain.HandleTurn().Forget();
                     enemyBrain.TimeUntilAction = enemyBrain.ActionDelay;
                 }
