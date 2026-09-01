@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using _Rogues_Path.Equipment.Scripts;
+using DuloGames.UI;
 using UnityEngine;
 
 namespace _Rogues_Path.Crafting {
@@ -6,6 +8,14 @@ namespace _Rogues_Path.Crafting {
         public static bool TryAddRandomModifier(EquipmentInstanceData equipment, EquipmentModifierDatabase modifierDatabase) {
 
             if (equipment == null || modifierDatabase == null)
+                return false;
+
+            if (!EquipmentDatabase.TryGetByID(equipment.EquipmentID, out EquipmentBase databaseEquipment))
+                return false;
+
+            int maximumCraftedModifiers = GetMaximumCraftedModifiers(databaseEquipment.Quality);
+
+            if (equipment.CraftedModifiers.Count >= maximumCraftedModifiers)
                 return false;
 
             EquipmentModifierDefinition modifierDefinition = GetRandomModifier(modifierDatabase.Modifiers);
@@ -23,6 +33,18 @@ namespace _Rogues_Path.Crafting {
             equipment.CraftedModifiers.Add(new RolledEquipmentModifier(modifierID, value));
 
             return true;
+        }
+
+        public static int GetMaximumCraftedModifiers(UIItemQuality quality) {
+            return quality switch {
+                UIItemQuality.Poor => 1,
+                UIItemQuality.Common => 2,
+                UIItemQuality.Uncommon => 3,
+                UIItemQuality.Rare => 4,
+                UIItemQuality.Epic => 5,
+                UIItemQuality.Legendary => 6,
+                _ => 0
+            };
         }
 
         public static EquipmentModifierDefinition GetRandomModifier(IReadOnlyList<EquipmentModifierDefinition> modifiers) {
