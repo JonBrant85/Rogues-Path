@@ -27,4 +27,5 @@ MonoBehaviour:
         Amount: 1
     - rid: 3717655118378696709
       type: {class: RemoveRandomModifier, ns: _Rogues_Path.Crafting.Commands, asm: Assembly-CSharp}
-      data: 
+      data:
+        AllowEmpty: 1
