@@ -81,6 +81,8 @@ namespace _Rogues_Path.Combat {
                     Destroy(liveEquipment.gameObject);
                 }
             }
+
+            PlayerHealthState.Restore(Player);
         }
 
         private void EquipmentUnequippedEventHandler(ref EquipmentUnequippedEvent eventData) {

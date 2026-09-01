@@ -59,6 +59,7 @@ namespace _Rogues_Path.CharacterSelection {
             // New character = fresh authoritative equipment state.
             Game.Instance.PlayerEquipment.Clear();
             Game.Instance.PlayerInventory.Clear();
+            Game.Instance.PlayerCurrentHealth = -1f;
 
             foreach (EquipmentBase equipment in Slots[SelectedIndex].PawnData.StartingEquipment) {
                 if (!EquipmentDatabase.TryGetID(equipment, out int equipmentID))

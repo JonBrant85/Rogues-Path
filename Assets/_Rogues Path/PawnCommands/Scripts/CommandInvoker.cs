@@ -38,6 +38,7 @@ public class CommandInvoker {
         bool allEnemiesDead = CombatManager.Instance.Enemy.IsDead;
 
         if (allEnemiesDead) {
+            PlayerHealthState.Save(CombatManager.Instance.Player);
             await UniTask.Delay(1500);
             Game.FireTrigger(Trigger.EnterRewardsScreen);
             EventBus.Raise(new CombatEncounterEnded());

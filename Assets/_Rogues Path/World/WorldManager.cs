@@ -66,6 +66,8 @@ namespace _Rogues_Path.World {
                 }
             }
 
+            PlayerHealthState.Restore(PlayerPawn);
+
             currentTile = StartingTile;
         }
 
@@ -99,6 +101,15 @@ namespace _Rogues_Path.World {
                     await currentTile.StoppedOnTile();
                 }
             }
+
+            if (this == null)
+                return;
+
+            MoveButton.interactable = true;
+        }
+
+        public float HealPlayer(float healthPercentage) {
+            return PlayerHealthState.Heal(PlayerPawn, healthPercentage);
         }
 
         private async UniTask MoveToNextTile() {

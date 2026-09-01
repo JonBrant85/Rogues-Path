@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1131654166255106437}
   m_Layer: 0
-  m_Name: EnemyContainer
+  m_Name: EncounterContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,13 +110,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25104eceacf467e88b35538da77cbae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Level: {fileID: 0}
   Encounter: {fileID: 0}
   NextTile: {fileID: 0}
   IndicatorSprite: {fileID: 5326907322496412638}
   PawnContainer: {fileID: 5547237829909478544}
   Model: {fileID: 2370648876325292228}
-  EnemyContainer: {fileID: 1131654166255106437}
+  EncounterContainer: {fileID: 1131654166255106437}
 --- !u!1 &7739361107880270326
 GameObject:
   m_ObjectHideFlags: 0

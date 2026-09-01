@@ -18,8 +18,19 @@ namespace _Rogues_Path.World.Encounters {
         
 
         public async UniTask LoadEncounter(EncounterData data) {
+            if (data == null) {
+                Debug.LogError("Cannot load a null encounter.");
+                return;
+            }
+
             titleText.text = data.EncounterTitle;
+            Show();
             await data.HandleEncounter(WindowContent, BottomBar, ButtonPrefab);
+
+            if (this == null)
+                return;
+
+            Hide();
         }
 
         public void Show() {
