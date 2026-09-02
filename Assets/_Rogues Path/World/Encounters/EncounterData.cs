@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 namespace _Rogues_Path.World.Encounters {
     public class EncounterData : ScriptableObject {
+        public virtual bool UsesEncounterWindow => true;
+
         public string EncounterTitle = "Default encounter title";
         [TextArea] public string EncounterDescription;
         public Sprite WorldIndicatorSprite;

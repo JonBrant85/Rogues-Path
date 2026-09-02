@@ -24,6 +24,11 @@ namespace _Rogues_Path.World.Encounters {
                 return;
             }
 
+            if (!data.UsesEncounterWindow) {
+                await data.HandleEncounter(WindowContent, BottomBar, ButtonPrefab);
+                return;
+            }
+
             titleText.text = data.EncounterTitle;
 
             if (bodyText != null)
