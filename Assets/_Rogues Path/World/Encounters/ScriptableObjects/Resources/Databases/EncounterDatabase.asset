@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   encounters:
   - Encounter: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
-    Weight: 20
+    Weight: 65
   - Encounter: {fileID: 11400000, guid: ba335cacf6344bd18a48b12d92396520, type: 2}
-    Weight: 70
+    Weight: 20
   - Encounter: {fileID: 11400000, guid: 452a47a1b6fb4e5eb5fd1a3ae0ff1745, type: 2}
-    Weight: 10
+    Weight: 15
