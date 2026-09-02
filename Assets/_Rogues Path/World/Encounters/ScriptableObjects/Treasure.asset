@@ -18,3 +18,9 @@ MonoBehaviour:
   WorldVisualPrefab: {fileID: 2505659550044296927, guid: adef4ca0b16e83741b1110b824a02a12, type: 3}
   EquipmentChoiceCount: 3
   ButtonText: Select
+  PoorWeight: 10
+  CommonWeight: 40
+  UncommonWeight: 25
+  RareWeight: 15
+  EpicWeight: 7
+  LegendaryWeight: 3

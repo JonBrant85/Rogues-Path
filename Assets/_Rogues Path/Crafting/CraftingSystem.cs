@@ -10,10 +10,10 @@ namespace _Rogues_Path.Crafting {
             if (equipment == null || modifierDatabase == null)
                 return false;
 
-            if (!EquipmentDatabase.TryGetByID(equipment.EquipmentID, out EquipmentBase databaseEquipment))
+            if (!EquipmentDatabase.TryGetByID(equipment.EquipmentID, out _))
                 return false;
 
-            int maximumCraftedModifiers = GetMaximumCraftedModifiers(databaseEquipment.Quality);
+            int maximumCraftedModifiers = GetMaximumCraftedModifiers(equipment.Quality);
 
             if (equipment.CraftedModifiers.Count >= maximumCraftedModifiers)
                 return false;

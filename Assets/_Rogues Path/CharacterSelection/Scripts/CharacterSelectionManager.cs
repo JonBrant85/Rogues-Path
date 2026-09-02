@@ -67,7 +67,8 @@ namespace _Rogues_Path.CharacterSelection {
                 if (!EquipmentDatabase.TryGetID(equipment, out int equipmentID))
                     continue;
 
-                Game.Instance.PlayerEquipment[equipment.EquipType] = new EquipmentInstanceData(equipmentID);
+                Game.Instance.PlayerEquipment[equipment.EquipType] =
+                    new EquipmentInstanceData(equipmentID, equipment.Quality);
             }
 
             Game.FireTrigger(Trigger.EnterWorld);

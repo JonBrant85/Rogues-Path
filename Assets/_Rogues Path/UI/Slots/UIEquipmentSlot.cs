@@ -52,13 +52,15 @@ namespace _Rogues_Path.UI.Slots {
             if (equipment == null)
                 return;
 
+            UIItemQuality quality = instanceData?.Quality ?? equipment.Quality;
+
             // Set the tooltip width
             if (UITooltipManager.Instance != null) {
                 UITooltip.SetWidth(UITooltipManager.Instance.itemTooltipWidth);
             }
 
             // Set the title and description
-            UITooltip.AddTitle("<color=#" + UIItemQualityColor.GetHexColor(equipment.Quality) + ">" + equipment.Name + "</color>");
+            UITooltip.AddTitle("<color=#" + UIItemQualityColor.GetHexColor(quality) + ">" + equipment.Name + "</color>");
 
             // Spacer
             UITooltip.AddSpacer();
@@ -66,7 +68,7 @@ namespace _Rogues_Path.UI.Slots {
             // Item types
             UITooltip.AddLineColumn(EquipTypeToString(equipment.EquipType), "ItemAttribute");
 
-            UITooltip.AddLineColumn(equipment.Quality.ToString());
+            UITooltip.AddLineColumn(quality.ToString());
 
             Dictionary<string, float> modifierTotals = new();
 

@@ -57,7 +57,7 @@ namespace _Rogues_Path.World.Encounters {
         }
 
         public async UniTask<EquipmentInstanceData> WaitForEquipmentSelection(
-            IReadOnlyList<EquipmentBase> equipmentChoices,
+            IReadOnlyList<EquipmentInstanceData> equipmentChoices,
             string buttonText) {
 
             ClearEquipmentChoices();
@@ -83,8 +83,9 @@ namespace _Rogues_Path.World.Encounters {
             selectionButton.interactable = false;
             selectionButton.gameObject.SetActive(true);
 
-            foreach (EquipmentBase equipment in equipmentChoices) {
-                if (equipment == null || !EquipmentDatabase.TryGetID(equipment, out int equipmentID))
+            foreach (EquipmentInstanceData instanceData in equipmentChoices) {
+                if (instanceData == null
+                    || !EquipmentDatabase.TryGetByID(instanceData.EquipmentID, out EquipmentBase equipment))
                     continue;
 
                 UIEquipmentSlot slot = Instantiate(EquipmentSlotPrefab, EquipmentChoicesContainer);
@@ -103,7 +104,7 @@ namespace _Rogues_Path.World.Encounters {
                     continue;
                 }
 
-                slot.BindInstanceData(new EquipmentInstanceData(equipmentID), null);
+                slot.BindInstanceData(instanceData, null);
                 slot.OnClickEvent.AddListener(SelectEquipment);
 
                 Outline outline = slot.gameObject.AddComponent<Outline>();

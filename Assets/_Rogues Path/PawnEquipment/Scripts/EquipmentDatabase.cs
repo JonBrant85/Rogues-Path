@@ -151,6 +151,8 @@ namespace _Rogues_Path.Equipment.Scripts {
                 return false;
             }
 
+            equipment.Quality = instanceData.Quality;
+
             foreach (RolledEquipmentModifier rolledModifier in instanceData.CraftedModifiers) {
                 if (!modifierDatabase.TryGetByID(rolledModifier.ModifierID, out EquipmentModifierDefinition definition)) {
 

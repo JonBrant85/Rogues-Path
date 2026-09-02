@@ -69,7 +69,7 @@ namespace _Rogues_Path.Pawns.Scripts {
                 EquipmentInstanceData instanceData = equipment.InstanceData;
 
                 if (instanceData == null) {
-                    instanceData = new EquipmentInstanceData(equipmentID);
+                    instanceData = new EquipmentInstanceData(equipmentID, equipment.Quality);
                 }
                 else if (instanceData.EquipmentID != equipmentID) {
                     Debug.LogError($"EquipmentInstanceData mismatch for {equipment.Name}. " + $"InstanceData ID={instanceData.EquipmentID}, " + $"Database ID={equipmentID}.");
@@ -182,7 +182,7 @@ namespace _Rogues_Path.Pawns.Scripts {
             EquipmentInstanceData newInstanceData = equipment.InstanceData;
 
             if (newInstanceData == null) {
-                newInstanceData = new EquipmentInstanceData(newEquipmentID);
+                newInstanceData = new EquipmentInstanceData(newEquipmentID, equipment.Quality);
                 equipment.InstanceData = newInstanceData;
             }
             else if (newInstanceData.EquipmentID != newEquipmentID) {
@@ -190,6 +190,8 @@ namespace _Rogues_Path.Pawns.Scripts {
 
                 return false;
             }
+
+            equipment.Quality = newInstanceData.Quality;
 
             EquipmentInstanceData oldInstanceData = null;
             bool gameHasOldEquipment = false;
