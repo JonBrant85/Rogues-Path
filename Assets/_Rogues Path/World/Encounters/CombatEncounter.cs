@@ -12,6 +12,8 @@ using Random = UnityEngine.Random;
 namespace _Rogues_Path.World.Encounters {
     [CreateAssetMenu(fileName = "New Combat Encounter", menuName = Game.Name + "/Data/CombatEncounterData")]
     public class CombatEncounter : EncounterData {
+        public override bool UsesEncounterWindow => false;
+
         public GameObject Background;
         public List<PawnData> Enemies = new();
 
