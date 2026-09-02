@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using _Rogues_Path.Combat;
 using _Rogues_Path.Crafting;
 using _Rogues_Path.LevelSelection;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
 using DuloGames.UI;
 using Sirenix.OdinInspector;
+using UnityEngine;
 
 namespace _Rogues_Path._Game {
     public partial class Game {
@@ -18,6 +20,22 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public OrbCountDictionary PlayerOrbs = new();
         [FoldoutGroup("Data")] public List<int> PendingEquipmentRewards;
         public Dictionary<Orb, int> PendingOrbRewards = new();
+
+        [Button("Give 50 Health")]
+        private void GiveDebugHealth() {
+            Pawn player = CombatManager.Instance.Player;
+
+            if (player == null) {
+                Debug.LogWarning("Give 50 Health requires an active combat player.");
+                return;
+            }
+
+            float previousHealth = player.CurrentHealth;
+            player.TakeDamage(-50, player);
+            PlayerHealthState.Save(player);
+
+            Debug.Log($"Gave player 50 health. Health={previousHealth:0.#}->{player.CurrentHealth:0.#}");
+        }
 
         public int GetOrbCount(int orbID) {
             return PlayerOrbs.GetValueOrDefault(orbID);
