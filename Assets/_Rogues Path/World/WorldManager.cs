@@ -37,12 +37,21 @@ namespace _Rogues_Path.World {
         [FoldoutGroup("Debug"), SerializeField] private Pawn PlayerPawn;
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
 
+        private List<WorldTile> route;
 
         private void Awake() {
+            route = BuildRoute();
+
+            if (route.Count == 0) {
+                Debug.LogError("World route is empty. StartingTile must be assigned.");
+                return;
+            }
+
             InitializeEncounters();
+            RestoreCurrentTile();
 
             // Initialize player with equipment
-            PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, StartingTile.PawnContainer);
+            PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, currentTile.PawnContainer);
             PlayerPawn.Character.SetDirection(Vector2.down);
             PlayerPawn.SyncInventoryFromGameState();
             PlayerPawn.StatusDisplay = null;
@@ -70,8 +79,6 @@ namespace _Rogues_Path.World {
             }
 
             PlayerHealthState.Restore(PlayerPawn);
-
-            currentTile = StartingTile;
         }
 
         private void InitializeEncounters() {
@@ -80,7 +87,6 @@ namespace _Rogues_Path.World {
                 return;
             }
 
-            List<WorldTile> route = BuildRoute();
             List<int> savedLayout = Game.Instance.WorldEncounterOrder;
 
             if (savedLayout.Count != route.Count) {
@@ -125,6 +131,18 @@ namespace _Rogues_Path.World {
                 tile.Encounter = encounter;
                 return encounterID;
             }
+        }
+
+        private void RestoreCurrentTile() {
+            int savedIndex = Game.Instance.CurrentWorldTileIndex;
+
+            if (savedIndex < 0 || savedIndex >= route.Count) {
+                Debug.LogWarning($"Saved World tile index {savedIndex} is invalid. Returning to the starting tile.");
+                savedIndex = 0;
+                Game.Instance.CurrentWorldTileIndex = 0;
+            }
+
+            currentTile = route[savedIndex];
         }
 
         private List<WorldTile> BuildRoute() {
@@ -191,6 +209,7 @@ namespace _Rogues_Path.World {
             await tween.AsyncWaitForCompletion();
 
             currentTile = currentTile.NextTile;
+            SaveCurrentTile();
             PlayerPawn.transform.SetParent(currentTile.PawnContainer);
             PlayerPawn.animationManager.SetState(CharacterState.Idle);
 
@@ -234,6 +253,17 @@ namespace _Rogues_Path.World {
 
                 return facingDirection;
             }
+        }
+
+        private void SaveCurrentTile() {
+            int currentIndex = route.IndexOf(currentTile);
+
+            if (currentIndex < 0) {
+                Debug.LogError($"{currentTile.name} is not part of the current World route.");
+                return;
+            }
+
+            Game.Instance.CurrentWorldTileIndex = currentIndex;
         }
 
         private async UniTask<List<int>> RollDice(int numberOfDice) {
