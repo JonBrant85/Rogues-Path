@@ -10,6 +10,7 @@ using UnityEngine.UI;
 namespace _Rogues_Path.World.Encounters {
     public class UIEncounterWindow : Singleton<UIEncounterWindow> {
         [FoldoutGroup("References"), SerializeField] private Text titleText;
+        [FoldoutGroup("References"), SerializeField] private Text bodyText;
         [FoldoutGroup("References"), SerializeField] private UIPositionMover BottomBarMover;
         [FoldoutGroup("References"), SerializeField] private UIWindow Window;
         [FoldoutGroup("References"), SerializeField] private Transform WindowContent;
@@ -24,6 +25,10 @@ namespace _Rogues_Path.World.Encounters {
             }
 
             titleText.text = data.EncounterTitle;
+
+            if (bodyText != null)
+                bodyText.text = data.EncounterDescription;
+
             Show();
             await data.HandleEncounter(WindowContent, BottomBar, ButtonPrefab);
 

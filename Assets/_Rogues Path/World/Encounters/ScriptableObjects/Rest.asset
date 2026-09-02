@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Rest
   m_EditorClassIdentifier: 
   EncounterTitle: Rest Site
+  EncounterDescription: The fire crackles softly. Rest here to recover 30% of your maximum health.
   WorldIndicatorSprite: {fileID: 0}
-  WorldVisualPrefab: {fileID: 0}
+  WorldVisualPrefab: {fileID: 813724000000000001, guid: 735e5ff741d349719443f4e036d187a1, type: 3}
   RestoredHealthPercentage: 0.3
   ButtonText: Rest
