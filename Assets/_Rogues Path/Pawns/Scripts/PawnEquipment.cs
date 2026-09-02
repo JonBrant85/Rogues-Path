@@ -140,7 +140,10 @@ namespace _Rogues_Path.Pawns.Scripts {
             return true;
         }
 
-        public bool TryEquip(EquipmentBase equipment, bool modifyGameState = true) {
+        public bool TryEquip(
+            EquipmentBase equipment,
+            bool modifyGameState = true,
+            bool updateSavedHealth = false) {
 
             if (equipment == null) {
                 Debug.LogError("Attempted to equip null equipment.");
@@ -173,6 +176,7 @@ namespace _Rogues_Path.Pawns.Scripts {
             }
 
             EquipmentPart equipType = dbEquipment.EquipType;
+            float previousMaximumHealth = Stats[MaxHealthID].Value;
 
             currentEquipment.TryGetValue(equipType, out EquipmentBase currentLiveEquipment);
 
@@ -267,6 +271,11 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             EventBus.Raise(new PawnStatChanged());
 
+            PlayerHealthState.ReconcileMaximumHealth(
+                this,
+                previousMaximumHealth,
+                modifyGameState || updateSavedHealth);
+
             return true;
         }
 
@@ -298,6 +307,8 @@ namespace _Rogues_Path.Pawns.Scripts {
 
                 return false;
             }
+
+            float previousMaximumHealth = Stats[MaxHealthID].Value;
 
             if (modifyGameState) {
                 if (!Game.Instance.PlayerEquipment.TryGetValue(equipType, out EquipmentInstanceData equippedInstanceData)) {
@@ -334,6 +345,11 @@ namespace _Rogues_Path.Pawns.Scripts {
                 });
 
             EventBus.Raise(new PawnStatChanged());
+
+            PlayerHealthState.ReconcileMaximumHealth(
+                this,
+                previousMaximumHealth,
+                modifyGameState);
 
             return true;
         }

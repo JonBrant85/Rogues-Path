@@ -70,7 +70,10 @@ namespace _Rogues_Path.UI.CharacterScreen {
                 return;
             }
 
-            if (!pawnPreview.TryEquip(refreshedEquipment, false)) {
+            if (!pawnPreview.TryEquip(
+                refreshedEquipment,
+                modifyGameState: false,
+                updateSavedHealth: true)) {
 
                 Destroy(refreshedEquipment.gameObject);
             }

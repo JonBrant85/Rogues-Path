@@ -38,7 +38,37 @@ namespace _Rogues_Path.Pawns.Scripts {
             return player.CurrentHealth - previousHealth;
         }
 
-        private static void SetHealth(Pawn player, float health) {
+        public static void ReconcileMaximumHealth(
+            Pawn player,
+            float previousMaximumHealth,
+            bool updateSavedHealth) {
+
+            if (player == null)
+                return;
+
+            float maximumHealth = player.Stats[player.MaxHealthID].Value;
+            float maximumHealthDifference = maximumHealth - previousMaximumHealth;
+            float adjustedHealth = maximumHealthDifference > 0f
+                ? player.CurrentHealth + maximumHealthDifference
+                : player.CurrentHealth;
+
+            SetHealth(player, adjustedHealth, false);
+
+            if (!updateSavedHealth)
+                return;
+
+            float savedHealth = Game.Instance.PlayerCurrentHealth;
+
+            if (savedHealth < 0f)
+                savedHealth = previousMaximumHealth;
+
+            if (maximumHealthDifference > 0f)
+                savedHealth += maximumHealthDifference;
+
+            Game.Instance.PlayerCurrentHealth = Mathf.Clamp(savedHealth, 0f, maximumHealth);
+        }
+
+        private static void SetHealth(Pawn player, float health, bool updateSavedHealth = true) {
             float maximumHealth = player.Stats[player.MaxHealthID].Value;
             var healthChangedEvent = new HealthChanged {
                 Victim = player,
@@ -50,7 +80,9 @@ namespace _Rogues_Path.Pawns.Scripts {
             EventBus.RaiseImmediately(ref healthChangedEvent);
 
             player.CurrentHealth = Mathf.Clamp(healthChangedEvent.NewHealth, 0f, maximumHealth);
-            Game.Instance.PlayerCurrentHealth = player.CurrentHealth;
+
+            if (updateSavedHealth)
+                Game.Instance.PlayerCurrentHealth = player.CurrentHealth;
         }
     }
 }
