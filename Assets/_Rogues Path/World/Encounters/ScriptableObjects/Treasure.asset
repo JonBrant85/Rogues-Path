@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Treasure
   m_EditorClassIdentifier: 
   EncounterTitle: Treasure
-  EncounterDescription: An abandoned chest waits by the roadside. Open it to claim a piece of equipment.
+  EncounterDescription: An abandoned chest waits by the roadside. Choose one piece of equipment to take.
   WorldIndicatorSprite: {fileID: 0}
   WorldVisualPrefab: {fileID: 2505659550044296927, guid: adef4ca0b16e83741b1110b824a02a12, type: 3}
-  EquipmentRewardCount: 1
-  ButtonText: Open
+  EquipmentChoiceCount: 3
+  ButtonText: Select
