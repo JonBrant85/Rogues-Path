@@ -13,6 +13,7 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public PawnData PlayerData;
         [FoldoutGroup("Data")] public List<UISpellInfo> PlayerPreparedSpells = new();
         [FoldoutGroup("Data")] public List<int> ActionBarSpellOrder = new();
+        [FoldoutGroup("Data")] public List<int> WorldEncounterOrder = new();
         [FoldoutGroup("Data")] public LevelData LevelData;
         [FoldoutGroup("Data")] public float PlayerCurrentHealth = -1f;
         [FoldoutGroup("Data")] public EquipmentPartInstanceDictionary PlayerEquipment = new();

@@ -4,6 +4,7 @@ using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
+using _Rogues_Path.World.Encounters;
 using Assets.HeroEditor4D.Common.Scripts.Enums;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -38,6 +39,8 @@ namespace _Rogues_Path.World {
 
 
         private void Awake() {
+            InitializeEncounters();
+
             // Initialize player with equipment
             PlayerPawn = Instantiate(Game.Instance.PlayerData.Pawn, StartingTile.PawnContainer);
             PlayerPawn.Character.SetDirection(Vector2.down);
@@ -69,6 +72,72 @@ namespace _Rogues_Path.World {
             PlayerHealthState.Restore(PlayerPawn);
 
             currentTile = StartingTile;
+        }
+
+        private void InitializeEncounters() {
+            if (EncounterDatabase.Instance == null) {
+                Debug.LogError("Resources/Databases/EncounterDatabase could not be loaded.");
+                return;
+            }
+
+            List<WorldTile> route = BuildRoute();
+            List<int> savedLayout = Game.Instance.WorldEncounterOrder;
+
+            if (savedLayout.Count != route.Count) {
+                savedLayout.Clear();
+
+                foreach (WorldTile tile in route) {
+                    if (tile.Encounter != null) {
+                        savedLayout.Add(-1);
+                        continue;
+                    }
+
+                    savedLayout.Add(AssignRandomEncounter(tile));
+                }
+
+                return;
+            }
+
+            for (int i = 0; i < route.Count; i++) {
+                WorldTile tile = route[i];
+
+                if (tile.Encounter != null) {
+                    savedLayout[i] = -1;
+                    continue;
+                }
+
+                if (EncounterDatabase.TryGetByID(savedLayout[i], out EncounterData savedEncounter)) {
+                    tile.Encounter = savedEncounter;
+                    continue;
+                }
+
+                savedLayout[i] = AssignRandomEncounter(tile);
+            }
+
+            int AssignRandomEncounter(WorldTile tile) {
+                if (!EncounterDatabase.TryGetRandomID(out int encounterID) ||
+                    !EncounterDatabase.TryGetByID(encounterID, out EncounterData encounter)) {
+
+                    Debug.LogError($"Failed to generate an encounter for {tile.name}.");
+                    return -1;
+                }
+
+                tile.Encounter = encounter;
+                return encounterID;
+            }
+        }
+
+        private List<WorldTile> BuildRoute() {
+            List<WorldTile> route = new();
+            HashSet<WorldTile> visited = new();
+            WorldTile tile = StartingTile;
+
+            while (tile != null && visited.Add(tile)) {
+                route.Add(tile);
+                tile = tile.NextTile;
+            }
+
+            return route;
         }
 
         public void UIMoveButtonPressed() {

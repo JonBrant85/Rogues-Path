@@ -484,7 +484,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (1)
@@ -780,7 +780,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (3)
@@ -856,7 +856,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (8)
@@ -1039,7 +1039,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (7)
@@ -1546,7 +1546,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (6)
@@ -1779,7 +1779,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (9)
@@ -1860,7 +1860,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: 452a47a1b6fb4e5eb5fd1a3ae0ff1745, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (11)
@@ -1936,7 +1936,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: ba335cacf6344bd18a48b12d92396520, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (10)
@@ -2012,7 +2012,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (12)
@@ -2156,7 +2156,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: ba335cacf6344bd18a48b12d92396520, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (4)
@@ -2237,7 +2237,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (2)
@@ -2313,7 +2313,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 11400000, guid: 452a47a1b6fb4e5eb5fd1a3ae0ff1745, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (5)
