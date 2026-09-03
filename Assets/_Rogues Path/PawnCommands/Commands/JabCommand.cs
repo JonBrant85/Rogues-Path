@@ -25,6 +25,7 @@ namespace _Rogues_Path.PawnCommands.Commands {
                 + $"Action={animator.GetBool("Action")}");
 
             instigator.animationManager.Jab();
+            LogAnimatorAfterTransition(animator, upperLayer).Forget();
             await UniTask.Yield(PlayerLoopTiming.LastPostLateUpdate);
 
             if (upperLayer < 0) {
@@ -67,6 +68,38 @@ namespace _Rogues_Path.PawnCommands.Commands {
 
             await UniTask.Delay((int)AnimationClip.length * 1000);
             await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage((int)StrengthMultiplier.Calculate(instigator), instigator) * 1000);
+        }
+
+        private static async UniTask LogAnimatorAfterTransition(
+            Animator animator,
+            int upperLayer) {
+
+            await UniTask.Delay(150);
+
+            if (animator == null || upperLayer < 0)
+                return;
+
+            bool inTransition = animator.IsInTransition(upperLayer);
+            AnimatorStateInfo currentState =
+                animator.GetCurrentAnimatorStateInfo(upperLayer);
+
+            AnimatorClipInfo[] currentClips =
+                animator.GetCurrentAnimatorClipInfo(upperLayer);
+
+            string currentClip =
+                currentClips.Length > 0 && currentClips[0].clip != null
+                    ? currentClips[0].clip.name
+                    : "NONE";
+
+            Debug.Log(
+                $"JAB ANIMATION | Midpoint | CurrentClip={currentClip} | "
+                + $"CurrentIsJab={currentState.shortNameHash == Animator.StringToHash("Jab")} | "
+                + $"NormalizedTime={currentState.normalizedTime:F2} | "
+                + $"InTransition={inTransition} | "
+                + $"UpperWeight={animator.GetLayerWeight(upperLayer):F2} | "
+                + $"AnimatorSpeed={animator.speed:F2} | "
+                + $"ClipSpeed={animator.GetFloat("Speed"):F2} | "
+                + $"Action={animator.GetBool("Action")}");
         }
     }
 }
