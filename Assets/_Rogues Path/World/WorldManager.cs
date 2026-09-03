@@ -109,7 +109,7 @@ namespace _Rogues_Path.World {
             randomEncounterIndexes.Clear();
 
             for (int i = 0; i < route.Count; i++) {
-                if (route[i].Encounter == null)
+                if (route[i] != StartingTile && route[i].Encounter == null)
                     randomEncounterIndexes.Add(i);
             }
         }

@@ -15,5 +15,6 @@ MonoBehaviour:
   EncounterTitle: Traversal Complete
   EncounterDescription: The path twists into a more dangerous form. Enemies have grown stronger.
   WorldIndicatorSprite: {fileID: 0}
-  WorldVisualPrefab: {fileID: 0}
+  WorldVisualPrefab: {fileID: 217796039003572128, guid: d9518145609b69d41940ee291b3c3be3, type: 3}
   ButtonText: Continue
+  WorldVisualScale: {x: 0.1, y: 0.1, z: 0.1}

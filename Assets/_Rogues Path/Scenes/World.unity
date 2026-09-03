@@ -484,7 +484,7 @@ PrefabInstance:
     - target: {fileID: 3394435974357432237, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: Encounter
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 551006bacb684581afcb6a630102b1c2, type: 2}
     - target: {fileID: 6158722837109924356, guid: 0e0a9217513be8743acff34508afb573, type: 3}
       propertyPath: m_Name
       value: WorldTile (1)

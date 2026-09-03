@@ -8,7 +8,19 @@ namespace _Rogues_Path.World.Encounters {
         fileName = "New Traversal Encounter",
         menuName = Game.Name + "/Data/TraversalEncounterData")]
     public class TraversalEncounter : EncounterData {
+        public override bool TriggersWhenStoppedOnTile => false;
+
         public string ButtonText = "Continue";
+        public Vector3 WorldVisualScale = Vector3.one * 0.10f;
+
+        public override Transform Initialize(Transform encounterContainer) {
+            Transform visual = base.Initialize(encounterContainer);
+
+            if (visual != null)
+                visual.localScale = WorldVisualScale;
+
+            return visual;
+        }
 
         public override async UniTask HandleEncounter(
             Transform windowContent,

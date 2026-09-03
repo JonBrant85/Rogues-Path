@@ -96,6 +96,9 @@ namespace _Rogues_Path.World {
                 return;
             }
 
+            if (!runtimeEncounter.TriggersWhenStoppedOnTile)
+                return;
+
             await UIEncounterWindow.Instance.LoadEncounter(runtimeEncounter);
         }
 
