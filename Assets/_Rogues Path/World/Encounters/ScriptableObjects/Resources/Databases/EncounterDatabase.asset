@@ -11,9 +11,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eeb17b0abc14c8418e0e8e7d484fd695, type: 3}
   m_Name: EncounterDatabase
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   encounters:
   - Encounter: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
+    Weight: 65
+  - Encounter: {fileID: 11400000, guid: 1790b4b8dc0be904da829c70b428cd3c, type: 2}
     Weight: 65
   - Encounter: {fileID: 11400000, guid: ba335cacf6344bd18a48b12d92396520, type: 2}
     Weight: 20

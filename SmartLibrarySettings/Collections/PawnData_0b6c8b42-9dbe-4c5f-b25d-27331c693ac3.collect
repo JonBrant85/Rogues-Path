@@ -24,6 +24,7 @@ MonoBehaviour:
   _items:
     _hashSetList:
     - 58247c1d1ff08bc46ad734f79667a5e8
+    - c827026938670394ea6bd4831c179832
   _itemDisplaySize: 100
   _viewStyle: 0
   _useCollectionViewSettings: 0

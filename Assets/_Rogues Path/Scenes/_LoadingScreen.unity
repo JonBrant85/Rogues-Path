@@ -171,11 +171,18 @@ MonoBehaviour:
     m_SceneAsset: {fileID: 102900000, guid: 8f8c568408e50a9478cba759b9980764, type: 3}
     m_SceneName: World
   PlayerData: {fileID: 0}
+  PlayerPreparedSpells: []
+  ActionBarSpellOrder: 
+  WorldEncounterOrder: 
+  CurrentWorldTileIndex: 0
   LevelData: {fileID: 0}
+  PlayerCurrentHealth: -1
   PlayerEquipment:
     keyValueData: []
-  PlayerInventory: 
-  PendingRewards: 
+  PlayerInventory: []
+  PlayerOrbs:
+    keyValueData: []
+  PendingEquipmentRewards: 
 --- !u!4 &101767353
 Transform:
   m_ObjectHideFlags: 0
