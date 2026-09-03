@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6daa754-ab2d-4cab-975d-869dd34a5550" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/UI/CharacterScreen/UICharacterScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rogue's Path/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Rogues Path/World/Encounters/TreasureEncounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Rogues Path/World/Encounters/TreasureEncounter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,7 +190,7 @@
       <workItem from="1788089457354" duration="5242000" />
       <workItem from="1788201485863" duration="8129000" />
       <workItem from="1788294474205" duration="1742000" />
-      <workItem from="1788380649722" duration="1669000" />
+      <workItem from="1788380649722" duration="4398000" />
     </task>
     <servers />
   </component>

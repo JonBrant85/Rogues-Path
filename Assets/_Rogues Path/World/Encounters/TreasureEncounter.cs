@@ -24,8 +24,8 @@ namespace _Rogues_Path.World.Encounters {
         public override async UniTask HandleEncounter(Transform windowContent, Transform bottomBar, Button buttonPrefab) {
             List<EquipmentInstanceData> equipmentChoices = new();
 
-            foreach (EquipmentBase equipment in GetRandomUniqueEquipment(EquipmentChoiceCount)) {
-                if (!EquipmentDatabase.TryGetID(equipment, out int equipmentID))
+            foreach (EquipmentBase query in GetRandomUniqueEquipment(EquipmentChoiceCount)) {
+                if (!EquipmentDatabase.TryGetID(query, out int equipmentID))
                     continue;
 
                 equipmentChoices.Add(new EquipmentInstanceData(equipmentID, GetRandomQuality()));
@@ -36,9 +36,7 @@ namespace _Rogues_Path.World.Encounters {
                 return;
             }
 
-            EquipmentInstanceData selectedEquipment = await UIEncounterWindow.Instance.WaitForEquipmentSelection(
-                equipmentChoices,
-                ButtonText);
+            EquipmentInstanceData selectedEquipment = await UIEncounterWindow.Instance.WaitForEquipmentSelection(equipmentChoices, ButtonText);
 
             if (selectedEquipment == null)
                 return;
@@ -51,9 +49,7 @@ namespace _Rogues_Path.World.Encounters {
         }
 
         private static List<EquipmentBase> GetRandomUniqueEquipment(int count) {
-            List<EquipmentBase> availableEquipment = EquipmentDatabase.Instance != null
-                ? EquipmentDatabase.Instance.Equipment
-                : new List<EquipmentBase>();
+            List<EquipmentBase> availableEquipment = EquipmentDatabase.Instance != null ? EquipmentDatabase.Instance.Equipment : new List<EquipmentBase>();
 
             availableEquipment.RemoveAll(equipment => equipment == null);
 
@@ -61,8 +57,7 @@ namespace _Rogues_Path.World.Encounters {
 
             for (int i = 0; i < choiceCount; i++) {
                 int randomIndex = Random.Range(i, availableEquipment.Count);
-                (availableEquipment[i], availableEquipment[randomIndex]) =
-                    (availableEquipment[randomIndex], availableEquipment[i]);
+                (availableEquipment[i], availableEquipment[randomIndex]) = (availableEquipment[randomIndex], availableEquipment[i]);
             }
 
             if (choiceCount < availableEquipment.Count)
