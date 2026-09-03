@@ -15,6 +15,7 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public List<int> ActionBarSpellOrder = new();
         [FoldoutGroup("Data")] public List<int> WorldEncounterOrder = new();
         [FoldoutGroup("Data")] public int CurrentWorldTileIndex;
+        [FoldoutGroup("Data")] public int CompletedWorldTraversals;
         [FoldoutGroup("Data")] public LevelData LevelData;
         [FoldoutGroup("Data")] public float PlayerCurrentHealth = -1f;
         [FoldoutGroup("Data")] public EquipmentPartInstanceDictionary PlayerEquipment = new();

@@ -62,6 +62,7 @@ namespace _Rogues_Path.CharacterSelection {
             Game.Instance.PlayerCurrentHealth = -1f;
             Game.Instance.WorldEncounterOrder.Clear();
             Game.Instance.CurrentWorldTileIndex = 0;
+            Game.Instance.CompletedWorldTraversals = 0;
 
             foreach (EquipmentBase equipment in Slots[SelectedIndex].PawnData.StartingEquipment) {
                 if (!EquipmentDatabase.TryGetID(equipment, out int equipmentID))
