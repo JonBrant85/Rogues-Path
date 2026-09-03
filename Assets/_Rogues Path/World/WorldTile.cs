@@ -14,34 +14,73 @@ namespace _Rogues_Path.World {
         [FormerlySerializedAs("EnemyContainer")]
         [SerializeField] private Transform EncounterContainer;
 
+        private EncounterData runtimeEncounter;
+        private bool hasStarted;
+
+        public bool CanInitializeEncounter => EncounterContainer != null;
+
         private void Start() {
+            hasStarted = true;
+
+            if (!TryInitializeEncounter())
+                Debug.LogError($"{name}: Failed to initialize encounter.");
+        }
+
+        public bool TrySetEncounter(EncounterData encounter) {
+            if (encounter == null) {
+                Debug.LogError($"{name}: Cannot assign a null encounter.");
+                return false;
+            }
+
+            if (hasStarted && EncounterContainer == null) {
+                Debug.LogError($"{name}: EncounterContainer is not assigned.");
+                return false;
+            }
+
+            Encounter = encounter;
+
+            return !hasStarted || TryInitializeEncounter();
+        }
+
+        private bool TryInitializeEncounter() {
             if (EncounterContainer == null) {
                 Debug.LogError($"{name}: EncounterContainer is not assigned.");
-                return;
+                return false;
             }
 
             if (Encounter == null) {
                 Debug.LogError($"{name}: Encounter is not assigned.");
-                return;
+                return false;
             }
 
-            Encounter = Instantiate(Encounter);
+            if (runtimeEncounter != null)
+                Destroy(runtimeEncounter);
 
-            if (Encounter.WorldIndicatorSprite != null && IndicatorSprite != null)
-                IndicatorSprite.sprite = Encounter.WorldIndicatorSprite;
+            for (int i = EncounterContainer.childCount - 1; i >= 0; i--) {
+                GameObject previousVisual = EncounterContainer.GetChild(i).gameObject;
+                previousVisual.SetActive(false);
+                Destroy(previousVisual);
+            }
 
-            Encounter.Initialize(EncounterContainer);
+            runtimeEncounter = Instantiate(Encounter);
+
+            if (IndicatorSprite != null)
+                IndicatorSprite.sprite = runtimeEncounter.WorldIndicatorSprite;
+
+            runtimeEncounter.Initialize(EncounterContainer);
+
+            return true;
         }
 
         public async UniTask PassedTile() {}
 
         public async UniTask StoppedOnTile() {
-            if (Encounter == null) {
-                Debug.LogError($"{name}: Cannot load an unassigned encounter.");
+            if (runtimeEncounter == null) {
+                Debug.LogError($"{name}: Cannot load an uninitialized encounter.");
                 return;
             }
 
-            await UIEncounterWindow.Instance.LoadEncounter(Encounter);
+            await UIEncounterWindow.Instance.LoadEncounter(runtimeEncounter);
         }
 
     }
