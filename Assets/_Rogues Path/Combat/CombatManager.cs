@@ -13,6 +13,7 @@ using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.UI.MenuBar;
 using _Rogues_Path.Utilities;
 using _Rogues_Path.Utilities.Events;
+using _Rogues_Path.World;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -46,6 +47,14 @@ namespace _Rogues_Path.Combat {
             if (eventData.BackgroundPrefab != null) Instantiate(eventData.BackgroundPrefab, BackgroundContainer);
             Player = Instantiate(Game.Instance.PlayerData.Pawn, PlayerContainer);
             Enemy = Instantiate(randomEnemy.Pawn, EnemyContainer);
+
+            if (!EnemyTraversalScaler.TryApply(
+                    Enemy,
+                    Game.Instance.CompletedWorldTraversals,
+                    WorldProgressionSettings.Instance)) {
+
+                Debug.LogError($"Failed to scale enemy {Enemy.CharacterName}.");
+            }
 
             // Setup spells
             Player.Brain.KnownSpells.Clear();
