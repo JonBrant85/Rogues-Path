@@ -41,6 +41,12 @@ namespace _Rogues_Path.World.Encounters {
         }
 
         public static bool TryGetRandomID(out int id) {
+            return TryGetRandomID<EncounterData>(out id);
+        }
+
+        public static bool TryGetRandomID<TEncounter>(out int id)
+            where TEncounter : EncounterData {
+
             id = -1;
 
             if (Instance == null)
@@ -49,12 +55,15 @@ namespace _Rogues_Path.World.Encounters {
             int totalWeight = 0;
 
             foreach (WeightedEncounter entry in Instance.encounters) {
-                if (entry?.Encounter != null && entry.Weight > 0)
+                if (entry?.Encounter is TEncounter && entry.Weight > 0)
                     totalWeight += entry.Weight;
             }
 
             if (totalWeight <= 0) {
-                Debug.LogError($"{Instance.name} contains no valid weighted encounters.");
+                Debug.LogError(
+                    $"{Instance.name} contains no valid weighted "
+                    + $"{typeof(TEncounter).Name} encounters.");
+
                 return false;
             }
 
@@ -63,7 +72,7 @@ namespace _Rogues_Path.World.Encounters {
             for (int i = 0; i < Instance.encounters.Count; i++) {
                 WeightedEncounter entry = Instance.encounters[i];
 
-                if (entry?.Encounter == null || entry.Weight <= 0)
+                if (entry?.Encounter is not TEncounter || entry.Weight <= 0)
                     continue;
 
                 if (roll < entry.Weight) {
