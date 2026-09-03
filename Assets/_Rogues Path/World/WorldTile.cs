@@ -44,6 +44,28 @@ namespace _Rogues_Path.World {
             return !hasStarted || TryInitializeEncounter();
         }
 
+        public void ClearRuntimeEncounter() {
+            if (runtimeEncounterVisual != null) {
+                runtimeEncounterVisual.DOKill();
+                runtimeEncounterVisual = null;
+            }
+
+            if (runtimeEncounter != null) {
+                Destroy(runtimeEncounter);
+                runtimeEncounter = null;
+            }
+
+            for (int i = EncounterContainer.childCount - 1; i >= 0; i--) {
+                GameObject previousVisual = EncounterContainer.GetChild(i).gameObject;
+                previousVisual.SetActive(false);
+                previousVisual.transform.SetParent(null);
+                Destroy(previousVisual);
+            }
+
+            if (IndicatorSprite != null)
+                IndicatorSprite.sprite = null;
+        }
+
         private bool TryInitializeEncounter() {
             if (EncounterContainer == null) {
                 Debug.LogError($"{name}: EncounterContainer is not assigned.");
@@ -55,17 +77,7 @@ namespace _Rogues_Path.World {
                 return false;
             }
 
-            if (runtimeEncounter != null)
-                Destroy(runtimeEncounter);
-
-            if (runtimeEncounterVisual != null)
-                runtimeEncounterVisual.DOKill();
-
-            for (int i = EncounterContainer.childCount - 1; i >= 0; i--) {
-                GameObject previousVisual = EncounterContainer.GetChild(i).gameObject;
-                previousVisual.SetActive(false);
-                Destroy(previousVisual);
-            }
+            ClearRuntimeEncounter();
 
             runtimeEncounter = Instantiate(Encounter);
 

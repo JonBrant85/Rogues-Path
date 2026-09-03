@@ -294,6 +294,9 @@ namespace _Rogues_Path.World {
             IReadOnlyList<int> layout,
             IReadOnlyDictionary<int, EncounterData> resolvedEncounters) {
 
+            foreach (int routeIndex in randomEncounterIndexes)
+                route[routeIndex].ClearRuntimeEncounter();
+
             for (int i = 0; i < randomEncounterIndexes.Count; i++) {
                 int routeIndex = randomEncounterIndexes[i];
 
