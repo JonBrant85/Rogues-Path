@@ -1,4 +1,5 @@
 using _Rogues_Path._Game;
+using _Rogues_Path.World.Encounters;
 using UnityEngine;
 
 namespace _Rogues_Path.World {
@@ -23,6 +24,10 @@ namespace _Rogues_Path.World {
         [Min(0f)] public float EnemyStatPerTraversal = 0.10f;
         [Min(0)] public int RestEncountersPerGeneration = 2;
         [Min(0)] public int TreasureEncountersPerGeneration = 1;
+        [Min(0f)] public float EncounterRevealDelay = 0.10f;
+        [Min(0f)] public float EncounterPunchScale = 0.20f;
+        [Min(0f)] public float EncounterPunchDuration = 0.30f;
+        public TraversalEncounter TraversalCompleteEncounter;
 
         public float GetEnemyHealthMultiplier(int completedTraversals) {
             return 1f + Mathf.Max(0, completedTraversals)

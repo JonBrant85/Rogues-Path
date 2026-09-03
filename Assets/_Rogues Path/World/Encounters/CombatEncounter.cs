@@ -17,11 +17,11 @@ namespace _Rogues_Path.World.Encounters {
         public GameObject Background;
         public List<PawnData> Enemies = new();
 
-        public override void Initialize(Transform encounterContainer) {
+        public override Transform Initialize(Transform encounterContainer) {
             if (Enemies == null) {
                 Debug.LogError($"Combat encounter '{name}' has a null enemy list.");
                 Enemies = new List<PawnData>();
-                return;
+                return null;
             }
 
             List<PawnData> validEnemies = Enemies.FindAll(enemy => enemy != null && enemy.Pawn != null);
@@ -29,7 +29,7 @@ namespace _Rogues_Path.World.Encounters {
             if (validEnemies.Count == 0) {
                 Debug.LogError($"Combat encounter '{name}' contains no valid enemies.");
                 Enemies.Clear();
-                return;
+                return null;
             }
 
             PawnData selectedEnemy = validEnemies[Random.Range(0, validEnemies.Count)];
@@ -41,6 +41,8 @@ namespace _Rogues_Path.World.Encounters {
             Pawn enemyPreview = Instantiate(selectedEnemy.Pawn, encounterContainer);
             enemyPreview.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             enemyPreview.Character.SetDirection(Vector2.down);
+
+            return enemyPreview.transform;
         }
 
         public async override UniTask HandleEncounter(Transform windowContent, Transform bottomBar, Button buttonPrefab) {

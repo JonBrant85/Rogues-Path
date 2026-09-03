@@ -1,5 +1,6 @@
 using _Rogues_Path.World.Encounters;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,6 +16,7 @@ namespace _Rogues_Path.World {
         [SerializeField] private Transform EncounterContainer;
 
         private EncounterData runtimeEncounter;
+        private Transform runtimeEncounterVisual;
         private bool hasStarted;
 
         public bool CanInitializeEncounter => EncounterContainer != null;
@@ -56,6 +58,9 @@ namespace _Rogues_Path.World {
             if (runtimeEncounter != null)
                 Destroy(runtimeEncounter);
 
+            if (runtimeEncounterVisual != null)
+                runtimeEncounterVisual.DOKill();
+
             for (int i = EncounterContainer.childCount - 1; i >= 0; i--) {
                 GameObject previousVisual = EncounterContainer.GetChild(i).gameObject;
                 previousVisual.SetActive(false);
@@ -67,9 +72,20 @@ namespace _Rogues_Path.World {
             if (IndicatorSprite != null)
                 IndicatorSprite.sprite = runtimeEncounter.WorldIndicatorSprite;
 
-            runtimeEncounter.Initialize(EncounterContainer);
+            runtimeEncounterVisual = runtimeEncounter.Initialize(EncounterContainer);
 
             return true;
+        }
+
+        public void PunchEncounterVisual(float strength, float duration) {
+            if (runtimeEncounterVisual == null || strength <= 0f || duration <= 0f)
+                return;
+
+            runtimeEncounterVisual.DOPunchScale(
+                Vector3.one * strength,
+                duration,
+                1,
+                0.5f);
         }
 
         public async UniTask PassedTile() {}

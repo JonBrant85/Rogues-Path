@@ -16,3 +16,7 @@ MonoBehaviour:
   EnemyStatPerTraversal: 0.1
   RestEncountersPerGeneration: 2
   TreasureEncountersPerGeneration: 1
+  EncounterRevealDelay: 0.1
+  EncounterPunchScale: 0.2
+  EncounterPunchDuration: 0.3
+  TraversalCompleteEncounter: {fileID: 11400000, guid: 551006bacb684581afcb6a630102b1c2, type: 2}

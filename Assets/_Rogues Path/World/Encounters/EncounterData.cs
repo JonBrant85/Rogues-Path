@@ -12,12 +12,14 @@ namespace _Rogues_Path.World.Encounters {
         public Sprite WorldIndicatorSprite;
         public GameObject WorldVisualPrefab;
 
-        public virtual void Initialize(Transform encounterContainer) {
+        public virtual Transform Initialize(Transform encounterContainer) {
             if (WorldVisualPrefab == null)
-                return;
+                return null;
 
             GameObject worldVisual = Instantiate(WorldVisualPrefab, encounterContainer);
             worldVisual.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+            return worldVisual.transform;
         }
 
         public virtual UniTask HandleEncounter(Transform windowContent, Transform bottomBar, Button buttonPrefab) =>

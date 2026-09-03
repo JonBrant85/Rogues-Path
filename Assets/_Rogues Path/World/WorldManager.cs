@@ -58,6 +58,13 @@ namespace _Rogues_Path.World {
                 return;
             }
 
+            if (progressionSettings.TraversalCompleteEncounter == null) {
+                Debug.LogError(
+                    "WorldProgressionSettings requires a traversal-complete encounter.");
+                MoveButton.interactable = false;
+                return;
+            }
+
             CaptureRandomEncounterIndexes();
 
             if (!InitializeEncounters()) {
@@ -220,14 +227,18 @@ namespace _Rogues_Path.World {
             return true;
         }
 
-        private bool TryApplyEncounterLayout(IReadOnlyList<int> layout) {
+        private bool TryResolveEncounterLayout(
+            IReadOnlyList<int> layout,
+            out Dictionary<int, EncounterData> resolvedEncounters) {
+
+            resolvedEncounters = new Dictionary<int, EncounterData>();
+
             if (layout == null || layout.Count != route.Count) {
                 Debug.LogError("Encounter layout does not match the World route.");
                 return false;
             }
 
             HashSet<int> randomIndexes = new(randomEncounterIndexes);
-            Dictionary<int, EncounterData> resolvedEncounters = new();
 
             for (int i = 0; i < route.Count; i++) {
                 if (!randomIndexes.Contains(i)) {
@@ -261,9 +272,51 @@ namespace _Rogues_Path.World {
                 resolvedEncounters.Add(i, encounter);
             }
 
+            return true;
+        }
+
+        private bool TryApplyEncounterLayout(IReadOnlyList<int> layout) {
+            if (!TryResolveEncounterLayout(layout, out Dictionary<int, EncounterData> resolvedEncounters))
+                return false;
+
             foreach (KeyValuePair<int, EncounterData> resolved in resolvedEncounters) {
                 if (!route[resolved.Key].TrySetEncounter(resolved.Value))
                     return false;
+            }
+
+            Game.Instance.WorldEncounterOrder.Clear();
+            Game.Instance.WorldEncounterOrder.AddRange(layout);
+
+            return true;
+        }
+
+        private async UniTask<bool> TryApplyEncounterLayoutAnimated(
+            IReadOnlyList<int> layout,
+            IReadOnlyDictionary<int, EncounterData> resolvedEncounters) {
+
+            for (int i = 0; i < randomEncounterIndexes.Count; i++) {
+                int routeIndex = randomEncounterIndexes[i];
+
+                if (!route[routeIndex].TrySetEncounter(resolvedEncounters[routeIndex]))
+                    return false;
+
+                route[routeIndex].PunchEncounterVisual(
+                    progressionSettings.EncounterPunchScale,
+                    progressionSettings.EncounterPunchDuration);
+
+                if (i + 1 < randomEncounterIndexes.Count
+                    && progressionSettings.EncounterRevealDelay > 0f) {
+
+                    await UniTask.Delay(
+                        Mathf.RoundToInt(
+                            progressionSettings.EncounterRevealDelay * 1000f));
+                }
+            }
+
+            if (progressionSettings.EncounterPunchDuration > 0f) {
+                await UniTask.Delay(
+                    Mathf.RoundToInt(
+                        progressionSettings.EncounterPunchDuration * 1000f));
             }
 
             Game.Instance.WorldEncounterOrder.Clear();
@@ -349,16 +402,15 @@ namespace _Rogues_Path.World {
             await tween.AsyncWaitForCompletion();
 
             currentTile = currentTile.NextTile;
+            SaveCurrentTile();
+            PlayerPawn.transform.SetParent(currentTile.PawnContainer);
+            PlayerPawn.animationManager.SetState(CharacterState.Idle);
 
             if (previousTile == route[route.Count - 1]
                 && currentTile == StartingTile) {
 
-                CompleteTraversal();
+                await CompleteTraversal();
             }
-
-            SaveCurrentTile();
-            PlayerPawn.transform.SetParent(currentTile.PawnContainer);
-            PlayerPawn.animationManager.SetState(CharacterState.Idle);
 
             Vector2 GetFacingDirectionFromMovementDirection(Vector3 direction) {
 
@@ -402,32 +454,23 @@ namespace _Rogues_Path.World {
             }
         }
 
-        private void CompleteTraversal() {
+        private async UniTask CompleteTraversal() {
             if (!TryGenerateEncounterLayout(out List<int> layout)
-                || !TryApplyEncounterLayout(layout))
-                return;
-
-            Game.Instance.CompletedWorldTraversals++;
-            AnnounceCompletedTraversal();
-        }
-
-        private void AnnounceCompletedTraversal() {
-            if (DiceRollAnnouncer == null
-                || DiceRollAnnouncer.textItems == null
-                || DiceRollAnnouncer.textItems.Count < 3) {
-
-                Debug.LogError(
-                    "DiceRollAnnouncer requires at least three text items "
-                    + "to announce a completed traversal.");
+                || !TryResolveEncounterLayout(
+                    layout,
+                    out Dictionary<int, EncounterData> resolvedEncounters)) {
 
                 return;
             }
 
-            DiceRollAnnouncer.textItems[0].text = "Traversal Complete";
-            DiceRollAnnouncer.textItems[1].text =
-                $"Traversal {Game.Instance.CompletedWorldTraversals}";
-            DiceRollAnnouncer.textItems[2].text = "Enemies grow stronger!";
-            DiceRollAnnouncer.Play();
+            Game.Instance.CompletedWorldTraversals++;
+            await UIEncounterWindow.Instance.LoadEncounter(
+                progressionSettings.TraversalCompleteEncounter);
+
+            if (this == null)
+                return;
+
+            await TryApplyEncounterLayoutAnimated(layout, resolvedEncounters);
         }
 
         private void SaveCurrentTile() {
