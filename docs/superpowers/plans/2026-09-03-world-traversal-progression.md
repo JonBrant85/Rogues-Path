@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Do not modify DuloGames, Michsky, HeroEditor, or other vendor code.
-- Do not modify the newly pushed Skeleton enemy files; Skeleton diagnosis is the next separate task.
+- Do not modify any file from the Skeleton push: `Assets/_Rogues Path/Pawns/PawnData/Enemies/Skeleton.asset`, `Assets/_Rogues Path/Pawns/PawnData/Enemies/Skeleton.asset.meta`, `Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Goblin.prefab`, `Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Skeleton Variant.prefab`, `Assets/_Rogues Path/Pawns/Prefabs/EnemyPawns/Skeleton Variant.prefab.meta`, `Assets/_Rogues Path/Scenes/_LoadingScreen.unity`, `Assets/_Rogues Path/UI/StatusDisplay/Prefabs/UIStatusDisplay.prefab`, `Assets/_Rogues Path/World/Encounters/ScriptableObjects/Resources/Databases/EncounterDatabase.asset`, `Assets/_Rogues Path/World/Encounters/ScriptableObjects/Skeleton.asset`, `Assets/_Rogues Path/World/Encounters/ScriptableObjects/Skeleton.asset.meta`, and the three `SmartLibrarySettings/Collections` files changed by commit `b85df593`. Skeleton diagnosis is the next separate task.
 - Do not add `#region` or `#endregion` blocks.
 - Keep `GameData` save-friendly: traversal state is a primitive `int`.
 - Traversal zero is unscaled; health gains 20% and every other enemy base stat gains 10% per completed traversal.
@@ -102,7 +102,57 @@ namespace _Rogues_Path.World {
 }
 ```
 
-Create its Unity metadata, then create `WorldProgressionSettings.asset` under the existing `Assets/Resources/Databases` folder with the four serialized values `0.2`, `0.1`, `2`, and `1`. The asset's `m_Script` GUID must exactly match `WorldProgressionSettings.cs.meta`.
+Create `WorldProgressionSettings.cs.meta`:
+
+```yaml
+fileFormatVersion: 2
+guid: 45a634728d6841709de031b9605f1ef2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData:
+  assetBundleName:
+  assetBundleVariant:
+```
+
+Create `Assets/Resources/Databases/WorldProgressionSettings.asset`:
+
+```yaml
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a634728d6841709de031b9605f1ef2, type: 3}
+  m_Name: WorldProgressionSettings
+  m_EditorClassIdentifier:
+  EnemyHealthPerTraversal: 0.2
+  EnemyStatPerTraversal: 0.1
+  RestEncountersPerGeneration: 2
+  TreasureEncountersPerGeneration: 1
+```
+
+Create `WorldProgressionSettings.asset.meta`:
+
+```yaml
+fileFormatVersion: 2
+guid: 37e42c5e70564e5c8361f69e8d1c73d2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData:
+  assetBundleName:
+  assetBundleVariant:
+```
 
 - [ ] **Step 3: Run static verification**
 
@@ -503,18 +553,62 @@ This ensures an older or corrupt layout is regenerated instead of violating the 
 
 - [ ] **Step 4: Apply complete layouts**
 
-Add `TryApplyEncounterLayout(IReadOnlyList<int> layout)`. Before changing any tile or saved state, it must:
-
-1. Confirm `layout.Count == route.Count`.
-2. Confirm every random tile reports `CanInitializeEncounter`.
-3. Resolve every random encounter ID to a non-null `EncounterData`.
-4. Keep authored indexes at `-1`.
-
-After all validation succeeds, call `TrySetEncounter()` for each random tile. Then replace saved state in one operation:
+Add the complete layout application method. It validates every route index and resolves every random encounter before changing a tile:
 
 ```csharp
-Game.Instance.WorldEncounterOrder.Clear();
-Game.Instance.WorldEncounterOrder.AddRange(layout);
+private bool TryApplyEncounterLayout(IReadOnlyList<int> layout) {
+    if (layout == null || layout.Count != route.Count) {
+        Debug.LogError("Encounter layout does not match the World route.");
+        return false;
+    }
+
+    HashSet<int> randomIndexes = new(randomEncounterIndexes);
+    Dictionary<int, EncounterData> resolvedEncounters = new();
+
+    for (int i = 0; i < route.Count; i++) {
+        if (!randomIndexes.Contains(i)) {
+            if (layout[i] != -1) {
+                Debug.LogError(
+                    $"Authored tile {route[i].name} has generated "
+                    + $"encounter ID {layout[i]}.");
+
+                return false;
+            }
+
+            continue;
+        }
+
+        if (!route[i].CanInitializeEncounter) {
+            Debug.LogError(
+                $"{route[i].name}: EncounterContainer is not assigned.");
+            return false;
+        }
+
+        if (!EncounterDatabase.TryGetByID(
+                layout[i],
+                out EncounterData encounter)) {
+
+            Debug.LogError(
+                $"Encounter layout contains invalid ID {layout[i]} "
+                + $"for {route[i].name}.");
+
+            return false;
+        }
+
+        resolvedEncounters.Add(i, encounter);
+    }
+
+    foreach (KeyValuePair<int, EncounterData> resolved
+             in resolvedEncounters) {
+        if (!route[resolved.Key].TrySetEncounter(resolved.Value))
+            return false;
+    }
+
+    Game.Instance.WorldEncounterOrder.Clear();
+    Game.Instance.WorldEncounterOrder.AddRange(layout);
+
+    return true;
+}
 ```
 
 `InitializeEncounters()` becomes:
@@ -539,13 +633,15 @@ private bool InitializeEncounters() {
 
 In `MoveToNextTile()`, retain the tile being left and check the boundary after movement completes:
 
+Add this line as the first statement in `MoveToNextTile()`:
+
 ```csharp
 WorldTile previousTile = currentTile;
-Vector3 movementDirection =
-    currentTile.NextTile.transform.position - currentTile.transform.position;
+```
 
-// Existing facing, animation, tween, and await remain here.
+Keep the existing direction, animation, tween, and `await tween.AsyncWaitForCompletion()` statements unchanged. Immediately after that await, replace the current assignment block with:
 
+```csharp
 currentTile = currentTile.NextTile;
 
 if (previousTile == route[route.Count - 1]
@@ -697,6 +793,22 @@ namespace _Rogues_Path.World {
 
 The scaler changes only runtime `CharacterStat.BaseValue` values. It does not alter the dictionary, stat IDs, PawnData, prefabs, player, or equipment.
 
+Create `EnemyTraversalScaler.cs.meta`:
+
+```yaml
+fileFormatVersion: 2
+guid: a3d0f98d3f7c4bbc8975fbba65e7788a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData:
+  assetBundleName:
+  assetBundleVariant:
+```
+
 - [ ] **Step 2: Apply scaling in CombatManager**
 
 Immediately after:
@@ -760,14 +872,7 @@ git diff --name-only HEAD~5 HEAD
 
 Expected: no whitespace errors; worktree clean after commits; changed paths are restricted to the files listed in this plan plus their new Unity metadata and settings asset.
 
-Confirm no changed path begins with:
-
-```text
-Assets/ThirdParty/
-Assets/_Rogues Path/Pawns/Enemies/Skeleton
-```
-
-Use the actual Skeleton paths from the user's latest pushed commit when checking the second exclusion.
+Confirm no changed path begins with `Assets/ThirdParty/`. Also confirm none of the paths listed in the Global Constraints from Skeleton commit `b85df593` appear in the implementation diff.
 
 - [ ] **Step 2: Verify serialized settings**
 
