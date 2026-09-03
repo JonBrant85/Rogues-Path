@@ -23,8 +23,12 @@ namespace _Rogues_Path.PawnCommands.Commands {
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
             instigator.Character.AnimationManager.Spring();
+            instigator.animationManager.Animator.SetTrigger("Cast");
+            instigator.animationManager.IsAction = true;
+
+            await UniTask.Delay(Mathf.RoundToInt(AnimationClip.length * 1000f));
+
             await ShootFireball(instigator, victims.First());
-            await UniTask.Delay((int)instigator.PlayAnimation(AnimationClip) * 1000);
         }
 
         private async UniTask ShootFireball(Pawn caster, Pawn target) {

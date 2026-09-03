@@ -22,7 +22,7 @@ namespace _Rogues_Path.Pawns.Scripts {
         }
 
         public float PlayAnimation(AnimationClip clip) {
-            animazing.Play(clip, int.MaxValue);
+            animazing.PlayLayer(1, clip, int.MaxValue);
             return clip.length;
         }
 
