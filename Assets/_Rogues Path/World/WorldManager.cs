@@ -38,6 +38,8 @@ namespace _Rogues_Path.World {
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
 
         private List<WorldTile> route;
+        private readonly List<int> randomEncounterIndexes = new();
+        private WorldProgressionSettings progressionSettings;
 
         private void Awake() {
             route = BuildRoute();
@@ -47,7 +49,22 @@ namespace _Rogues_Path.World {
                 return;
             }
 
-            InitializeEncounters();
+            progressionSettings = WorldProgressionSettings.Instance;
+
+            if (progressionSettings == null) {
+                Debug.LogError(
+                    "Resources/Databases/WorldProgressionSettings could not be loaded.");
+                MoveButton.interactable = false;
+                return;
+            }
+
+            CaptureRandomEncounterIndexes();
+
+            if (!InitializeEncounters()) {
+                MoveButton.interactable = false;
+                return;
+            }
+
             RestoreCurrentTile();
 
             // Initialize player with equipment
@@ -81,56 +98,178 @@ namespace _Rogues_Path.World {
             PlayerHealthState.Restore(PlayerPawn);
         }
 
-        private void InitializeEncounters() {
-            if (EncounterDatabase.Instance == null) {
-                Debug.LogError("Resources/Databases/EncounterDatabase could not be loaded.");
-                return;
-            }
-
-            List<int> savedLayout = Game.Instance.WorldEncounterOrder;
-
-            if (savedLayout.Count != route.Count) {
-                savedLayout.Clear();
-
-                foreach (WorldTile tile in route) {
-                    if (tile.Encounter != null) {
-                        savedLayout.Add(-1);
-                        continue;
-                    }
-
-                    savedLayout.Add(AssignRandomEncounter(tile));
-                }
-
-                return;
-            }
+        private void CaptureRandomEncounterIndexes() {
+            randomEncounterIndexes.Clear();
 
             for (int i = 0; i < route.Count; i++) {
-                WorldTile tile = route[i];
+                if (route[i].Encounter == null)
+                    randomEncounterIndexes.Add(i);
+            }
+        }
 
-                if (tile.Encounter != null) {
-                    savedLayout[i] = -1;
+        private bool InitializeEncounters() {
+            if (EncounterDatabase.Instance == null) {
+                Debug.LogError("Resources/Databases/EncounterDatabase could not be loaded.");
+                return false;
+            }
+
+            if (!TryGetSavedEncounterLayout(out List<int> layout)
+                && !TryGenerateEncounterLayout(out layout))
+                return false;
+
+            return TryApplyEncounterLayout(layout);
+        }
+
+        private bool TryGenerateEncounterLayout(out List<int> layout) {
+            layout = Enumerable.Repeat(-1, route.Count).ToList();
+
+            int restCount = progressionSettings.RestEncountersPerGeneration;
+            int treasureCount = progressionSettings.TreasureEncountersPerGeneration;
+            int requiredNonCombatCount = restCount + treasureCount;
+
+            if (randomEncounterIndexes.Count < requiredNonCombatCount) {
+                Debug.LogError(
+                    $"World requires {requiredNonCombatCount} random tiles for "
+                    + $"{restCount} Rest and {treasureCount} Treasure encounters, "
+                    + $"but only {randomEncounterIndexes.Count} exist.");
+
+                return false;
+            }
+
+            List<int> encounterBag = new();
+
+            for (int i = 0; i < restCount; i++) {
+                if (!EncounterDatabase.TryGetRandomID<RestEncounter>(out int encounterID))
+                    return false;
+
+                encounterBag.Add(encounterID);
+            }
+
+            for (int i = 0; i < treasureCount; i++) {
+                if (!EncounterDatabase.TryGetRandomID<TreasureEncounter>(out int encounterID))
+                    return false;
+
+                encounterBag.Add(encounterID);
+            }
+
+            while (encounterBag.Count < randomEncounterIndexes.Count) {
+                if (!EncounterDatabase.TryGetRandomID<CombatEncounter>(out int encounterID))
+                    return false;
+
+                encounterBag.Add(encounterID);
+            }
+
+            for (int i = 0; i < encounterBag.Count; i++) {
+                int randomIndex = UnityEngine.Random.Range(i, encounterBag.Count);
+                (encounterBag[i], encounterBag[randomIndex]) =
+                    (encounterBag[randomIndex], encounterBag[i]);
+            }
+
+            for (int i = 0; i < randomEncounterIndexes.Count; i++)
+                layout[randomEncounterIndexes[i]] = encounterBag[i];
+
+            return true;
+        }
+
+        private bool TryGetSavedEncounterLayout(out List<int> layout) {
+            layout = null;
+            List<int> savedLayout = Game.Instance.WorldEncounterOrder;
+
+            if (savedLayout.Count != route.Count)
+                return false;
+
+            HashSet<int> randomIndexes = new(randomEncounterIndexes);
+            int restCount = 0;
+            int treasureCount = 0;
+            int combatCount = 0;
+
+            for (int i = 0; i < route.Count; i++) {
+                if (!randomIndexes.Contains(i)) {
+                    if (savedLayout[i] != -1)
+                        return false;
+
                     continue;
                 }
 
-                if (EncounterDatabase.TryGetByID(savedLayout[i], out EncounterData savedEncounter)) {
-                    tile.Encounter = savedEncounter;
+                if (!EncounterDatabase.TryGetByID(
+                        savedLayout[i],
+                        out EncounterData encounter))
+                    return false;
+
+                switch (encounter) {
+                    case RestEncounter:
+                        restCount++;
+                        break;
+                    case TreasureEncounter:
+                        treasureCount++;
+                        break;
+                    case CombatEncounter:
+                        combatCount++;
+                        break;
+                    default:
+                        return false;
+                }
+            }
+
+            if (restCount != progressionSettings.RestEncountersPerGeneration
+                || treasureCount != progressionSettings.TreasureEncountersPerGeneration
+                || combatCount != randomEncounterIndexes.Count - restCount - treasureCount)
+                return false;
+
+            layout = new List<int>(savedLayout);
+            return true;
+        }
+
+        private bool TryApplyEncounterLayout(IReadOnlyList<int> layout) {
+            if (layout == null || layout.Count != route.Count) {
+                Debug.LogError("Encounter layout does not match the World route.");
+                return false;
+            }
+
+            HashSet<int> randomIndexes = new(randomEncounterIndexes);
+            Dictionary<int, EncounterData> resolvedEncounters = new();
+
+            for (int i = 0; i < route.Count; i++) {
+                if (!randomIndexes.Contains(i)) {
+                    if (layout[i] != -1) {
+                        Debug.LogError(
+                            $"Authored tile {route[i].name} has generated "
+                            + $"encounter ID {layout[i]}.");
+
+                        return false;
+                    }
+
                     continue;
                 }
 
-                savedLayout[i] = AssignRandomEncounter(tile);
-            }
-
-            int AssignRandomEncounter(WorldTile tile) {
-                if (!EncounterDatabase.TryGetRandomID(out int encounterID) ||
-                    !EncounterDatabase.TryGetByID(encounterID, out EncounterData encounter)) {
-
-                    Debug.LogError($"Failed to generate an encounter for {tile.name}.");
-                    return -1;
+                if (!route[i].CanInitializeEncounter) {
+                    Debug.LogError($"{route[i].name}: EncounterContainer is not assigned.");
+                    return false;
                 }
 
-                tile.Encounter = encounter;
-                return encounterID;
+                if (!EncounterDatabase.TryGetByID(
+                        layout[i],
+                        out EncounterData encounter)) {
+
+                    Debug.LogError(
+                        $"Encounter layout contains invalid ID {layout[i]} "
+                        + $"for {route[i].name}.");
+
+                    return false;
+                }
+
+                resolvedEncounters.Add(i, encounter);
             }
+
+            foreach (KeyValuePair<int, EncounterData> resolved in resolvedEncounters) {
+                if (!route[resolved.Key].TrySetEncounter(resolved.Value))
+                    return false;
+            }
+
+            Game.Instance.WorldEncounterOrder.Clear();
+            Game.Instance.WorldEncounterOrder.AddRange(layout);
+
+            return true;
         }
 
         private void RestoreCurrentTile() {
@@ -200,6 +339,7 @@ namespace _Rogues_Path.World {
         }
 
         private async UniTask MoveToNextTile() {
+            WorldTile previousTile = currentTile;
             Vector3 movementDirection = currentTile.NextTile.transform.position - currentTile.transform.position;
 
             PlayerPawn.Character.SetDirection(GetFacingDirectionFromMovementDirection(movementDirection));
@@ -209,6 +349,13 @@ namespace _Rogues_Path.World {
             await tween.AsyncWaitForCompletion();
 
             currentTile = currentTile.NextTile;
+
+            if (previousTile == route[route.Count - 1]
+                && currentTile == StartingTile) {
+
+                CompleteTraversal();
+            }
+
             SaveCurrentTile();
             PlayerPawn.transform.SetParent(currentTile.PawnContainer);
             PlayerPawn.animationManager.SetState(CharacterState.Idle);
@@ -253,6 +400,34 @@ namespace _Rogues_Path.World {
 
                 return facingDirection;
             }
+        }
+
+        private void CompleteTraversal() {
+            if (!TryGenerateEncounterLayout(out List<int> layout)
+                || !TryApplyEncounterLayout(layout))
+                return;
+
+            Game.Instance.CompletedWorldTraversals++;
+            AnnounceCompletedTraversal();
+        }
+
+        private void AnnounceCompletedTraversal() {
+            if (DiceRollAnnouncer == null
+                || DiceRollAnnouncer.textItems == null
+                || DiceRollAnnouncer.textItems.Count < 3) {
+
+                Debug.LogError(
+                    "DiceRollAnnouncer requires at least three text items "
+                    + "to announce a completed traversal.");
+
+                return;
+            }
+
+            DiceRollAnnouncer.textItems[0].text = "Traversal Complete";
+            DiceRollAnnouncer.textItems[1].text =
+                $"Traversal {Game.Instance.CompletedWorldTraversals}";
+            DiceRollAnnouncer.textItems[2].text = "Enemies grow stronger!";
+            DiceRollAnnouncer.Play();
         }
 
         private void SaveCurrentTile() {
