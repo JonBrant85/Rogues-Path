@@ -2052,6 +2052,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6094806263217997431}
+  - component: {fileID: 5658223203294176127}
+  - component: {fileID: 7469095601690709282}
+  - component: {fileID: 733481587254358207}
+  - component: {fileID: 5340896301592536223}
+  - component: {fileID: 8258263592897685535}
+  - component: {fileID: 8355299695700497459}
+  - component: {fileID: 3222362884811208898}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -15477,14 +15484,7 @@ GameObject:
   - component: {fileID: 3112571022494191160}
   - component: {fileID: -2408596562942195320}
   - component: {fileID: 7463688952052727956}
-  - component: {fileID: 5658223203294176127}
-  - component: {fileID: 7469095601690709282}
-  - component: {fileID: 733481587254358207}
-  - component: {fileID: 5340896301592536223}
-  - component: {fileID: 8258263592897685535}
-  - component: {fileID: 8355299695700497459}
   - component: {fileID: 4174797735423078041}
-  - component: {fileID: 3222362884811208898}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -15599,7 +15599,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747903837301588595}
+  m_GameObject: {fileID: 1251938076275882167}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c59db8c0956305f4da157acaa6dddae5, type: 3}
@@ -15628,7 +15628,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747903837301588595}
+  m_GameObject: {fileID: 1251938076275882167}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a803be54150222e44893e7f7e2c14849, type: 3}
@@ -15642,7 +15642,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747903837301588595}
+  m_GameObject: {fileID: 1251938076275882167}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a219f3f28a3014ca16bf6b2f13111f, type: 3}
@@ -15654,7 +15654,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747903837301588595}
+  m_GameObject: {fileID: 1251938076275882167}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6dbda98e8614ec8a935809c1a0ace8a, type: 3}
@@ -15828,7 +15828,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747903837301588595}
+  m_GameObject: {fileID: 1251938076275882167}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c0fbc9a82051e94429aa17cc4b2f48e5, type: 2}
@@ -15848,7 +15848,7 @@ SortingGroup:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747903837301588595}
+  m_GameObject: {fileID: 1251938076275882167}
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
@@ -15895,7 +15895,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7747903837301588595}
+  m_GameObject: {fileID: 1251938076275882167}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e810158de0072a44bb385d970936cef2, type: 3}
