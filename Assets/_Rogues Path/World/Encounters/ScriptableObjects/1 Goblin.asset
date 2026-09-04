@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aeac241c68340dab1d53d3a7825df6b, type: 3}
-  m_Name: A lone bunny
+  m_Name: 1 Goblin
   m_EditorClassIdentifier: 
-  EncounterTitle: A lone bunny
+  EncounterTitle: A long Goblin
+  EncounterDescription: 
+  WorldIndicatorSprite: {fileID: 0}
+  WorldVisualPrefab: {fileID: 0}
   Background: {fileID: 5399324929985824308, guid: 0b919002156c887498bc2384bbd2e1b7, type: 3}
   Enemies:
   - {fileID: 11400000, guid: 58247c1d1ff08bc46ad734f79667a5e8, type: 2}
