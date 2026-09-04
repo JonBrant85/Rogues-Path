@@ -15,7 +15,9 @@ MonoBehaviour:
   encounters:
   - Encounter: {fileID: 11400000, guid: d5ab202405ebe5c459c9817a55ce1966, type: 2}
     Weight: 65
-  - Encounter: {fileID: 11400000, guid: 1790b4b8dc0be904da829c70b428cd3c, type: 2}
+  - Encounter: {fileID: 11400000, guid: 829c5117bce12b341859a70698f2bb8a, type: 2}
+    Weight: 65
+  - Encounter: {fileID: 11400000, guid: 58dbd20f0181043408f8614c55c181a0, type: 2}
     Weight: 65
   - Encounter: {fileID: 11400000, guid: ba335cacf6344bd18a48b12d92396520, type: 2}
     Weight: 20
