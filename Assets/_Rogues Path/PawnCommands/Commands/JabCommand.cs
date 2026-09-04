@@ -14,39 +14,14 @@ namespace _Rogues_Path.PawnCommands.Commands {
         public JabCommand(Pawn hero) : base(hero) {}
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
-            Transform activeCharacter = instigator.Character.Active != null
-                ? instigator.Character.Active.transform
-                : null;
-
-            Transform upperBody = activeCharacter?.Find("UpperBody");
-            Transform leftArm = activeCharacter?.Find("UpperBody/ArmLAnchor/ArmL");
-            Transform rightArm = activeCharacter?.Find("UpperBody/ArmRAnchor/ArmR");
-
-            Quaternion upperBodyBefore = upperBody != null
-                ? upperBody.localRotation
-                : Quaternion.identity;
-
-            Quaternion leftArmBefore = leftArm != null
-                ? leftArm.localRotation
-                : Quaternion.identity;
-
-            Quaternion rightArmBefore = rightArm != null
-                ? rightArm.localRotation
-                : Quaternion.identity;
-
             instigator.animationManager.Jab();
-
             await UniTask.Delay(Mathf.RoundToInt(AnimationClip.length * 1000f));
             await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage((int)StrengthMultiplier.Calculate(instigator), instigator) * 1000);
         }
 
-        private static float GetRotationDelta(
-            Transform target,
-            Quaternion before) {
+        private static float GetRotationDelta(Transform target, Quaternion before) {
 
-            return target != null
-                ? Quaternion.Angle(before, target.localRotation)
-                : -1f;
+            return target != null ? Quaternion.Angle(before, target.localRotation) : -1f;
         }
     }
 }

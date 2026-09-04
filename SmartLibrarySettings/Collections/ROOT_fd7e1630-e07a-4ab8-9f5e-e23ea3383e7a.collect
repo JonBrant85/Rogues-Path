@@ -4718,6 +4718,10 @@ MonoBehaviour:
       _guid: c827026938670394ea6bd4831c179832
     collectionIds:
     - _serializedGuid: 428b6c0bbe9d5f4cb25d27331c693ac3
+  - item:
+      _guid: c1ac1d1a28e268542ad43a4f2c9b2cfd
+    collectionIds:
+    - _serializedGuid: 6e797a658a238e489a15f94920971f6c
   references:
     version: 2
     RefIds: []
