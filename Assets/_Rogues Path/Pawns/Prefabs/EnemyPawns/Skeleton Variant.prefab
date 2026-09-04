@@ -21240,6 +21240,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6600507933509415295}
     - target: {fileID: 7463688952052727956, guid: 4b4c34eb6535dc3499955f7d7f31706f, type: 3}
+      propertyPath: animationManager
+      value: 
+      objectReference: {fileID: 2148911942040026796}
+    - target: {fileID: 7463688952052727956, guid: 4b4c34eb6535dc3499955f7d7f31706f, type: 3}
       propertyPath: ClassName
       value: Bonehead
       objectReference: {fileID: 0}
