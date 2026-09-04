@@ -170,6 +170,9 @@ MonoBehaviour:
   World:
     m_SceneAsset: {fileID: 102900000, guid: 8f8c568408e50a9478cba759b9980764, type: 3}
     m_SceneName: World
+  GameOverScene:
+    m_SceneAsset: {fileID: 102900000, guid: c014c75720b169a7bba27792f8402f05, type: 3}
+    m_SceneName: GameOver
   PlayerData: {fileID: 0}
   PlayerPreparedSpells: []
   ActionBarSpellOrder: 

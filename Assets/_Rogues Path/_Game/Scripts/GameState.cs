@@ -21,7 +21,8 @@ namespace _Rogues_Path._Game {
         LevelSelection,
         WorldMap,
         Combat,
-        RewardsScreen
+        RewardsScreen,
+        GameOver
     }
 
     public enum Trigger {
@@ -77,7 +78,12 @@ namespace _Rogues_Path._Game {
                     () => {
                         LoadingScreenManager.Instance.LoadScene(Combat);
                     })
-                .OnExit(
+                .Permit(Trigger.EnterMainMenu, State.MainMenu)
+                .Permit(Trigger.EnterRewardsScreen, State.RewardsScreen)
+                .Permit(Trigger.GameOver, State.GameOver);
+
+            gameState.Configure(State.RewardsScreen)
+                .OnEntry(
                     () => {
                         // Prepare Rewards
                         for (int i = 0; i < 2; i++) {
@@ -96,13 +102,6 @@ namespace _Rogues_Path._Game {
                         }
 
                         LoadingScreenManager.Instance.LoadScene(Rewards);
-                    })
-                .Permit(Trigger.EnterMainMenu, State.MainMenu)
-                .Permit(Trigger.EnterRewardsScreen, State.RewardsScreen);
-
-            gameState.Configure(State.RewardsScreen)
-                .OnEntry(
-                    () => {
 
                         EventBus.Raise(new InventoryChanged());
                     })
@@ -118,6 +117,13 @@ namespace _Rogues_Path._Game {
                         LoadingScreenManager.Instance.LoadScene(World);
                     })
                 .Permit(Trigger.EnterCombat, State.Combat);
+
+            gameState.Configure(State.GameOver)
+                .OnEntry(
+                    () => {
+                        LoadingScreenManager.Instance.LoadScene(GameOverScene);
+                    })
+                .Permit(Trigger.EnterMainMenu, State.MainMenu);
         }
 
         public static void FireTrigger(Trigger trigger) {
