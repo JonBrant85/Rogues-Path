@@ -225,9 +225,7 @@ namespace _Rogues_Path.Utilities {
                 return false;
             }
 
-            if (Array.Exists(
-                    AssetDatabase.GetDependencies(basePath, true),
-                    dependency => dependency == modelPath)) {
+            if (Array.IndexOf(AssetDatabase.GetDependencies(basePath, true), modelPath) >= 0) {
                 error = "The selected base depends on the model prefab and would create a dependency cycle.";
                 return false;
             }
