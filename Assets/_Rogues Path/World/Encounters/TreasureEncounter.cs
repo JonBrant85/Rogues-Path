@@ -63,6 +63,7 @@ namespace _Rogues_Path.World.Encounters {
             }
 
             Game.Instance.PlayerInventory.Add(selectedEquipment);
+            EventBus.Raise(new TreasureClaimed { Equipment = selectedEquipment });
             EventBus.Raise(new InventoryChanged());
             OpenChest();
 

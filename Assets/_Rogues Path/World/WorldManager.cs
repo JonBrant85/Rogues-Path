@@ -171,6 +171,7 @@ namespace _Rogues_Path.World {
             }
 
             PlayerHealthState.Restore(PlayerPawn);
+            EventBus.Raise(new RunPawnsChanged { Player = PlayerPawn });
         }
 
         private void CaptureRandomEncounterIndexes() {
@@ -476,6 +477,8 @@ namespace _Rogues_Path.World {
             SaveCurrentTile();
             PlayerPawn.transform.SetParent(currentTile.PawnContainer);
             PlayerPawn.animationManager.SetState(CharacterState.Idle);
+
+            EventBus.Raise(new TileTraversed { Player = PlayerPawn });
 
             if (previousTile == route[route.Count - 1]
                 && currentTile == StartingTile) {

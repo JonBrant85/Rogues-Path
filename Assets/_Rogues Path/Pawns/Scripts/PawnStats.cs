@@ -67,6 +67,7 @@ namespace _Rogues_Path.Pawns.Scripts {
         }
 
         public void ReceiveDamage(int damage, Pawn instigator) {
+            float previousHealth = CurrentHealth;
             var healthChangedEvent = new HealthChanged {
                 Victim = this,
                 Instigator = instigator,
@@ -76,6 +77,24 @@ namespace _Rogues_Path.Pawns.Scripts {
             EventBus.RaiseImmediately(ref healthChangedEvent);
 
             CurrentHealth = Mathf.Clamp(healthChangedEvent.NewHealth, 0, Stats[MaxHealthID].Value);
+
+            // Report the applied result, including clamping, before death changes the run state.
+            float healthDifference = CurrentHealth - previousHealth;
+
+            if (healthDifference < 0f) {
+                EventBus.Raise(new DamageApplied {
+                    Victim = this,
+                    Instigator = instigator,
+                    Amount = -healthDifference
+                });
+            }
+            else if (healthDifference > 0f) {
+                EventBus.Raise(new HealingApplied {
+                    Victim = this,
+                    Instigator = instigator,
+                    Amount = healthDifference
+                });
+            }
 
             if (CurrentHealth <= 0) {
                 Die();

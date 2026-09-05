@@ -94,6 +94,7 @@ namespace _Rogues_Path.Combat {
             }
 
             PlayerHealthState.Restore(Player);
+            EventBus.Raise(new RunPawnsChanged { Player = Player, Enemy = Enemy });
         }
 
         private void EquipmentUnequippedEventHandler(ref EquipmentUnequippedEvent eventData) {
