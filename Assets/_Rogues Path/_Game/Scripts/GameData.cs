@@ -22,7 +22,7 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public EquipmentPartInstanceDictionary PlayerEquipment = new();
         [FoldoutGroup("Data")] public List<EquipmentInstanceData> PlayerInventory = new();
         [FoldoutGroup("Data")] public OrbCountDictionary PlayerOrbs = new();
-        [FoldoutGroup("Data")] public List<int> PendingEquipmentRewards;
+        [FoldoutGroup("Data")] public List<EquipmentInstanceData> PendingEquipmentRewards = new();
         public Dictionary<Orb, int> PendingOrbRewards = new();
 
         [FoldoutGroup("Data/Run Statistics"), ReadOnly] public int TilesTraveled;

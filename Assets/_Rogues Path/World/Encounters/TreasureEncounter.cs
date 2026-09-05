@@ -118,40 +118,13 @@ namespace _Rogues_Path.World.Encounters {
         }
 
         private UIItemQuality GetRandomQuality() {
-            int totalWeight = 0;
-
-            foreach (UIItemQuality quality in System.Enum.GetValues(typeof(UIItemQuality)))
-                totalWeight += GetQualityWeight(quality);
-
-            if (totalWeight <= 0) {
-                Debug.LogError("Treasure encounter contains no valid quality weights. Defaulting to Poor.");
-                return UIItemQuality.Poor;
-            }
-
-            int roll = Random.Range(0, totalWeight);
-
-            foreach (UIItemQuality quality in System.Enum.GetValues(typeof(UIItemQuality))) {
-                int weight = GetQualityWeight(quality);
-
-                if (roll < weight)
-                    return quality;
-
-                roll -= weight;
-            }
-
-            return UIItemQuality.Poor;
-        }
-
-        private int GetQualityWeight(UIItemQuality quality) {
-            return quality switch {
-                UIItemQuality.Poor => PoorWeight,
-                UIItemQuality.Common => CommonWeight,
-                UIItemQuality.Uncommon => UncommonWeight,
-                UIItemQuality.Rare => RareWeight,
-                UIItemQuality.Epic => EpicWeight,
-                UIItemQuality.Legendary => LegendaryWeight,
-                _ => 0
-            };
+            return EquipmentQualityRoller.Roll(
+                PoorWeight,
+                CommonWeight,
+                UncommonWeight,
+                RareWeight,
+                EpicWeight,
+                LegendaryWeight);
         }
     }
 }

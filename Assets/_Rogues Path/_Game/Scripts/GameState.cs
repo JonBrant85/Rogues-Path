@@ -88,9 +88,11 @@ namespace _Rogues_Path._Game {
                     () => {
                         // Prepare Rewards
                         EventBus.Raise(new CombatCleared());
+                        Instance.PendingEquipmentRewards.Clear();
                         for (int i = 0; i < 2; i++) {
                             if (EquipmentDatabase.GetIDByName(EquipmentDatabase.Instance.Equipment.GetRandomElement().Name, out int ID)) {
-                                Instance.PendingEquipmentRewards.Add(ID);
+                                Instance.PendingEquipmentRewards.Add(
+                                    new EquipmentInstanceData(ID, EquipmentQualityRoller.Roll()));
                             }
                         }
 
