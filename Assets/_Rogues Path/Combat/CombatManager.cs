@@ -61,6 +61,8 @@ namespace _Rogues_Path.Combat {
             Player.Brain.KnownSpells.AddRange(Game.Instance.PlayerData.ClassSpells);
             Player.Brain.PreparedSpells.Clear();
             Player.Brain.PreparedSpells.AddRange(Game.Instance.PlayerPreparedSpells);
+            Enemy.Brain.KnownSpells.Clear();
+            Enemy.Brain.KnownSpells.AddRange(randomEnemy.ClassSpells);
 
             // Face Player/Enemies the correct direction
             Player.Character.SetDirection(Vector2.right);
