@@ -30,6 +30,8 @@ namespace _Rogues_Path.UI.CharacterScreen {
         [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
         private PawnData playerData;
 
+        public Pawn PreviewPawn => pawnPreview;
+
         private void OnEnable() {
             EventBus.SubscribeTo<EquipmentCrafted>(EquipmentCraftedEventHandler);
         }
