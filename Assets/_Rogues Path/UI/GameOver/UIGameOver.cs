@@ -6,8 +6,15 @@ namespace _Rogues_Path.UI.GameOver {
     public sealed class UIGameOver : MonoBehaviour {
         [SerializeField] private Button MainMenuButton;
         [SerializeField] private Button QuitButton;
-        [SerializeField] private Text JourneyValues;
-        [SerializeField] private Text CombatValues;
+        [SerializeField] private Text TilesTraveledValue;
+        [SerializeField] private Text CombatsClearedValue;
+        [SerializeField] private Text WorldsCompletedValue;
+        [SerializeField] private Text TreasuresClaimedValue;
+        [SerializeField] private Text OrbsUsedValue;
+        [SerializeField] private Text DamageDealtValue;
+        [SerializeField] private Text DamageTakenValue;
+        [SerializeField] private Text HealthRestoredValue;
+        [SerializeField] private Text BiggestSingleHitValue;
 
         private void Awake() {
             MainMenuButton.onClick.AddListener(ReturnToMainMenu);
@@ -17,22 +24,15 @@ namespace _Rogues_Path.UI.GameOver {
         private void OnEnable() {
             // Looking up an existing Game keeps opening this scene alone from creating a run.
             Game game = FindObjectOfType<Game>();
-            if (game == null) {
-                JourneyValues.text = "0\n0\n0\n0\n0";
-                CombatValues.text = "0\n0\n0\n0";
-                return;
-            }
-
-            JourneyValues.text = $"{game.TilesTraveled:N0}\n"
-                + $"{game.CombatsCleared:N0}\n"
-                + $"{game.CompletedWorldTraversals:N0}\n"
-                + $"{game.TreasuresClaimed:N0}\n"
-                + $"{game.OrbsUsed:N0}";
-
-            CombatValues.text = $"{game.DamageDealt:#,0.#}\n"
-                + $"{game.DamageTaken:#,0.#}\n"
-                + $"{game.HealthRestored:#,0.#}\n"
-                + $"{game.BiggestSingleHit:#,0.#}";
+            TilesTraveledValue.text = (game != null ? game.TilesTraveled : 0).ToString("N0");
+            CombatsClearedValue.text = (game != null ? game.CombatsCleared : 0).ToString("N0");
+            WorldsCompletedValue.text = (game != null ? game.CompletedWorldTraversals : 0).ToString("N0");
+            TreasuresClaimedValue.text = (game != null ? game.TreasuresClaimed : 0).ToString("N0");
+            OrbsUsedValue.text = (game != null ? game.OrbsUsed : 0).ToString("N0");
+            DamageDealtValue.text = (game != null ? game.DamageDealt : 0).ToString("#,0.#");
+            DamageTakenValue.text = (game != null ? game.DamageTaken : 0).ToString("#,0.#");
+            HealthRestoredValue.text = (game != null ? game.HealthRestored : 0).ToString("#,0.#");
+            BiggestSingleHitValue.text = (game != null ? game.BiggestSingleHit : 0).ToString("#,0.#");
         }
 
         private void OnDestroy() {
