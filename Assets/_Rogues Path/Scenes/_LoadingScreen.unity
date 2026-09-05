@@ -185,7 +185,7 @@ MonoBehaviour:
   PlayerInventory: []
   PlayerOrbs:
     keyValueData: []
-  PendingEquipmentRewards: 
+  PendingEquipmentRewards: []
 --- !u!4 &101767353
 Transform:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Rogues_Path._Game;
 using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
+using _Rogues_Path.PawnEquipment.Scripts;
 using _Rogues_Path.Pawns;
 using _Rogues_Path.UI.CharacterScreen;
 using _Rogues_Path.UI.CraftingWindow;
@@ -44,9 +45,9 @@ namespace _Rogues_Path.UI.RewardsScreen {
 
                 void CollectRewards() {
                     // Equipment rewards
-                    foreach (int ID in Game.Instance.PendingEquipmentRewards) {
-                        EquipmentInstanceData instanceData = new(ID);
-                        Game.Instance.PlayerInventory.Add(instanceData);
+                    foreach (EquipmentInstanceData instanceData in Game.Instance.PendingEquipmentRewards) {
+                        if (instanceData != null)
+                            Game.Instance.PlayerInventory.Add(instanceData);
                     }
 
                     Game.Instance.PendingEquipmentRewards.Clear();
@@ -71,16 +72,26 @@ namespace _Rogues_Path.UI.RewardsScreen {
 
             void PopulateRewards() {
                 // Equipment rewards
-                foreach (var ID in Game.Instance.PendingEquipmentRewards) {
+                foreach (EquipmentInstanceData instanceData in Game.Instance.PendingEquipmentRewards) {
+                    if (instanceData == null
+                        || !EquipmentDatabase.TryGetByID(instanceData.EquipmentID, out EquipmentBase equipment)) {
+                        Debug.LogError("Could not resolve equipment reward.");
+                        continue;
+                    }
+
                     var equipSlot = Instantiate(Instance.EquipSlotPrefab, Instance.SlotsContainer);
+                    equipSlot.EquipToOwnerOnAssign = false;
+                    equipSlot.AcceptedEquipTypes = EquipmentPartMask.All;
+                    equipSlot.dragAndDropEnabled = false;
+                    equipSlot.isStatic = true;
+                    equipSlot.allowThrowAway = false;
 
-                    if (EquipmentDatabase.TryGetByID(ID, out EquipmentBase equipment)) {
-                        bool success = equipSlot.Assign(equipment);
-                    }
-                    else {
-                        Debug.Log($"Failed");
+                    if (!equipSlot.Assign(equipment)) {
+                        Destroy(equipSlot.gameObject);
+                        continue;
                     }
 
+                    equipSlot.BindInstanceData(instanceData, null);
                     equipSlot.gameObject.SetActive(true);
                 }
 
