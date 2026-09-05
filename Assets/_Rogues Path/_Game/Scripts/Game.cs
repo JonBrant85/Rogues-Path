@@ -11,6 +11,7 @@ namespace _Rogues_Path._Game {
         [ReadOnly] public string CurrentState;
         public static CommandInvoker CommandInvoker { get { return Instance.commandInvoker ?? (Instance.commandInvoker = new CommandInvoker()); } }
         private CommandInvoker commandInvoker;
+        private RunStatisticsTracker runStatisticsTracker;
 
         [SerializeField, FoldoutGroup("Scenes")] private SceneField MainMenu;
         [SerializeField, FoldoutGroup("Scenes")] private SceneField CharacterSelection;
@@ -24,6 +25,15 @@ namespace _Rogues_Path._Game {
             Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
             InitGameState();
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void OnEnable() {
+            runStatisticsTracker ??= new RunStatisticsTracker(this);
+            runStatisticsTracker.Subscribe();
+        }
+
+        private void OnDisable() {
+            runStatisticsTracker?.Unsubscribe();
         }
 
         private void Update() {

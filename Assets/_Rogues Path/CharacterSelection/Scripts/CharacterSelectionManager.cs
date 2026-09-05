@@ -4,6 +4,7 @@ using _Rogues_Path._Game;
 using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -72,6 +73,7 @@ namespace _Rogues_Path.CharacterSelection {
                     new EquipmentInstanceData(equipmentID, equipment.Quality);
             }
 
+            EventBus.Raise(new RunStarted());
             Game.FireTrigger(Trigger.EnterWorld);
         }
 

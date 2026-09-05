@@ -53,6 +53,7 @@ namespace _Rogues_Path._Game {
             gameState.Configure(State.MainMenu)
                 .OnEntry(
                     () => {
+                        EventBus.Raise(new RunEnded());
                         LoadingScreenManager.Instance.LoadScene(MainMenu);
                     })
                 .Permit(Trigger.EnterCharacterSelection, State.CharacterSelection);
@@ -86,6 +87,7 @@ namespace _Rogues_Path._Game {
                 .OnEntry(
                     () => {
                         // Prepare Rewards
+                        EventBus.Raise(new CombatCleared());
                         for (int i = 0; i < 2; i++) {
                             if (EquipmentDatabase.GetIDByName(EquipmentDatabase.Instance.Equipment.GetRandomElement().Name, out int ID)) {
                                 Instance.PendingEquipmentRewards.Add(ID);
@@ -121,6 +123,7 @@ namespace _Rogues_Path._Game {
             gameState.Configure(State.GameOver)
                 .OnEntry(
                     () => {
+                        EventBus.Raise(new RunEnded());
                         LoadingScreenManager.Instance.LoadScene(GameOverScene);
                     })
                 .Permit(Trigger.EnterMainMenu, State.MainMenu);

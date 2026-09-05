@@ -35,7 +35,17 @@ namespace _Rogues_Path.Pawns.Scripts {
 
             SetHealth(player, previousHealth + healthToRestore);
 
-            return player.CurrentHealth - previousHealth;
+            float restoredHealth = player.CurrentHealth - previousHealth;
+
+            if (restoredHealth > 0f) {
+                EventBus.Raise(new HealingApplied {
+                    Victim = player,
+                    Instigator = player,
+                    Amount = restoredHealth
+                });
+            }
+
+            return restoredHealth;
         }
 
         public static void ReconcileMaximumHealth(

@@ -4,6 +4,7 @@ using _Rogues_Path.Crafting;
 using _Rogues_Path.LevelSelection;
 using _Rogues_Path.Pawns.Scripts;
 using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using DuloGames.UI;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public List<int> ActionBarSpellOrder = new();
         [FoldoutGroup("Data")] public List<int> WorldEncounterOrder = new();
         [FoldoutGroup("Data")] public int CurrentWorldTileIndex;
-        [FoldoutGroup("Data")] public int CompletedWorldTraversals;
+        [FoldoutGroup("Data/Run Statistics")] public int CompletedWorldTraversals;
         [FoldoutGroup("Data")] public LevelData LevelData;
         [FoldoutGroup("Data")] public float PlayerCurrentHealth = -1f;
         [FoldoutGroup("Data")] public EquipmentPartInstanceDictionary PlayerEquipment = new();
@@ -23,6 +24,27 @@ namespace _Rogues_Path._Game {
         [FoldoutGroup("Data")] public OrbCountDictionary PlayerOrbs = new();
         [FoldoutGroup("Data")] public List<int> PendingEquipmentRewards;
         public Dictionary<Orb, int> PendingOrbRewards = new();
+
+        [FoldoutGroup("Data/Run Statistics"), ReadOnly] public int TilesTraveled;
+        [FoldoutGroup("Data/Run Statistics"), ReadOnly] public int CombatsCleared;
+        [FoldoutGroup("Data/Run Statistics"), ReadOnly] public float DamageDealt;
+        [FoldoutGroup("Data/Run Statistics"), ReadOnly] public float DamageTaken;
+        [FoldoutGroup("Data/Run Statistics"), ReadOnly] public float HealthRestored;
+        [FoldoutGroup("Data/Run Statistics"), ReadOnly] public int TreasuresClaimed;
+        [FoldoutGroup("Data/Run Statistics"), ReadOnly] public int OrbsUsed;
+        [FoldoutGroup("Data/Run Statistics"), ReadOnly] public float BiggestSingleHit;
+
+        internal void ResetRunStatistics() {
+            TilesTraveled = 0;
+            CombatsCleared = 0;
+            DamageDealt = 0f;
+            DamageTaken = 0f;
+            HealthRestored = 0f;
+            TreasuresClaimed = 0;
+            OrbsUsed = 0;
+            BiggestSingleHit = 0f;
+            // CompletedWorldTraversals is also progression state; character selection resets it.
+        }
 
         [Button("Give 50 Health")]
         private void GiveDebugHealth() {
@@ -107,6 +129,7 @@ namespace _Rogues_Path._Game {
                 PlayerOrbs[orbID] = currentCount;
             }
 
+            EventBus.Raise(new OrbConsumed { OrbID = orbID, Amount = count });
             return true;
         }
 
@@ -132,6 +155,7 @@ namespace _Rogues_Path._Game {
             else
                 PlayerOrbs[orbID] = count;
 
+            EventBus.Raise(new OrbConsumed { OrbID = orbID, Amount = amount });
             return true;
         }
     }
