@@ -15,7 +15,7 @@ namespace _Rogues_Path.PawnCommands.Commands {
 
         public override async UniTask Execute(Pawn instigator, List<Pawn> victims) {
             instigator.animationManager.Slash(false);
-            await UniTask.Delay((int)AnimationClip.length * 1000);
+            await UniTask.Delay(Mathf.RoundToInt(AnimationClip.length * 1000f));
             await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage((int)StrengthMultiplier.Calculate(instigator), instigator) * 1000);
         }
     }

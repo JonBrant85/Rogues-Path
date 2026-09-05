@@ -18,10 +18,5 @@ namespace _Rogues_Path.PawnCommands.Commands {
             await UniTask.Delay(Mathf.RoundToInt(AnimationClip.length * 1000f));
             await UniTask.Delay((int)victims.FirstOrDefault()!.TakeDamage((int)StrengthMultiplier.Calculate(instigator), instigator) * 1000);
         }
-
-        private static float GetRotationDelta(Transform target, Quaternion before) {
-
-            return target != null ? Quaternion.Angle(before, target.localRotation) : -1f;
-        }
     }
 }
