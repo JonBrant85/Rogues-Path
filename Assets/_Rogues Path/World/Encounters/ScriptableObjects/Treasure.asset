@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b3d98a974074633809730a05cd695fd, type: 3}
   m_Name: Treasure
   m_EditorClassIdentifier: 
-  EncounterTitle: Treasure
-  EncounterDescription: An abandoned chest waits by the roadside. Choose one piece of equipment to take.
+  EncounterTitle: Abandoned Cache
+  EncounterDescription: A weathered chest lies half-hidden beside the road. Its lock has long since surrendered.
   WorldIndicatorSprite: {fileID: 0}
   WorldVisualPrefab: {fileID: 2505659550044296927, guid: adef4ca0b16e83741b1110b824a02a12, type: 3}
   EquipmentChoiceCount: 3
   ButtonText: Select
+  ContinueButtonText: Continue
+  SuccessResultText: Inside, you find {item} ({quality}). You secure it among your belongings.
+  EmptyResultText: The chest opens with a hollow creak. Whatever it once held is long gone.
   PoorWeight: 10
   CommonWeight: 40
   UncommonWeight: 25

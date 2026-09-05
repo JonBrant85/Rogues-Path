@@ -13,20 +13,25 @@ namespace _Rogues_Path.World.Encounters {
         public Sprite WorldIndicatorSprite;
         public GameObject WorldVisualPrefab;
 
+        protected Transform RuntimeWorldVisual { get; private set; }
+
         public virtual Transform Initialize(Transform encounterContainer) {
+            RuntimeWorldVisual = null;
+
             if (WorldVisualPrefab == null)
                 return null;
 
             GameObject worldVisual = Instantiate(WorldVisualPrefab, encounterContainer);
             worldVisual.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            RuntimeWorldVisual = worldVisual.transform;
 
-            return worldVisual.transform;
+            return RuntimeWorldVisual;
         }
 
         public virtual UniTask HandleEncounter(Transform windowContent, Transform bottomBar, Button buttonPrefab) =>
             UniTask.CompletedTask;
 
-        protected static async UniTask<bool> WaitForConfirmation(Transform bottomBar, Button buttonPrefab, string buttonText) {
+        protected internal static async UniTask<bool> WaitForConfirmation(Transform bottomBar, Button buttonPrefab, string buttonText) {
             if (bottomBar == null || buttonPrefab == null) {
                 Debug.LogError("Encounter confirmation UI is not configured.");
                 return false;
@@ -42,7 +47,10 @@ namespace _Rogues_Path.World.Encounters {
             confirmationButton.onClick.AddListener(Confirm);
             confirmationButton.gameObject.SetActive(true);
 
-            await UniTask.WaitUntil(() => clicked);
+            await UniTask.WaitUntil(() => clicked || confirmationButton == null);
+
+            if (confirmationButton == null)
+                return false;
 
             confirmationButton.onClick.RemoveListener(Confirm);
             Destroy(confirmationButton.gameObject);

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Assets.FantasyMonsters.Common.Scripts;
 using _Rogues_Path._Game;
 using _Rogues_Path.Crafting;
 using _Rogues_Path.Equipment.Scripts;
@@ -14,6 +15,9 @@ namespace _Rogues_Path.World.Encounters {
     public class TreasureEncounter : EncounterData {
         [Min(1)] public int EquipmentChoiceCount = 3;
         public string ButtonText = "Select";
+        public string ContinueButtonText = "Continue";
+        [TextArea] public string SuccessResultText = "Inside, you find {item} ({quality}). You secure it among your belongings.";
+        [TextArea] public string EmptyResultText = "The chest opens with a hollow creak. Whatever it once held is long gone.";
         [Min(0)] public int PoorWeight = 10;
         [Min(0)] public int CommonWeight = 40;
         [Min(0)] public int UncommonWeight = 25;
@@ -33,19 +37,65 @@ namespace _Rogues_Path.World.Encounters {
 
             if (equipmentChoices.Count == 0) {
                 Debug.LogError("Treasure encounter could not find any equipment choices.");
+                await ShowEmptyResult();
                 return;
             }
 
-            EquipmentInstanceData selectedEquipment = await UIEncounterWindow.Instance.WaitForEquipmentSelection(equipmentChoices, ButtonText);
+            UIEncounterWindow encounterWindow = UIEncounterWindow.Instance;
 
-            if (selectedEquipment == null)
+            if (encounterWindow == null) {
+                Debug.LogError("Treasure encounter could not find UIEncounterWindow.");
                 return;
+            }
+
+            EquipmentInstanceData selectedEquipment = await encounterWindow.WaitForEquipmentSelection(
+                equipmentChoices,
+                ButtonText);
+
+            if (encounterWindow == null)
+                return;
+
+            if (selectedEquipment == null
+                || !EquipmentDatabase.TryGetByID(selectedEquipment.EquipmentID, out EquipmentBase equipment)) {
+                Debug.LogError("Treasure encounter could not resolve a valid equipment selection.");
+                await ShowEmptyResult();
+                return;
+            }
 
             Game.Instance.PlayerInventory.Add(selectedEquipment);
             EventBus.Raise(new InventoryChanged());
+            OpenChest();
 
-            if (EquipmentDatabase.TryGetByID(selectedEquipment.EquipmentID, out EquipmentBase equipment))
-                Debug.Log($"Treasure encounter granted {equipment.Name}.");
+            string resultText = SuccessResultText
+                .Replace("{item}", equipment.Name)
+                .Replace("{quality}", selectedEquipment.Quality.ToString());
+
+            Debug.Log($"Treasure encounter granted {equipment.Name}.");
+            await encounterWindow.ShowResult(resultText, ContinueButtonText);
+        }
+
+        private async UniTask ShowEmptyResult() {
+            OpenChest();
+            UIEncounterWindow encounterWindow = UIEncounterWindow.Instance;
+
+            if (encounterWindow != null)
+                await encounterWindow.ShowResult(EmptyResultText, ContinueButtonText);
+        }
+
+        private void OpenChest() {
+            if (RuntimeWorldVisual == null) {
+                Debug.LogWarning($"Treasure encounter '{name}' has no runtime chest visual to open.");
+                return;
+            }
+
+            Monster chest = RuntimeWorldVisual.GetComponent<Monster>();
+
+            if (chest == null) {
+                Debug.LogWarning($"Treasure encounter '{name}' found no Monster animation component on its chest visual.");
+                return;
+            }
+
+            chest.Die();
         }
 
         private static List<EquipmentBase> GetRandomUniqueEquipment(int count) {

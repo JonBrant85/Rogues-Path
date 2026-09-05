@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6696a7ea98734ea187335be3193ab47d, type: 3}
   m_Name: Rest
   m_EditorClassIdentifier: 
-  EncounterTitle: Rest Site
-  EncounterDescription: The fire crackles softly. Rest here to recover 30% of your maximum health.
+  EncounterTitle: A Quiet Flame
+  EncounterDescription: A lonely fire burns beside the path, offering a moment of warmth and shelter.
   WorldIndicatorSprite: {fileID: 0}
   WorldVisualPrefab: {fileID: 813724000000000001, guid: 735e5ff741d349719443f4e036d187a1, type: 3}
   RestoredHealthPercentage: 0.3
   ButtonText: Rest
+  ContinueButtonText: Continue
+  RestoredResultText: The fire's warmth settles into your bones. You recover {amount} health.
+  FullHealthResultText: You rest beside the flames, but your strength is already whole.

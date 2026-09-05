@@ -158,6 +158,19 @@ namespace _Rogues_Path.World.Encounters {
             }
         }
 
+        public async UniTask<bool> ShowResult(string resultText, string buttonText) {
+            ClearEquipmentChoices();
+
+            if (bodyText == null) {
+                Debug.LogError("Encounter result text is not configured.");
+                return false;
+            }
+
+            bodyText.text = resultText;
+
+            return await EncounterData.WaitForConfirmation(BottomBar, ButtonPrefab, buttonText);
+        }
+
         public void Show() {
             Window.Show();
             BottomBarMover.Hide();
