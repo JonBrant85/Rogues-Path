@@ -6931,10 +6931,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4678716005174911001, guid: bb83dcd602626954c8544674975117c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 4678716005174911001, guid: bb83dcd602626954c8544674975117c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
@@ -6950,22 +6946,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value:
       objectReference: {fileID: 2797120527035503063}
-    - target: {fileID: 730084627439864594, guid: bb83dcd602626954c8544674975117c8, type: 3}
-      propertyPath: ShownPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 730084627439864594, guid: bb83dcd602626954c8544674975117c8, type: 3}
-      propertyPath: ShownPosition.y
-      value: -70
-      objectReference: {fileID: 0}
-    - target: {fileID: 730084627439864594, guid: bb83dcd602626954c8544674975117c8, type: 3}
-      propertyPath: HiddenPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 730084627439864594, guid: bb83dcd602626954c8544674975117c8, type: 3}
-      propertyPath: HiddenPosition.y
-      value: 70
-      objectReference: {fileID: 0}
     - target: {fileID: 876070955381761322, guid: bb83dcd602626954c8544674975117c8, type: 3}
       propertyPath: m_Name
       value: Button (Inventory)
