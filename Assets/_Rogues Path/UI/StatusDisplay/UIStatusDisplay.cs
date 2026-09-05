@@ -18,6 +18,7 @@ namespace _Rogues_Path.UI {
         public UIHealthDisplay HealthDisplay;
 
         private Pawn owner;
+        private bool healthRefreshPending;
         [SerializeField] private CharacterStatID MaximumHealth;
 
         private void OnEnable() {
@@ -28,11 +29,23 @@ namespace _Rogues_Path.UI {
             if (TryGetComponent(out Canvas canvas)) {
                 canvas.worldCamera = Camera.main;
             }
+
+            RefreshHealth(false);
         }
 
         private void OnDisable() {
             EventBus.UnsubscribeFrom<StatusChanged>(StatusChangedEventHandler);
             EventBus.UnsubscribeFrom<HealthChanged>(HealthChangedEventHandler);
+        }
+
+        private void Start() {
+            // Combat setup can scale health or restore equipment after the pawn's Awake.
+            RefreshHealth(false);
+        }
+
+        private void LateUpdate() {
+            if (healthRefreshPending)
+                RefreshHealth();
         }
 
         private void StatusChangedEventHandler(ref StatusChanged eventData) {
@@ -53,7 +66,17 @@ namespace _Rogues_Path.UI {
         private void HealthChangedEventHandler(ref HealthChanged eventData) {
             if (eventData.Victim != owner) return;
 
-            HealthDisplay.TweenFillAmount(eventData.NewHealth/eventData.Victim.Stats[MaximumHealth].Value);
+            // HealthChanged is raised before the pawn commits and clamps its health.
+            healthRefreshPending = true;
+        }
+
+        private void RefreshHealth(bool animate = true) {
+            healthRefreshPending = false;
+
+            if (owner == null || HealthDisplay == null)
+                return;
+
+            HealthDisplay.SetHealth(owner.CurrentHealth, owner.Stats[MaximumHealth].Value, animate);
         }
 
         public void SetOwner(Pawn _owner) {
@@ -61,6 +84,7 @@ namespace _Rogues_Path.UI {
             
             // Update Unit Name
             HealthDisplay.UnitNameText.text = owner.CharacterName;
+            RefreshHealth(false);
         }
 
         public void AddBuff(PawnBuff buffPrefab, int count) {

@@ -39,6 +39,12 @@ namespace _Rogues_Path.World.Encounters {
             };
 
             Pawn enemyPreview = Instantiate(selectedEnemy.Pawn, encounterContainer);
+            if (enemyPreview.StatusDisplay != null) {
+                enemyPreview.StatusDisplay.gameObject.SetActive(false);
+                Destroy(enemyPreview.StatusDisplay.gameObject);
+                enemyPreview.StatusDisplay = null;
+            }
+
             enemyPreview.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             enemyPreview.Character.SetDirection(Vector2.down);
 

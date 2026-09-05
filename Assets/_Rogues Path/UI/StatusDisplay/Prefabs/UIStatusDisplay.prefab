@@ -633,9 +633,9 @@ MonoBehaviour:
   ProgressBar: {fileID: 3308085642183612766}
   ProgressBarText: {fileID: 3308085642433167890}
   Easing: 13
-  TextVariant: 1
+  TextVariant: 2
   TextValue: 100
-  TextValueFormat: 0
+  TextValueFormat: 0.#
 --- !u!114 &7331876082956118865
 MonoBehaviour:
   m_ObjectHideFlags: 0
