@@ -2854,10 +2854,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu Bar
       objectReference: {fileID: 0}
-    - target: {fileID: 730084627439864594, guid: bb83dcd602626954c8544674975117c8, type: 3}
-      propertyPath: ShownPosition.y
-      value: -70
-      objectReference: {fileID: 0}
     - target: {fileID: 1289196329209391764, guid: bb83dcd602626954c8544674975117c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2961,10 +2957,6 @@ PrefabInstance:
     - target: {fileID: 4678716005174911001, guid: bb83dcd602626954c8544674975117c8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4678716005174911001, guid: bb83dcd602626954c8544674975117c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4678716005174911001, guid: bb83dcd602626954c8544674975117c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
