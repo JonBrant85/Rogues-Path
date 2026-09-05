@@ -71,10 +71,26 @@ namespace _Rogues_Path.UI.CraftingWindow {
 
         private void OnEnable() {
             EventBus.SubscribeTo<EquipmentSlotClicked>(EquipmentSlotClickedHandler);
+            Window.onTransitionBegin.AddListener(WindowTransitionBeginHandler);
         }
 
         private void OnDisable() {
             EventBus.UnsubscribeFrom<EquipmentSlotClicked>(EquipmentSlotClickedHandler);
+            Window.onTransitionBegin.RemoveListener(WindowTransitionBeginHandler);
+            DeactivateOrb();
+        }
+
+        private void WindowTransitionBeginHandler(UIWindow window, UIWindow.VisualState state, bool instant) {
+            if (state == UIWindow.VisualState.Hidden) {
+                DeactivateOrb();
+                return;
+            }
+
+            foreach (UIOrbSlot slot in OrbSlotsContainer.GetComponentsInChildren<UIOrbSlot>(true)) {
+                slot.RefreshCount();
+            }
+
+            Refresh();
         }
 
 

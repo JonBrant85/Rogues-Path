@@ -3,7 +3,10 @@ using System.Linq;
 using _Rogues_Path._Game;
 using _Rogues_Path.Equipment.Scripts;
 using _Rogues_Path.Pawns.Scripts;
+using _Rogues_Path.UI.CharacterScreen;
+using _Rogues_Path.UI.MenuBar;
 using _Rogues_Path.Utilities;
+using _Rogues_Path.Utilities.Events;
 using _Rogues_Path.World.Encounters;
 using Assets.HeroEditor4D.Common.Scripts.Enums;
 using Cysharp.Threading.Tasks;
@@ -34,12 +37,77 @@ namespace _Rogues_Path.World {
         [FoldoutGroup("References"), SerializeField] private Button MoveButton;
         [FoldoutGroup("References"), SerializeField] private StyleManager DiceRollAnnouncer;
         [FoldoutGroup("References"), SerializeField] private EquipmentModifierDatabase ModifierDatabase;
+        [FoldoutGroup("References"), SerializeField] private UICharacterScreen CharacterScreen;
+        [FoldoutGroup("References"), SerializeField] private UIMenuBar MenuBar;
         [FoldoutGroup("Debug"), SerializeField] private Pawn PlayerPawn;
         [FoldoutGroup("Debug"), SerializeField] private WorldTile currentTile;
 
         private List<WorldTile> route;
         private readonly List<int> randomEncounterIndexes = new();
         private WorldProgressionSettings progressionSettings;
+
+        private void OnEnable() {
+            EventBus.SubscribeTo<EquipmentEquippedEvent>(EquipmentEquippedHandler);
+            EventBus.SubscribeTo<EquipmentUnequippedEvent>(EquipmentUnequippedHandler);
+            EventBus.SubscribeTo<InventoryChanged>(InventoryChangedHandler);
+        }
+
+        private void OnDisable() {
+            EventBus.UnsubscribeFrom<EquipmentEquippedEvent>(EquipmentEquippedHandler);
+            EventBus.UnsubscribeFrom<EquipmentUnequippedEvent>(EquipmentUnequippedHandler);
+            EventBus.UnsubscribeFrom<InventoryChanged>(InventoryChangedHandler);
+        }
+
+        private void Start() {
+            if (PlayerPawn == null)
+                return;
+
+            if (CharacterScreen == null || MenuBar == null) {
+                Debug.LogError("World character screen and menu bar must be assigned.");
+                return;
+            }
+
+            CharacterScreen.SetPlayer(Game.Instance.PlayerData);
+            MenuBar.Show();
+        }
+
+        private void EquipmentEquippedHandler(ref EquipmentEquippedEvent eventData) {
+            if (PlayerPawn == null || CharacterScreen == null
+                || eventData.Owner == null || eventData.Owner != CharacterScreen.PreviewPawn
+                || eventData.Equipment == null || eventData.Equipment.InstanceData == null)
+                return;
+
+            if (!EquipmentDatabase.TryCreateInstance(
+                    eventData.Equipment.InstanceData,
+                    ModifierDatabase,
+                    out EquipmentBase liveEquipment,
+                    PlayerPawn.transform)) {
+
+                Debug.LogError($"Failed to mirror {eventData.Equipment.Name} onto the World pawn.");
+                return;
+            }
+
+            // The preview owns the saved equipment and health changes.
+            // Update only the map pawn's model, modifiers, and local health.
+            if (!PlayerPawn.TryEquip(liveEquipment, modifyGameState: false)) {
+                Destroy(liveEquipment.gameObject);
+            }
+        }
+
+        private void EquipmentUnequippedHandler(ref EquipmentUnequippedEvent eventData) {
+            if (PlayerPawn == null || CharacterScreen == null
+                || eventData.Owner == null || eventData.Owner != CharacterScreen.PreviewPawn)
+                return;
+
+            if (PlayerPawn.CurrentEquipment.TryGetValue(eventData.EquipType, out EquipmentBase equipment)) {
+                PlayerPawn.TryRemoveEquipment(equipment, modifyGameState: false);
+            }
+        }
+
+        private void InventoryChangedHandler(ref InventoryChanged eventData) {
+            if (PlayerPawn != null)
+                PlayerPawn.SyncInventoryFromGameState();
+        }
 
         private void Awake() {
             route = BuildRoute();
